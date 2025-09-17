@@ -1,8 +1,9 @@
-[gd_scene load_steps=112 format=3 uid="uid://bho8y5o521u6e"]
+[gd_scene load_steps=113 format=3 uid="uid://bho8y5o521u6e"]
 
 [ext_resource type="Script" uid="uid://cdku6tgsd53u0" path="res://scripts/max.gd" id="1_fnx0a"]
 [ext_resource type="Texture2D" uid="uid://dtvkahw67m8i3" path="res://sprites/character/idle/idle_down.png" id="2_fnx0a"]
 [ext_resource type="Texture2D" uid="uid://sa5wrt4oknbc" path="res://sprites/character/death/death_normal_down.png" id="2_hsi1b"]
+[ext_resource type="PackedScene" uid="uid://de2kbh1bp13qj" path="res://scenes/red_bullet.tscn" id="2_xssce"]
 [ext_resource type="Texture2D" uid="uid://b07fduyl8yvph" path="res://sprites/character/idle/idle_up.png" id="3_lekue"]
 [ext_resource type="Texture2D" uid="uid://g2gqbcwsvs1k" path="res://sprites/character/death/death_normal_left_down.png" id="3_xssce"]
 [ext_resource type="Texture2D" uid="uid://cidcevq5h5xm4" path="res://sprites/character/death/death_normal_right_down.png" id="4_bjxn5"]
@@ -750,21 +751,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8k1"]
-size = Vector2(12, 26)
+size = Vector2(14, 26)
 
-[node name="Max" type="CharacterBody2D"]
+[node name="Max" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_fnx0a")
+projectile_scene = ExtResource("2_xssce")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ab6a7")
-animation = &"death_left"
+animation = &"idle_up"
 autoplay = "idle_down"
-frame_progress = 0.409199
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(197, 128)
 shape = SubResource("RectangleShape2D_4j8k1")
-
-[node name="bullet_spawn_point" type="Node2D" parent="."]
-position = Vector2(10, 0)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfj787jd684qt"]
+
+[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/lasergun.tscn" id="2_sugp2"]
+
+[node name="main" type="Node2D"]
+
+[node name="Max" parent="." instance=ExtResource("1_0wfyh")]
+
+[node name="Area2D" parent="." instance=ExtResource("2_sugp2")]

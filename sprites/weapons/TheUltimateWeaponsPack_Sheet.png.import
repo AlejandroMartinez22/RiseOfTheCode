@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqhrkms7r7m8j"
-path="res://.godot/imported/red_bullet.png-39e2532969c38a0aed81b5e5be5758d0.ctex"
+uid="uid://ci3418i7y0gsg"
+path="res://.godot/imported/TheUltimateWeaponsPack_Sheet.png-290c7f605913fcf8cbc0d628b77a53db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bullets/red_bullet.png"
-dest_files=["res://.godot/imported/red_bullet.png-39e2532969c38a0aed81b5e5be5758d0.ctex"]
+source_file="res://sprites/weapons/TheUltimateWeaponsPack_Sheet.png"
+dest_files=["res://.godot/imported/TheUltimateWeaponsPack_Sheet.png-290c7f605913fcf8cbc0d628b77a53db.ctex"]
 
 [params]
 
