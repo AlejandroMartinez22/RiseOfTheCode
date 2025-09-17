@@ -679,7 +679,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot_down",
-"speed": 9.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -809,6 +809,8 @@ projectile_scene = ExtResource("2_xssce")
 sprite_frames = SubResource("SpriteFrames_ab6a7")
 animation = &"shoot_down"
 autoplay = "idle_down"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4j8k1")
