@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cdku6tgsd53u0" path="res://scripts/max.gd" id="1_fnx0a"]
 [ext_resource type="Texture2D" uid="uid://dtvkahw67m8i3" path="res://sprites/character/idle/idle_down.png" id="2_fnx0a"]
 [ext_resource type="Texture2D" uid="uid://sa5wrt4oknbc" path="res://sprites/character/death/death_normal_down.png" id="2_hsi1b"]
-[ext_resource type="PackedScene" uid="uid://de2kbh1bp13qj" path="res://scenes/red_bullet.tscn" id="2_xssce"]
+[ext_resource type="PackedScene" uid="uid://de2kbh1bp13qj" path="res://scenes/blue_bullet.tscn" id="2_xssce"]
 [ext_resource type="Texture2D" uid="uid://b07fduyl8yvph" path="res://sprites/character/idle/idle_up.png" id="3_lekue"]
 [ext_resource type="Texture2D" uid="uid://g2gqbcwsvs1k" path="res://sprites/character/death/death_normal_left_down.png" id="3_xssce"]
 [ext_resource type="Texture2D" uid="uid://cidcevq5h5xm4" path="res://sprites/character/death/death_normal_right_down.png" id="4_bjxn5"]

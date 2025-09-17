@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: float = 200.0   # Velocidad de la bala
+@export var speed: float = 100.0   # Velocidad de la bala
 @export var damage: int = 10       # Daño que hace la bala
 var direction: Vector2 = Vector2.ZERO  # Dirección en la que se moverá
 
