@@ -1,24 +1,83 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccmt0536bv0an"]
+[gd_scene load_steps=12 format=3 uid="uid://ccmt0536bv0an"]
 
 [ext_resource type="Script" uid="uid://cwec53skuccxa" path="res://scripts/lasergun.gd" id="1_2i3r3"]
-[ext_resource type="Texture2D" uid="uid://ci3418i7y0gsg" path="res://sprites/weapons/TheUltimateWeaponsPack_Sheet.png" id="1_q6vlm"]
+[ext_resource type="Texture2D" uid="uid://drv88wlti05gu" path="res://sprites/weapons/floating_lasergun1.png" id="2_2i3r3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egh8n"]
+atlas = ExtResource("2_2i3r3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfjwn"]
+atlas = ExtResource("2_2i3r3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h77k"]
+atlas = ExtResource("2_2i3r3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns6gk"]
+atlas = ExtResource("2_2i3r3")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6io1u"]
+atlas = ExtResource("2_2i3r3")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqjit"]
+atlas = ExtResource("2_2i3r3")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vvpa"]
+atlas = ExtResource("2_2i3r3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kt3by"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egh8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfjwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns6gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6io1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqjit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vvpa")
+}],
+"loop": true,
+"name": &"float",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2i3r3"]
-size = Vector2(30, 12)
+size = Vector2(20, 8)
 
-[node name="Area2D" type="Area2D"]
+[node name="lasergun" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_2i3r3")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(36, 24)
-texture = ExtResource("1_q6vlm")
-region_enabled = true
-region_rect = Rect2(92.9079, 281.402, 34.0935, 21.3483)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_kt3by")
+animation = &"float"
+autoplay = "float"
+frame_progress = 0.713844
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(36, 25)
+position = Vector2(36, 22)
 shape = SubResource("RectangleShape2D_2i3r3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

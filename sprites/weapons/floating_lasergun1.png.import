@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g2gqbcwsvs1k"
-path="res://.godot/imported/death_normal_left_down.png-f074a672b95c6efb453fa6f3fc1040a0.ctex"
+uid="uid://drv88wlti05gu"
+path="res://.godot/imported/floating_lasergun1.png-88e55b1b3db8ddeff84ff243a7986998.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/character/death/death_normal_left_down.png"
-dest_files=["res://.godot/imported/death_normal_left_down.png-f074a672b95c6efb453fa6f3fc1040a0.ctex"]
+source_file="res://sprites/weapons/floating_lasergun1.png"
+dest_files=["res://.godot/imported/floating_lasergun1.png-88e55b1b3db8ddeff84ff243a7986998.ctex"]
 
 [params]
 
