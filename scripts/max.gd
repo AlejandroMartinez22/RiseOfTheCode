@@ -1,22 +1,35 @@
 extends CharacterBody2D
 
+@onready var muzzle_down: Marker2D = $MuzzleDown
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @export var projectile_scene: PackedScene   # asignar red_bullet.tscn en el editor
 
 var speed: float = 100.0
 var last_direction: String = "down"
 var has_weapon: bool = false
+var is_shooting: bool = false   # controla si está en animación de disparo
+
+func _ready() -> void:
+	# Conectamos la señal para detectar cuando termina la animación
+	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _physics_process(delta: float) -> void:
+	# 🚫 Mientras dispara, no puede moverse ni disparar otra vez
+	if is_shooting:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
+	# 🚶 Movimiento normal
 	get_input()
 	move_and_slide()
 
-	# Si tiene arma y presiona K → dispara
+	# 🔫 Disparo (solo si no está disparando ya)
 	if has_weapon and Input.is_action_just_pressed("shoot"):
-		# Animación de disparo (por ahora solo hacia abajo)
 		if last_direction == "down":
 			animated_sprite.play("shoot_down")
-		# Aquí después puedes añadir más direcciones
+			is_shooting = true
+			velocity = Vector2.ZERO  # detenerse al disparar
 		shoot()
 
 # ----------------- Input -----------------
@@ -44,7 +57,8 @@ func get_input() -> void:
 
 # ----------------- Animaciones -----------------
 func update_animation(state: String) -> void:
-	animated_sprite.play(state + "_" + last_direction)
+	if not is_shooting:  # 👈 evita que idle/walk sobreescriba el disparo
+		animated_sprite.play(state + "_" + last_direction)
 
 # ----------------- Arma y disparo -----------------
 func equip_weapon() -> void:
@@ -65,5 +79,12 @@ func shoot() -> void:
 		"up":
 			bullet.direction = Vector2.UP
 		"down":
+			bullet.global_position = muzzle_down.global_position
 			bullet.direction = Vector2.DOWN
 	get_parent().add_child(bullet)
+
+# ----------------- Callback -----------------
+func _on_animation_finished() -> void:
+	if animated_sprite.animation == "shoot_down":
+		is_shooting = false
+		update_animation("idle")

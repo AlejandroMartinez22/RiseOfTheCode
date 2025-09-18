@@ -679,7 +679,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot_down",
-"speed": 6.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -813,4 +813,14 @@ frame = 5
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_4j8k1")
+
+[node name="MuzzleDown" type="Marker2D" parent="."]
+position = Vector2(0, 14)
+
+[node name="MuzzleUp" type="Marker2D" parent="."]
+
+[node name="MuzzleLeft" type="Marker2D" parent="."]
+
+[node name="MuzzleRight" type="Marker2D" parent="."]
