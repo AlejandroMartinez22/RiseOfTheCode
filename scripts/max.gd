@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var muzzle_down: Marker2D = $MuzzleDown
+@onready var muzzle_right: Marker2D = $MuzzleRight
+@onready var muzzle_left: Marker2D = $MuzzleLeft
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @export var projectile_scene: PackedScene   # asignar red_bullet.tscn en el editor
 
@@ -26,10 +28,17 @@ func _physics_process(delta: float) -> void:
 
 	# 🔫 Disparo (solo si no está disparando ya)
 	if has_weapon and Input.is_action_just_pressed("shoot"):
-		if last_direction == "down":
-			animated_sprite.play("shoot_down")
-			is_shooting = true
-			velocity = Vector2.ZERO  # detenerse al disparar
+		match last_direction:
+			"down":
+				animated_sprite.play("shoot_down")
+			"right":
+				animated_sprite.play("shoot_right")
+			"left":
+				animated_sprite.play("shoot_left")
+			_:
+				animated_sprite.play("shoot_down") # fallback por ahora
+		is_shooting = true
+		velocity = Vector2.ZERO  # detenerse al disparar
 		shoot()
 
 # ----------------- Input -----------------
@@ -57,7 +66,7 @@ func get_input() -> void:
 
 # ----------------- Animaciones -----------------
 func update_animation(state: String) -> void:
-	if not is_shooting:  # 👈 evita que idle/walk sobreescriba el disparo
+	if not is_shooting:  # evita que idle/walk sobreescriba el disparo
 		animated_sprite.play(state + "_" + last_direction)
 
 # ----------------- Arma y disparo -----------------
@@ -70,21 +79,25 @@ func shoot() -> void:
 		return
 
 	var bullet = projectile_scene.instantiate()
-	bullet.global_position = global_position
+
 	match last_direction:
 		"right":
+			bullet.global_position = muzzle_right.global_position
 			bullet.direction = Vector2.RIGHT
 		"left":
+			bullet.global_position = muzzle_left.global_position
 			bullet.direction = Vector2.LEFT
 		"up":
+			bullet.global_position = global_position # 👈 aún no tienes muzzle_up
 			bullet.direction = Vector2.UP
 		"down":
 			bullet.global_position = muzzle_down.global_position
 			bullet.direction = Vector2.DOWN
+
 	get_parent().add_child(bullet)
 
 # ----------------- Callback -----------------
 func _on_animation_finished() -> void:
-	if animated_sprite.animation == "shoot_down":
+	if animated_sprite.animation in ["shoot_down", "shoot_right", "shoot_left"]:
 		is_shooting = false
 		update_animation("idle")
