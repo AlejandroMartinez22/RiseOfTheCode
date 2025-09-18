@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
+#Markers para definir de donde sale el proyectil al disparar.
 @onready var muzzle_down: Marker2D = $MuzzleDown
 @onready var muzzle_right: Marker2D = $MuzzleRight
 @onready var muzzle_left: Marker2D = $MuzzleLeft
+@onready var muzzle_up: Marker2D = $MuzzleUp
+
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @export var projectile_scene: PackedScene   # asignar red_bullet.tscn en el editor
 
@@ -26,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 
-	# 🔫 Disparo (solo si no está disparando ya)
+	# Disparo (solo si no está disparando ya)
 	if has_weapon and Input.is_action_just_pressed("shoot"):
 		match last_direction:
 			"down":
@@ -35,8 +39,8 @@ func _physics_process(delta: float) -> void:
 				animated_sprite.play("shoot_right")
 			"left":
 				animated_sprite.play("shoot_left")
-			_:
-				animated_sprite.play("shoot_down") # fallback por ahora
+			"up":
+				animated_sprite.play("shoot_up") # fallback por ahora
 		is_shooting = true
 		velocity = Vector2.ZERO  # detenerse al disparar
 		shoot()
@@ -88,7 +92,7 @@ func shoot() -> void:
 			bullet.global_position = muzzle_left.global_position
 			bullet.direction = Vector2.LEFT
 		"up":
-			bullet.global_position = global_position # 👈 aún no tienes muzzle_up
+			bullet.global_position = muzzle_up.global_position
 			bullet.direction = Vector2.UP
 		"down":
 			bullet.global_position = muzzle_down.global_position
@@ -98,6 +102,6 @@ func shoot() -> void:
 
 # ----------------- Callback -----------------
 func _on_animation_finished() -> void:
-	if animated_sprite.animation in ["shoot_down", "shoot_right", "shoot_left"]:
+	if animated_sprite.animation in ["shoot_down", "shoot_right", "shoot_left", "shoot_up"]:
 		is_shooting = false
 		update_animation("idle")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=3 uid="uid://bho8y5o521u6e"]
+[gd_scene load_steps=135 format=3 uid="uid://bho8y5o521u6e"]
 
 [ext_resource type="Script" uid="uid://cdku6tgsd53u0" path="res://scripts/max.gd" id="1_fnx0a"]
 [ext_resource type="Texture2D" uid="uid://dtvkahw67m8i3" path="res://sprites/character/idle/idle_down.png" id="2_fnx0a"]
@@ -345,6 +345,10 @@ region = Rect2(48, 64, 48, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3pjv"]
 atlas = ExtResource("13_oq0i6")
 region = Rect2(96, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xa00"]
+atlas = ExtResource("3_lekue")
+region = Rect2(0, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uotxb"]
 atlas = ExtResource("10_dcjt2")
@@ -729,7 +733,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot_down",
-"speed": 18.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -752,7 +756,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot_left",
-"speed": 18.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -775,7 +779,30 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot_right",
-"speed": 18.0
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xa00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xa00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xa00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xa00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xa00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xa00")
+}],
+"loop": false,
+"name": &"shoot_up",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -903,8 +930,10 @@ projectile_scene = ExtResource("2_xssce")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ab6a7")
-animation = &"shoot_right"
+animation = &"shoot_down"
 autoplay = "idle_down"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -914,6 +943,7 @@ shape = SubResource("RectangleShape2D_4j8k1")
 position = Vector2(0, 14)
 
 [node name="MuzzleUp" type="Marker2D" parent="."]
+position = Vector2(0, -15)
 
 [node name="MuzzleLeft" type="Marker2D" parent="."]
 position = Vector2(-16, 2)
