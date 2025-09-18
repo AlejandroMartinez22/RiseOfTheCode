@@ -1,48 +1,41 @@
 extends CharacterBody2D
 
-#Markers para definir de donde sale el proyectil al disparar.
+# Markers para definir de donde sale el proyectil al disparar.
 @onready var muzzle_down: Marker2D = $MuzzleDown
 @onready var muzzle_right: Marker2D = $MuzzleRight
 @onready var muzzle_left: Marker2D = $MuzzleLeft
 @onready var muzzle_up: Marker2D = $MuzzleUp
 
-
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@export var projectile_scene: PackedScene   # asignar red_bullet.tscn en el editor
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D   # sonidos de disparo
+@onready var pickup_sound: AudioStreamPlayer2D = $PickupSound           # sonido de recoger armas
 
 var speed: float = 100.0
 var last_direction: String = "down"
-var has_weapon: bool = false
-var is_shooting: bool = false   # controla si está en animación de disparo
+var is_shooting: bool = false
+
+var current_weapon: Weapon = null   # aquí guardamos el arma equipada
 
 func _ready() -> void:
-	# Conectamos la señal para detectar cuando termina la animación
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _physics_process(delta: float) -> void:
-	# 🚫 Mientras dispara, no puede moverse ni disparar otra vez
 	if is_shooting:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 
-	# 🚶 Movimiento normal
 	get_input()
 	move_and_slide()
 
-	# Disparo (solo si no está disparando ya)
-	if has_weapon and Input.is_action_just_pressed("shoot"):
-		match last_direction:
-			"down":
-				animated_sprite.play("shoot_down")
-			"right":
-				animated_sprite.play("shoot_right")
-			"left":
-				animated_sprite.play("shoot_left")
-			"up":
-				animated_sprite.play("shoot_up") # fallback por ahora
+	# 🔫 disparo
+	if current_weapon != null and Input.is_action_just_pressed("shoot"):
+		var anim_name = current_weapon.shoot_anim_prefix + "_" + last_direction
+		animated_sprite.play(anim_name)
+		animated_sprite.speed_scale = current_weapon.shoot_speed_scale
+
 		is_shooting = true
-		velocity = Vector2.ZERO  # detenerse al disparar
+		velocity = Vector2.ZERO
 		shoot()
 
 # ----------------- Input -----------------
@@ -55,34 +48,28 @@ func get_input() -> void:
 		return
 
 	if abs(input_direction.x) > abs(input_direction.y):
-		if input_direction.x > 0:
-			last_direction = "right"
-		else:
-			last_direction = "left"
+		last_direction = "right" if input_direction.x > 0 else "left"
 	else:
-		if input_direction.y > 0:
-			last_direction = "down"
-		else:
-			last_direction = "up"
+		last_direction = "down" if input_direction.y > 0 else "up"
 
 	update_animation("walk")
 	velocity = input_direction * speed
 
 # ----------------- Animaciones -----------------
 func update_animation(state: String) -> void:
-	if not is_shooting:  # evita que idle/walk sobreescriba el disparo
+	if not is_shooting:
 		animated_sprite.play(state + "_" + last_direction)
 
 # ----------------- Arma y disparo -----------------
-func equip_weapon() -> void:
-	has_weapon = true
+func equip_weapon(new_weapon: Weapon) -> void:
+	current_weapon = new_weapon
+	print("Jugador ahora tiene:", current_weapon.name)
 
 func shoot() -> void:
-	if projectile_scene == null:
-		push_error("❌ projectile_scene no asignado en el inspector.")
+	if current_weapon == null:
 		return
 
-	var bullet = projectile_scene.instantiate()
+	var bullet = current_weapon.projectile_scene.instantiate()
 
 	match last_direction:
 		"right":
@@ -100,8 +87,21 @@ func shoot() -> void:
 
 	get_parent().add_child(bullet)
 
+	# 🎵 reproducir sonido del arma
+	if current_weapon.shoot_sound != null:
+		audio_player.stream = current_weapon.shoot_sound
+		audio_player.play()
+
+# ----------------- Sonido de recoger armas -----------------
+func play_pickup_sound() -> void:
+	if pickup_sound.stream != null:
+		pickup_sound.play()
+
 # ----------------- Callback -----------------
 func _on_animation_finished() -> void:
-	if animated_sprite.animation in ["shoot_down", "shoot_right", "shoot_left", "shoot_up"]:
+	if current_weapon == null:
+		return
+
+	if animated_sprite.animation.begins_with(current_weapon.shoot_anim_prefix):
 		is_shooting = false
 		update_animation("idle")

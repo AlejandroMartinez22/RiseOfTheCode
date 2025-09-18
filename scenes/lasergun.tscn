@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccmt0536bv0an"]
+[gd_scene load_steps=13 format=3 uid="uid://ccmt0536bv0an"]
 
-[ext_resource type="Script" uid="uid://cwec53skuccxa" path="res://scripts/lasergun.gd" id="1_2i3r3"]
+[ext_resource type="Script" uid="uid://cwec53skuccxa" path="res://scripts/weapon_pickup.gd" id="1_2i3r3"]
 [ext_resource type="Texture2D" uid="uid://drv88wlti05gu" path="res://sprites/weapons/floating_lasergun1.png" id="2_2i3r3"]
+[ext_resource type="Resource" uid="uid://bbbaxgjpl03en" path="res://weapons/laser_gun.tres" id="2_jfjwn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_egh8n"]
 atlas = ExtResource("2_2i3r3")
@@ -66,6 +67,7 @@ size = Vector2(20, 8)
 [node name="lasergun" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_2i3r3")
+weapon_data = ExtResource("2_jfjwn")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

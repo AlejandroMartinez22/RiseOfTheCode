@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cdku6tgsd53u0" path="res://scripts/max.gd" id="1_fnx0a"]
 [ext_resource type="Texture2D" uid="uid://dtvkahw67m8i3" path="res://sprites/character/idle/idle_down.png" id="2_fnx0a"]
 [ext_resource type="Texture2D" uid="uid://sa5wrt4oknbc" path="res://sprites/character/death/death_normal_down.png" id="2_hsi1b"]
-[ext_resource type="PackedScene" uid="uid://de2kbh1bp13qj" path="res://scenes/blue_bullet.tscn" id="2_xssce"]
 [ext_resource type="Texture2D" uid="uid://b07fduyl8yvph" path="res://sprites/character/idle/idle_up.png" id="3_lekue"]
 [ext_resource type="Texture2D" uid="uid://g2gqbcwsvs1k" path="res://sprites/character/death/death_normal_left_down.png" id="3_xssce"]
 [ext_resource type="Texture2D" uid="uid://cidcevq5h5xm4" path="res://sprites/character/death/death_normal_right_down.png" id="4_bjxn5"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://jn4hiu2xpr0l" path="res://sprites/character/walk/walk_right_down.png" id="12_5wl07"]
 [ext_resource type="Texture2D" uid="uid://bq588yxj8h8af" path="res://sprites/character/walk/walk_up.png" id="13_oh8p3"]
 [ext_resource type="Texture2D" uid="uid://cbfbq8j7hunps" path="res://sprites/character/shoot/shoot_right.png" id="13_oq0i6"]
+[ext_resource type="AudioStream" uid="uid://c2a0gnhimv558" path="res://sounds/pickup_sound.wav" id="17_4hr25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4r8e"]
 atlas = ExtResource("2_hsi1b")
@@ -732,7 +732,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jk0sr")
 }],
 "loop": false,
-"name": &"shoot_down",
+"name": &"laser_down",
 "speed": 20.0
 }, {
 "frames": [{
@@ -755,7 +755,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_u1g4x")
 }],
 "loop": false,
-"name": &"shoot_left",
+"name": &"laser_left",
 "speed": 20.0
 }, {
 "frames": [{
@@ -778,7 +778,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_d3pjv")
 }],
 "loop": false,
-"name": &"shoot_right",
+"name": &"laser_right",
 "speed": 20.0
 }, {
 "frames": [{
@@ -801,7 +801,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4xa00")
 }],
 "loop": false,
-"name": &"shoot_up",
+"name": &"laser_up",
 "speed": 20.0
 }, {
 "frames": [{
@@ -926,14 +926,11 @@ size = Vector2(14, 26)
 
 [node name="Max" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_fnx0a")
-projectile_scene = ExtResource("2_xssce")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ab6a7")
-animation = &"shoot_down"
+animation = &"laser_left"
 autoplay = "idle_down"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -950,3 +947,9 @@ position = Vector2(-16, 2)
 
 [node name="MuzzleRight" type="Marker2D" parent="."]
 position = Vector2(17, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_4hr25")
