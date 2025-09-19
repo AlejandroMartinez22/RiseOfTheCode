@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://oj521qde1kh" path="res://scripts/centinela.gd" id="1_6bf67"]
 [ext_resource type="Texture2D" uid="uid://de7mvr5hch1e3" path="res://sprites/enemies/enemigo_prueba.png" id="1_qtyfi"]
-[ext_resource type="PackedScene" uid="uid://de2kbh1bp13qj" path="res://scenes/blue_bullet.tscn" id="2_5cexr"]
+[ext_resource type="PackedScene" uid="uid://5ln5tj85esio" path="res://scenes/red_bullet.tscn" id="2_5cexr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bf67"]
 size = Vector2(14, 26)
@@ -10,6 +10,7 @@ size = Vector2(14, 26)
 [node name="Centinela" type="CharacterBody2D"]
 script = ExtResource("1_6bf67")
 projectile_scene = ExtResource("2_5cexr")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qtyfi")
@@ -17,3 +18,5 @@ texture = ExtResource("1_qtyfi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_6bf67")
+
+[node name="Muzzle" type="Marker2D" parent="."]

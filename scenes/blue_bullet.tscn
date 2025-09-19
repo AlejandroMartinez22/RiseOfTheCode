@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://de2kbh1bp13qj"]
+[gd_scene load_steps=8 format=3 uid="uid://de2kbh1bp13qj"]
 
-[ext_resource type="Script" uid="uid://dmeub48jepljs" path="res://scripts/blue_bullet.gd" id="1_ykm6n"]
-[ext_resource type="Texture2D" uid="uid://c6yfwydntfg6d" path="res://sprites/projectiles/blue_bullet.png" id="2_ujapr"]
+[ext_resource type="Script" uid="uid://dmeub48jepljs" path="res://scripts/bullet.gd" id="1_ykm6n"]
+[ext_resource type="Resource" uid="uid://d4jt7kq73asug" path="res://bullets/blue_bullet_data.tres" id="2_a3tnh"]
+[ext_resource type="Texture2D" uid="uid://c6yfwydntfg6d" path="res://sprites/bullets/blue_bullet.png" id="2_ujapr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3tnh"]
 atlas = ExtResource("2_ujapr")
@@ -28,16 +29,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_t8jan"]
 radius = 6.0
 
-[node name="Area2D" type="Area2D"]
+[node name="blue_bullet" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ykm6n")
+data = ExtResource("2_a3tnh")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6518s")
 animation = &"blink"
 autoplay = "blink"
-frame_progress = 0.715838
+frame = 1
+frame_progress = 0.27691796
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_t8jan")

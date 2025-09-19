@@ -85,6 +85,7 @@ func shoot() -> void:
 			bullet.global_position = muzzle_down.global_position
 			bullet.direction = Vector2.DOWN
 
+	bullet.target_group = "enemies" #Esta bala dañará a enemigos.
 	get_parent().add_child(bullet)
 
 	# 🎵 reproducir sonido del arma
