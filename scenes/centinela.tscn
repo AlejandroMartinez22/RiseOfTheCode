@@ -6,9 +6,11 @@
 [ext_resource type="Resource" uid="uid://v4qelheyslkp" path="res://enemies/centinela_data.tres" id="2_hodlo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bf67"]
-size = Vector2(14, 26)
+size = Vector2(12, 24)
 
-[node name="Centinela" type="CharacterBody2D"]
+[node name="Centinela" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 19
 script = ExtResource("1_6bf67")
 data = ExtResource("2_hodlo")
 projectile_scene = ExtResource("2_5cexr")
@@ -18,7 +20,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("1_qtyfi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -2)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_6bf67")
 
 [node name="Muzzle" type="Marker2D" parent="."]
