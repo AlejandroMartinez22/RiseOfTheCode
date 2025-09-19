@@ -10,9 +10,11 @@ extends CharacterBody2D
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D   # sonidos de disparo
 @onready var pickup_sound: AudioStreamPlayer2D = $PickupSound           # sonido de recoger armas
 
-var speed: float = 100.0
-var last_direction: String = "down"
-var is_shooting: bool = false
+var speed: float = 100.0 #Velocidad a la que se mueve
+var last_direction: String = "down" #Ultima dirección.
+var is_shooting: bool = false #Bandera para saber si está o no disparando.
+var max_health: int = 30 #Vida máxima de Max
+var current_health: int = 30 #Vida actual de Max (cambia cuando le hacen daño)
 
 var current_weapon: Weapon = null   # aquí guardamos el arma equipada
 
@@ -102,7 +104,19 @@ func play_pickup_sound() -> void:
 func _on_animation_finished() -> void:
 	if current_weapon == null:
 		return
-
+		
 	if animated_sprite.animation.begins_with(current_weapon.shoot_anim_prefix):
 		is_shooting = false
 		update_animation("idle")
+		
+# ----------------- funcion para recibir daño -----------------
+func take_damage(amount: int) -> void:
+	current_health -= amount
+	print("Jugador recibió daño: ", amount, " Vida restante: ", current_health) #Solo de depuración BORRAR LUEGO
+	if current_health <= 0:
+		die()
+		
+func die() -> void:
+	print("Jugador ha muerto")
+	queue_free() #Esto es algo provisional
+	# Aquí luego se puede añadir respawn, game over, etc.
