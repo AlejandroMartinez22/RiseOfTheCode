@@ -9,12 +9,15 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D   # sonidos de disparo
 @onready var pickup_sound: AudioStreamPlayer2D = $PickupSound           # sonido de recoger armas
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound #Sonido cuando recibe daño
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound #Sonido cuando muere
+
 
 var speed: float = 100.0 #Velocidad a la que se mueve
 var last_direction: String = "down" #Ultima dirección.
 var is_shooting: bool = false #Bandera para saber si está o no disparando.
-var max_health: int = 30 #Vida máxima de Max
-var current_health: int = 30 #Vida actual de Max (cambia cuando le hacen daño)
+var max_health: int = 3000 #Vida máxima de Max
+var current_health: int = 3000 #Vida actual de Max (cambia cuando le hacen daño)
 
 var current_weapon: Weapon = null   # aquí guardamos el arma equipada
 
@@ -110,25 +113,40 @@ func _on_animation_finished() -> void:
 		update_animation("idle")
 		
 # ----------------- funcion para recibir daño -----------------
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, source_position: Vector2 = global_position) -> void:
 	current_health -= amount
-	print("Jugador recibió daño: ", amount, " Vida restante: ", current_health) #Solo de depuración BORRAR LUEGO
-	if current_health <= 0:
+	print("Jugador recibió daño: ", amount, " Vida restante: ", current_health)
+	
+	# Reproducir sonido de daño
+	if hurt_sound.stream != null:
+		hurt_sound.play()
+		
+	# Efecto visual (flash rojo)
+	animated_sprite.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.1).timeout
+	animated_sprite.modulate = Color(1, 1, 1)
+	
+	# Si la vida llega a 0
+	if current_health <= 0: 
 		die()
 		
 # ----------------- funcion de muerte -----------------		
 func die() -> void:
 	print("Jugador ha muerto")
 	
-	# Reproducir animación de muerte según la última dirección
+	# Reproducir sonido de muerte
+	if death_sound.stream != null:
+		death_sound.play()
+	
+	# Reproducir animación según la última dirección
 	var death_anim = "death_" + last_direction
 	animated_sprite.play(death_anim)
 	
-	# Deshabilitar movimiento y disparo mientras muere
+	# Detener movimiento y disparo
 	velocity = Vector2.ZERO
-	is_shooting = true  # Así evitamos que el jugador se mueva/dispare
+	is_shooting = true
 	
-	# Conectar el final de la animación para eliminar el nodo
+	# Esperar a que termine la animación para eliminar el nodo
 	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"))
 
 # ----------------- funcion fin de muerte  -----------------		
