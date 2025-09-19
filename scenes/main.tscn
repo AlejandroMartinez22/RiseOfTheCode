@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfj787jd684qt"]
+[gd_scene load_steps=4 format=3 uid="uid://cfj787jd684qt"]
 
 [ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/lasergun.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/centinela.tscn" id="3_sugp2"]
 
 [node name="main" type="Node2D"]
 
 [node name="Max" parent="." instance=ExtResource("1_0wfyh")]
+position = Vector2(29, 65)
 
 [node name="lasergun" parent="." instance=ExtResource("2_sugp2")]
+
+[node name="Centinela" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(152, 59)
+
+[node name="Centinela2" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(91, 74)
