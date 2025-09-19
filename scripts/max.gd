@@ -116,7 +116,21 @@ func take_damage(amount: int) -> void:
 	if current_health <= 0:
 		die()
 		
+# ----------------- funcion de muerte -----------------		
 func die() -> void:
 	print("Jugador ha muerto")
-	queue_free() #Esto es algo provisional
-	# Aquí luego se puede añadir respawn, game over, etc.
+	
+	# Reproducir animación de muerte según la última dirección
+	var death_anim = "death_" + last_direction
+	animated_sprite.play(death_anim)
+	
+	# Deshabilitar movimiento y disparo mientras muere
+	velocity = Vector2.ZERO
+	is_shooting = true  # Así evitamos que el jugador se mueva/dispare
+	
+	# Conectar el final de la animación para eliminar el nodo
+	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"))
+
+# ----------------- funcion fin de muerte  -----------------		
+func _on_death_animation_finished():
+	queue_free()  # Elimina el nodo del jugador una vez ya terminó de reproducirse su animación de muerte.
