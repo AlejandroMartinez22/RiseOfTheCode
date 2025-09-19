@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @export var data: EnemyData        # Recurso con stats
 @export var projectile_scene: PackedScene   # Escena del proyectil
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound  #Sonido de daño
 
 var health: int
 var _can_shoot: bool = true
@@ -49,5 +50,9 @@ func shoot() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+
+	if hurt_sound.stream != null:
+		hurt_sound.play()
+	
 	if health <= 0:
 		queue_free()

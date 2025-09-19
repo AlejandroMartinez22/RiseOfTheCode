@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbdyifuuy4mam"]
+[gd_scene load_steps=7 format=3 uid="uid://dbdyifuuy4mam"]
 
 [ext_resource type="Script" uid="uid://oj521qde1kh" path="res://scripts/centinela.gd" id="1_6bf67"]
 [ext_resource type="Texture2D" uid="uid://de7mvr5hch1e3" path="res://sprites/enemies/enemigo_prueba.png" id="1_qtyfi"]
 [ext_resource type="PackedScene" uid="uid://5ln5tj85esio" path="res://scenes/red_bullet.tscn" id="2_5cexr"]
 [ext_resource type="Resource" uid="uid://v4qelheyslkp" path="res://enemies/centinela_data.tres" id="2_hodlo"]
+[ext_resource type="AudioStream" uid="uid://be0xbpffiyavm" path="res://sounds/centinela_hurt_sound.wav" id="5_yt8uv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bf67"]
 size = Vector2(12, 24)
@@ -24,3 +25,6 @@ position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_6bf67")
 
 [node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yt8uv")

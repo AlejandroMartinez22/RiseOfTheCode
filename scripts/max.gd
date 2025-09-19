@@ -16,8 +16,8 @@ extends CharacterBody2D
 var speed: float = 100.0 #Velocidad a la que se mueve
 var last_direction: String = "down" #Ultima dirección.
 var is_shooting: bool = false #Bandera para saber si está o no disparando.
-var max_health: int = 3000 #Vida máxima de Max
-var current_health: int = 3000 #Vida actual de Max (cambia cuando le hacen daño)
+var max_health: int = 30 #Vida máxima de Max
+var current_health: int = 30 #Vida actual de Max (cambia cuando le hacen daño)
 
 var current_weapon: Weapon = null   # aquí guardamos el arma equipada
 
