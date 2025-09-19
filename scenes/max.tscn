@@ -922,18 +922,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8k1"]
-size = Vector2(14, 26)
+size = Vector2(11, 24)
 
 [node name="Max" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_fnx0a")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ab6a7")
-animation = &"laser_left"
+animation = &"laser_up"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_4j8k1")
 
 [node name="MuzzleDown" type="Marker2D" parent="."]

@@ -4,12 +4,15 @@ extends CharacterBody2D
 @onready var player = get_node("/root/main/Max")
 @onready var muzzle: Marker2D = $Muzzle
 
-@export var speed: float = 20.0                 # Velocidad de movimiento
-@export var attack_range: float = 120.0         # Distancia mínima para dejar de avanzar y disparar
-@export var fire_rate: float = 1.8            # Segundos entre disparos
-@export var projectile_scene: PackedScene       # Escena del proyectil (ej: enemy_bullet.tscn)
+@export var data: EnemyData        # Recurso con stats
+@export var projectile_scene: PackedScene   # Escena del proyectil
 
+var health: int
 var _can_shoot: bool = true
+
+func _ready() -> void:
+	# Inicializamos la vida con el valor del recurso
+	health = data.max_health
 
 func _physics_process(delta: float) -> void:
 	if not player:
@@ -17,10 +20,10 @@ func _physics_process(delta: float) -> void:
 
 	var dist = global_position.distance_to(player.global_position)
 
-	if dist > attack_range:
+	if dist > data.attack_range:
 		# El jugador está lejos → moverse hacia él
 		var dir = global_position.direction_to(player.global_position)
-		velocity = dir * speed
+		velocity = dir * data.speed
 		move_and_slide()
 	else:
 		# El jugador está cerca → detenerse y disparar
@@ -33,18 +36,18 @@ func _physics_process(delta: float) -> void:
 func shoot() -> void:
 	var bullet = projectile_scene.instantiate()
 
-	# Punto de origen del disparo (si quieres usar un Marker2D en el Centinela, cámbialo aquí)
 	bullet.global_position = muzzle.global_position
-
-	# Dirección hacia el jugador
 	bullet.direction = (player.global_position - global_position).normalized()
-
-	# ⚠️ Muy importante: los proyectiles del Centinela dañan al jugador
 	bullet.target_group = "player"
 
 	get_parent().add_child(bullet)
 
-	# Control de cadencia de disparo
+	# Control de cadencia
 	_can_shoot = false
-	await get_tree().create_timer(fire_rate).timeout
+	await get_tree().create_timer(data.fire_rate).timeout
 	_can_shoot = true
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		queue_free()

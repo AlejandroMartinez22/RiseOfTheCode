@@ -1,1 +1,5 @@
-La vida del jugador será de: 
+Cada enemigo debe tener un script distinto por que tienen comportamientos diferentes, y la lógica cambia bastante.
+Se crea un recurso con caracteristicas comunes de todos los enemigos, pero en aquellos que atacan a distancia el campo
+de daño no se usa, ya que ese está definido por el proyectil que disparan.
+Este recurso se llama enemydata.gd
+Si queremos modificar alguna caracteristica como la velocidad o daño, se modifica el archivo .tres del enemigo, en la carpeta enemies

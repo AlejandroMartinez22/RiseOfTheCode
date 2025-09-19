@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BulletData" load_steps=2 format=3 uid="uid://d4jt7kq73asug"]
 
-[ext_resource type="Script" uid="uid://602ativrspkn" path="res://scripts/bullet_data.gd" id="1_3h7cj"]
+[ext_resource type="Script" uid="uid://602ativrspkn" path="res://resources/bullet_data.gd" id="1_3h7cj"]
 
 [resource]
 script = ExtResource("1_3h7cj")

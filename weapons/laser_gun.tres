@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bbbaxgjpl03en"]
 
-[ext_resource type="Script" uid="uid://b7172wc55u7ob" path="res://scripts/weapon.gd" id="1_q8ssx"]
+[ext_resource type="Script" uid="uid://b7172wc55u7ob" path="res://resources/weapon.gd" id="1_q8ssx"]
 [ext_resource type="PackedScene" uid="uid://de2kbh1bp13qj" path="res://scenes/blue_bullet.tscn" id="1_vbshx"]
 [ext_resource type="AudioStream" uid="uid://cvlcwl77cjrmq" path="res://sounds/laser_gun_sound.wav" id="3_xwc03"]
 
