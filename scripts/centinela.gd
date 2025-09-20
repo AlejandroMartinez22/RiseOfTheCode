@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var player = get_node("/root/main/Max")
 @onready var muzzle: Marker2D = $Muzzle
 
+@onready var sprite: Sprite2D = $Sprite2D
 @export var data: EnemyData        # Recurso con stats
 @export var projectile_scene: PackedScene   # Escena del proyectil
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound  #Sonido de daño
@@ -53,6 +54,11 @@ func take_damage(amount: int) -> void:
 
 	if hurt_sound.stream != null:
 		hurt_sound.play()
+	
+	#Efecto visual de recibir daño
+	sprite.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color(1, 1, 1)
 	
 	if health <= 0:
 		queue_free()
