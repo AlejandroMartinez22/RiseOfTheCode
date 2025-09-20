@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de7mvr5hch1e3"
-path="res://.godot/imported/enemigo_prueba.png-a6c50beeb8e671c5f07bd3adec07ceae.ctex"
+uid="uid://crvf2f2dsixn0"
+path="res://.godot/imported/idle_down2.png-6e7f1e0d5ebe4e55ae5d4620af6e8e26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/enemigo_prueba.png"
-dest_files=["res://.godot/imported/enemigo_prueba.png-a6c50beeb8e671c5f07bd3adec07ceae.ctex"]
+source_file="res://sprites/enemies/centinela/idle/idle_down2.png"
+dest_files=["res://.godot/imported/idle_down2.png-6e7f1e0d5ebe4e55ae5d4620af6e8e26.ctex"]
 
 [params]
 
