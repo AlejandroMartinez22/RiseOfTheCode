@@ -11,12 +11,16 @@ extends CharacterBody2D
 var health: int
 var _can_shoot: bool = true
 var last_direction: String = "down"  # Dirección inicial por defecto
+var is_dead: bool = false            # bandera para no repetir la muerte
 
 func _ready() -> void:
 	health = data.max_health
-	update_animation("idle")  # empezamos en idle_down
+	update_animation()  # empezamos en idle_down
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+
 	if not player:
 		return
 
@@ -30,20 +34,23 @@ func _physics_process(delta: float) -> void:
 
 		# Actualizar dirección según el vector
 		update_direction(dir)
-		update_animation("walk")
+		update_animation()
 	else:
 		# Parar y disparar
 		velocity = Vector2.ZERO
 		move_and_slide()
 
-		update_animation("idle")
+		update_animation()
 
 		if _can_shoot and projectile_scene != null:
 			shoot()
 
 # ---------------- Animaciones ----------------
-func update_animation(state: String) -> void:
-	var anim_name = state + "_" + last_direction
+func update_animation() -> void:
+	if is_dead:
+		return  # no cambiar animaciones si ya está muerto
+
+	var anim_name = "idle_" + last_direction
 
 	# ⚠️ Seguridad: solo reproducir si la animación existe
 	if animated_sprite.sprite_frames.has_animation(anim_name):
@@ -76,6 +83,9 @@ func shoot() -> void:
 
 # ---------------- Daño ----------------
 func take_damage(amount: int) -> void:
+	if is_dead:
+		return
+
 	health -= amount
 
 	if hurt_sound.stream != null:
@@ -87,4 +97,24 @@ func take_damage(amount: int) -> void:
 	animated_sprite.modulate = Color(1, 1, 1)
 	
 	if health <= 0:
-		queue_free()
+		die()
+
+# ---------------- Muerte ----------------
+func die() -> void:
+	is_dead = true
+	velocity = Vector2.ZERO
+	_can_shoot = false
+
+	# Animación de muerte según dirección
+	var death_anim = "death_" + last_direction
+	if animated_sprite.sprite_frames.has_animation(death_anim):
+		animated_sprite.play(death_anim)
+	else:
+		# fallback mientras solo existe death_down
+		animated_sprite.play("death_down")
+
+	# Conectar al finalizar la animación
+	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"), CONNECT_ONE_SHOT)
+
+func _on_death_animation_finished() -> void:
+	queue_free()
