@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dbdyifuuy4mam"]
+[gd_scene load_steps=60 format=3 uid="uid://dbdyifuuy4mam"]
 
 [ext_resource type="Script" uid="uid://oj521qde1kh" path="res://scripts/centinela.gd" id="1_6bf67"]
 [ext_resource type="PackedScene" uid="uid://5ln5tj85esio" path="res://scenes/red_bullet.tscn" id="2_5cexr"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://be0xbpffiyavm" path="res://sounds/centinela_hurt_sound.wav" id="5_yt8uv"]
 [ext_resource type="Texture2D" uid="uid://dhv5e384igtas" path="res://sprites/enemies/centinela/idle/idle_left.png" id="6_rv46w"]
 [ext_resource type="Texture2D" uid="uid://dqscwd65pl0cj" path="res://sprites/enemies/centinela/idle/idle_right.png" id="7_rcs2h"]
+[ext_resource type="AudioStream" uid="uid://bd5f7l7xhj7im" path="res://sounds/centinela_death_sound2.wav" id="9_eru0e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tsr1"]
 atlas = ExtResource("4_144an")
@@ -382,7 +383,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hodlo")
-animation = &"idle_right"
+animation = &"death_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -392,3 +393,6 @@ shape = SubResource("CircleShape2D_mk7ei")
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_yt8uv")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_eru0e")

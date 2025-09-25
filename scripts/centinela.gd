@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var data: EnemyData                # Recurso con stats
 @export var projectile_scene: PackedScene  # Escena del proyectil
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound  # Sonido de daño
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound  # Sonido de daño
+
 
 var health: int
 var _can_shoot: bool = true
@@ -105,12 +107,15 @@ func die() -> void:
 	velocity = Vector2.ZERO
 	_can_shoot = false
 
-	# Animación de muerte según dirección
+	# Reproducir el sonido de muerte usando AudioManager
+	if death_sound.stream != null:
+		AudioManager.play_sound(death_sound.stream, global_position)
+
+	# Reproducir animación de muerte
 	var death_anim = "death_" + last_direction
 	if animated_sprite.sprite_frames.has_animation(death_anim):
 		animated_sprite.play(death_anim)
 	else:
-		# fallback mientras solo existe death_down
 		animated_sprite.play("death_down")
 
 	# Conectar al finalizar la animación

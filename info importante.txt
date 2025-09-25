@@ -14,3 +14,12 @@ Layer 4 → EnemyBullets
 Layer 5 → Walls / Environment
 
 Las balas si deben tener mask de los objetivos, pero los personajes no deben tener mask de las balas
+
+
+Se creó un singleton para manejar especificamente el audio de muerte de los enemigos.
+Esto se hace por que, si reproducimos el sonido de muerte dentro
+del mismo script del enemigo, el audio se corta cuando el enemigo muere
+y el nodo desaparece, por eso debemos reproducir el audio "en otra parte",
+de manera que pueda concluir su reproducción incluso cuando el nodo del enemigo
+se eliminó. Se opta por usar un singleton dado que habrán varios enemigos
+en el juego, y es bastante probable que requiramos una lógica similar en caad uno.
