@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var projectile_scene: PackedScene  # Escena del proyectil
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound  # Sonido de daño
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound  # Sonido de daño
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound  # Referencia al sonido de disparo
 
 
 var health: int
@@ -77,7 +78,11 @@ func shoot() -> void:
 	bullet.direction = (player.global_position - global_position).normalized()
 	bullet.target_group = "player"
 	get_parent().add_child(bullet)
-
+	
+	# Reproducir sonido usando AudioManager
+	if shoot_sound.stream != null:
+		AudioManager.play_sound(shoot_sound.stream, global_position, -5)
+	
 	# Cadencia de disparo
 	_can_shoot = false
 	await get_tree().create_timer(data.fire_rate).timeout
@@ -107,11 +112,11 @@ func die() -> void:
 	velocity = Vector2.ZERO
 	_can_shoot = false
 
-	# Reproducir el sonido de muerte usando AudioManager
+	# Reproducir sonido de muerte usando AudioManager
 	if death_sound.stream != null:
-		AudioManager.play_sound(death_sound.stream, global_position)
+		AudioManager.play_sound(death_sound.stream, global_position, 3)
 
-	# Reproducir animación de muerte
+	# Animación de muerte
 	var death_anim = "death_" + last_direction
 	if animated_sprite.sprite_frames.has_animation(death_anim):
 		animated_sprite.play(death_anim)
