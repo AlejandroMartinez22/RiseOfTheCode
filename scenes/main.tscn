@@ -14,13 +14,13 @@ position = Vector2(95, 47)
 position = Vector2(74, 34)
 
 [node name="Centinela" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(95, 106)
+position = Vector2(156, 95)
 
 [node name="Centinela2" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(190, 54)
 
 [node name="Centinela3" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(1.9999998, 47)
+position = Vector2(170.99998, 22.000002)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
