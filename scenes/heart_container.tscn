@@ -1,6 +1,29 @@
-[gd_scene format=3 uid="uid://ck6eo7d2vkdsr"]
+[gd_scene load_steps=2 format=3 uid="uid://ck6eo7d2vkdsr"]
+
+[ext_resource type="Texture2D" uid="uid://buia1wpahg4at" path="res://sprites/UI/hearth_full.png" id="1_jqfdb"]
 
 [node name="HeartContainer" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 44.0
+offset_bottom = 16.0
 theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 16)
+layout_mode = 2
+texture = ExtResource("1_jqfdb")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 16)
+layout_mode = 2
+texture = ExtResource("1_jqfdb")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 16)
+layout_mode = 2
+texture = ExtResource("1_jqfdb")
+expand_mode = 4
+stretch_mode = 5
