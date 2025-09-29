@@ -1216,7 +1216,7 @@ a = Vector2(53, 41)
 b = Vector2(104, 41)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_s2gw6"]
-a = Vector2(51, 42)
+a = Vector2(50, 4)
 b = Vector2(51, 86)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_hdsv0"]
@@ -1315,4 +1315,4 @@ position = Vector2(85, 102)
 position = Vector2(86, 206)
 
 [node name="Centinela2" parent="." instance=ExtResource("7_1j36r")]
-position = Vector2(203, 87)
+position = Vector2(69.000015, 59)
