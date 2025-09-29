@@ -12,12 +12,15 @@ extends CharacterBody2D
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound #Sonido cuando recibe daño
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound #Sonido cuando muere
 
+#Variable relacionada a la barra de vida
+@onready var heart_container = get_tree().root.get_node("main/CanvasLayer/MarginContainer/HeartContainer")
+
 
 var speed: float = 100.0 #Velocidad a la que se mueve
 var last_direction: String = "down" #Ultima dirección.
 var is_shooting: bool = false #Bandera para saber si está o no disparando.
-var max_health: int = 3000 #Vida máxima de Max
-var current_health: int = 3000 #Vida actual de Max (cambia cuando le hacen daño)
+var max_health: int = 30 #Vida máxima de Max
+var current_health: int = 30 #Vida actual de Max (cambia cuando le hacen daño)
 
 var current_weapon: Weapon = null   # aquí guardamos el arma equipada
 
@@ -117,6 +120,9 @@ func take_damage(amount: int, source_position: Vector2 = global_position) -> voi
 	current_health -= amount
 	print("Jugador recibió daño: ", amount, " Vida restante: ", current_health)
 	
+	# Actualizar UI
+	heart_container.update_hearts(current_health) # 👈 ajustamos porque tu vida está en 3000
+	
 	# Reproducir sonido de daño
 	if hurt_sound.stream != null:
 		hurt_sound.play()
@@ -129,6 +135,8 @@ func take_damage(amount: int, source_position: Vector2 = global_position) -> voi
 	# Si la vida llega a 0
 	if current_health <= 0: 
 		die()
+		
+	
 		
 # ----------------- funcion de muerte -----------------		
 func die() -> void:
