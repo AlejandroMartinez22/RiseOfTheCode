@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b2dcfj6dhkspb"]
+[gd_scene load_steps=25 format=4 uid="uid://b2dcfj6dhkspb"]
 
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_lt4d2"]
 [ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="2_xr1vv"]
@@ -1209,6 +1209,34 @@ sources/0 = SubResource("TileSetAtlasSource_dd4b6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_075xm"]
 size = Vector2(105, 17)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_075xm"]
+a = Vector2(53, 41)
+b = Vector2(104, 41)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s2gw6"]
+a = Vector2(51, 42)
+b = Vector2(51, 86)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hdsv0"]
+a = Vector2(211, 42)
+b = Vector2(229, 42)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1j36r"]
+a = Vector2(4, 243)
+b = Vector2(4, 4)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_y5i6v"]
+a = Vector2(3, 2)
+b = Vector2(50, 2)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r2y3u"]
+a = Vector2(0, 238)
+b = Vector2(225, 238)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wkm37"]
+a = Vector2(-2, 0)
+b = Vector2(-2, 200)
+
 [node name="PuntoAparicion" type="Node2D"]
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -1244,13 +1272,36 @@ tile_set = SubResource("TileSet_oq4wb")
 collision_layer = 2
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(52, 145, 52, 172, 37, 172, 37, 171, 21, 171, 21, 160, 25, 160, 37, 160, 37, 145)
+polygon = PackedVector2Array(52, 135, 52, 172, 37, 172, 37, 171, 21, 171, 21, 150, 25, 150, 25, 159, 37, 159, 37, 135)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(3.0517576e-05, 40.80642)
+position = Vector2(0, 35)
 scale = Vector2(0.99999976, 0.68597555)
 polygon = PackedVector2Array(150, 130, 150, 169.38445, 196.00002, 169.38445, 196, 130, 181, 131, 181.00002, 124.19333, 165.00002, 124.19333, 165, 130)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(157.5, 52.5)
 shape = SubResource("RectangleShape2D_075xm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_075xm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_s2gw6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_hdsv0")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_1j36r")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_y5i6v")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, 6)
+shape = SubResource("SegmentShape2D_r2y3u")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(232, 43)
+shape = SubResource("SegmentShape2D_wkm37")
