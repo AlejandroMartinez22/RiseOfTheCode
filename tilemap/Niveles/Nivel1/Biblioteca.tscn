@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=4 uid="uid://c8jm8csxeipam"]
 
-[ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="1_4lsl3"]
-[ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_i5qlv"]
-[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_y25nu"]
-[ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_g4fki"]
+[ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="1_4lsl3"]
+[ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_i5qlv"]
+[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_y25nu"]
+[ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_g4fki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7lvi"]
 texture = ExtResource("1_4lsl3")
