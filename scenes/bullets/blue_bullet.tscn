@@ -2,24 +2,24 @@
 
 [ext_resource type="Script" uid="uid://dmeub48jepljs" path="res://scripts/bullet.gd" id="1_ykm6n"]
 [ext_resource type="Resource" uid="uid://d4jt7kq73asug" path="res://data/bullets/blue_bullet_data.tres" id="2_a3tnh"]
-[ext_resource type="Texture2D" uid="uid://c6yfwydntfg6d" path="res://sprites/projectiles/blue_bullet.png" id="2_ujapr"]
+[ext_resource type="Texture2D" uid="uid://c6yfwydntfg6d" path="res://sprites/bullets/blue_bullet.png" id="3_cbfwy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3tnh"]
-atlas = ExtResource("2_ujapr")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbfwy"]
+atlas = ExtResource("3_cbfwy")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xubec"]
-atlas = ExtResource("2_ujapr")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lebtg"]
+atlas = ExtResource("3_cbfwy")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6518s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a3tnh")
+"texture": SubResource("AtlasTexture_cbfwy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xubec")
+"texture": SubResource("AtlasTexture_lebtg")
 }],
 "loop": true,
 "name": &"blink",
@@ -41,7 +41,6 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_6518s")
 animation = &"blink"
 autoplay = "blink"
-frame = 1
 frame_progress = 0.27691796
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

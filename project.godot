@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://scripts/Autoloads/AudioManager.gd"
-PlayerData="*res://scripts/Autoloads/PlayerData.gd"
-RoomManager="*res://scripts/Autoloads/RoomManager.gd"
-UIManager="*res://scripts/Autoloads/UIManager.gd"
+AudioManager="*res://scripts/Autoloads/audio_manager.gd"
+PlayerData="*res://scripts/Autoloads/player_data.gd"
+RoomManager="*res://scripts/Autoloads/room_manager.gd"
+UIManager="*res://scripts/Autoloads/ui_manager.gd"
 
 [display]
 

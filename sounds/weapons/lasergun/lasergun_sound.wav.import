@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cvlcwl77cjrmq"
-path="res://.godot/imported/laser_gun_sound.wav-43d095eeef597b11980f18bab7418f47.sample"
+path="res://.godot/imported/lasergun_sound.wav-cff46337fabe9bf2822e30ecbdc4177b.sample"
 
 [deps]
 
-source_file="res://sounds/weapons/lasergun/laser_gun_sound.wav"
-dest_files=["res://.godot/imported/laser_gun_sound.wav-43d095eeef597b11980f18bab7418f47.sample"]
+source_file="res://sounds/weapons/lasergun/lasergun_sound.wav"
+dest_files=["res://.godot/imported/lasergun_sound.wav-cff46337fabe9bf2822e30ecbdc4177b.sample"]
 
 [params]
 

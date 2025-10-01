@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwec53skuccxa" path="res://scripts/weapon_pickup.gd" id="1_2i3r3"]
 [ext_resource type="Texture2D" uid="uid://drv88wlti05gu" path="res://sprites/weapons/floating_lasergun1.png" id="2_2i3r3"]
-[ext_resource type="Resource" uid="uid://bbbaxgjpl03en" path="res://data/weapons/laser_gun.tres" id="2_jfjwn"]
+[ext_resource type="Resource" uid="uid://bbbaxgjpl03en" path="res://data/weapons/lasergun.tres" id="2_jfjwn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_egh8n"]
 atlas = ExtResource("2_2i3r3")

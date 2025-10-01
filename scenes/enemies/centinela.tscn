@@ -1,7 +1,7 @@
 [gd_scene load_steps=144 format=3 uid="uid://dbdyifuuy4mam"]
 
 [ext_resource type="Script" uid="uid://oj521qde1kh" path="res://scripts/centinela.gd" id="1_6bf67"]
-[ext_resource type="PackedScene" uid="uid://5ln5tj85esio" path="res://scenes/red_bullet.tscn" id="2_5cexr"]
+[ext_resource type="PackedScene" uid="uid://5ln5tj85esio" path="res://scenes/bullets/red_bullet.tscn" id="2_5cexr"]
 [ext_resource type="Resource" uid="uid://v4qelheyslkp" path="res://data/enemies/centinela_data.tres" id="2_hodlo"]
 [ext_resource type="Texture2D" uid="uid://drwtia16hp7kg" path="res://sprites/enemies/centinela/death/death_down.png" id="4_144an"]
 [ext_resource type="Texture2D" uid="uid://cnqxocqrvdrhb" path="res://sprites/enemies/centinela/idle/idle_down.png" id="4_yt8uv"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dqscwd65pl0cj" path="res://sprites/enemies/centinela/idle/idle_right.png" id="7_rcs2h"]
 [ext_resource type="AudioStream" uid="uid://bd5f7l7xhj7im" path="res://sounds/enemies/centinela/centinela_death_sound.wav" id="9_eru0e"]
 [ext_resource type="Texture2D" uid="uid://dhpa2r6q47nlm" path="res://sprites/enemies/centinela/idle/idle_up.png" id="10_7tsr1"]
-[ext_resource type="AudioStream" uid="uid://5iav6yh1mpg4" path="res://sounds/enemies/centinela_shoot_sound.wav" id="10_46j34"]
+[ext_resource type="AudioStream" uid="uid://5iav6yh1mpg4" path="res://sounds/enemies/centinela/centinela_shoot_sound.wav" id="10_46j34"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tsr1"]
 atlas = ExtResource("4_144an")

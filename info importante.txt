@@ -4,6 +4,7 @@ de daño no se usa, ya que ese está definido por el proyectil que disparan.
 Este recurso se llama enemydata.gd
 Si queremos modificar alguna caracteristica como la velocidad o daño, se modifica el archivo .tres del enemigo, en la carpeta enemies
 
+
 -----------------------------------------------
 Layer -> Quien eres
 Mask -> A quien puedes golpear
@@ -14,20 +15,16 @@ Layer 2 → Enemies
 Layer 3 → PlayerBullets
 Layer 4 → EnemyBullets
 Layer 5 → Walls / Environment
-
-
 ------------------------------------------------ 
 
+------------------------------------------------
+Convencion de nombres
 
-Las balas si deben tener mask de los objetivos, pero los personajes no deben tener mask de las balas
+Archivos, carpetas → snake_case
+Nodos → PascalCase
+Variables/funciones → snake_case
+Clases (class_name) → PascalCase
+Constantes → ALL_CAPS
 
-
-Se creó un singleton para manejar especificamente el audio de muerte de los enemigos.
-Esto se hace por que, si reproducimos el sonido de muerte dentro
-del mismo script del enemigo, el audio se corta cuando el enemigo muere
-y el nodo desaparece, por eso debemos reproducir el audio "en otra parte",
-de manera que pueda concluir su reproducción incluso cuando el nodo del enemigo
-se eliminó. Se opta por usar un singleton dado que habrán varios enemigos
-en el juego, y es bastante probable que requiramos una lógica similar en caad uno.
-
-mas adelante podemos agregar drag a la camara.
+OJO: Cuando pierra haga ya pull y push, mover la carpeta levels de tilemap a scenes. dentro de una carpeta
+llamada maps, y la carpeta tilesets moverla a sprites.

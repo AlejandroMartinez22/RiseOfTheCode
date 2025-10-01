@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxan7nv77ooro"
-path="res://.godot/imported/half_hearth_idle.png-d88dc37daba3d514d416685f50d7a48c.ctex"
+uid="uid://brekg3gq7e1lx"
+path="res://.godot/imported/hearth_full_2.png-61fcce189243a34c5c9e2066408c548a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/half_hearth_idle.png"
-dest_files=["res://.godot/imported/half_hearth_idle.png-d88dc37daba3d514d416685f50d7a48c.ctex"]
+source_file="res://sprites/UI/hearth_full_2.png"
+dest_files=["res://.godot/imported/hearth_full_2.png-61fcce189243a34c5c9e2066408c548a.ctex"]
 
 [params]
 

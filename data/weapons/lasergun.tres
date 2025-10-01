@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b7172wc55u7ob" path="res://resources/weapon.gd" id="1_q8ssx"]
 [ext_resource type="AudioStream" uid="uid://c2a0gnhimv558" path="res://sounds/weapons/lasergun/lasergun_pickup_sound.wav" id="1_v4q7q"]
-[ext_resource type="PackedScene" uid="uid://de2kbh1bp13qj" path="res://scenes/blue_bullet.tscn" id="1_vbshx"]
-[ext_resource type="AudioStream" uid="uid://cvlcwl77cjrmq" path="res://sounds/weapons/lasergun/laser_gun_sound.wav" id="3_xwc03"]
+[ext_resource type="PackedScene" uid="uid://de2kbh1bp13qj" path="res://scenes/bullets/blue_bullet.tscn" id="1_vbshx"]
+[ext_resource type="AudioStream" uid="uid://cvlcwl77cjrmq" path="res://sounds/weapons/lasergun/lasergun_sound.wav" id="3_xwc03"]
 
 [resource]
 script = ExtResource("1_q8ssx")

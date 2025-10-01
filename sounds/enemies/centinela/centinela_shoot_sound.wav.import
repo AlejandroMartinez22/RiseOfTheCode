@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5iav6yh1mpg4"
-path="res://.godot/imported/centinela_shoot_sound.wav-4b900ea7dde3bf67be946a151fe0986c.sample"
+path="res://.godot/imported/centinela_shoot_sound.wav-d84ac0c6e71dbd8b80bb0b891ecc9fcc.sample"
 
 [deps]
 
-source_file="res://sounds/enemies/centinela_shoot_sound.wav"
-dest_files=["res://.godot/imported/centinela_shoot_sound.wav-4b900ea7dde3bf67be946a151fe0986c.sample"]
+source_file="res://sounds/enemies/centinela/centinela_shoot_sound.wav"
+dest_files=["res://.godot/imported/centinela_shoot_sound.wav-d84ac0c6e71dbd8b80bb0b891ecc9fcc.sample"]
 
 [params]
 
