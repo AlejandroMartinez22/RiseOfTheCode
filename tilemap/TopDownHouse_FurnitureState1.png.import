@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clvixb82gbyr7"
-path="res://.godot/imported/TopDownHouse_FurnitureState1.png-e51386eecb4615b6e9e809cc0bf9b7f6.ctex"
+path="res://.godot/imported/TopDownHouse_FurnitureState1.png-3e3744b48a13ededbe52b0619dd89587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png"
-dest_files=["res://.godot/imported/TopDownHouse_FurnitureState1.png-e51386eecb4615b6e9e809cc0bf9b7f6.ctex"]
+source_file="res://tilemap/TopDownHouse_FurnitureState1.png"
+dest_files=["res://.godot/imported/TopDownHouse_FurnitureState1.png-3e3744b48a13ededbe52b0619dd89587.ctex"]
 
 [params]
 

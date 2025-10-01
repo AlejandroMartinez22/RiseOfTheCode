@@ -1,11 +1,11 @@
 [gd_scene load_steps=20 format=4 uid="uid://drslef1qt0n2s"]
 
-[ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_dvowg"]
-[ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="2_vdne3"]
-[ext_resource type="Texture2D" uid="uid://dm5aqg63w6eak" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState2.png" id="3_qx027"]
-[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="4_ndv7d"]
-[ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://Tilesets/Inside_C.png" id="5_qk8yd"]
-[ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="6_vdne3"]
+[ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_dvowg"]
+[ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="2_vdne3"]
+[ext_resource type="Texture2D" uid="uid://dm5aqg63w6eak" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState2.png" id="3_qx027"]
+[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/TopDownHouse_FurnitureState1.png" id="4_ndv7d"]
+[ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://tilemap/Tilesets/Inside_C.png" id="5_qk8yd"]
+[ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="6_vdne3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ke47f"]
 texture = ExtResource("1_dvowg")
