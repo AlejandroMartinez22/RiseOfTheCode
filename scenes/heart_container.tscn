@@ -8,28 +8,28 @@
 [node name="HeartContainer" type="HBoxContainer"]
 offset_right = 31.0
 offset_bottom = 9.0
-theme_override_constants/separation = 2
+theme_override_constants/separation = 3
 script = ExtResource("1_srcrn")
 heart_full_anim = ExtResource("4_7rc4h")
 heart_half_anim = ExtResource("3_7rc4h")
 heart_empty = ExtResource("4_3fw2b")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(9, 9)
+custom_minimum_size = Vector2(14, 14)
 layout_mode = 2
 texture = ExtResource("4_7rc4h")
 expand_mode = 4
 stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(9, 9)
+custom_minimum_size = Vector2(14, 14)
 layout_mode = 2
 texture = ExtResource("4_7rc4h")
 expand_mode = 4
 stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(9, 9)
+custom_minimum_size = Vector2(14, 14)
 layout_mode = 2
 texture = ExtResource("4_7rc4h")
 expand_mode = 4

@@ -1,7 +1,7 @@
 extends Node
 
-var max_health: int = 30
-var current_health: int = 30
+var max_health: int = 300
+var current_health: int = 300
 var current_weapon: String = ""
 
 func reset() -> void:
