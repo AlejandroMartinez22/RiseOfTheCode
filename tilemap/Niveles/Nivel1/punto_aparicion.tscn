@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_s03og"]
 [ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="2_w0ll6"]
-[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_1jhvr"]
+[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/TopDownHouse_FurnitureState1.png" id="3_1jhvr"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="4_i40hw"]
 [ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/lasergun.tscn" id="6_p152d"]
 [ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/centinela.tscn" id="7_a3gtg"]
@@ -1265,7 +1265,8 @@ tile_map_data = PackedByteArray("AAAqAB8AAAACAAEAAAA=")
 tile_set = SubResource("TileSet_oq4wb")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
-collision_layer = 2
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(52, 135, 52, 162, 36, 165, 36, 171, 37, 171, 21, 171, 21, 150, 25, 150, 25, 159, 37, 159, 37, 135)
@@ -1319,7 +1320,7 @@ shape = SubResource("RectangleShape2D_y010p")
 position = Vector2(26, 50)
 
 [node name="Centinela" parent="." instance=ExtResource("7_a3gtg")]
-position = Vector2(37.000015, 207)
+position = Vector2(198, 81)
 
 [node name="Centinela2" parent="." instance=ExtResource("7_a3gtg")]
-position = Vector2(143, 72)
+position = Vector2(52, 221)

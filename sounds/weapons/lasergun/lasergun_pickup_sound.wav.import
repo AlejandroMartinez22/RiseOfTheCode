@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c2a0gnhimv558"
-path="res://.godot/imported/pickup_sound.wav-58398031eab6aeb12fb5e465903be163.sample"
+path="res://.godot/imported/lasergun_pickup_sound.wav-904186b957034834b343d8af12703196.sample"
 
 [deps]
 
-source_file="res://sounds/pickup_sound.wav"
-dest_files=["res://.godot/imported/pickup_sound.wav-58398031eab6aeb12fb5e465903be163.sample"]
+source_file="res://sounds/weapons/lasergun/lasergun_pickup_sound.wav"
+dest_files=["res://.godot/imported/lasergun_pickup_sound.wav-904186b957034834b343d8af12703196.sample"]
 
 [params]
 

@@ -7,8 +7,7 @@ extends CharacterBody2D
 @onready var muzzle_up: Marker2D = $MuzzleUp
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D   # sonidos de disparo
-@onready var pickup_sound: AudioStreamPlayer2D = $PickupSound           # sonido de recoger armas
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D   # sonidos de disparo         # sonido de recoger armas
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound               # Sonido cuando recibe daño
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound             # Sonido cuando muere
 

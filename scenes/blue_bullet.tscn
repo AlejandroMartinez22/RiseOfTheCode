@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://de2kbh1bp13qj"]
 
 [ext_resource type="Script" uid="uid://dmeub48jepljs" path="res://scripts/bullet.gd" id="1_ykm6n"]
-[ext_resource type="Resource" uid="uid://d4jt7kq73asug" path="res://bullets/blue_bullet_data.tres" id="2_a3tnh"]
+[ext_resource type="Resource" uid="uid://d4jt7kq73asug" path="res://data/bullets/blue_bullet_data.tres" id="2_a3tnh"]
 [ext_resource type="Texture2D" uid="uid://c6yfwydntfg6d" path="res://sprites/projectiles/blue_bullet.png" id="2_ujapr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3tnh"]

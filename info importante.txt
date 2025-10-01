@@ -4,14 +4,20 @@ de daño no se usa, ya que ese está definido por el proyectil que disparan.
 Este recurso se llama enemydata.gd
 Si queremos modificar alguna caracteristica como la velocidad o daño, se modifica el archivo .tres del enemigo, en la carpeta enemies
 
+-----------------------------------------------
 Layer -> Quien eres
 Mask -> A quien puedes golpear
 
+Capas de Colisión
 Layer 1 → Player
 Layer 2 → Enemies
 Layer 3 → PlayerBullets
 Layer 4 → EnemyBullets
 Layer 5 → Walls / Environment
+
+
+------------------------------------------------ 
+
 
 Las balas si deben tener mask de los objetivos, pero los personajes no deben tener mask de las balas
 

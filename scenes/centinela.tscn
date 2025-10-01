@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://oj521qde1kh" path="res://scripts/centinela.gd" id="1_6bf67"]
 [ext_resource type="PackedScene" uid="uid://5ln5tj85esio" path="res://scenes/red_bullet.tscn" id="2_5cexr"]
-[ext_resource type="Resource" uid="uid://v4qelheyslkp" path="res://enemies/centinela_data.tres" id="2_hodlo"]
+[ext_resource type="Resource" uid="uid://v4qelheyslkp" path="res://data/enemies/centinela_data.tres" id="2_hodlo"]
 [ext_resource type="Texture2D" uid="uid://drwtia16hp7kg" path="res://sprites/enemies/centinela/death/death_down.png" id="4_144an"]
 [ext_resource type="Texture2D" uid="uid://cnqxocqrvdrhb" path="res://sprites/enemies/centinela/idle/idle_down.png" id="4_yt8uv"]
 [ext_resource type="Texture2D" uid="uid://dcb5pluxishlg" path="res://sprites/enemies/centinela/death/death_right.png" id="5_4dfus"]
 [ext_resource type="Texture2D" uid="uid://dn6nl4mjda0h1" path="res://sprites/enemies/centinela/death/death_left.png" id="5_qrcoc"]
-[ext_resource type="AudioStream" uid="uid://be0xbpffiyavm" path="res://sounds/centinela_hurt_sound.wav" id="5_yt8uv"]
+[ext_resource type="AudioStream" uid="uid://be0xbpffiyavm" path="res://sounds/enemies/centinela/centinela_hurt_sound.wav" id="5_yt8uv"]
 [ext_resource type="Texture2D" uid="uid://dhv5e384igtas" path="res://sprites/enemies/centinela/idle/idle_left.png" id="6_rv46w"]
 [ext_resource type="Texture2D" uid="uid://tjh3qkhm3crx" path="res://sprites/enemies/centinela/death/death_up.png" id="7_mk7ei"]
 [ext_resource type="Texture2D" uid="uid://dqscwd65pl0cj" path="res://sprites/enemies/centinela/idle/idle_right.png" id="7_rcs2h"]
-[ext_resource type="AudioStream" uid="uid://bd5f7l7xhj7im" path="res://sounds/centinela_death_sound.wav" id="9_eru0e"]
+[ext_resource type="AudioStream" uid="uid://bd5f7l7xhj7im" path="res://sounds/enemies/centinela/centinela_death_sound.wav" id="9_eru0e"]
 [ext_resource type="Texture2D" uid="uid://dhpa2r6q47nlm" path="res://sprites/enemies/centinela/idle/idle_up.png" id="10_7tsr1"]
-[ext_resource type="AudioStream" uid="uid://5iav6yh1mpg4" path="res://sounds/centinela_shoot_sound.wav" id="10_46j34"]
+[ext_resource type="AudioStream" uid="uid://5iav6yh1mpg4" path="res://sounds/enemies/centinela_shoot_sound.wav" id="10_46j34"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tsr1"]
 atlas = ExtResource("4_144an")
@@ -946,7 +946,7 @@ radius = 8.0
 [node name="Centinela" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
-collision_mask = 19
+collision_mask = 23
 script = ExtResource("1_6bf67")
 data = ExtResource("2_hodlo")
 projectile_scene = ExtResource("2_5cexr")

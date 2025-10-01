@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://be0xbpffiyavm"
-path="res://.godot/imported/centinela_hurt_sound.wav-dcb64f56fed18842d6599ebbb42434c8.sample"
+path="res://.godot/imported/centinela_hurt_sound.wav-35156ec3bfa348ec32c1a0726313863c.sample"
 
 [deps]
 
-source_file="res://sounds/centinela_hurt_sound.wav"
-dest_files=["res://.godot/imported/centinela_hurt_sound.wav-dcb64f56fed18842d6599ebbb42434c8.sample"]
+source_file="res://sounds/enemies/centinela/centinela_hurt_sound.wav"
+dest_files=["res://.godot/imported/centinela_hurt_sound.wav-35156ec3bfa348ec32c1a0726313863c.sample"]
 
 [params]
 
