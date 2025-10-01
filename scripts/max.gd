@@ -9,24 +9,32 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D   # sonidos de disparo
 @onready var pickup_sound: AudioStreamPlayer2D = $PickupSound           # sonido de recoger armas
-@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound #Sonido cuando recibe daño
-@onready var death_sound: AudioStreamPlayer2D = $DeathSound #Sonido cuando muere
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound               # Sonido cuando recibe daño
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound             # Sonido cuando muere
 
-#Variable relacionada a la barra de vida
-@onready var heart_container = get_tree().root.get_node("main/CanvasLayer/MarginContainer/HeartContainer")
+# Referencia a la UI persistente (barra de vida en main)
+var heart_container: Node = null
+
+var speed: float = 100.0
+var last_direction: String = "down"
+var is_shooting: bool = false
+var max_health: int = 30
+var current_health: int = 30
+
+var current_weapon: Weapon = null   # arma equipada actualmente
 
 
-var speed: float = 100.0 #Velocidad a la que se mueve
-var last_direction: String = "down" #Ultima dirección.
-var is_shooting: bool = false #Bandera para saber si está o no disparando.
-var max_health: int = 30 #Vida máxima de Max
-var current_health: int = 30 #Vida actual de Max (cambia cuando le hacen daño)
-
-var current_weapon: Weapon = null   # aquí guardamos el arma equipada
-
+# ----------------- READY -----------------
 func _ready() -> void:
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
+	# Buscar el heart_container en Main (solo una vez al iniciar)
+	var main = get_tree().root.get_node("main")
+	if main:
+		heart_container = main.get_node("CanvasLayer/MarginContainer/HeartContainer")
+
+
+# ----------------- PHYSICS -----------------
 func _physics_process(delta: float) -> void:
 	if is_shooting:
 		velocity = Vector2.ZERO
@@ -46,7 +54,8 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		shoot()
 
-# ----------------- Input -----------------
+
+# ----------------- INPUT -----------------
 func get_input() -> void:
 	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 
@@ -63,12 +72,14 @@ func get_input() -> void:
 	update_animation("walk")
 	velocity = input_direction * speed
 
-# ----------------- Animaciones -----------------
+
+# ----------------- ANIMACIONES -----------------
 func update_animation(state: String) -> void:
 	if not is_shooting:
 		animated_sprite.play(state + "_" + last_direction)
 
-# ----------------- Arma y disparo -----------------
+
+# ----------------- ARMAS -----------------
 func equip_weapon(new_weapon: Weapon) -> void:
 	current_weapon = new_weapon
 	print("Jugador ahora tiene:", current_weapon.name)
@@ -93,70 +104,62 @@ func shoot() -> void:
 			bullet.global_position = muzzle_down.global_position
 			bullet.direction = Vector2.DOWN
 
-	bullet.target_group = "enemies" #Esta bala dañará a enemigos.
+	bullet.target_group = "enemies"
 	get_parent().add_child(bullet)
 
-	# 🎵 reproducir sonido del arma
+	# 🎵 sonido disparo
 	if current_weapon.shoot_sound != null:
 		audio_player.stream = current_weapon.shoot_sound
 		audio_player.play()
 
-# ----------------- Sonido de recoger armas -----------------
-func play_pickup_sound() -> void:
-	if pickup_sound.stream != null:
-		pickup_sound.play()
 
-# ----------------- Callback -----------------
+# ----------------- CALLBACK ANIMACION -----------------
 func _on_animation_finished() -> void:
 	if current_weapon == null:
 		return
-		
 	if animated_sprite.animation.begins_with(current_weapon.shoot_anim_prefix):
 		is_shooting = false
 		update_animation("idle")
-		
-# ----------------- funcion para recibir daño -----------------
+
+
+# ----------------- VIDA -----------------
 func take_damage(amount: int, source_position: Vector2 = global_position) -> void:
 	current_health -= amount
 	print("Jugador recibió daño: ", amount, " Vida restante: ", current_health)
-	
-	# Actualizar UI
-	heart_container.update_hearts(current_health) # 👈 ajustamos porque tu vida está en 3000
-	
-	# Reproducir sonido de daño
+
+	# 🔴 Actualizar UI solo si existe referencia
+	if heart_container:
+		heart_container.update_hearts(current_health)
+
+	# 🎵 sonido de daño
 	if hurt_sound.stream != null:
 		hurt_sound.play()
-		
-	# Efecto visual (flash rojo)
+
+	# flash rojo
 	animated_sprite.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.1).timeout
 	animated_sprite.modulate = Color(1, 1, 1)
-	
-	# Si la vida llega a 0
+
+	# muerte
 	if current_health <= 0: 
 		die()
-		
-	
-		
-# ----------------- funcion de muerte -----------------		
+
+
+# ----------------- MUERTE -----------------
 func die() -> void:
 	print("Jugador ha muerto")
-	
-	# Reproducir sonido de muerte
+
 	if death_sound.stream != null:
 		death_sound.play()
-	
-	# Reproducir animación según la última dirección
+
 	var death_anim = "death_" + last_direction
 	animated_sprite.play(death_anim)
-	
-	# Detener movimiento y disparo
+
 	velocity = Vector2.ZERO
 	is_shooting = true
-	
-	# Esperar a que termine la animación para eliminar el nodo
+
 	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"))
 
-# ----------------- funcion fin de muerte  -----------------		
+
 func _on_death_animation_finished():
-	queue_free()  # Elimina el nodo del jugador una vez ya terminó de reproducirse su animación de muerte.
+	queue_free()

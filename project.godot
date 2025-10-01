@@ -18,13 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 AudioManager="*res://scripts/AudioManager.gd"
+PlayerData="*res://scripts/Autoloads/PlayerData.gd"
+RoomManager="*res://scripts/Autoloads/RoomManager.gd"
+UIManager="*res://scripts/Autoloads/UIManager.gd"
 
 [display]
 
-window/size/viewport_width=192
-window/size/viewport_height=108
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 
 [editor]

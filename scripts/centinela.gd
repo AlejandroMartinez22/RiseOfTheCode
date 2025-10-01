@@ -1,30 +1,33 @@
 extends CharacterBody2D
 
-@onready var player = get_node("/root/main/Max")
 @onready var muzzle: Marker2D = $Muzzle
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 
 @export var data: EnemyData                # Recurso con stats
 @export var projectile_scene: PackedScene  # Escena del proyectil
-@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound  # Sonido de daño
-@onready var death_sound: AudioStreamPlayer2D = $DeathSound  # Sonido de daño
-@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound  # Referencia al sonido de disparo
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 
-
+var player: Node = null
 var health: int
 var _can_shoot: bool = true
-var last_direction: String = "down"  # Dirección inicial por defecto
-var is_dead: bool = false            # bandera para no repetir la muerte
+var last_direction: String = "down"
+var is_dead: bool = false
 
 func _ready() -> void:
 	health = data.max_health
-	update_animation()  # empezamos en idle_down
+	update_animation()
+
+	# Buscar al jugador en el grupo "player"
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
+	else:
+		push_warning("⚠️ No se encontró al jugador en la escena")
 
 func _physics_process(delta: float) -> void:
-	if is_dead:
-		return
-
-	if not player:
+	if is_dead or player == null:
 		return
 
 	var dist = global_position.distance_to(player.global_position)
@@ -34,15 +37,12 @@ func _physics_process(delta: float) -> void:
 		var dir = global_position.direction_to(player.global_position)
 		velocity = dir * data.speed
 		move_and_slide()
-
-		# Actualizar dirección según el vector
 		update_direction(dir)
 		update_animation()
 	else:
 		# Parar y disparar
 		velocity = Vector2.ZERO
 		move_and_slide()
-
 		update_animation()
 
 		if _can_shoot and projectile_scene != null:

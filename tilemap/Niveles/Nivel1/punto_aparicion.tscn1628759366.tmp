@@ -1,15 +1,16 @@
-[gd_scene load_steps=27 format=4 uid="uid://b2dcfj6dhkspb"]
+[gd_scene load_steps=29 format=4 uid="uid://b2dcfj6dhkspb"]
 
-[ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_lt4d2"]
-[ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="2_xr1vv"]
-[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_6i2cx"]
-[ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="4_6745u"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="5_075xm"]
-[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/lasergun.tscn" id="6_hdsv0"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/centinela.tscn" id="7_1j36r"]
+[ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_s03og"]
+[ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="2_w0ll6"]
+[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_1jhvr"]
+[ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="4_i40hw"]
+[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="5_i58mu"]
+[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/lasergun.tscn" id="6_p152d"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/centinela.tscn" id="7_a3gtg"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="8_ufxfa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmnho"]
-texture = ExtResource("1_lt4d2")
+texture = ExtResource("1_s03og")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -174,7 +175,7 @@ texture = ExtResource("1_lt4d2")
 17:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eevyp"]
-texture = ExtResource("2_xr1vv")
+texture = ExtResource("2_w0ll6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -241,7 +242,7 @@ texture = ExtResource("2_xr1vv")
 7:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_skii8"]
-texture = ExtResource("3_6i2cx")
+texture = ExtResource("3_1jhvr")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -483,7 +484,7 @@ sources/1 = SubResource("TileSetAtlasSource_eevyp")
 sources/2 = SubResource("TileSetAtlasSource_skii8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmmuc"]
-texture = ExtResource("3_6i2cx")
+texture = ExtResource("3_1jhvr")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -722,7 +723,7 @@ texture = ExtResource("3_6i2cx")
 sources/0 = SubResource("TileSetAtlasSource_kmmuc")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cg0l7"]
-texture = ExtResource("3_6i2cx")
+texture = ExtResource("3_1jhvr")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -958,7 +959,7 @@ texture = ExtResource("3_6i2cx")
 12:17/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0dma"]
-texture = ExtResource("4_6745u")
+texture = ExtResource("4_i40hw")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1139,7 +1140,7 @@ sources/0 = SubResource("TileSetAtlasSource_cg0l7")
 sources/2 = SubResource("TileSetAtlasSource_t0dma")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dd4b6"]
-texture = ExtResource("2_xr1vv")
+texture = ExtResource("2_w0ll6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1239,6 +1240,9 @@ b = Vector2(225, 238)
 a = Vector2(-2, 0)
 b = Vector2(-2, 200)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y010p"]
+size = Vector2(43, 27)
+
 [node name="PuntoAparicion" type="Node2D"]
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -1256,14 +1260,8 @@ position = Vector2(-507, -366)
 tile_map_data = PackedByteArray("AAAlACIAAAAKAAIAAAAlACMAAAAKAAMAAAAmACIAAAALAAIAAAAmACMAAAALAAMAAAAnACIAAAAMAAIAAAAnACMAAAAMAAMAAAAhACAAAAAJAAAAAAAhACEAAAAJAAEAAAAiACAAAAALAAAAAAAiACEAAAALAAEAAAApAB8AAAAAAAIAAAApACAAAAAAAAMAAAAqAB8AAAABAAIAAAAqACAAAAABAAMAAAArAB8AAAACAAIAAAArACAAAAACAAMAAAAnABgAAAAGAAQAAAAnABkAAAAGAAUAAAAnABoAAAAGAAYAAAAoABgAAAAHAAQAAAAoABkAAAAHAAUAAAAoABoAAAAHAAYAAAApABgAAAAIAAQAAAApABkAAAAIAAUAAAApABoAAAAIAAYAAAAqABgAAAAGAAQAAAAqABkAAAAGAAUAAAAqABoAAAAGAAYAAAArABgAAAAHAAQAAAArABkAAAAHAAUAAAArABoAAAAHAAYAAAAsABgAAAAIAAQAAAAsABkAAAAIAAUAAAAsABoAAAAIAAYAAAAmABgAAAAGAAcAAAAmABkAAAAGAAgAAAAmABoAAAAGAAkAAAAhABgAAgAAAAYAAAAhABkAAgAAAAYAAAAhABoAAgAAAAcAAAAhABsAAgAAAAgAAAAhABwAAgAAAAkAAAAiABgAAgABAAYAAAAiABkAAgABAAYAAAAiABoAAgABAAcAAAAiABsAAgABAAgAAAAiABwAAgABAAkAAAAgABgAAgAAAAYAAAAgABkAAgAAAAEAAAAgABoAAgAAAAIAAAAgABsAAgAAAAMAAAAgABwAAgAAAAQAAAAiABcAAgABAAUAAAAgABcAAgAAAAUAAAAhABcAAgAAAAUAAAAkABcAAgAGAAgAAAAkABgAAgAGAAkAAAAlABcAAgAHAAgAAAAlABgAAgAHAAkAAAA=")
 tile_set = SubResource("TileSet_hmkn5")
 
-[node name="Max" parent="." instance=ExtResource("5_075xm")]
+[node name="Max" parent="." instance=ExtResource("5_i58mu")]
 position = Vector2(194, 213)
-
-[node name="Camera2D" type="Camera2D" parent="Max"]
-limit_left = 0
-limit_top = 0
-limit_right = 235
-limit_bottom = 248
 
 [node name="Items pequeños" type="TileMapLayer" parent="."]
 position = Vector2(-507, -367)
@@ -1308,11 +1306,20 @@ shape = SubResource("SegmentShape2D_r2y3u")
 position = Vector2(232, 43)
 shape = SubResource("SegmentShape2D_wkm37")
 
-[node name="lasergun" parent="." instance=ExtResource("6_hdsv0")]
+[node name="lasergun" parent="." instance=ExtResource("6_p152d")]
 position = Vector2(85, 102)
 
-[node name="Centinela" parent="." instance=ExtResource("7_1j36r")]
+[node name="Centinela" parent="." instance=ExtResource("7_a3gtg")]
 position = Vector2(86, 206)
 
-[node name="Centinela2" parent="." instance=ExtResource("7_1j36r")]
+[node name="Centinela2" parent="." instance=ExtResource("7_a3gtg")]
 position = Vector2(69.000015, 59)
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(33, -29)
+collision_layer = 16
+script = ExtResource("8_ufxfa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-6.5, 45.5)
+shape = SubResource("RectangleShape2D_y010p")

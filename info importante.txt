@@ -24,5 +24,4 @@ de manera que pueda concluir su reproducción incluso cuando el nodo del enemigo
 se eliminó. Se opta por usar un singleton dado que habrán varios enemigos
 en el juego, y es bastante probable que requiramos una lógica similar en caad uno.
 
-
-Te pongo en contexto, estoy desarrollando un juego en Godot 4.5, que consiste en un shooter top-down de robots, donde el jugador debe acabar con la revolución androide. De momento tengo un personaje llamado Max, un enemigo llamado Centinela, un arma llamada Lasegun, la cual se puede recoger del suelo. El enemigo y el arma usan recursos, dado que pienso implementar varios en el juego y estos comparten "datos en comun".
+mas adelante podemos agregar drag a la camara.
