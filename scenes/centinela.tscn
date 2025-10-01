@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://dbdyifuuy4mam"]
+[gd_scene load_steps=144 format=3 uid="uid://dbdyifuuy4mam"]
 
 [ext_resource type="Script" uid="uid://oj521qde1kh" path="res://scripts/centinela.gd" id="1_6bf67"]
 [ext_resource type="PackedScene" uid="uid://5ln5tj85esio" path="res://scenes/red_bullet.tscn" id="2_5cexr"]
@@ -943,6 +943,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mk7ei"]
 radius = 8.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ee4f3"]
+radius = 140.0
+
 [node name="Centinela" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
@@ -954,10 +957,11 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hodlo")
-animation = &"death_up"
+animation = &"idle_left"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_mk7ei")
 
 [node name="Muzzle" type="Marker2D" parent="."]
@@ -970,3 +974,10 @@ stream = ExtResource("9_eru0e")
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_46j34")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_ee4f3")
+debug_color = Color(0.6705698, 0.4761665, 0.49705625, 0.41960785)

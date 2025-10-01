@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/TopDownHouse_FurnitureState1.png" id="3_y25nu"]
 [ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_g4fki"]
 [ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/centinela.tscn" id="5_2xamf"]
-[ext_resource type="Script" path="res://scripts/exit.gd" id="6_q8hm8"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="6_q8hm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7lvi"]
 texture = ExtResource("1_4lsl3")
@@ -1284,14 +1284,14 @@ position = Vector2(255, 154)
 [node name="BibliotecaRightSpawn" type="Marker2D" parent="."]
 position = Vector2(720, 147)
 
-[node name="Centinela" parent="." instance=ExtResource("5_2xamf")]
-position = Vector2(315, 459)
-
-[node name="Centinela2" parent="." instance=ExtResource("5_2xamf")]
-position = Vector2(469, 360)
-
 [node name="Centinela3" parent="." instance=ExtResource("5_2xamf")]
-position = Vector2(788, 364)
+position = Vector2(793, 397)
+
+[node name="Centinela4" parent="." instance=ExtResource("5_2xamf")]
+position = Vector2(471.00003, 279)
+
+[node name="Centinela5" parent="." instance=ExtResource("5_2xamf")]
+position = Vector2(332, 493)
 
 [node name="ExitToRecepcion" type="Area2D" parent="."]
 script = ExtResource("6_q8hm8")

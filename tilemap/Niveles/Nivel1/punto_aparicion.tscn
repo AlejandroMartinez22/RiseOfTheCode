@@ -1320,7 +1320,7 @@ shape = SubResource("RectangleShape2D_y010p")
 position = Vector2(26, 50)
 
 [node name="Centinela" parent="." instance=ExtResource("7_a3gtg")]
-position = Vector2(198, 81)
+position = Vector2(218, 102)
 
 [node name="Centinela2" parent="." instance=ExtResource("7_a3gtg")]
 position = Vector2(52, 221)
