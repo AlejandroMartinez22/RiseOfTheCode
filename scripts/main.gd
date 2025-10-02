@@ -24,4 +24,4 @@ func _ready() -> void:
 	UIManager.update_hearts()
 
 	# Cargar la sala inicial
-	RoomManager.load_room("res://tilemap/Niveles/Nivel1/punto_aparicion.tscn")
+	RoomManager.load_room("res://scenes/map/level1/recepcion.tscn")

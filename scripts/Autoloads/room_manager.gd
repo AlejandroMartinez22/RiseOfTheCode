@@ -8,6 +8,7 @@ func register_main(main_node: Node) -> void:
 	main_ref = main_node
 
 func load_room(path: String, spawn_name: String = "RecepcionSpawn") -> void:
+	
 	# --- Validar referencia a main ---
 	if main_ref == null:
 		if get_tree().root.has_node("main"):
