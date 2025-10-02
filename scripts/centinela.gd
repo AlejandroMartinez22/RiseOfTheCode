@@ -14,6 +14,11 @@ extends CharacterBody2D
 @export var stick_on_detection: bool = true    # si true, una vez detectado no deja de perseguir aunque salga del area
 @export var smoothing_factor: float = 0.0      # 0 = sin suavizado, 0.2 = suave. Ajusta a gusto.
 
+#Explosion del centinela. Se le asigna un radio, y un daño.
+@export var explosion_radius: float = 35.0 #Concuerda exactamente con el áre de explosión en el sprite de muerte.
+@export var explosion_damage: int = 10
+
+
 var player: Node = null
 var health: int
 var _can_shoot: bool = true
@@ -145,6 +150,22 @@ func take_damage(amount: int) -> void:
 	if health <= 0:
 		die()
 
+# ---------- Funcion para hacer daño en área ----------
+func explode_damage() -> void:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsShapeQueryParameters2D.new()
+	query.shape = CircleShape2D.new()
+	query.shape.radius = explosion_radius
+	query.transform = Transform2D(0, global_position)
+
+	var results = space_state.intersect_shape(query)
+
+	for res in results:
+		var body = res.collider
+		if body != null and body.is_in_group("player"):
+			if body.has_method("take_damage"):
+				body.take_damage(explosion_damage)
+
 # ---------------- Muerte ----------------
 func die() -> void:
 	is_dead = true
@@ -152,11 +173,14 @@ func die() -> void:
 	_can_shoot = false
 	if death_sound.stream != null:
 		AudioManager.play_sound(death_sound.stream, global_position, 3)
+		
 	var death_anim = "death_" + last_direction
 	if animated_sprite.sprite_frames.has_animation(death_anim):
 		animated_sprite.play(death_anim)
 	else:
-		animated_sprite.play("death_down")
+		animated_sprite.play("death_down") #El animated sprite dibuja las imagenes del centinela "Muriendo"
+	
+	$AnimationPlayer.play("death_explode") #El animationplayer, controla propiedades de los nodos, para hacer que la onda expansiva de la explosión se vea más grande.
 	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"), CONNECT_ONE_SHOT)
 
 func _on_death_animation_finished() -> void:

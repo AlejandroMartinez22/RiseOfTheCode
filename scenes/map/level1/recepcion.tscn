@@ -1320,8 +1320,6 @@ shape = SubResource("RectangleShape2D_y010p")
 [node name="RecepcionSpawn" type="Marker2D" parent="."]
 position = Vector2(26, 50)
 
-[node name="Centinela" parent="." instance=ExtResource("7_7o5u7")]
-position = Vector2(218, 102)
-
 [node name="Centinela2" parent="." instance=ExtResource("7_7o5u7")]
-position = Vector2(52, 221)
+position = Vector2(182, 99)
+scale = Vector2(0.8, 0.8)
