@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clvixb82gbyr7"
-path="res://.godot/imported/TopDownHouse_FurnitureState1.png-3e3744b48a13ededbe52b0619dd89587.ctex"
+uid="uid://djarnwa67mtso"
+path="res://.godot/imported/Adam_run_16x16.png-e517caa0d8f1d4cb6ce1958da5f7b213.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemap/TopDownHouse_FurnitureState1.png"
-dest_files=["res://.godot/imported/TopDownHouse_FurnitureState1.png-3e3744b48a13ededbe52b0619dd89587.ctex"]
+source_file="res://tilemap/Tilesets/Modern tiles_Free/Characters_free/Adam_run_16x16.png"
+dest_files=["res://.godot/imported/Adam_run_16x16.png-e517caa0d8f1d4cb6ce1958da5f7b213.ctex"]
 
 [params]
 

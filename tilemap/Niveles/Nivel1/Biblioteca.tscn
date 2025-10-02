@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="1_4lsl3"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_i5qlv"]
-[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/TopDownHouse_FurnitureState1.png" id="3_y25nu"]
+[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_y25nu"]
 [ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_g4fki"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/centinela.tscn" id="5_2xamf"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="5_2xamf"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="6_q8hm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7lvi"]

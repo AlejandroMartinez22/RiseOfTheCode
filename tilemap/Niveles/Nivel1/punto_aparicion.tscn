@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_s03og"]
 [ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="2_w0ll6"]
-[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/TopDownHouse_FurnitureState1.png" id="3_1jhvr"]
+[ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_1jhvr"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://tilemap/Tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="4_i40hw"]
-[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/lasergun.tscn" id="6_p152d"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/centinela.tscn" id="7_a3gtg"]
+[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/weapons/lasergun.tscn" id="6_p152d"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="7_a3gtg"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="8_ufxfa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmnho"]
@@ -1317,7 +1317,7 @@ position = Vector2(-6.5, 45.5)
 shape = SubResource("RectangleShape2D_y010p")
 
 [node name="RecepcionSpawn" type="Marker2D" parent="."]
-position = Vector2(26, 50)
+position = Vector2(198, 225)
 
 [node name="Centinela" parent="." instance=ExtResource("7_a3gtg")]
 position = Vector2(218, 102)
