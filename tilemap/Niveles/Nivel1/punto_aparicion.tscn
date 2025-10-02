@@ -1240,7 +1240,7 @@ a = Vector2(-2, 0)
 b = Vector2(-2, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y010p"]
-size = Vector2(43, 27)
+size = Vector2(43, 13)
 
 [node name="PuntoAparicion" type="Node2D"]
 
@@ -1313,14 +1313,17 @@ script = ExtResource("8_ufxfa")
 spawn_name = "BibliotecaLeftSpawn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToBiblioteca"]
-position = Vector2(-6.5, 45.5)
+position = Vector2(-6.5, 38.5)
 shape = SubResource("RectangleShape2D_y010p")
 
 [node name="RecepcionSpawn" type="Marker2D" parent="."]
-position = Vector2(198, 225)
+position = Vector2(25, 56)
 
 [node name="Centinela" parent="." instance=ExtResource("7_a3gtg")]
 position = Vector2(218, 102)
 
 [node name="Centinela2" parent="." instance=ExtResource("7_a3gtg")]
 position = Vector2(52, 221)
+
+[node name="Centinela3" parent="." instance=ExtResource("7_a3gtg")]
+position = Vector2(179.99998, 223)

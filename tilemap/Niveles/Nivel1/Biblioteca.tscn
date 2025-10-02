@@ -1258,7 +1258,7 @@ texture = ExtResource("4_g4fki")
 sources/0 = SubResource("TileSetAtlasSource_orvt3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gagq"]
-size = Vector2(30, 45.5)
+size = Vector2(30, 31.5)
 
 [node name="Biblioteca" type="Node2D"]
 
@@ -1279,7 +1279,7 @@ tile_map_data = PackedByteArray("AAATAA0AAAAAAAMAAAATABEAAAAAAAMAAAAaABYAAAAAAAM
 tile_set = SubResource("TileSet_llaq7")
 
 [node name="BibliotecaLeftSpawn" type="Marker2D" parent="."]
-position = Vector2(255, 154)
+position = Vector2(256, 157)
 
 [node name="BibliotecaRightSpawn" type="Marker2D" parent="."]
 position = Vector2(720, 147)
@@ -1299,5 +1299,5 @@ next_room_path = "res://tilemap/Niveles/Nivel1/punto_aparicion.tscn"
 spawn_name = "RecepcionSpawn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToRecepcion"]
-position = Vector2(256, 104.25)
+position = Vector2(256, 97.25)
 shape = SubResource("RectangleShape2D_3gagq")
