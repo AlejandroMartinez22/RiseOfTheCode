@@ -1304,7 +1304,7 @@ position = Vector2(232, 43)
 shape = SubResource("SegmentShape2D_wkm37")
 
 [node name="lasergun" parent="." instance=ExtResource("5_c7gus")]
-position = Vector2(85, 102)
+position = Vector2(-5, 90)
 
 [node name="ExitToBiblioteca" type="Area2D" parent="."]
 position = Vector2(33, -29)
@@ -1321,5 +1321,13 @@ shape = SubResource("RectangleShape2D_y010p")
 position = Vector2(26, 50)
 
 [node name="Centinela2" parent="." instance=ExtResource("7_7o5u7")]
-position = Vector2(182, 99)
+position = Vector2(120, 233)
+scale = Vector2(0.8, 0.8)
+
+[node name="Centinela3" parent="." instance=ExtResource("7_7o5u7")]
+position = Vector2(39, 228)
+scale = Vector2(0.8, 0.8)
+
+[node name="Centinela4" parent="." instance=ExtResource("7_7o5u7")]
+position = Vector2(203, 230)
 scale = Vector2(0.8, 0.8)

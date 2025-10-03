@@ -923,7 +923,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8k1"]
-size = Vector2(11, 22)
+size = Vector2(10, 20)
 
 [node name="Max" type="CharacterBody2D" groups=["player"]]
 z_index = 1
@@ -936,7 +936,7 @@ animation = &"death_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4j8k1")
 
 [node name="MuzzleDown" type="Marker2D" parent="."]

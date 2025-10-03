@@ -15,7 +15,7 @@ extends CharacterBody2D
 @export var smoothing_factor: float = 0.0      # 0 = sin suavizado, 0.2 = suave. Ajusta a gusto.
 
 #Explosion del centinela. Se le asigna un radio, y un daño.
-@export var explosion_radius: float = 35.0 #Concuerda exactamente con el áre de explosión en el sprite de muerte.
+@export var explosion_radius: float = 32.0 #Concuerda exactamente con el áre de explosión en el sprite de muerte.
 @export var explosion_damage: int = 10
 
 
