@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_qf2ty")
 max_health = 80
-fire_rate = 20.0
 damage = 0
 metadata/_custom_type_script = "uid://cad3hwulikt50"

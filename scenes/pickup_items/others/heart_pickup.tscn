@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://ghxs6h47yvtj"]
+
+[ext_resource type="Script" uid="uid://b1qf1mhgdse27" path="res://scripts/heart_pickup.gd" id="1_83c58"]
+[ext_resource type="Texture2D" uid="uid://bx250ycs8colw" path="res://sprites/pickup_items/others/hearth_idle.png" id="1_yj1dp"]
+[ext_resource type="AudioStream" uid="uid://x3hrjvbxkpl1" path="res://sounds/pickup_items/hearth_pickup.wav" id="2_ofayv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83c58"]
+atlas = ExtResource("1_yj1dp")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofayv"]
+atlas = ExtResource("1_yj1dp")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fcxj"]
+atlas = ExtResource("1_yj1dp")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryj6n"]
+atlas = ExtResource("1_yj1dp")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ta44"]
+atlas = ExtResource("1_yj1dp")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucu8b"]
+atlas = ExtResource("1_yj1dp")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_damna"]
+atlas = ExtResource("1_yj1dp")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6ji7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83c58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofayv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fcxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryj6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ta44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucu8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_damna")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yj1dp"]
+radius = 6.0
+
+[node name="HeartPickup" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_83c58")
+pickup_sound = ExtResource("2_ofayv")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t6ji7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_yj1dp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

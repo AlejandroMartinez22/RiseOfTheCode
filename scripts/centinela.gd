@@ -4,8 +4,10 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var detection_area: Area2D = $DetectionArea
 
-@export var data: EnemyData                # Recurso con stats
+@export var data: EnemyData   # Recurso con stats
 @export var projectile_scene: PackedScene  # Escena del proyectil
+@export var heart_pickup_scene: PackedScene #Escena del corazón que arroja el centinela al morir.
+
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
@@ -17,6 +19,8 @@ extends CharacterBody2D
 #Explosion del centinela. Se le asigna un radio, y un daño.
 @export var explosion_radius: float = 32.0 #Concuerda exactamente con el áre de explosión en el sprite de muerte.
 @export var explosion_damage: int = 10
+
+
 
 
 var player: Node = null
@@ -171,6 +175,7 @@ func die() -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
 	_can_shoot = false
+	
 	if death_sound.stream != null:
 		AudioManager.play_sound(death_sound.stream, global_position, 3)
 		
@@ -184,4 +189,8 @@ func die() -> void:
 	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"), CONNECT_ONE_SHOT)
 
 func _on_death_animation_finished() -> void:
+	if heart_pickup_scene:
+		var heart = heart_pickup_scene.instantiate()
+		heart.global_position = global_position
+		get_parent().add_child(heart)
 	queue_free()

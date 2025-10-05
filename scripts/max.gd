@@ -7,9 +7,9 @@ extends CharacterBody2D
 @onready var muzzle_up: Marker2D = $MuzzleUp
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D   # sonidos de disparo         # sonido de recoger armas
-@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound               # Sonido cuando recibe daño
-@onready var death_sound: AudioStreamPlayer2D = $DeathSound             # Sonido cuando muere
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 # Referencia a la UI persistente (barra de vida en main)
 var heart_container: Node = null
@@ -17,23 +17,27 @@ var heart_container: Node = null
 var speed: float = 100.0
 var last_direction: String = "down"
 var is_shooting: bool = false
+
+# Mantengo variables locales solo para uso interno/visual; siempre las sincronizo con PlayerData
 var max_health: int = 30
 var current_health: int = 30
 
-var current_weapon: Weapon = null   # arma equipada actualmente
+var current_weapon: Weapon = null
 
-
-# ----------------- READY -----------------
 func _ready() -> void:
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
-	# Buscar el heart_container en Main (solo una vez al iniciar)
 	var main = get_tree().root.get_node("main")
 	if main:
 		heart_container = main.get_node("CanvasLayer/MarginContainer/HeartContainer")
 
+	# --- sincronizar con PlayerData (PlayerData es la fuente de verdad) ---
+	max_health = PlayerData.max_health
+	current_health = PlayerData.current_health
+	# Aseguramos que la UI muestre el valor real al inicio
+	UIManager.update_hearts()
 
-# ----------------- PHYSICS -----------------
+
 func _physics_process(delta: float) -> void:
 	if is_shooting:
 		velocity = Vector2.ZERO
@@ -43,7 +47,6 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 
-	# 🔫 disparo
 	if current_weapon != null and Input.is_action_just_pressed("shoot"):
 		var anim_name = current_weapon.shoot_anim_prefix + "_" + last_direction
 		animated_sprite.play(anim_name)
@@ -54,7 +57,6 @@ func _physics_process(delta: float) -> void:
 		shoot()
 
 
-# ----------------- INPUT -----------------
 func get_input() -> void:
 	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 
@@ -72,16 +74,15 @@ func get_input() -> void:
 	velocity = input_direction * speed
 
 
-# ----------------- ANIMACIONES -----------------
 func update_animation(state: String) -> void:
 	if not is_shooting:
 		animated_sprite.play(state + "_" + last_direction)
 
 
-# ----------------- ARMAS -----------------
 func equip_weapon(new_weapon: Weapon) -> void:
 	current_weapon = new_weapon
 	print("Jugador ahora tiene:", current_weapon.name)
+
 
 func shoot() -> void:
 	if current_weapon == null:
@@ -106,13 +107,11 @@ func shoot() -> void:
 	bullet.target_group = "enemies"
 	get_parent().add_child(bullet)
 
-	# 🎵 sonido disparo
 	if current_weapon.shoot_sound != null:
 		audio_player.stream = current_weapon.shoot_sound
 		audio_player.play()
 
 
-# ----------------- CALLBACK ANIMACION -----------------
 func _on_animation_finished() -> void:
 	if current_weapon == null:
 		return
@@ -121,16 +120,19 @@ func _on_animation_finished() -> void:
 		update_animation("idle")
 
 
-# ----------------- VIDA -----------------
+# ----------------- VIDA (ahora usando PlayerData como fuente de verdad) -----------------
 func take_damage(amount: int, source_position: Vector2 = global_position) -> void:
-	current_health -= amount
-	print("Jugador recibió daño: ", amount, " Vida restante: ", current_health)
+	# Reducimos la vida en el singleton
+	PlayerData.current_health = max(PlayerData.current_health - amount, 0)
+	# sincronizamos la variable local para que el nodo jugador refleje el valor
+	current_health = PlayerData.current_health
 
-	# 🔴 Actualizar UI solo si existe referencia
-	if heart_container:
-		heart_container.update_hearts(current_health)
+	print("Jugador recibió daño: ", amount, " Vida restante: ", PlayerData.current_health)
 
-	# 🎵 sonido de daño
+	# Actualizar UI (UIManager lee PlayerData.current_health)
+	UIManager.update_hearts()
+
+	# sonido de daño
 	if hurt_sound.stream != null:
 		hurt_sound.play()
 
@@ -140,11 +142,10 @@ func take_damage(amount: int, source_position: Vector2 = global_position) -> voi
 	animated_sprite.modulate = Color(1, 1, 1)
 
 	# muerte
-	if current_health <= 0: 
+	if PlayerData.current_health <= 0:
 		die()
 
 
-# ----------------- MUERTE -----------------
 func die() -> void:
 	print("Jugador ha muerto")
 
