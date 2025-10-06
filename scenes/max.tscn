@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://ktee235li1nw" path="res://sprites/character/idle/idle_right.png" id="8_oq0i6"]
 [ext_resource type="Texture2D" uid="uid://xdw0ut3rx4pl" path="res://sprites/character/walk/walk_down.png" id="10_dcjt2"]
 [ext_resource type="Texture2D" uid="uid://by534pjt606eu" path="res://sprites/character/shoot/shoot_down.png" id="11_bjxn5"]
-[ext_resource type="Texture2D" uid="uid://cch1e1bumpfow" path="res://sprites/character/walk/walk_left_down.png" id="11_l71ll"]
+[ext_resource type="Texture2D" uid="uid://cch1e1bumpfow" path="res://sprites/character/walk/walk_left.png" id="11_l71ll"]
 [ext_resource type="Texture2D" uid="uid://b42lm7sxnfta7" path="res://sprites/character/shoot/shoot_left.png" id="12_4hr25"]
-[ext_resource type="Texture2D" uid="uid://jn4hiu2xpr0l" path="res://sprites/character/walk/walk_right_down.png" id="12_5wl07"]
+[ext_resource type="Texture2D" uid="uid://jn4hiu2xpr0l" path="res://sprites/character/walk/walk_right.png" id="12_5wl07"]
 [ext_resource type="Texture2D" uid="uid://bq588yxj8h8af" path="res://sprites/character/walk/walk_up.png" id="13_oh8p3"]
 [ext_resource type="Texture2D" uid="uid://cbfbq8j7hunps" path="res://sprites/character/shoot/shoot_right.png" id="13_oq0i6"]
 [ext_resource type="AudioStream" uid="uid://ck5nlkvgi730m" path="res://sounds/player/hurt_sound.wav" id="18_dcjt2"]
@@ -927,7 +927,7 @@ size = Vector2(10, 20)
 
 [node name="Max" type="CharacterBody2D" groups=["player"]]
 z_index = 1
-collision_mask = 26
+collision_mask = 58
 script = ExtResource("1_fnx0a")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]

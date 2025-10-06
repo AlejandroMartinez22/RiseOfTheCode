@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://c8jm8csxeipam"]
+[gd_scene load_steps=19 format=4 uid="uid://c8jm8csxeipam"]
 
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="1_36u8j"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_d7364"]
 [ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_2f40q"]
 [ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_w08wb"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="5_jil4g"]
-[ext_resource type="Script" path="res://scripts/exit.gd" id="6_eyx0w"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="6_eyx0w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7lvi"]
 texture = ExtResource("1_36u8j")
@@ -1288,15 +1287,6 @@ position = Vector2(255, 154)
 [node name="BibliotecaRightSpawn" type="Marker2D" parent="."]
 position = Vector2(720, 147)
 
-[node name="Centinela3" parent="." instance=ExtResource("5_jil4g")]
-position = Vector2(794, 399)
-
-[node name="Centinela4" parent="." instance=ExtResource("5_jil4g")]
-position = Vector2(471.00003, 279)
-
-[node name="Centinela5" parent="." instance=ExtResource("5_jil4g")]
-position = Vector2(332, 493)
-
 [node name="ExitToRecepcion" type="Area2D" parent="."]
 script = ExtResource("6_eyx0w")
 next_room_path = "res://tilemap/Niveles/Nivel1/punto_aparicion.tscn"
@@ -1313,6 +1303,8 @@ position = Vector2(161, 131)
 shape = SubResource("WorldBoundaryShape2D_hl2de")
 
 [node name="Objetos" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objetos"]
 polygon = PackedVector2Array(160, 160, 176, 160, 176, 353, 160, 353)

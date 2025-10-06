@@ -1,0 +1,19 @@
+[gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://ckvsxk6g3qb3p"]
+
+[ext_resource type="Texture2D" uid="uid://cjhc6sx27pbj3" path="res://sprites/UI/hearth_full_1.png" id="1_bsuax"]
+[ext_resource type="Texture2D" uid="uid://brekg3gq7e1lx" path="res://sprites/UI/hearth_full_2.png" id="2_573ir"]
+
+[resource]
+frames = 6
+frame_0/texture = ExtResource("1_bsuax")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("2_573ir")
+frame_1/duration = 0.3
+frame_2/texture = ExtResource("1_bsuax")
+frame_2/duration = 0.3
+frame_3/texture = ExtResource("2_573ir")
+frame_3/duration = 0.3
+frame_4/texture = ExtResource("2_573ir")
+frame_4/duration = 0.3
+frame_5/texture = ExtResource("1_bsuax")
+frame_5/duration = 0.3

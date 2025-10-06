@@ -1,44 +1,52 @@
 extends CharacterBody2D
+#Script que controla el comportamiento principal del jugador "Max":
 
-# Markers para definir de donde sale el proyectil al disparar.
+#  MARKERS (puntos desde donde se disparan los proyectiles)
 @onready var muzzle_down: Marker2D = $MuzzleDown
 @onready var muzzle_right: Marker2D = $MuzzleRight
 @onready var muzzle_left: Marker2D = $MuzzleLeft
 @onready var muzzle_up: Marker2D = $MuzzleUp
 
+# COMPONENTES (nodos hijos importantes del jugador)
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
-# Referencia a la UI persistente (barra de vida en main)
-var heart_container: Node = null
+# REFERENCIAS EXTERNAS
+var heart_container: Node = null     # Referencia a la UI de corazones
+var current_weapon: Weapon = null    # Arma equipada actualmente
 
-var speed: float = 100.0
-var last_direction: String = "down"
-var is_shooting: bool = false
+# VARIABLES DE MOVIMIENTO Y ESTADO
+var speed: float = 100.0             # Velocidad de movimiento
+var last_direction: String = "down"  # Última dirección movida (para animaciones)
+var is_shooting: bool = false        # Indica si el jugador está en medio de una animación de disparo
+var is_dead: bool = false        	 # Indica si el jugador ha muerto
 
-# Mantengo variables locales solo para uso interno/visual; siempre las sincronizo con PlayerData
+# SISTEMA DE VIDA (sincronizado con PlayerData)
 var max_health: int = 30
 var current_health: int = 30
 
-var current_weapon: Weapon = null
-
+# FUNCIONES PRINCIPALES
 func _ready() -> void:
+	# Conectar evento de animación terminada
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
+	# Buscar referencia a la UI en el nodo principal
 	var main = get_tree().root.get_node("main")
 	if main:
 		heart_container = main.get_node("CanvasLayer/MarginContainer/HeartContainer")
 
-	# --- sincronizar con PlayerData (PlayerData es la fuente de verdad) ---
+	# Sincronizar datos locales con PlayerData (singleton global)
 	max_health = PlayerData.max_health
 	current_health = PlayerData.current_health
-	# Aseguramos que la UI muestre el valor real al inicio
+
+	# Actualizar la interfaz de vida al iniciar
 	UIManager.update_hearts()
 
 
 func _physics_process(delta: float) -> void:
+	# Si el jugador está disparando, no puede moverse
 	if is_shooting:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -47,16 +55,16 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 
+	# Control del disparo
 	if current_weapon != null and Input.is_action_just_pressed("shoot"):
 		var anim_name = current_weapon.shoot_anim_prefix + "_" + last_direction
 		animated_sprite.play(anim_name)
 		animated_sprite.speed_scale = current_weapon.shoot_speed_scale
-
 		is_shooting = true
 		velocity = Vector2.ZERO
 		shoot()
 
-
+# ENTRADA Y ANIMACIONES
 func get_input() -> void:
 	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 
@@ -65,6 +73,7 @@ func get_input() -> void:
 		update_animation("idle")
 		return
 
+	# Determinar la dirección principal (horizontal o vertical)
 	if abs(input_direction.x) > abs(input_direction.y):
 		last_direction = "right" if input_direction.x > 0 else "left"
 	else:
@@ -73,23 +82,26 @@ func get_input() -> void:
 	update_animation("walk")
 	velocity = input_direction * speed
 
-
 func update_animation(state: String) -> void:
+	# Evita reproducir otras animaciones durante el disparo
 	if not is_shooting:
 		animated_sprite.play(state + "_" + last_direction)
 
 
+# ARMAS Y DISPAROS
 func equip_weapon(new_weapon: Weapon) -> void:
 	current_weapon = new_weapon
 	print("Jugador ahora tiene:", current_weapon.name)
 
-
+# Funcion para disparar
 func shoot() -> void:
 	if current_weapon == null:
 		return
 
+	# Instanciar el proyectil del arma actual
 	var bullet = current_weapon.projectile_scene.instantiate()
 
+	# Posicionar y orientar el proyectil según la dirección
 	match last_direction:
 		"right":
 			bullet.global_position = muzzle_right.global_position
@@ -107,12 +119,14 @@ func shoot() -> void:
 	bullet.target_group = "enemies"
 	get_parent().add_child(bullet)
 
+	# Reproducir sonido de disparo
 	if current_weapon.shoot_sound != null:
 		audio_player.stream = current_weapon.shoot_sound
 		audio_player.play()
 
 
 func _on_animation_finished() -> void:
+	# Cuando termina la animación de disparo, se vuelve a estado idle
 	if current_weapon == null:
 		return
 	if animated_sprite.animation.begins_with(current_weapon.shoot_anim_prefix):
@@ -120,33 +134,34 @@ func _on_animation_finished() -> void:
 		update_animation("idle")
 
 
-# ----------------- VIDA (ahora usando PlayerData como fuente de verdad) -----------------
+# VIDA Y DAÑO
 func take_damage(amount: int, source_position: Vector2 = global_position) -> void:
-	# Reducimos la vida en el singleton
+	
+	if is_dead: #Si está muerto no hacemos nada
+		return
+		 
+	# Reducir vida global y sincronizar con el nodo
 	PlayerData.current_health = max(PlayerData.current_health - amount, 0)
-	# sincronizamos la variable local para que el nodo jugador refleje el valor
 	current_health = PlayerData.current_health
 
-	print("Jugador recibió daño: ", amount, " Vida restante: ", PlayerData.current_health)
-
-	# Actualizar UI (UIManager lee PlayerData.current_health)
 	UIManager.update_hearts()
 
-	# sonido de daño
+	# Efectos de daño
 	if hurt_sound.stream != null:
 		hurt_sound.play()
 
-	# flash rojo
+	# Parpadeo rojo
 	animated_sprite.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.1).timeout
 	animated_sprite.modulate = Color(1, 1, 1)
 
-	# muerte
+	# Si la vida llega a cero, muere
 	if PlayerData.current_health <= 0:
 		die()
 
 
 func die() -> void:
+	is_dead = true  # Marcamos al jugador como muerto
 	print("Jugador ha muerto")
 
 	if death_sound.stream != null:
@@ -158,6 +173,7 @@ func die() -> void:
 	velocity = Vector2.ZERO
 	is_shooting = true
 
+	# Conectamos una función para eliminar el nodo cuando acabe la animación
 	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"))
 
 

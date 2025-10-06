@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/pickup_items/weapons/lasergun.tscn" id="5_c7gus"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="6_5r138"]
 [ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="7_7o5u7"]
-[ext_resource type="PackedScene" uid="uid://ghxs6h47yvtj" path="res://scenes/pickup_items/others/heart_pickup.tscn" id="8_u46fv"]
+[ext_resource type="PackedScene" uid="uid://ghxs6h47yvtj" path="res://scenes/pickup_items/health_items/heart_pickup.tscn" id="8_u46fv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmnho"]
 texture = ExtResource("1_bjebu")
@@ -1321,20 +1321,12 @@ shape = SubResource("RectangleShape2D_y010p")
 [node name="RecepcionSpawn" type="Marker2D" parent="."]
 position = Vector2(26, 50)
 
-[node name="Centinela2" parent="." instance=ExtResource("7_7o5u7")]
-position = Vector2(122, 223)
-scale = Vector2(0.8, 0.8)
-
-[node name="Centinela3" parent="." instance=ExtResource("7_7o5u7")]
-position = Vector2(50.000008, 217)
-scale = Vector2(0.8, 0.8)
-
-[node name="Centinela4" parent="." instance=ExtResource("7_7o5u7")]
-position = Vector2(204, 105.00001)
-scale = Vector2(0.8, 0.8)
-
 [node name="HeartPickup" parent="." instance=ExtResource("8_u46fv")]
 position = Vector2(78, 149)
 
 [node name="HeartPickup2" parent="." instance=ExtResource("8_u46fv")]
 position = Vector2(117, 91)
+
+[node name="Centinela" parent="." instance=ExtResource("7_7o5u7")]
+position = Vector2(175, 96)
+scale = Vector2(0.8, 0.8)

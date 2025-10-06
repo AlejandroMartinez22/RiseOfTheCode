@@ -1,0 +1,9 @@
+Esta carpeta contiene los recursos base del proyecto (.gd) que definen 
+atributos o comportamientos comunes entre distintos nodos del juego.
+
+Estos recursos funcionan de manera similar a plantillas u objetos, permitiendo reutilizar 
+configuraciones sin necesidad de repetir código.
+
+Por ejemplo, el recurso bullet_data.gd define los atributos que debe 
+tener una bala. Luego, cada archivo .tres que se cree a partir de este recurso representa una instancia 
+con valores específicos.

@@ -1,7 +1,8 @@
-#Creamos un recurso para alamcenar ciertas variables que comparten todos los proyectiles
-#Como la velocidad y el daño que hacen.
+
+# Creamos un recurso para almacenar ciertos atributos o características que comparten todos los proyectiles
 extends Resource
 class_name BulletData
 
-@export var speed: float = 120.0 #Se asignan valores por defecto que luego se cambiarán
-@export var damage: int = 10 #Al crear un archivo .tre
+#Valores por defecto (luego pueden redefinirse en cada archivo .tres)
+@export var speed: float = 120.0 #Velocidad del proyectiles
+@export var damage: int = 10 #Daño del proyectil
