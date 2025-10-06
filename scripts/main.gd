@@ -4,6 +4,8 @@ extends Node2D
 @onready var player: Node2D = $Max
 
 func _ready() -> void:
+	randomize()
+	
 	# Registrar main en RoomManager
 	RoomManager.register_main(self)
 
