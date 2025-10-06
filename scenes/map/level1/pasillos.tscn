@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dtgvumjvpjvsl"]
+[gd_scene load_steps=18 format=4 uid="uid://dtgvumjvpjvsl"]
 
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_2nosy"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="2_0ihqr"]
@@ -1305,6 +1305,10 @@ texture = ExtResource("4_82mrw")
 sources/0 = SubResource("TileSetAtlasSource_rpoyf")
 sources/1 = SubResource("TileSetAtlasSource_ed175")
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dhtx3"]
+a = Vector2(81, 13)
+b = Vector2(452, 13)
+
 [node name="Pasillos" type="Node2D"]
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -1322,3 +1326,17 @@ tile_set = SubResource("TileSet_cbtwe")
 [node name="items delanteros" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAlABYAAAAAAAEAAAAhAPf/AAADAAAAAAA9APf/AAAHAAEAAABFAAUAAQAKAAAAAABFAAYAAQAKAAEAAAA/APj/AQAKAAAAAAA/APn/AQAKAAEAAAAfAPj/AQAKAAAAAAAfAPn/AQAKAAEAAAAbABYAAAAFAAEAAAAzAAIAAAAFAAEAAAArAAIAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_tqgyg")
+
+[node name="Limites mapa" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites mapa"]
+position = Vector2(0, 66)
+shape = SubResource("SegmentShape2D_dhtx3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limites mapa"]
+position = Vector2(495, 66)
+shape = SubResource("SegmentShape2D_dhtx3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites mapa"]
+
+[node name="Objetos" type="Area2D" parent="."]

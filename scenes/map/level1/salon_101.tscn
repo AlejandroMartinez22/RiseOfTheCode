@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://drslef1qt0n2s"]
+[gd_scene load_steps=24 format=4 uid="uid://drslef1qt0n2s"]
 
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_dvowg"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="2_vdne3"]
@@ -2904,10 +2904,16 @@ a = Vector2(255, 17)
 b = Vector2(254, 335)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5sfbh"]
+a = Vector2(275, 323)
+b = Vector2(580, 323)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kyxhi"]
 a = Vector2(348, 10)
 b = Vector2(-5, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8npgi"]
+a = Vector2(256, 337)
+b = Vector2(272, 337)
 
 [node name="Salon101" type="Node2D"]
 
@@ -2937,11 +2943,15 @@ position = Vector2(355, 0)
 shape = SubResource("SegmentShape2D_y2sgg")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites nivel"]
+position = Vector2(29, 14)
 shape = SubResource("SegmentShape2D_5sfbh")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Limites nivel"]
 position = Vector2(260, 85)
 shape = SubResource("SegmentShape2D_kyxhi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Limites nivel"]
+shape = SubResource("SegmentShape2D_8npgi")
 
 [node name="Objetos" type="Area2D" parent="."]
 
@@ -2964,3 +2974,50 @@ polygon = PackedVector2Array(352, 146, 336, 146, 336, 175, 352, 175)
 [node name="silla4" type="CollisionPolygon2D" parent="Objetos"]
 position = Vector2(144, 0)
 polygon = PackedVector2Array(352, 146, 336, 146, 336, 175, 352, 175)
+
+[node name="silla5" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(288, 0)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla6" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(96, 48)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla7" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(288, 0)
+polygon = PackedVector2Array(112, 194, 96, 194, 96, 223, 112, 223)
+
+[node name="silla8" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(192, 48)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla9" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(240, 48)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla10" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(288, 48)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla11" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(96, 96)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla12" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(144, 96)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla13" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(192, 96)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla14" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(240, 96)
+polygon = PackedVector2Array(256, 146, 240, 146, 240, 175, 256, 175)
+
+[node name="silla15" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(528, 96)
+polygon = PackedVector2Array(16, 146, 0, 146, 0, 175, 16, 175)
+
+[node name="Estantes" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(256, 195, 269, 195, 269, 254, 256, 254)
