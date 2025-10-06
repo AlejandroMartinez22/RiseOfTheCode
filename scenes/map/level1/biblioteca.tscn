@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://c8jm8csxeipam"]
+[gd_scene load_steps=20 format=4 uid="uid://c8jm8csxeipam"]
 
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="1_36u8j"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_d7364"]
 [ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_2f40q"]
 [ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_w08wb"]
 [ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="5_jil4g"]
-[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="6_eyx0w"]
+[ext_resource type="Script" path="res://scripts/exit.gd" id="6_eyx0w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7lvi"]
 texture = ExtResource("1_36u8j")
@@ -1260,6 +1260,10 @@ sources/0 = SubResource("TileSetAtlasSource_orvt3")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gagq"]
 size = Vector2(30, 45.5)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hl2de"]
+normal = Vector2(0.003999968, -0.999992)
+distance = 3.411973
+
 [node name="Biblioteca" type="Node2D"]
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -1285,7 +1289,7 @@ position = Vector2(255, 154)
 position = Vector2(720, 147)
 
 [node name="Centinela3" parent="." instance=ExtResource("5_jil4g")]
-position = Vector2(793, 397)
+position = Vector2(794, 399)
 
 [node name="Centinela4" parent="." instance=ExtResource("5_jil4g")]
 position = Vector2(471.00003, 279)
@@ -1301,3 +1305,102 @@ spawn_name = "RecepcionSpawn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToRecepcion"]
 position = Vector2(256, 104.25)
 shape = SubResource("RectangleShape2D_3gagq")
+
+[node name="limites nivel" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limites nivel"]
+position = Vector2(161, 131)
+shape = SubResource("WorldBoundaryShape2D_hl2de")
+
+[node name="Objetos" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(160, 160, 176, 160, 176, 353, 160, 353)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(160, 357, 183, 357, 183, 393, 160, 393)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(0, -80)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(0, -160)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(224, -80)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(224, -160)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(112, -80)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(112, -160)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(336, 0)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(224, 0)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(112, 0)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(336, -160)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(336, -80)
+polygon = PackedVector2Array(289, 352, 319, 352, 319, 415, 288, 415, 288, 384, 272, 384, 272, 356, 276, 356, 276, 365, 289, 365)
+
+[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(353, 128, 353, 143, 399, 143, 399, 128)
+
+[node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(236.60864, 0)
+scale = Vector2(0.9239131, 1)
+polygon = PackedVector2Array(353, 128, 353, 143, 399, 143, 399, 128)
+
+[node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(132, -5)
+polygon = PackedVector2Array(349, 133, 349, 148, 395, 148, 395, 133)
+
+[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(417, 128, 417, 143, 463, 143, 463, 128)
+
+[node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(236.60864, 0)
+scale = Vector2(0.9239131, 1)
+polygon = PackedVector2Array(422.27057, 128, 422.27057, 143, 468.27057, 143, 468.27057, 128)
+
+[node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(756, 128, 756, 143, 788, 143, 788, 159, 812, 159, 812, 140, 799, 140, 799, 128)
+
+[node name="CollisionPolygon2D21" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(736, 433, 736, 421, 744, 421, 744, 425, 758, 425, 758, 476, 736, 476)
+
+[node name="CollisionPolygon2D22" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(41, 7)
+polygon = PackedVector2Array(728, 434, 728, 425, 735, 425, 744, 425, 758, 425, 758, 471, 728, 471)
+
+[node name="CollisionPolygon2D23" type="CollisionPolygon2D" parent="Objetos"]
+position = Vector2(432.31317, 203.21173)
+scale = Vector2(0.43749905, 0.5842396)
+polygon = PackedVector2Array(694, 488, 694, 479, 701, 479, 710, 479, 724, 479, 724, 525, 694, 525)
+
+[node name="CollisionPolygon2D24" type="CollisionPolygon2D" parent="Objetos"]
+polygon = PackedVector2Array(160, 447, 169, 447, 217, 501, 218, 512)
