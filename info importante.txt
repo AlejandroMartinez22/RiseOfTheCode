@@ -1,8 +1,3 @@
-Cada enemigo debe tener un script distinto por que tienen comportamientos diferentes, y la lógica cambia bastante.
-Se crea un recurso con caracteristicas comunes de todos los enemigos, pero en aquellos que atacan a distancia el campo
-de daño no se usa, ya que ese está definido por el proyectil que disparan.
-Este recurso se llama enemydata.gd
-Si queremos modificar alguna caracteristica como la velocidad o daño, se modifica el archivo .tres del enemigo, en la carpeta enemies
 
 
 -----------------------------------------------
@@ -15,7 +10,9 @@ Layer 2 → Enemies
 Layer 3 → PlayerBullets
 Layer 4 → EnemyBullets
 Layer 5 → Walls / Environment
+Layer 6 → Pickup items
 ------------------------------------------------ 
+
 
 ------------------------------------------------
 Convencion de nombres
@@ -25,6 +22,3 @@ Nodos → PascalCase
 Variables/funciones → snake_case
 Clases (class_name) → PascalCase
 Constantes → ALL_CAPS
-
-OJO: Cuando pierra haga ya pull y push, mover la carpeta levels de tilemap a scenes. dentro de una carpeta
-llamada maps, y la carpeta tilesets moverla a sprites.

@@ -1,0 +1,7 @@
+Esta carpeta guarda los archivos .tres (recursos personalizados de Godot).
+
+Estos se utilizan para almacenar datos reutilizables de distintos elementos del juego, 
+como configuraciones, estadísticas o propiedades específicas de objetos.
+
+Aquí se guardan datos de enemigos, armas, proyectiles, o cualquier recurso que puede ser instanciado o referenciado 
+por distintos scripts o escenas sin necesidad de duplicar información.

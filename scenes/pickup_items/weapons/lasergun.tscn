@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://ccmt0536bv0an"]
 
 [ext_resource type="Script" uid="uid://cwec53skuccxa" path="res://scripts/weapon_pickup.gd" id="1_2i3r3"]
-[ext_resource type="Texture2D" uid="uid://drv88wlti05gu" path="res://sprites/pickup_items/weapons/floating_lasergun1.png" id="2_2i3r3"]
+[ext_resource type="Texture2D" uid="uid://drv88wlti05gu" path="res://sprites/pickup_items/weapons/floating_lasergun.png" id="2_2i3r3"]
 [ext_resource type="Resource" uid="uid://bbbaxgjpl03en" path="res://data/weapons/lasergun.tres" id="2_jfjwn"]
-[ext_resource type="AudioStream" uid="uid://c2a0gnhimv558" path="res://sounds/pickup_items/lasergun_pickup_sound.wav" id="3_4qwmh"]
+[ext_resource type="AudioStream" uid="uid://c2a0gnhimv558" path="res://sounds/pickup_items/weapon_pickup_sound.wav" id="3_4qwmh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_egh8n"]
 atlas = ExtResource("2_2i3r3")
@@ -66,7 +66,7 @@ animations = [{
 size = Vector2(20, 8)
 
 [node name="lasergun" type="Area2D"]
-collision_layer = 2
+collision_layer = 32
 script = ExtResource("1_2i3r3")
 weapon_data = ExtResource("2_jfjwn")
 pickup_sound = ExtResource("3_4qwmh")
