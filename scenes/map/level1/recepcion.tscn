@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://cxm75h2tjabjp"]
+[gd_scene load_steps=27 format=4 uid="uid://cxm75h2tjabjp"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_u46fv"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/1_Generic_16x16.png" id="2_tekvu"]
 [ext_resource type="Texture2D" uid="uid://clpmm65i4gfsw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/22_Museum.png" id="3_0fnan"]
 [ext_resource type="Texture2D" uid="uid://fmtismyjw3qm" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/19_Hospital_16x16.png" id="4_gc1iw"]
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/5_Classroom_and_library_16x16.png" id="5_o5tb2"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="6_5r138"]
 [ext_resource type="Texture2D" uid="uid://m6l44gks3w4j" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/6_Music_and_sport_16x16.png" id="6_6x61e"]
 [ext_resource type="Texture2D" uid="uid://dva2s2wcdsba6" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/14_Basement_16x16.png" id="7_gn57d"]
 [ext_resource type="Texture2D" uid="uid://cc7um0ehnl1mx" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/18_Jail_16x16.png" id="8_t7kg4"]
@@ -18582,6 +18583,9 @@ sources/2 = SubResource("TileSetAtlasSource_qotix")
 sources/9 = SubResource("TileSetAtlasSource_5ctp0")
 sources/10 = SubResource("TileSetAtlasSource_k30w5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tekvu"]
+size = Vector2(13.5, 15)
+
 [node name="Recepcion" type="Node2D"]
 
 [node name="TileMapLayers" type="Node2D" parent="."]
@@ -18597,3 +18601,12 @@ tile_set = SubResource("TileSet_pfodu")
 [node name="Objects" type="TileMapLayer" parent="TileMapLayers"]
 tile_map_data = PackedByteArray("AAAKAAEAAAAOACcAAAAKAAIAAAAOACgAAAAKAAkAAAAOACcAAAAKAAoAAAAOACgAAAAOAAkAAgAJAAoAAAAOAAoAAgAJAAsAAAAOAAIAAgAOAAIAAAAMAAoACgALABQAAAAMAAsACgALABUAAAAbAP//AAANABwAAAAbAAAAAAANAB0AAAAbAAEAAAANAB4AAAAcAP//AAAOABwAAAAcAAAAAAAOAB0AAAAcAAEAAAAOAB4AAAAbAAoACQABAC8AAAAbAAsACQABADAAAAAbAAwACQABADEAAAAcAAoACQACAC8AAAAcAAsACQACADAAAAAcAAwACQACADEAAAANAAAACgAKABQAAAA=")
 tile_set = SubResource("TileSet_dhb3t")
+
+[node name="ExitToPasillos" type="Area2D" parent="."]
+script = ExtResource("6_5r138")
+next_room_path = "res://tilemap/Niveles/Nivel1/pasillos.tscn"
+spawn_name = "SpawnPasillos"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
+position = Vector2(455.25, 90)
+shape = SubResource("RectangleShape2D_tekvu")
