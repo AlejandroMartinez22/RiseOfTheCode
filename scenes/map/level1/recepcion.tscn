@@ -18605,8 +18605,11 @@ tile_set = SubResource("TileSet_dhb3t")
 [node name="ExitToPasillos" type="Area2D" parent="."]
 script = ExtResource("6_5r138")
 next_room_path = "res://scenes/map/level1/pasillos.tscn"
-spawn_name = "SpawnPasillos"
+spawn_name = "SpawnFromRecepcion"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(455.25, 90)
 shape = SubResource("RectangleShape2D_tekvu")
+
+[node name="SpawnRecepcion" type="Marker2D" parent="."]
+position = Vector2(413, 91)
