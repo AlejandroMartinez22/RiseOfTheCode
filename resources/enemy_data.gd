@@ -15,4 +15,4 @@ class_name EnemyData
 
 # Drop del corazón
 @export_range(0.0, 1.0, 0.01)
-var heart_drop_chance: float = 0.35   # Probabilidad de soltar un corazón al morir (0.0 = nunca, 1.0 = siempre)
+var heart_drop_chance: float = 0.3   # Probabilidad de soltar un corazón al morir (0.0 = nunca, 1.0 = siempre)

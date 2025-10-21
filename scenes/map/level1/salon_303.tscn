@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://d1myro7w5bwvg"]
+[gd_scene load_steps=15 format=4 uid="uid://d1myro7w5bwvg"]
 
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_vqmda"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_8rl7y"]
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/5_Classroom_and_library_16x16.png" id="3_nqfns"]
 [ext_resource type="Texture2D" uid="uid://fmtismyjw3qm" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/19_Hospital_16x16.png" id="4_ei05c"]
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/Inside_C.png" id="5_owg2h"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="6_4pv4x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmjq4"]
 texture = ExtResource("1_vqmda")
@@ -5204,9 +5203,3 @@ tile_set = SubResource("TileSet_rojku")
 position = Vector2(11, 2)
 tile_map_data = PackedByteArray("AAAFAAYAAAABAAMAAAAFAAcAAAABAAQAAAAHAAYAAAABAAMAAAAHAAcAAAABAAQAAAAJAAcAAAABAAQAAAALAAYAAAABAAMAAAALAAcAAAABAAQAAAANAAYAAAABAAMAAAANAAcAAAABAAQAAAAPAAYAAAABAAMAAAAPAAcAAAABAAQAAAAPAAMAAAABAAMAAAAPAAQAAAABAAQAAAAJAAYAAAABAAMAAAANAAMAAAABAAMAAAANAAQAAAABAAQAAAALAAMAAAABAAMAAAALAAQAAAABAAQAAAAJAAMAAAABAAMAAAAJAAQAAAABAAQAAAAHAAMAAAABAAMAAAAHAAQAAAABAAQAAAAFAAMAAAABAAMAAAAFAAQAAAABAAQAAAAAAAAAAAABAAMAAAAAAAEAAAABAAQAAAACAAAAAAABAAMAAAACAAEAAAABAAQAAAAPAAAAAAAHAAMAAAAPAAEAAAAHAAQAAAAQAAAAAAAIAAMAAAAQAAEAAAAIAAQAAAARAAAAAAAJAAMAAAARAAEAAAAJAAQAAAANAAIAAAAMABMAAAA=")
 tile_set = SubResource("TileSet_vsi6s")
-
-[node name="Centinela" parent="." instance=ExtResource("6_4pv4x")]
-position = Vector2(51, 50)
-
-[node name="Centinela2" parent="." instance=ExtResource("6_4pv4x")]
-position = Vector2(306, 54)
