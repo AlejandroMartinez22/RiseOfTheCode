@@ -1,7 +1,6 @@
-[gd_scene load_steps=30 format=4 uid="uid://dt5l1d4teocp4"]
+[gd_scene load_steps=29 format=4 uid="uid://dt5l1d4teocp4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_cyiit"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="2_2ucd5"]
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/5_Classroom_and_library_16x16.png" id="2_frioa"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/1_Generic_16x16.png" id="2_q70ev"]
 [ext_resource type="Texture2D" uid="uid://dk3w273fgmxhq" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/2_LivingRoom_16x16.png" id="3_mt4w5"]
@@ -19256,6 +19255,3 @@ tile_set = SubResource("TileSet_mt4w5")
 z_index = 3
 tile_map_data = PackedByteArray("AAABAAEAAQAOAAEAAAABAAIAAQAOAAIAAAALAAQAAQAMABMAAAADAAIABQALAB8AAAAEAAEABQAMAB4AAAAEAAIABQAMAB8AAAA=")
 tile_set = SubResource("TileSet_k06n2")
-
-[node name="Max" parent="." instance=ExtResource("2_2ucd5")]
-position = Vector2(111, 96)
