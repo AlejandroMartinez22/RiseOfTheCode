@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpkvv5d5g1vsm"
-path="res://.godot/imported/DoorsWithNumbers.png-a1433cb2a5390370d9237b7dd1b50dfb.ctex"
+path="res://.godot/imported/DoorsWithNumbers.png-9127c7e528fbc53e3d64f6cce51fb6e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tilesets/Top-Down_Retro_Interior/DoorsWithNumbers.png"
-dest_files=["res://.godot/imported/DoorsWithNumbers.png-a1433cb2a5390370d9237b7dd1b50dfb.ctex"]
+source_file="res://sprites/tilesets/moderninteriors-win/others/DoorsWithNumbers.png"
+dest_files=["res://.godot/imported/DoorsWithNumbers.png-9127c7e528fbc53e3d64f6cce51fb6e9.ctex"]
 
 [params]
 

@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://dva2s2wcdsba6" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/14_Basement_16x16.png" id="6_207k1"]
 [ext_resource type="Texture2D" uid="uid://cc7um0ehnl1mx" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/18_Jail_16x16.png" id="7_ggijm"]
 [ext_resource type="Texture2D" uid="uid://2pe7aravc8cu" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/cartel_centinela.png" id="7_xelas"]
-[ext_resource type="Texture2D" uid="uid://cpkvv5d5g1vsm" path="res://sprites/tilesets/Top-Down_Retro_Interior/DoorsWithNumbers.png" id="9_5df1l"]
+[ext_resource type="Texture2D" uid="uid://cpkvv5d5g1vsm" path="res://sprites/tilesets/moderninteriors-win/others/DoorsWithNumbers.png" id="9_5df1l"]
 [ext_resource type="Texture2D" uid="uid://ci8ubfsvwbigw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/CerraduraDigitalPuerta.png" id="9_l3568"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="10_5jwm4"]
-[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/pickup_items/weapons/lasergun.tscn" id="15_l3568"]
+[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="15_l3568"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ixtq"]
 texture = ExtResource("1_8q04b")
@@ -23721,5 +23721,5 @@ position = Vector2(690, -22)
 [node name="SpawnFromSalon102" type="Marker2D" parent="."]
 position = Vector2(882, -21)
 
-[node name="lasergun" parent="." instance=ExtResource("15_l3568")]
-position = Vector2(459, -117)
+[node name="Max" parent="." instance=ExtResource("15_l3568")]
+position = Vector2(473, 8)

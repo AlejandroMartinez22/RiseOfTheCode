@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dmaw1mg36h55r"]
+[gd_scene load_steps=22 format=4 uid="uid://dmaw1mg36h55r"]
 
 [ext_resource type="Script" uid="uid://droqn4xe72ksw" path="res://scripts/base_room.gd" id="1_acogj"]
 [ext_resource type="Texture2D" uid="uid://co8ecy1l2n503" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Floors_16x16.png" id="1_l4v4i"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dd8hk70r5crtp" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/3_Bathroom_16x16.png" id="4_pjhk5"]
 [ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="4_qyrb5"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="7_ktgdy"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="9_j3yhe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dldtk"]
 texture = ExtResource("1_l4v4i")
@@ -8045,7 +8044,3 @@ spawn_name = "SpawnFromBañosH"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(176, 178)
 shape = SubResource("RectangleShape2D_ktgdy")
-
-[node name="Centinela" parent="." instance=ExtResource("9_j3yhe")]
-position = Vector2(98, 50)
-enemy_id = "centinela_bañosH_1"
