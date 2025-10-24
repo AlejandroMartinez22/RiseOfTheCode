@@ -21,6 +21,7 @@ AudioManager="*res://scripts/Autoloads/audio_manager.gd"
 PlayerData="*res://scripts/Autoloads/player_data.gd"
 RoomManager="*res://scripts/Autoloads/room_manager.gd"
 UIManager="*res://scripts/Autoloads/ui_manager.gd"
+GameState="*res://scripts/Autoloads/game_state.gd"
 
 [display]
 

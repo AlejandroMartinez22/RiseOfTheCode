@@ -1,16 +1,14 @@
-# Dron que detecta al jugador, lo persigue dentro de un rango
-# y dispara proyectiles. Hereda de EnemyBase, lo que le da atributos como
-# velocidad, vida, y posibilidad de soltar corazones al morir.
-
+# Dron que detecta al jugador, lo persigue y dispara proyectiles
+# Ahora con sistema de persistencia para recordar si fue eliminado
 extends EnemyBase
 
 # ------------------ Referencias a Nodos ------------------
-@onready var muzzle: Marker2D = $Muzzle  # Punto desde donde salen los disparos
+@onready var muzzle: Marker2D = $Muzzle
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var detection_area: Area2D = $DetectionArea
 
 # ------------------ Escenas Exportadas ------------------
-@export var projectile_scene: PackedScene  #Escena de la bala que dispara
+@export var projectile_scene: PackedScene
 
 # ------------------ Sonidos ------------------
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
@@ -18,10 +16,13 @@ extends EnemyBase
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 
 # ------------------ Parámetros de comportamiento ------------------
-@export var stick_on_detection: bool = true    # Si es true, sigue atacando al jugador aunque salga del área
-@export var smoothing_factor: float = 0.0      # Suaviza el movimiento de rotación o dirección (0 = instantáneo)
-@export var explosion_radius: float = 32.0     # Radio de daño al morir
-@export var explosion_damage: int = 10         # Daño causado por la explosión
+@export var stick_on_detection: bool = true
+@export var smoothing_factor: float = 0.0
+@export var explosion_radius: float = 32.0
+@export var explosion_damage: int = 10
+
+# ============ NUEVO: ID ÚNICO PARA PERSISTENCIA ============
+@export var enemy_id: String = ""  # Asigna un ID único en el editor (ej: "centinela_01")
 
 # ------------------ Variables internas ------------------
 var player: Node = null
@@ -31,9 +32,17 @@ var last_direction: String = "down"
 var is_dead: bool = false
 var detected: bool = false
 
-
-# FUNCIÓN READY
 func _ready() -> void:
+	# Auto-generar ID si no está configurado
+	if enemy_id.is_empty():
+		enemy_id = name  # Usa el nombre del nodo como ID
+	
+	# IMPORTANTE: Verificar si este enemigo ya fue eliminado
+	var room_path = RoomManager.get_current_room_path()
+	if GameState.is_enemy_killed(room_path, enemy_id):
+		queue_free()  # Eliminarse inmediatamente
+		return
+	
 	health = data.max_health
 	update_animation()
 
@@ -42,15 +51,11 @@ func _ready() -> void:
 	if players.size() > 0:
 		player = players[0]
 
-	# Conectar señales de detección solo si no están conectadas
+	# Conectar señales de detección
 	if detection_area and not detection_area.is_connected("body_entered", Callable(self, "_on_detection_body_entered")):
 		detection_area.connect("body_entered", Callable(self, "_on_detection_body_entered"))
 	if detection_area and not detection_area.is_connected("body_exited", Callable(self, "_on_detection_body_exited")):
 		detection_area.connect("body_exited", Callable(self, "_on_detection_body_exited"))
-
-
-
-# PROCESO PRINCIPAL -> Movimiento, detección y disparo
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -91,8 +96,6 @@ func _physics_process(delta: float) -> void:
 		if _can_shoot and projectile_scene != null:
 			shoot()
 
-
-# ANIMACIONES
 func update_animation() -> void:
 	if is_dead:
 		return
@@ -110,8 +113,6 @@ func update_direction(dir: Vector2) -> void:
 	else:
 		last_direction = "down" if dir.y > 0 else "up"
 
-
-# ATAQUE (DISPARO)
 func shoot() -> void:
 	_can_shoot = false
 	var bullet = projectile_scene.instantiate()
@@ -126,8 +127,6 @@ func shoot() -> void:
 	await get_tree().create_timer(data.fire_rate).timeout
 	_can_shoot = true
 
-
-# DETECCIÓN DE JUGADOR
 func _on_detection_body_entered(body: Node) -> void:
 	if body == null:
 		return
@@ -141,8 +140,6 @@ func _on_detection_body_exited(body: Node) -> void:
 	if body.is_in_group("player") and not stick_on_detection:
 		detected = false
 
-
-# DAÑO RECIBIDO
 func take_damage(amount: int) -> void:
 	if is_dead:
 		return
@@ -159,8 +156,6 @@ func take_damage(amount: int) -> void:
 	if health <= 0:
 		die()
 
-
-# DAÑO EN ÁREA (explosión al morir)
 func explode_damage() -> void:
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsShapeQueryParameters2D.new()
@@ -174,11 +169,14 @@ func explode_damage() -> void:
 		if body != null and body.is_in_group("player") and body.has_method("take_damage"):
 			body.take_damage(explosion_damage)
 
-# MUERTE
 func die() -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
 	_can_shoot = false
+	
+	# ============ NUEVO: REGISTRAR MUERTE EN GAMESTATE ============
+	var room_path = RoomManager.get_current_room_path()
+	GameState.mark_enemy_killed(room_path, enemy_id)
 	
 	if death_sound.stream != null:
 		AudioManager.play_sound(death_sound.stream, global_position, 3)
@@ -192,7 +190,6 @@ func die() -> void:
 	$AnimationPlayer.play("death_explode")
 	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"), CONNECT_ONE_SHOT)
 
-
 func _on_death_animation_finished() -> void:
-	maybe_drop_heart()   # Función heredada de EnemyBase
+	maybe_drop_heart()
 	queue_free()

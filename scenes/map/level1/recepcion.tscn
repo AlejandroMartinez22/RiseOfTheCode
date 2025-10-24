@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://fmtismyjw3qm" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/19_Hospital_16x16.png" id="4_gc1iw"]
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/5_Classroom_and_library_16x16.png" id="5_o5tb2"]
 [ext_resource type="Texture2D" uid="uid://2pe7aravc8cu" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/cartel_centinela.png" id="6_0fnan"]
-[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="6_5r138"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="6_5r138"]
 [ext_resource type="Texture2D" uid="uid://m6l44gks3w4j" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/6_Music_and_sport_16x16.png" id="6_6x61e"]
 [ext_resource type="Texture2D" uid="uid://dva2s2wcdsba6" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/14_Basement_16x16.png" id="7_gn57d"]
 [ext_resource type="Texture2D" uid="uid://cc7um0ehnl1mx" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/18_Jail_16x16.png" id="8_t7kg4"]

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/5_Classroom_and_library_16x16.png" id="3_dwd5f"]
 [ext_resource type="Texture2D" uid="uid://fmtismyjw3qm" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/19_Hospital_16x16.png" id="4_vgel4"]
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/Inside_C.png" id="5_8npgi"]
-[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="5_vgel4"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="5_vgel4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkkqs"]
 texture = ExtResource("1_cns1w")

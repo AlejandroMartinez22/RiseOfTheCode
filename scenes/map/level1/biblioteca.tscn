@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_d7364"]
 [ext_resource type="Texture2D" uid="uid://clvixb82gbyr7" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="3_2f40q"]
 [ext_resource type="Texture2D" uid="uid://s5munpnyrfwc" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_w08wb"]
-[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/exit.gd" id="6_eyx0w"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="6_eyx0w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7lvi"]
 texture = ExtResource("1_36u8j")

@@ -1,7 +1,8 @@
 extends CharacterBody2D
-#Script que controla el comportamiento principal del jugador "Max":
+# Script que controla el comportamiento principal del jugador "Max"
+# Ahora integrado con GameState para persistencia de armas
 
-#  MARKERS (puntos desde donde se disparan los proyectiles)
+# MARKERS (puntos desde donde se disparan los proyectiles)
 @onready var muzzle_down: Marker2D = $MuzzleDown
 @onready var muzzle_right: Marker2D = $MuzzleRight
 @onready var muzzle_left: Marker2D = $MuzzleLeft
@@ -14,20 +15,19 @@ extends CharacterBody2D
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 # REFERENCIAS EXTERNAS
-var heart_container: Node = null     # Referencia a la UI de corazones
-var current_weapon: Weapon = null    # Arma equipada actualmente
+var heart_container: Node = null
+var current_weapon: Weapon = null
 
 # VARIABLES DE MOVIMIENTO Y ESTADO
-var speed: float = 100.0             # Velocidad de movimiento
-var last_direction: String = "down"  # Última dirección movida (para animaciones)
-var is_shooting: bool = false        # Indica si el jugador está en medio de una animación de disparo
-var is_dead: bool = false        	 # Indica si el jugador ha muerto
+var speed: float = 100.0
+var last_direction: String = "down"
+var is_shooting: bool = false
+var is_dead: bool = false
 
 # SISTEMA DE VIDA (sincronizado con PlayerData)
 var max_health: int = 30
 var current_health: int = 30
 
-# FUNCIONES PRINCIPALES
 func _ready() -> void:
 	# Conectar evento de animación terminada
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
@@ -43,7 +43,6 @@ func _ready() -> void:
 
 	# Actualizar la interfaz de vida al iniciar
 	UIManager.update_hearts()
-
 
 func _physics_process(delta: float) -> void:
 	# Si el jugador está disparando, no puede moverse
@@ -64,7 +63,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		shoot()
 
-# ENTRADA Y ANIMACIONES
 func get_input() -> void:
 	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 
@@ -87,13 +85,19 @@ func update_animation(state: String) -> void:
 	if not is_shooting:
 		animated_sprite.play(state + "_" + last_direction)
 
+# ==================== ARMAS Y DISPAROS ====================
 
-# ARMAS Y DISPAROS
 func equip_weapon(new_weapon: Weapon) -> void:
 	current_weapon = new_weapon
-	print("Jugador ahora tiene:", current_weapon.name)
+	
+	# Actualizar en PlayerData
+	PlayerData.current_weapon = new_weapon.name
+	
+	# Actualizar flag en GameState
+	GameState.set_flag("has_weapon", true)
+	
+	print("✓ Jugador ahora tiene:", current_weapon.name)
 
-# Funcion para disparar
 func shoot() -> void:
 	if current_weapon == null:
 		return
@@ -124,7 +128,6 @@ func shoot() -> void:
 		audio_player.stream = current_weapon.shoot_sound
 		audio_player.play()
 
-
 func _on_animation_finished() -> void:
 	# Cuando termina la animación de disparo, se vuelve a estado idle
 	if current_weapon == null:
@@ -133,11 +136,10 @@ func _on_animation_finished() -> void:
 		is_shooting = false
 		update_animation("idle")
 
+# ==================== VIDA Y DAÑO ====================
 
-# VIDA Y DAÑO
 func take_damage(amount: int, source_position: Vector2 = global_position) -> void:
-	
-	if is_dead: #Si está muerto no hacemos nada
+	if is_dead:
 		return
 		 
 	# Reducir vida global y sincronizar con el nodo
@@ -159,9 +161,15 @@ func take_damage(amount: int, source_position: Vector2 = global_position) -> voi
 	if PlayerData.current_health <= 0:
 		die()
 
+func heal(amount: int) -> void:
+	# Curar al jugador
+	PlayerData.current_health = min(PlayerData.current_health + amount, PlayerData.max_health)
+	current_health = PlayerData.current_health
+	UIManager.update_hearts()
+	print("✓ Curado: +", amount, " HP")
 
 func die() -> void:
-	is_dead = true  # Marcamos al jugador como muerto
+	is_dead = true
 	print("Jugador ha muerto")
 
 	if death_sound.stream != null:
@@ -175,7 +183,6 @@ func die() -> void:
 
 	# Conectamos una función para eliminar el nodo cuando acabe la animación
 	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"))
-
 
 func _on_death_animation_finished():
 	queue_free()
