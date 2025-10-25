@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=52 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_2tjic"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dh5kxwwol6uem" path="res://sprites/tilesets/moderninteriors-win/others/frame_right_down.png" id="13_x5g1d"]
 [ext_resource type="Texture2D" uid="uid://c4hnkbar8ffl5" path="res://sprites/tilesets/moderninteriors-win/others/frame_right_up.png" id="14_msd6n"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="15_8wrob"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="18_msd6n"]
+[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/pickup_items/weapons/lasergun.tscn" id="19_n4dug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46cvw"]
 texture = ExtResource("1_2tjic")
@@ -16555,3 +16557,9 @@ tile_set = SubResource("TileSet_l3mxi")
 
 [node name="Max" parent="." instance=ExtResource("2_c2es8")]
 position = Vector2(165, 116)
+
+[node name="Centinela" parent="." instance=ExtResource("18_msd6n")]
+position = Vector2(60, 4)
+
+[node name="lasergun" parent="." instance=ExtResource("19_n4dug")]
+position = Vector2(160, 18)
