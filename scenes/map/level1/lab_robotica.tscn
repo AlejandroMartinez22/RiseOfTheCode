@@ -1,8 +1,7 @@
-[gd_scene load_steps=52 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=49 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_2tjic"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="2_c2es8"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="3_40uji"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="4_78jr3"]
 [ext_resource type="Texture2D" uid="uid://bcesxgot5v3e7" path="res://sprites/tilesets/moderninteriors-win/others/white_table_down.png" id="5_qwpv2"]
@@ -17,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dh5kxwwol6uem" path="res://sprites/tilesets/moderninteriors-win/others/frame_right_down.png" id="13_x5g1d"]
 [ext_resource type="Texture2D" uid="uid://c4hnkbar8ffl5" path="res://sprites/tilesets/moderninteriors-win/others/frame_right_up.png" id="14_msd6n"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="15_8wrob"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="18_msd6n"]
-[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/pickup_items/weapons/lasergun.tscn" id="19_n4dug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46cvw"]
 texture = ExtResource("1_2tjic")
@@ -16554,12 +16551,3 @@ position = Vector2(0, -1.9999998)
 scale = Vector2(0.8, 0.8)
 tile_map_data = PackedByteArray("AAAVAAYAAAAAADYAAAAVAAcAAAAAADcAAAAUAAUAAQABAAEAAFAVAAUAAQABAAAAAFAQAAQAAgABAAoAAFAPAAcAAgADABEAABAUAAYAAgACABkAABAQAAgAAgABABkAAAAQAAUAAAADADYAAAAQAAYAAAADADcAAAAVAAQAAgACABkAAFA=")
 tile_set = SubResource("TileSet_l3mxi")
-
-[node name="Max" parent="." instance=ExtResource("2_c2es8")]
-position = Vector2(165, 116)
-
-[node name="Centinela" parent="." instance=ExtResource("18_msd6n")]
-position = Vector2(60, 4)
-
-[node name="lasergun" parent="." instance=ExtResource("19_n4dug")]
-position = Vector2(160, 18)
