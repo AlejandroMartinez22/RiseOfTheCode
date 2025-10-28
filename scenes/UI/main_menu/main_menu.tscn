@@ -66,7 +66,7 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 3
-text = "EMPEZAR"
+text = "INICIAR"
 script = ExtResource("4_tfcbk")
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
