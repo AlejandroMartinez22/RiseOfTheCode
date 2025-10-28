@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bfe4yqj00eyg4"]
+[gd_scene load_steps=31 format=4 uid="uid://bfe4yqj00eyg4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_qptrp"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/1_Generic_16x16.png" id="2_xtsca"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/5_Classroom_and_library_16x16.png" id="6_xef8v"]
 [ext_resource type="Texture2D" uid="uid://gy3fffip5qlf" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/11_Halloween_16x16.png" id="7_sqcv0"]
 [ext_resource type="PackedScene" uid="uid://ghxs6h47yvtj" path="res://scenes/pickup_items/health_items/heart_pickup.tscn" id="10_jd36m"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_sqcv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ipio"]
 texture = ExtResource("1_qptrp")
@@ -20124,6 +20125,9 @@ physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_t45yr")
 sources/1 = SubResource("TileSetAtlasSource_72xbr")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_croh7"]
+radius = 16.27882
+
 [node name="SalaDescanso" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -20143,6 +20147,13 @@ tile_set = SubResource("TileSet_1hbrq")
 [node name="SmallerObjects" type="TileMapLayer" parent="TileMapLayer"]
 tile_map_data = PackedByteArray("AAAAAA0AAQAMAAgAACABAA0AAQAMAAgAACACAA0AAQAMAAgAACADAA0AAQAMAAgAACAEAA0AAQAMAAgAACAFAA0AAQAMAAgAACAGAA0AAQAMAAgAACAHAA0AAQAMAAgAACAIAA0AAQAMAAgAACAJAA0AAQAMAAgAACAKAA0AAQAMAAgAACALAA0AAQAMAAgAACAMAA0AAQAMAAgAACANAA0AAQAMAAgAACAOAA0AAQAMAAgAACAPAA0AAQAMAAgAACAQAA0AAQAMAAgAACARAA0AAQAMAAgAACASAA0AAQAMAAgAACATAA0AAQAMAAgAACAUAA0AAQAMAAgAACAVAA0AAQAMAAgAACATAAcAAAAJAAsAAGASAAYAAAANABMAAAASAAcAAAAJAAoAAGATAAMAAAAMABMAAAADAAMAAAAJAAsAAEACAAMAAAAJAAoAAEA=")
 tile_set = SubResource("TileSet_nwktp")
+
+[node name="Interactable" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_sqcv0")]
+interact_name = "E para leer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/Interactable"]
+position = Vector2(54, 57)
+shape = SubResource("CircleShape2D_croh7")
 
 [node name="HeartPickup" parent="." instance=ExtResource("10_jd36m")]
 position = Vector2(175, 95)

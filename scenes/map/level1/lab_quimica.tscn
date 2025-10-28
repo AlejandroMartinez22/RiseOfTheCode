@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://uqn55lngqwk1"]
+[gd_scene load_steps=32 format=4 uid="uid://c5b5y5vnw4mq7"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_altev"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="2_bclro"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="7_pf0m4"]
 [ext_resource type="Texture2D" uid="uid://boc2rpeiihiig" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/5_Classroom_and_library_Shadowless.png" id="8_ybxgc"]
 [ext_resource type="Texture2D" uid="uid://dgdevccgfoynk" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/22_Museum_Shadowless.png" id="9_cmd6c"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_lpyma"]
+[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="11_pb5ni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mrek"]
 texture = ExtResource("1_altev")
@@ -15456,6 +15458,9 @@ sources/2 = SubResource("TileSetAtlasSource_qm217")
 sources/3 = SubResource("TileSetAtlasSource_fb8t2")
 sources/4 = SubResource("TileSetAtlasSource_1bwoo")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_titgt"]
+size = Vector2(15, 26)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylwxk"]
 texture = ExtResource("2_bclro")
 0:0/0 = 0
@@ -17650,6 +17655,9 @@ texture = ExtResource("2_vtye4")
 sources/0 = SubResource("TileSetAtlasSource_ylwxk")
 sources/1 = SubResource("TileSetAtlasSource_8252g")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf0m4"]
+size = Vector2(20, 26)
+
 [node name="LabCiencias" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -17666,7 +17674,24 @@ tile_set = SubResource("TileSet_wq2rj")
 tile_map_data = PackedByteArray("AAAAAAoAAQAMAAgAACABAAoAAQAMAAgAACACAAoAAQAMAAgAACADAAoAAQAMAAgAACAEAAoAAQAMAAgAACAFAAoAAQAMAAgAACAGAAoAAQAMAAgAACAHAAoAAQAMAAgAACAIAAoAAQAMAAgAACAJAAoAAQAWAAEAAEAKAAoAAQAWAAEAAFALAAoAAQAMAAgAACAMAAoAAQAMAAgAACANAAoAAQAMAAgAACAOAAoAAQAMAAgAACAPAAoAAQAMAAgAACAQAAoAAQAMAAgAACARAAoAAQAMAAgAACASAAoAAQAMAAgAACATAAoAAQAMAAgAACAIAP//AAACACEAAAAIAAAAAAACACIAAAAJAP//AAAAABEAAAAQAAQAAgAIAB8AAAACAAQAAwANABMAAAARAAYAAwANABMAAAAGAAQABAAGADIAAFAHAAUAAAAGAAgAAFANAAQABAAJACUAAFAQAAMABAANAGwAAAANAAMAAgANAGUAAAAHAAMAAgAOAGUAAAACAAUAAgAOADcAAEADAAMAAgAJAB4AAAAMAAUAAAANAAEAAAAMAAQAAAANAAAAAAA=")
 tile_set = SubResource("TileSet_wrowt")
 
+[node name="Interactable" parent="TileMapLayer/Objects" instance=ExtResource("10_lpyma")]
+interact_name = "E para leer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
+position = Vector2(154, -2)
+shape = SubResource("RectangleShape2D_titgt")
+
 [node name="InteractiveObjects" type="TileMapLayer" parent="TileMapLayer"]
 position = Vector2(0, 9)
 tile_map_data = PackedByteArray("AAALAP7/AAAOADcAAAA=")
 tile_set = SubResource("TileSet_51in5")
+
+[node name="Interactable" parent="TileMapLayer/InteractiveObjects" instance=ExtResource("10_lpyma")]
+interact_name = "E para coger"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/InteractiveObjects/Interactable"]
+position = Vector2(185, -13)
+shape = SubResource("RectangleShape2D_pf0m4")
+
+[node name="Max" parent="." instance=ExtResource("11_pb5ni")]
+position = Vector2(65, 25)

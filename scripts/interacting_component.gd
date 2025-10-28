@@ -17,9 +17,12 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if current_interactions and can_interact:
 		current_interactions.sort_custom(_sorts_by_nearest)
+		
 		if current_interactions[0].is_interactable:
 			interact_label.text = current_interactions[0].interact_name
 			interact_label.show()
+		else:
+			interact_label.hide()
 	else:
 		interact_label.hide()
 		
@@ -30,7 +33,8 @@ func _sorts_by_nearest(area1, area2):
 	return area1_distance < area2_distance
 
 func _on_interact_range_area_entered(area: Area2D) -> void:
-	current_interactions.push_back(area)
+	if not area.name.to_lower().begins_with("exit"):
+		current_interactions.push_back(area)
 
 func _on_interact_range_area_exited(area: Area2D) -> void:
 	current_interactions.erase(area)

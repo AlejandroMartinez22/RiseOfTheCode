@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cygu32ib6kt0e"]
+[gd_scene load_steps=23 format=4 uid="uid://cygu32ib6kt0e"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_01k88"]
 [ext_resource type="Texture2D" uid="uid://cachu3lnv7ekl" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/12_Kitchen_16x16.png" id="2_jbkpe"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cy88whk8mkdfg" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/12_Kitchen_Shadowless.png" id="4_wewvp"]
 [ext_resource type="Texture2D" uid="uid://md1largp7q6q" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/16_Grocery_store_Shadowless.png" id="5_2nek0"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="6_wewvp"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="7_igwo8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7yf6"]
 texture = ExtResource("1_01k88")
@@ -9109,6 +9110,9 @@ texture = ExtResource("6_wewvp")
 [sub_resource type="TileSet" id="TileSet_8jknl"]
 sources/0 = SubResource("TileSetAtlasSource_2nek0")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wewvp"]
+size = Vector2(23, 39)
+
 [node name="Cafeteria" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -9137,3 +9141,10 @@ tile_set = SubResource("TileSet_xyqps")
 [node name="SmallItems3" type="TileMapLayer" parent="TileMapLayer"]
 tile_map_data = PackedByteArray("AAAOAAEAAAAAAB0AAAAPAAEAAAABAB0AAAAQAAEAAAACAB0AAAARAAEAAAADAB0AAAAFAAEAAAAAABwAAAAGAAEAAAABABwAAAAHAAEAAAACABwAAAAIAAEAAAADABwAAAANAAEAAAAAABEAACA=")
 tile_set = SubResource("TileSet_8jknl")
+
+[node name="Interactable" parent="TileMapLayer/SmallItems3" instance=ExtResource("7_igwo8")]
+interact_name = "E para leer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems3/Interactable"]
+position = Vector2(216, 31.5)
+shape = SubResource("RectangleShape2D_wewvp")
