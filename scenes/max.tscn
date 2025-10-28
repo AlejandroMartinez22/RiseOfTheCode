@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://bho8y5o521u6e"]
+[gd_scene load_steps=137 format=3 uid="uid://bho8y5o521u6e"]
 
 [ext_resource type="Script" uid="uid://cdku6tgsd53u0" path="res://scripts/max.gd" id="1_fnx0a"]
 [ext_resource type="Texture2D" uid="uid://dtvkahw67m8i3" path="res://sprites/character/idle/idle_down.png" id="2_fnx0a"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cbfbq8j7hunps" path="res://sprites/character/shoot/shoot_right.png" id="13_oq0i6"]
 [ext_resource type="AudioStream" uid="uid://ck5nlkvgi730m" path="res://sounds/player/hurt_sound.wav" id="18_dcjt2"]
 [ext_resource type="AudioStream" uid="uid://y8vtunuoggut" path="res://sounds/player/death_sound.wav" id="18_oq0i6"]
+[ext_resource type="PackedScene" uid="uid://h06d0slb2tkl" path="res://scenes/UI/small_ui/interacting_component.tscn" id="19_dcjt2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4r8e"]
 atlas = ExtResource("2_hsi1b")
@@ -964,3 +965,5 @@ stream = ExtResource("18_oq0i6")
 zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+
+[node name="InteractingComponent" parent="." instance=ExtResource("19_dcjt2")]
