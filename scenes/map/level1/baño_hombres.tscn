@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dmaw1mg36h55r"]
+[gd_scene load_steps=28 format=4 uid="uid://dmaw1mg36h55r"]
 
 [ext_resource type="Script" uid="uid://droqn4xe72ksw" path="res://scripts/base_room.gd" id="1_acogj"]
 [ext_resource type="Texture2D" uid="uid://co8ecy1l2n503" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Floors_16x16.png" id="1_l4v4i"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c8ia0yfi3vjmn" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/2_LivingRoom_Shadowless.png" id="7_m3s4i"]
 [ext_resource type="Texture2D" uid="uid://md1largp7q6q" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/16_Grocery_store_Shadowless.png" id="8_3hta0"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="9_vk3wy"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_vm0dq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3s4i"]
 texture = ExtResource("1_l4v4i")
@@ -14771,6 +14772,9 @@ physics_layer_0/collision_layer = 16
 sources/3 = SubResource("TileSetAtlasSource_4ijvu")
 sources/4 = SubResource("TileSetAtlasSource_cno6d")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3s4i"]
+radius = 30.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktgdy"]
 size = Vector2(32, 15)
 
@@ -14799,6 +14803,13 @@ position = Vector2(20.999998, 16.999998)
 scale = Vector2(0.8, 0.8)
 tile_map_data = PackedByteArray("AAAFAAUAAwAIAC8AAAAGAAUAAwAJAC8AAAAFAAQAAwAIAC4AAAAGAAQAAwAJAC4AAAAHAAQABAAFAGUAADA=")
 tile_set = SubResource("TileSet_pjhk5")
+
+[node name="Interactable" parent="TileMapLayer/SmallItems" instance=ExtResource("10_vm0dq")]
+interact_name = "Nooo, profe :("
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/Interactable"]
+position = Vector2(105, 76.25)
+shape = SubResource("CircleShape2D_m3s4i")
 
 [node name="SpawnBañosH" type="Marker2D" parent="."]
 position = Vector2(160, 107)

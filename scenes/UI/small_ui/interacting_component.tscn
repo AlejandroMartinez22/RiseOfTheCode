@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://h06d0slb2tkl"]
 
-[ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://scenes/UI/PressStart2P.ttf" id="1_7tjq0"]
-[ext_resource type="Script" uid="uid://cgowyw356vuue" path="res://scenes/UI/small_ui/interacting_component.gd" id="1_c74bs"]
+[ext_resource type="Script" uid="uid://cgowyw356vuue" path="res://scripts/interacting_component.gd" id="1_c74bs"]
+[ext_resource type="FontFile" uid="uid://xm16s61q1it1" path="res://scenes/UI/pixelmix.ttf" id="2_c74bs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c74bs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ae3jm"]
 line_spacing = 1.0
 paragraph_spacing = 1.0
-font = ExtResource("1_7tjq0")
-font_size = 12
+font = ExtResource("2_c74bs")
+font_size = 6
 outline_size = 2
 outline_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 
@@ -29,9 +29,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -78.0
-offset_top = -60.0
+offset_top = -39.0
 offset_right = 78.0
-offset_bottom = -37.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "E TO INTERACT"

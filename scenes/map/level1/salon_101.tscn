@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://drslef1qt0n2s"]
+[gd_scene load_steps=22 format=4 uid="uid://drslef1qt0n2s"]
 
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_cns1w"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="1_dvowg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://fmtismyjw3qm" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/19_Hospital_16x16.png" id="4_vgel4"]
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/Inside_C.png" id="5_8npgi"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="5_vgel4"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="7_da0yf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da0yf"]
 texture = ExtResource("1_tma67")
@@ -8527,6 +8528,12 @@ sources/0 = SubResource("TileSetAtlasSource_vgel4")
 sources/1 = SubResource("TileSetAtlasSource_8npgi")
 sources/2 = SubResource("TileSetAtlasSource_tma67")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7m1d7"]
+radius = 12.0415945
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmfqk"]
+size = Vector2(107, 20)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffler"]
 texture = ExtResource("3_dwd5f")
 0:0/0 = 0
@@ -9062,6 +9069,17 @@ tile_set = SubResource("TileSet_vgel4")
 [node name="Foreground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAP7/AAAHAAoAAAAAAP//AAAHAAsAAAAAAAAAAAAHAAwAAAABAP7/AAAIAAoAAAABAP//AAAIAAsAAAABAAAAAAAIAAwAAAACAP7/AAAHAAoAAAACAP//AAAHAAsAAAACAAAAAAAHAAwAAAADAP7/AAAIAAoAAAADAP//AAAIAAsAAAADAAAAAAAIAAwAAAAFAPz/AgAhABsAAAAFAP3/AgAhABwAAAAFAP7/AgAhAB0AAAAFAP//AgAhAB8AAAAGAPz/AgAiABsAAAAGAP3/AgAiABwAAAAGAP7/AgAiAB0AAAAGAP//AgAiAB8AAAAHAPz/AgAjABsAAAAHAP3/AgAjABwAAAAHAP7/AgAjAB0AAAAHAP//AgAjAB8AAAAIAPz/AgAkABsAAAAIAP3/AgAkABwAAAAIAP7/AgAkAB0AAAAIAP//AgAkAB8AAAAJAPz/AgAlABsAAAAJAP3/AgAlABwAAAAJAP7/AgAlAB0AAAAJAP//AgAlAB8AAAAKAPz/AgAmABsAAAAKAP3/AgAmABwAAAAKAP7/AgAmAB0AAAAKAP//AgAmAB8AAAALAPz/AgAnABsAAAALAP3/AgAnABwAAAALAP7/AgAnAB0AAAALAP//AgAnAB8AAAAMAPz/AgApABsAAAAMAP3/AgApABwAAAAMAP7/AgApAB0AAAAMAP//AgApAB8AAAABAAkAAQAHAGQAAAACAAkAAQAIAGQAAAABAAcAAAAJAAoAAAABAAgAAAAJAAsAAAAQAP//AAAAAAAAAAAQAAAAAAAAAAEAAAAQAAEAAAAAAAIAAAAJAAIAAAACAAEAAAAJAAMAAAACAAIAAAAJAAUAAAACAAEAAAAJAAYAAAACAAIAAAALAAIAAAACAAEAAAALAAMAAAACAAIAAAALAAUAAAACAAEAAAALAAYAAAACAAIAAAANAAIAAAACAAEAAAANAAMAAAACAAIAAAANAAUAAAACAAEAAAANAAYAAAACAAIAAAAIAAUAAAACAAEAAAAIAAYAAAACAAIAAAAIAAIAAAACAAEAAAAIAAMAAAACAAIAAAAGAAIAAAACAAEAAAAGAAMAAAACAAIAAAAGAAUAAAACAAEAAAAGAAYAAAACAAIAAAAEAAIAAAACAAEAAAAEAAMAAAACAAIAAAAEAAUAAAACAAEAAAAEAAYAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_8npgi")
+
+[node name="Interactable" parent="Foreground" instance=ExtResource("7_da0yf")]
+interact_name = "E para leer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Interactable"]
+position = Vector2(22, 131)
+shape = SubResource("CircleShape2D_7m1d7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground/Interactable"]
+position = Vector2(143.5, -9)
+shape = SubResource("RectangleShape2D_bmfqk")
 
 [node name="SmallItems" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAAAAAEAAAABAAQAAAACAAAAAAABAAMAAAACAAEAAAABAAQAAAAQAAAAAAAIAAMAAAAQAAEAAAAIAAQAAAARAAAAAAAJAAMAAAARAAEAAAAJAAQAAAAPAAAAAAAHAAMAAAAPAAEAAAAHAAQAAAAJAAMAAAABAAMAAAAJAAQAAAABAAQAAAAJAAYAAAABAAMAAAAJAAcAAAABAAQAAAALAAMAAAABAAMAAAALAAQAAAABAAQAAAALAAYAAAABAAMAAAALAAcAAAABAAQAAAANAAMAAAABAAMAAAANAAQAAAABAAQAAAANAAYAAAABAAMAAAANAAcAAAABAAQAAAAIAAYAAAABAAMAAAAIAAcAAAABAAQAAAAIAAMAAAABAAMAAAAIAAQAAAABAAQAAAAGAAQAAAABAAQAAAAGAAcAAAABAAQAAAAGAAMAAAABAAMAAAAGAAYAAAABAAMAAAAEAAMAAAABAAMAAAAEAAQAAAABAAQAAAAEAAYAAAABAAMAAAAEAAcAAAABAAQAAAA=")

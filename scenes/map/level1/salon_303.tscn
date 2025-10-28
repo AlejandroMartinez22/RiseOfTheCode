@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://d1myro7w5bwvg"]
+[gd_scene load_steps=26 format=4 uid="uid://d1myro7w5bwvg"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_ei05c"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_vqmda"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="7_4pv4x"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="8_vmjq4"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="9_gk2hn"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="9_owg2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjp7i"]
 texture = ExtResource("1_ei05c")
@@ -10573,6 +10574,12 @@ sources/0 = SubResource("TileSetAtlasSource_g3hlg")
 sources/1 = SubResource("TileSetAtlasSource_rv3xc")
 sources/2 = SubResource("TileSetAtlasSource_1shub")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pv4x"]
+radius = 15.132746
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmjq4"]
+size = Vector2(108, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6st18"]
 size = Vector2(34, 13)
 
@@ -10589,6 +10596,17 @@ tile_set = SubResource("TileSet_f31w8")
 [node name="SmallItems" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAAAAAEAAAABAAQAAAACAAAAAAABAAMAAAACAAEAAAABAAQAAAAQAAAAAAAIAAMAAAAQAAEAAAAIAAQAAAARAAAAAAAJAAMAAAARAAEAAAAJAAQAAAAPAAAAAAAHAAMAAAAPAAEAAAAHAAQAAAAJAAMAAAABAAMAAAAJAAQAAAABAAQAAAAJAAYAAAABAAMAAAAJAAcAAAABAAQAAAALAAMAAAABAAMAAAALAAQAAAABAAQAAAALAAYAAAABAAMAAAALAAcAAAABAAQAAAANAAMAAAABAAMAAAANAAQAAAABAAQAAAANAAYAAAABAAMAAAANAAcAAAABAAQAAAAIAAYAAAABAAMAAAAIAAcAAAABAAQAAAAIAAMAAAABAAMAAAAIAAQAAAABAAQAAAAGAAQAAAABAAQAAAAGAAcAAAABAAQAAAAGAAMAAAABAAMAAAAGAAYAAAABAAMAAAAEAAMAAAABAAMAAAAEAAQAAAABAAQAAAAEAAYAAAABAAMAAAAEAAcAAAABAAQAAAAEAAUAAQAAABEAACACAAYAAgAFAGUAAAADAAYAAgAGAGUAAAA=")
 tile_set = SubResource("TileSet_dy00y")
+
+[node name="Interactable" parent="SmallItems" instance=ExtResource("9_owg2h")]
+interact_name = "E para leer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallItems/Interactable"]
+position = Vector2(72, 91)
+shape = SubResource("CircleShape2D_4pv4x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SmallItems/Interactable"]
+position = Vector2(143, -13)
+shape = SubResource("RectangleShape2D_vmjq4")
 
 [node name="SpawnSalon303" type="Marker2D" parent="."]
 position = Vector2(145, 152)

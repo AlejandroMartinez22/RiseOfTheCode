@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cu1bcnxfmf3yu"]
+[gd_scene load_steps=32 format=4 uid="uid://cu1bcnxfmf3yu"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_280p6"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/1_Generic_16x16.png" id="2_chwky"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/5_Classroom_and_library_16x16.png" id="6_gjiwn"]
 [ext_resource type="Texture2D" uid="uid://dva2s2wcdsba6" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/14_Basement_16x16.png" id="7_ek7gx"]
 [ext_resource type="Texture2D" uid="uid://gy3fffip5qlf" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/11_Halloween_16x16.png" id="9_wxnq4"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_wxnq4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fdl6"]
 texture = ExtResource("1_280p6")
@@ -16097,6 +16098,9 @@ sources/0 = SubResource("TileSetAtlasSource_chwky")
 sources/2 = SubResource("TileSetAtlasSource_452sh")
 sources/3 = SubResource("TileSetAtlasSource_v4c7l")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh5cd"]
+size = Vector2(49, 35.5)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xh5cd"]
 texture = ExtResource("7_ek7gx")
 1:0/0 = 0
@@ -19003,6 +19007,9 @@ sources/0 = SubResource("TileSetAtlasSource_xh5cd")
 sources/1 = SubResource("TileSetAtlasSource_gjiwn")
 sources/3 = SubResource("TileSetAtlasSource_ek7gx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjiwn"]
+size = Vector2(22, 33.5)
+
 [node name="SalaServidores" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -19019,6 +19026,20 @@ tile_set = SubResource("TileSet_ppj62")
 tile_map_data = PackedByteArray("AAACAP7/AAAKABAAAAACAP//AAALABQAAAABAP7/AAAIABAAAAABAP//AAAIABEAAAADAP7/AAALABAAAAADAP//AAALABEAAAACAAAAAAALABUAAAAEAP//AAABABYAAAAAAAQAAAAJAB0AAAAAAAUAAAAJAB4AAAAAAAIAAAAJABwAAAAAAAMAAAAJAB0AAAAGAAQAAAAJABQAAAAGAAUAAAAJABUAAAAHAAQAAAAIABQAAAAHAAUAAAAIABUAAAAIAAQAAAAJABQAAAAIAAUAAAAJABUAAAAJAAQAAAAIABQAAAAJAAUAAAAIABUAAAAKAAQAAAAIABQAAAAKAAUAAAAIABUAAAALAAQAAAAJABQAAAALAAUAAAAJABUAAAAMAAQAAAAJABQAAAAMAAUAAAAJABUAAAANAAQAAAAIABQAAAANAAUAAAAIABUAAAAGAAYAAAAJABYAAAAHAAYAAAAIABYAAAAIAAYAAAAJABYAAAAJAAYAAAAIABYAAAAKAAYAAAAIABYAAAALAAYAAAAJABYAAAAMAAYAAAAJABYAAAANAAYAAAAIABYAAAATAAYAAAAJABwAABATAAcAAAAJAB0AABATAAgAAAAJAB0AABATAAkAAAAJAB0AABATAAoAAAAJAB0AABATAAsAAAAJAB8AABAAAAYAAAAJAB8AAAABAAoAAwAFABgAAAACAAoAAwAGABgAAAA=")
 tile_set = SubResource("TileSet_wxnq4")
 
+[node name="Interactable" parent="TileMapLayer/Objects" instance=ExtResource("10_wxnq4")]
+interact_name = "E para acceder"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
+position = Vector2(42.5, -2.75)
+shape = SubResource("RectangleShape2D_xh5cd")
+
 [node name="SmallerObjects" type="TileMapLayer" parent="TileMapLayer"]
 tile_map_data = PackedByteArray("AAAAAAMAAAALACMAAAAAAAQAAAALACQAAAATAAkAAAALACMAABATAAoAAAALACQAABATAAYAAAALACMAABATAAcAAAALACQAABAAAAEAAAAPAAQAAAAAAAIAAAAPAAUAAAAAAAYAAwABACoAAAAAAAcAAwABACsAAAATAP//AwABACoAAAATAAAAAwABACsAAAABAAoAAwAHAGQAAAACAAoAAwAIAGQAAAA=")
 tile_set = SubResource("TileSet_ryq0u")
+
+[node name="Interactable" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_wxnq4")]
+interact_name = "E para leer correo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/Interactable"]
+position = Vector2(11, 67.25)
+shape = SubResource("RectangleShape2D_gjiwn")

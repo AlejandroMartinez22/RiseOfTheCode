@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dt5l1d4teocp4"]
+[gd_scene load_steps=32 format=4 uid="uid://dt5l1d4teocp4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_cyiit"]
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/5_Classroom_and_library_16x16.png" id="2_frioa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://clpmm65i4gfsw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/22_Museum.png" id="6_wa84k"]
 [ext_resource type="Texture2D" uid="uid://cachu3lnv7ekl" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/12_Kitchen_16x16.png" id="8_1xn60"]
 [ext_resource type="Texture2D" uid="uid://fmtismyjw3qm" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/19_Hospital_16x16.png" id="9_vuqcq"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_vuqcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_42bac"]
 texture = ExtResource("1_cyiit")
@@ -11374,6 +11375,9 @@ sources/6 = SubResource("TileSetAtlasSource_33x2s")
 sources/7 = SubResource("TileSetAtlasSource_wguen")
 sources/9 = SubResource("TileSetAtlasSource_vuqcq")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cvb5"]
+size = Vector2(26, 33)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q70ev"]
 texture = ExtResource("1_cyiit")
 5:0/0 = 0
@@ -15946,6 +15950,9 @@ physics_layer_0/collision_layer = 16
 sources/1 = SubResource("TileSetAtlasSource_q70ev")
 sources/2 = SubResource("TileSetAtlasSource_mtlxb")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa84k"]
+size = Vector2(39, 25)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouk0f"]
 texture = ExtResource("2_frioa")
 0:0/0 = 0
@@ -19247,10 +19254,24 @@ tile_set = SubResource("TileSet_fg88k")
 tile_map_data = PackedByteArray("AAABAP7/BQAOAAgAAAABAP//BQAOAAkAAAACAP//BQAPAAkAAAADAP//BgAAAAYAAAALAAAAAAADABQAAAALAAEAAAADABUAAAAKAAAAAAADABQAAAAKAAEAAAADABUAAAAKAP7/AQAKABYAAAAKAP//AQAKABcAAAALAP7/AQALABYAAAALAP//AQALABcAAAADAAQAAwAGACcAAAADAAUAAwAGACgAAAAEAAQAAwAHACcAAAAEAAUAAwAHACgAAAAJAAAABgAMAAUAAAAJAAEABgAMAAYAAAAHAP//AAACADAAAAAHAAAAAAACADEAAAACAP7/BQAPAAgAAAAEAP//BgABAAYAAAANAP3/BAABAAoAAAANAAAAAQAMABQAAAANAAEAAQAMABUAAAAMAAQABAADACMAAAAMAAUABAADACQAAAACAAEABAAKABQAAAAKAAYABwADABQAAAAMAAYABwADABQAABALAAYABwAEABQAAAAAAAMABwADABQAAAABAAMABwAEABQAAAACAAMABwAEABQAAAADAAMABwAEABQAAAAEAAMABwAEABQAAAAFAAMABwAFABQAAAABAAQAAwAGACcAAAABAAUAAwAGACgAAAACAAQAAwAHACcAAAACAAUAAwAHACgAAAAIAAMACQAFAGcAAAAJAAMACQAGAGcAAAA=")
 tile_set = SubResource("TileSet_ohbeq")
 
+[node name="Interactable" parent="TileMapLayer/Foreground" instance=ExtResource("10_vuqcq")]
+interact_name = "E para coger"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Foreground/Interactable"]
+position = Vector2(119, 9)
+shape = SubResource("RectangleShape2D_0cvb5")
+
 [node name="Objects" type="TileMapLayer" parent="TileMapLayer"]
 z_index = 2
 tile_map_data = PackedByteArray("AAAAAAgAAQAMAAgAACABAAgAAQAMAAgAACACAAgAAQAMAAgAACADAAgAAQAMAAgAACAEAAgAAQAMAAgAACAIAAgAAQAMAAgAACAJAAgAAQAMAAgAACAKAAgAAQAMAAgAACALAAgAAQAMAAgAACAMAAgAAQAMAAgAACAAAAIAAgADABMAAAACAAIAAgAEABMAAAADAAIAAgAEABMAAAABAAIAAgAEABMAAAAFAAIAAgAFABMAAAAEAAIAAgAEABMAAAANAAgAAQAMAAgAACAFAAgAAQAMAAgAACAKAAQAAgADABMAAAAKAAUAAgADABIAAAALAAQAAgAEABMAAAALAAUAAgAEABIAAAAMAAQAAgAFABMAAAAMAAUAAgAFABIAAAAGAAgAAQAWAAEAAEAHAAgAAQAWAAEAAFA=")
 tile_set = SubResource("TileSet_mt4w5")
+
+[node name="Interactable" parent="TileMapLayer/Objects" instance=ExtResource("10_vuqcq")]
+interact_name = "E para leer correo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
+position = Vector2(67.5, 35.5)
+shape = SubResource("RectangleShape2D_wa84k")
 
 [node name="SmallerObjects" type="TileMapLayer" parent="TileMapLayer"]
 z_index = 3

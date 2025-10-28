@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dykyrt84v7byi"]
+[gd_scene load_steps=25 format=4 uid="uid://dykyrt84v7byi"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_1obui"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_pw16s"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/Inside_C.png" id="6_dw8gh"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="6_t2hbc"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="8_vft4m"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="9_vft4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pehfy"]
 texture = ExtResource("1_1obui")
@@ -10292,6 +10293,8 @@ physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_acm0n")
 sources/1 = SubResource("TileSetAtlasSource_qjsnj")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pehfy"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw8gh"]
 size = Vector2(32, 11)
 
@@ -10308,6 +10311,13 @@ tile_set = SubResource("TileSet_pehfy")
 [node name="SmallItems" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAQAAAAAAAHAAMAAAAQAAEAAAAHAAQAAAARAAAAAAAIAAMAAAARAAEAAAAIAAQAAAASAAAAAAAJAAMAAAASAAEAAAAJAAQAAAAOAAEAAQAAABEAAAAKAAMAAAABAAMAAAAKAAQAAAABAAQAAAAKAAYAAAABAAMAAAAKAAcAAAABAAQAAAAMAAMAAAABAAMAAAAMAAQAAAABAAQAAAAMAAYAAAABAAMAAAAMAAcAAAABAAQAAAAOAAMAAAABAAMAAAAOAAQAAAABAAQAAAAOAAYAAAABAAMAAAAOAAcAAAABAAQAAAAJAAMAAAABAAMAAAAJAAQAAAABAAQAAAAJAAYAAAABAAMAAAAJAAcAAAABAAQAAAAFAAYAAAABAAMAAAAFAAcAAAABAAQAAAAHAAYAAAABAAMAAAAHAAcAAAABAAQAAAAFAAMAAAABAAMAAAAFAAQAAAABAAQAAAAHAAMAAAABAAMAAAAHAAQAAAABAAQAAAAQAP3/AAANAAMAAAAQAP7/AAANAAQAAAARAP3/AAAOAAMAAAARAP7/AAAOAAQAAAA=")
 tile_set = SubResource("TileSet_qjsnj")
+
+[node name="Interactable" parent="SmallItems" instance=ExtResource("9_vft4m")]
+interact_name = "E para leer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallItems/Interactable"]
+position = Vector2(232, 22)
+shape = SubResource("CircleShape2D_pehfy")
 
 [node name="SpawnSalon202" type="Marker2D" parent="."]
 position = Vector2(160, 152)
