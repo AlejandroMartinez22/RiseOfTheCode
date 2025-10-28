@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dykyrt84v7byi"]
+[gd_scene load_steps=23 format=4 uid="uid://dykyrt84v7byi"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_1obui"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_pw16s"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/Inside_C.png" id="6_dw8gh"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="6_t2hbc"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="8_vft4m"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="11_vft4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pehfy"]
 texture = ExtResource("1_1obui")
@@ -60,6 +59,7 @@ texture = ExtResource("1_1obui")
 20:1/0 = 0
 21:1/0 = 0
 22:1/0 = 0
+22:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.9742441, -8, 8, -8, 8, 8, 0.9742441, 8)
 23:1/0 = 0
 24:1/0 = 0
 26:1/0 = 0
@@ -5509,6 +5509,7 @@ texture = ExtResource("3_t2hbc")
 10:30/0 = 0
 11:30/0 = 0
 12:30/0 = 0
+12:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.954288, -4.9858413, 6.0747023, -4.9858413, 6.0915337, 8, -3.9594965, 8)
 15:30/0 = 0
 0:31/0 = 0
 1:31/0 = 0
@@ -5523,12 +5524,16 @@ texture = ExtResource("3_t2hbc")
 10:31/0 = 0
 11:31/0 = 0
 12:31/0 = 0
+12:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.954288, -4.9858413, 6.0747023, -4.9858413, 6.0915337, 8, -3.9594965, 8)
 13:31/0 = 0
 14:31/0 = 0
 15:31/0 = 0
 0:32/0 = 0
+0:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:32/0 = 0
+1:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:32/0 = 0
+2:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:32/0 = 0
 4:32/0 = 0
 5:32/0 = 0
@@ -5539,6 +5544,7 @@ texture = ExtResource("3_t2hbc")
 10:32/0 = 0
 11:32/0 = 0
 12:32/0 = 0
+12:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.954288, -4.9858413, 6.0747023, -4.9858413, 6.0915337, 8, -3.9594965, 8)
 13:32/0 = 0
 14:32/0 = 0
 15:32/0 = 0
@@ -5555,6 +5561,7 @@ texture = ExtResource("3_t2hbc")
 10:33/0 = 0
 11:33/0 = 0
 12:33/0 = 0
+12:33/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.954288, -4.9858413, 6.0747023, -4.9858413, 6.017394, 0.057308674, -3.9542878, 0)
 13:33/0 = 0
 14:33/0 = 0
 15:33/0 = 0
@@ -7025,9 +7032,7 @@ texture = ExtResource("4_dw8gh")
 5:100/0 = 0
 6:100/0 = 0
 7:100/0 = 0
-7:100/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.091255, -8, 8, -8, 8, 0, -4.1605983, 0)
 8:100/0 = 0
-8:100/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 2.149642, -3.7445378, 2.3576717, -0.48540306, -8, 0.06934357)
 9:100/0 = 0
 10:100/0 = 0
 11:100/0 = 0
@@ -7059,7 +7064,9 @@ texture = ExtResource("4_dw8gh")
 5:102/0 = 0
 6:102/0 = 0
 7:102/0 = 0
+7:102/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.9442406, -3.9594965, 1.4213581, -7.005263, 8, -7.005263, 8, 0.10152626, -2.8427162, -0.20305157)
 8:102/0 = 0
+8:102/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.5228825, -3.2488174, -8, -5.888482, -8, 0.10152626, 1.7259331, 0)
 9:102/0 = 0
 10:102/0 = 0
 11:102/0 = 0
@@ -7073,9 +7080,7 @@ texture = ExtResource("4_dw8gh")
 3:103/0 = 0
 4:103/0 = 0
 5:103/0 = 0
-5:103/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.8527842, -6.544622, 8, -6.4607162, 8, 1.5234051, -2.8527842, 1.9298248)
 6:103/0 = 0
-6:103/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.041189, 2.1815405, -3.7757435, 2.0976353, 0.7551489, -8, 1.0907698)
 9:103/0 = 0
 10:103/0 = 0
 11:103/0 = 0
@@ -9182,11 +9187,11 @@ texture = ExtResource("3_t2hbc")
 5:4/0 = 0
 6:4/0 = 0
 7:4/0 = 0
-7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.832119, -8, 8, -8, 8, 0.5945749, 1.0405064, 0.7432184)
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.0351734, -8, 8, -8, 8, -1.004314, 1.0043141, -1.004314)
 8:4/0 = 0
-8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0.7432184, -8, 1.0405054)
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, -1.004314, 8, -1.015255)
 9:4/0 = 0
-9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.9728718, -8, -3.1215153, 1.0405054, -8, 1.0405054)
+9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.0084724, -8, -8, -8, -8, -1.004314, -3.040821, -0.9704752)
 10:4/0 = 0
 11:4/0 = 0
 12:4/0 = 0
@@ -10315,6 +10320,3 @@ spawn_name = "SpawnFromSalon102"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(160, 174.5)
 shape = SubResource("RectangleShape2D_dw8gh")
-
-[node name="Max" parent="." instance=ExtResource("11_vft4m")]
-position = Vector2(282, 126)

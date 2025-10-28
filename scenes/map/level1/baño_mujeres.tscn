@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://8l12q1jytdn5"]
+[gd_scene load_steps=25 format=4 uid="uid://8l12q1jytdn5"]
 
 [ext_resource type="Texture2D" uid="uid://co8ecy1l2n503" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Floors_16x16.png" id="1_77brg"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="2_rq73f"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://md1largp7q6q" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/16_Grocery_store_Shadowless.png" id="7_xc8xk"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="8_6p1dr"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="8_r6xhd"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="10_ux55f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykujo"]
 texture = ExtResource("1_77brg")
@@ -14810,6 +14809,3 @@ spawn_name = "SpawnFromBañosM"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(160, 138)
 shape = SubResource("RectangleShape2D_ykujo")
-
-[node name="Max" parent="." instance=ExtResource("10_ux55f")]
-position = Vector2(112, 51)
