@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cygu32ib6kt0e"]
+[gd_scene load_steps=31 format=4 uid="uid://cygu32ib6kt0e"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_01k88"]
 [ext_resource type="Texture2D" uid="uid://cachu3lnv7ekl" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/12_Kitchen_16x16.png" id="2_jbkpe"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="6_wewvp"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="7_igwo8"]
 [ext_resource type="Texture2D" uid="uid://cuefkpd37xbrf" path="res://sprites/tilesets/moderninteriors-win/others/book.png" id="9_8jknl"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="10_oa5t0"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="11_8jknl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7yf6"]
 texture = ExtResource("1_01k88")
@@ -11547,6 +11547,9 @@ sources/2 = SubResource("TileSetAtlasSource_oa5t0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wewvp"]
 size = Vector2(23, 35)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jknl"]
+size = Vector2(32, 12)
+
 [node name="Cafeteria" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -11583,5 +11586,14 @@ interact_name = "E para leer"
 position = Vector2(200, 31.5)
 shape = SubResource("RectangleShape2D_wewvp")
 
-[node name="Max" parent="." instance=ExtResource("10_oa5t0")]
-position = Vector2(171, 85)
+[node name="SpawnCafeteria" type="Marker2D" parent="."]
+position = Vector2(176, 169)
+
+[node name="ExitToPasillos" type="Area2D" parent="."]
+script = ExtResource("11_8jknl")
+next_room_path = "res://scenes/map/level1/pasillos.tscn"
+spawn_name = "SpawnFromCafeteria"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
+position = Vector2(176, 193)
+shape = SubResource("RectangleShape2D_8jknl")

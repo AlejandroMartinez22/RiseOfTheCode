@@ -23616,7 +23616,7 @@ tile_set = SubResource("TileSet_7kbbx")
 [node name="ExitToRecepcion" type="Area2D" parent="."]
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/recepcion.tscn"
-spawn_name = "SpawnBañosH"
+spawn_name = "SpawnRecepcion"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToRecepcion"]
 position = Vector2(421, 167)
@@ -23626,6 +23626,7 @@ shape = SubResource("RectangleShape2D_nkofm")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/baño_hombres.tscn"
 spawn_name = "SpawnBañosH"
+locked_message = "La puerta está bloqueada."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitoToBañosH"]
 position = Vector2(147, -54)
@@ -23633,6 +23634,9 @@ shape = SubResource("RectangleShape2D_5jwm4")
 
 [node name="ExitoToBañosM" type="Area2D" parent="."]
 script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/baño_mujeres.tscn"
+spawn_name = "SpawnBañosM"
+locked_message = "La puerta está bloqueada."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitoToBañosM"]
 position = Vector2(307, -54)
@@ -23640,6 +23644,9 @@ shape = SubResource("RectangleShape2D_5df1l")
 
 [node name="ExitToSalon101" type="Area2D" parent="."]
 script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/salon_101.tscn"
+spawn_name = "SpawnSalon101"
+locked_message = "La puerta está bloqueada."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToSalon101"]
 position = Vector2(691, -51)
@@ -23647,24 +23654,38 @@ shape = SubResource("RectangleShape2D_ggijm")
 
 [node name="ExitToSalon202" type="Area2D" parent="."]
 script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/salon_202.tscn"
+spawn_name = "SpawnSalon202"
+locked_message = "La puerta está bloqueada."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToSalon202"]
 position = Vector2(883, -50.75)
 shape = SubResource("RectangleShape2D_xelas")
 
 [node name="ExitToSalon303" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/salon_303.tscn"
+spawn_name = "SpawnSalon303"
+locked_message = "La puerta está bloqueada."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToSalon303"]
 position = Vector2(1075, -51)
 shape = SubResource("RectangleShape2D_vgubt")
 
-[node name="ExitToOficina" type="Area2D" parent="."]
+[node name="ExitToOficinaDirector" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/oficina_director.tscn"
+spawn_name = "SpawnOficinaDirector"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOficina"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOficinaDirector"]
 position = Vector2(1475, -50)
 shape = SubResource("RectangleShape2D_omo7f")
 
 [node name="ExitToCafeteria" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/cafeteria.tscn"
+spawn_name = "SpawnCafeteria"
+locked_message = "La puerta está bloqueada."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToCafeteria"]
 position = Vector2(691, 334)
@@ -23718,5 +23739,14 @@ position = Vector2(306, -22)
 [node name="SpawnFromSalon101" type="Marker2D" parent="."]
 position = Vector2(690, -22)
 
-[node name="SpawnFromSalon102" type="Marker2D" parent="."]
+[node name="SpawnFromSalon202" type="Marker2D" parent="."]
 position = Vector2(882, -21)
+
+[node name="SpawnFromSalon303" type="Marker2D" parent="."]
+position = Vector2(1075, -20)
+
+[node name="SpawnFromOficinaDirector" type="Marker2D" parent="."]
+position = Vector2(1475, -20)
+
+[node name="SpawnFromCafeteria" type="Marker2D" parent="."]
+position = Vector2(691, 363)
