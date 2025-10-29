@@ -183,6 +183,9 @@ func die() -> void:
 
 	# Conectamos una función para eliminar el nodo cuando acabe la animación
 	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"))
+	
+	
 
 func _on_death_animation_finished():
 	queue_free()
+	get_node("../DieMenu").game_over()

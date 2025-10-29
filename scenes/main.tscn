@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfj787jd684qt"]
+[gd_scene load_steps=6 format=3 uid="uid://cfj787jd684qt"]
 
 [ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://dg6idtvapp2ar" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ck6eo7d2vkdsr" path="res://scenes/UI/heart_container.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dlr11kurjlyiq" path="res://scenes/UI/pause/pause_menu.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://xw6bim41hdv3" path="res://scenes/UI/die_menu/die_menu.tscn" id="5_tbgi4"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_sugp2")
@@ -26,3 +27,6 @@ layout_mode = 2
 [node name="CurrentRoom" type="Node2D" parent="."]
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_tbgi4")]
+
+[node name="DieMenu" parent="." instance=ExtResource("5_tbgi4")]
+process_mode = 3

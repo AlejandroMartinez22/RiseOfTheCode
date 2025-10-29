@@ -25,7 +25,7 @@ func _ready():
 		player.connect("finished", Callable(self, "_on_player_finished").bind(player))
 		
 		audio_pool.append(player)
-		get_tree().current_scene.add_child(player)
+		add_child(player)  # ← CAMBIA ESTA LÍNEA: usa 'add_child' en lugar de 'get_tree().current_scene.add_child'
 
 
 # ----------- Reproducción de sonidos ----------
