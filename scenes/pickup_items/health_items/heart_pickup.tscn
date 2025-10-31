@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ghxs6h47yvtj"]
 
-[ext_resource type="Script" uid="uid://b1qf1mhgdse27" path="res://scripts/heart_pickup.gd" id="1_83c58"]
+[ext_resource type="Script" uid="uid://b1qf1mhgdse27" path="res://scripts/pickup_items/heart_pickup.gd" id="1_83c58"]
 [ext_resource type="Texture2D" uid="uid://bx250ycs8colw" path="res://sprites/pickup_items/health_items/floating_hearth.png" id="1_yj1dp"]
 [ext_resource type="AudioStream" uid="uid://ukim8il1pbh6" path="res://sounds/pickup_items/heart_pickup_sound.wav" id="2_ofayv"]
 

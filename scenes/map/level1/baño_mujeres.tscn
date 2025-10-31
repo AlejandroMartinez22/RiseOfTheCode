@@ -1,14 +1,14 @@
 [gd_scene load_steps=25 format=4 uid="uid://8l12q1jytdn5"]
 
-[ext_resource type="Texture2D" uid="uid://co8ecy1l2n503" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Floors_16x16.png" id="1_77brg"]
-[ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="2_rq73f"]
-[ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="3_yaaas"]
-[ext_resource type="Texture2D" uid="uid://dd8hk70r5crtp" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/3_Bathroom_16x16.png" id="4_s13cw"]
-[ext_resource type="Texture2D" uid="uid://e3q345vyqyh" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/11_Halloween_Shadowless.png" id="5_ykujo"]
-[ext_resource type="Texture2D" uid="uid://c8ia0yfi3vjmn" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/2_LivingRoom_Shadowless.png" id="6_ux55f"]
-[ext_resource type="Texture2D" uid="uid://md1largp7q6q" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/16_Grocery_store_Shadowless.png" id="7_xc8xk"]
-[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="8_6p1dr"]
-[ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="8_r6xhd"]
+[ext_resource type="Texture2D" uid="uid://co8ecy1l2n503" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Floors_16x16.png" id="1_77brg"]
+[ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="2_rq73f"]
+[ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="3_yaaas"]
+[ext_resource type="Texture2D" uid="uid://dd8hk70r5crtp" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/3_Bathroom_16x16.png" id="4_s13cw"]
+[ext_resource type="Texture2D" uid="uid://e3q345vyqyh" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/11_Halloween_Shadowless.png" id="5_ykujo"]
+[ext_resource type="Texture2D" uid="uid://c8ia0yfi3vjmn" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/2_LivingRoom_Shadowless.png" id="6_ux55f"]
+[ext_resource type="Texture2D" uid="uid://md1largp7q6q" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/16_Grocery_store_Shadowless.png" id="7_xc8xk"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="8_6p1dr"]
+[ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="8_r6xhd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykujo"]
 texture = ExtResource("1_77brg")
