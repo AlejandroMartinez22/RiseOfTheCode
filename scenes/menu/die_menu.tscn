@@ -67,8 +67,3 @@ offset_bottom = 6.4800034
 theme_override_font_sizes/font_size = 3
 text = "REINTENTAR"
 script = ExtResource("5_nycv7")
-
-[connection signal="pressed" from="BotonMenuPrincipal" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="BotonMenuPrincipal" to="BotonMenuPrincipal" method="_on_pressed"]
-[connection signal="pressed" from="BotonReintentar" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="BotonReintentar" to="BotonReintentar" method="_on_pressed"]

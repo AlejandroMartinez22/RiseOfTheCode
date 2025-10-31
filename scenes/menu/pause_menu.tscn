@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlr11kurjlyiq"]
+[gd_scene load_steps=6 format=3 uid="uid://dlr11kurjlyiq"]
 
 [ext_resource type="Script" uid="uid://cn4kd6wkm83bt" path="res://scripts/menu/pause_menu.gd" id="1_subqc"]
 [ext_resource type="Texture2D" uid="uid://deoxxr8xhjlp2" path="res://sprites/menu/fondo_die_menu.png" id="1_t0xfv"]
 [ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://scenes/UI/PressStart2P.ttf" id="3_3aujf"]
+[ext_resource type="Script" uid="uid://b2fps8av6reuq" path="res://scripts/menu/buttons/resume_button.gd" id="4_2yk66"]
 [ext_resource type="Script" uid="uid://fjrb8d4rwwtw" path="res://scripts/menu/buttons/main_menu_button.gd" id="4_msl3b"]
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -55,11 +56,10 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "REANUDAR"
+script = ExtResource("4_2yk66")
 
 [node name="BotonMenuPrincipal" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "SALIR"
 script = ExtResource("4_msl3b")
-
-[connection signal="pressed" from="VBoxContainer/BotonMenuPrincipal" to="VBoxContainer/BotonMenuPrincipal" method="_on_pressed"]
