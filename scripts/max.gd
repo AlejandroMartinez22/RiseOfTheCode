@@ -170,7 +170,7 @@ func heal(amount: int) -> void:
 
 func die() -> void:
 	is_dead = true
-	print("Jugador ha muerto")
+	print("💀 Jugador ha muerto")
 
 	if death_sound.stream != null:
 		death_sound.play()
@@ -181,8 +181,11 @@ func die() -> void:
 	velocity = Vector2.ZERO
 	is_shooting = true
 
-	# Conectamos una función para eliminar el nodo cuando acabe la animación
-	animated_sprite.connect("animation_finished", Callable(self, "_on_death_animation_finished"))
+	# Esperar a que termine la animación de muerte
+	await animated_sprite.animation_finished
+	
+	# Notificar al GameManager que el jugador murió
+	GameManager.player_died()
 	
 func _on_death_animation_finished():
 	queue_free()
