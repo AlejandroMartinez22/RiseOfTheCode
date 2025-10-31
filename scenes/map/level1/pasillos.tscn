@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://dtgvumjvpjvsl"]
+[gd_scene load_steps=55 format=4 uid="uid://dtgvumjvpjvsl"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png" id="1_8q04b"]
 [ext_resource type="Texture2D" uid="uid://dk3w273fgmxhq" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/2_LivingRoom_16x16.png" id="2_207k1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cpkvv5d5g1vsm" path="res://sprites/tilesets/moderninteriors-win/others/DoorsWithNumbers.png" id="9_5df1l"]
 [ext_resource type="Texture2D" uid="uid://ci8ubfsvwbigw" path="res://sprites/tilesets/moderninteriors-win/1_Interiors/16x16/Theme_Sorter/CerraduraDigitalPuerta.png" id="9_l3568"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/smart_exit.gd" id="10_5jwm4"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="15_l3568"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ixtq"]
 texture = ExtResource("1_8q04b")
@@ -23750,3 +23751,9 @@ position = Vector2(1475, -20)
 
 [node name="SpawnFromCafeteria" type="Marker2D" parent="."]
 position = Vector2(691, 363)
+
+[node name="Centinela" parent="." instance=ExtResource("15_l3568")]
+position = Vector2(510, 409)
+
+[node name="Centinela2" parent="." instance=ExtResource("15_l3568")]
+position = Vector2(114, 15)

@@ -5,12 +5,14 @@ Layer -> Quien eres
 Mask -> A quien puedes golpear
 
 Capas de Colisión
-Layer 1 → Player
-Layer 2 → Enemies
-Layer 3 → PlayerBullets
-Layer 4 → EnemyBullets
-Layer 5 → Walls / Environment
-Layer 6 → Pickup items
+Layer 1: Player (cuerpo físico)
+Layer 2: Enemies (cuerpo físico)
+Layer 3: Player Bullets
+Layer 4: Enemy Bullets
+Layer 5: Walls/Obstacles
+Layer 6: Interactables (objetos con los que interactuar)
+Layer 7: Interaction Range (área de detección de interacción)
+
 ------------------------------------------------ 
 
 

@@ -19135,6 +19135,8 @@ tile_map_data = PackedByteArray("AAAOAAkAAAAJAAoAAAAOAAoAAAAJAAsAAAA=")
 tile_set = SubResource("TileSet_6x61e")
 
 [node name="Interactable" parent="TileMapLayers/InteractiveObjects" instance=ExtResource("11_gc1iw")]
+collision_layer = 32
+collision_mask = 64
 interact_name = "E para leer "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayers/InteractiveObjects/Interactable"]
