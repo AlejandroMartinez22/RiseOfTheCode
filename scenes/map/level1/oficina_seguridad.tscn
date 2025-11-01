@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bd8edp1enkkw5"]
+[gd_scene load_steps=43 format=4 uid="uid://bd8edp1enkkw5"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_c5b7c"]
 [ext_resource type="Texture2D" uid="uid://cy88whk8mkdfg" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/12_Kitchen_Shadowless.png" id="2_c8rem"]
@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cudpl5ycb07m1" path="res://sprites/tilesets/other_tiles/GunFrame/frame_left_up.png" id="9_u7uuk"]
 [ext_resource type="Texture2D" uid="uid://qvqb5pybu774" path="res://sprites/tilesets/other_tiles/GunFrame/frame_left_down.png" id="10_td637"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="10_urv5y"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="14_0f0mt"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="14_0f0mt"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="14_3x2un"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="16_u7uuk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8rem"]
 texture = ExtResource("1_c5b7c")
@@ -14504,6 +14505,9 @@ sources/1 = SubResource("TileSetAtlasSource_pp2oi")
 sources/2 = SubResource("TileSetAtlasSource_u7uuk")
 sources/3 = SubResource("TileSetAtlasSource_1cwp1")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_td637"]
+size = Vector2(11, 30)
+
 [node name="OficinaSeguridad" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -14545,3 +14549,15 @@ shape = SubResource("RectangleShape2D_u7uuk")
 position = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAMAAgAAQACACgAAAANAAkAAQAKAAsAAAAJAAIAAwACACUAAAAJAAMAAwACACYAAAAFAAsAAAAMAAgAACAGAAsAAAAMAAgAACAHAAsAAAAMAAgAACAIAAsAAAAMAAgAACAJAAsAAAAMAAgAACAKAAsAAAAMAAgAACALAAsAAAAMAAgAACAMAAsAAAAMAAgAACANAAsAAAAMAAgAACAOAAsAAAAMAAgAACAPAAsAAAAMAAgAACAQAAsAAAAMAAgAACARAAsAAAAMAAgAACASAAsAAAAMAAgAACATAAsAAAAMAAgAACA=")
 tile_set = SubResource("TileSet_14q0v")
+
+[node name="SpawnOficinaSeguridad" type="Marker2D" parent="."]
+position = Vector2(302, 131)
+
+[node name="ExitToPasillos" type="Area2D" parent="."]
+script = ExtResource("16_u7uuk")
+next_room_path = "res://scenes/map/level1/pasillos.tscn"
+spawn_name = "SpawnFromOficinaSeguridad"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
+position = Vector2(323.5, 130)
+shape = SubResource("RectangleShape2D_td637")

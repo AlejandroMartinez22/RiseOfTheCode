@@ -1016,6 +1016,8 @@ radius = 140.0
 [node name="Centinela" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 17
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_6bf67")
 projectile_scene = ExtResource("2_5cexr")
 data = ExtResource("2_hodlo")

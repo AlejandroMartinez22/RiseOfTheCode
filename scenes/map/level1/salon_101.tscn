@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://fmtismyjw3qm" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/19_Hospital_16x16.png" id="4_vgel4"]
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/InteriorSalones.png" id="5_8npgi"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="5_vgel4"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="7_da0yf"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="7_da0yf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da0yf"]
 texture = ExtResource("1_tma67")

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/5_Classroom_and_library_16x16.png" id="7_kure6"]
 [ext_resource type="Texture2D" uid="uid://cachu3lnv7ekl" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/12_Kitchen_16x16.png" id="8_i12hg"]
 [ext_resource type="Texture2D" uid="uid://fmtismyjw3qm" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/19_Hospital_16x16.png" id="9_aw7gq"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_8oej3"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_8oej3"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_23xmk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_42bac"]

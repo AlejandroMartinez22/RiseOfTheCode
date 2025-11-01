@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c8ia0yfi3vjmn" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/2_LivingRoom_Shadowless.png" id="7_m3s4i"]
 [ext_resource type="Texture2D" uid="uid://md1largp7q6q" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/16_Grocery_store_Shadowless.png" id="8_3hta0"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="9_vk3wy"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_vm0dq"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_vm0dq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3s4i"]
 texture = ExtResource("1_l4v4i")

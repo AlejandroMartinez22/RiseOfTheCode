@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/InteriorSalones.png" id="6_dw8gh"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="6_t2hbc"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="8_vft4m"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="9_vft4m"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="9_vft4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pehfy"]
 texture = ExtResource("1_1obui")

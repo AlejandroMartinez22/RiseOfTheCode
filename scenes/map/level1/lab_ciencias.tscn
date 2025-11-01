@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://c5b5y5vnw4mq7"]
+[gd_scene load_steps=33 format=4 uid="uid://c5b5y5vnw4mq7"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_altev"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="2_bclro"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="7_pf0m4"]
 [ext_resource type="Texture2D" uid="uid://boc2rpeiihiig" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/5_Classroom_and_library_Shadowless.png" id="8_ybxgc"]
 [ext_resource type="Texture2D" uid="uid://dgdevccgfoynk" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/22_Museum_Shadowless.png" id="9_cmd6c"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_lpyma"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_lpyma"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_w5nas"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mrek"]
 texture = ExtResource("1_altev")
@@ -17657,6 +17658,9 @@ sources/1 = SubResource("TileSetAtlasSource_8252g")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pf0m4"]
 size = Vector2(20, 26)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5nas"]
+size = Vector2(32, 13)
+
 [node name="LabCiencias" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -17691,3 +17695,15 @@ interact_name = "E para coger"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/InteractiveObjects/Interactable"]
 position = Vector2(185, -13)
 shape = SubResource("RectangleShape2D_pf0m4")
+
+[node name="SpawnLabCiencias" type="Marker2D" parent="."]
+position = Vector2(160, 145)
+
+[node name="ExitToPasillos" type="Area2D" parent="."]
+script = ExtResource("11_w5nas")
+next_room_path = "res://scenes/map/level1/pasillos.tscn"
+spawn_name = "SpawnFromLabCiencias"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
+position = Vector2(160, 169.5)
+shape = SubResource("RectangleShape2D_w5nas")

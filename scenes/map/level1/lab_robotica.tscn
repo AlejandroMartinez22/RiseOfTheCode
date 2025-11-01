@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=54 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_2tjic"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/retro_interiors/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
@@ -16,7 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dh5kxwwol6uem" path="res://sprites/tilesets/other_tiles/GunFrame/frame_right_down.png" id="13_x5g1d"]
 [ext_resource type="Texture2D" uid="uid://c4hnkbar8ffl5" path="res://sprites/tilesets/other_tiles/GunFrame/frame_right_up.png" id="14_msd6n"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="15_8wrob"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="15_x5g1d"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="15_x5g1d"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="18_x5g1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wrob"]
 texture = ExtResource("1_2tjic")
@@ -16512,6 +16513,9 @@ sources/0 = SubResource("TileSetAtlasSource_pa23v")
 sources/1 = SubResource("TileSetAtlasSource_g6tjq")
 sources/2 = SubResource("TileSetAtlasSource_jyht0")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msd6n"]
+size = Vector2(24, 9)
+
 [node name="LabRobotica" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -16572,3 +16576,15 @@ position = Vector2(0, -1.9999998)
 scale = Vector2(0.8, 0.8)
 tile_map_data = PackedByteArray("AAAVAAYAAAAAADYAAAAVAAcAAAAAADcAAAAUAAUAAQABAAEAAFAVAAUAAQABAAAAAFAQAAQAAgABAAoAAFAPAAcAAgADABEAABAUAAYAAgACABkAABAQAAgAAgABABkAAAAQAAUAAAADADYAAAAQAAYAAAADADcAAAAVAAQAAgACABkAAFA=")
 tile_set = SubResource("TileSet_l3mxi")
+
+[node name="ExitToPasillos" type="Area2D" parent="."]
+script = ExtResource("18_x5g1d")
+next_room_path = "res://scenes/map/level1/pasillos.tscn"
+spawn_name = "SpawnFromLabRobotica"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
+position = Vector2(160, -8.5)
+shape = SubResource("RectangleShape2D_msd6n")
+
+[node name="SpawnLabRobotica" type="Marker2D" parent="."]
+position = Vector2(159, 17)

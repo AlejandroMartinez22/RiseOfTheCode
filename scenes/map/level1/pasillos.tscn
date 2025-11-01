@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://dtgvumjvpjvsl"]
+[gd_scene load_steps=54 format=4 uid="uid://dtgvumjvpjvsl"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_8q04b"]
 [ext_resource type="Texture2D" uid="uid://dk3w273fgmxhq" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/2_LivingRoom_16x16.png" id="2_207k1"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cpkvv5d5g1vsm" path="res://sprites/tilesets/other_tiles/Furniture/DoorsWithNumbers.png" id="9_5df1l"]
 [ext_resource type="Texture2D" uid="uid://ci8ubfsvwbigw" path="res://sprites/tilesets/other_tiles/Objects/CerraduraDigitalPuerta.png" id="9_l3568"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="10_5jwm4"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="15_l3568"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ixtq"]
 texture = ExtResource("1_8q04b")
@@ -23577,19 +23576,19 @@ size = Vector2(24, 10)
 size = Vector2(24, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5id3"]
-size = Vector2(19, 31.5)
+size = Vector2(13, 31.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3568"]
-size = Vector2(31.5, 16)
+size = Vector2(31.5, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r8sj"]
-size = Vector2(30, 17)
+size = Vector2(30, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6lym"]
-size = Vector2(31, 17)
+size = Vector2(31, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nepnj"]
-size = Vector2(22, 31)
+size = Vector2(13, 31)
 
 [node name="Pasillos" type="Node2D"]
 
@@ -23692,40 +23691,64 @@ locked_message = "La puerta está bloqueada."
 position = Vector2(691, 334)
 shape = SubResource("RectangleShape2D_88duw")
 
-[node name="ExitToLabQuimica" type="Area2D" parent="."]
+[node name="ExitToLabCiencias" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/lab_ciencias.tscn"
+spawn_name = "SpawnLabCiencias"
+locked_message = "Está cerrado con llave"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToLabQuimica"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToLabCiencias"]
 position = Vector2(1075, 333.5)
 shape = SubResource("RectangleShape2D_3mqd4")
 
 [node name="ExitToBiblioteca" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/biblioteca.tscn"
+spawn_name = "SpawnBiblioteca"
+locked_message = "Está cerrado con llave"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToBiblioteca"]
-position = Vector2(1328.5, 168.25)
+position = Vector2(1331.5, 168.25)
 shape = SubResource("RectangleShape2D_k5id3")
 
 [node name="ExitToServidores" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/sala_servidores.tscn"
+spawn_name = "SpawnSalaServidores"
+locked_message = "La puerta tiene un candado"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToServidores"]
-position = Vector2(691.25, 432)
+position = Vector2(691.25, 433.5)
 shape = SubResource("RectangleShape2D_l3568")
 
 [node name="ExitToLabRobotica" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/lab_robotica.tscn"
+spawn_name = "SpawnLabRobotica"
+locked_message = "Está cerrado con llave"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToLabRobotica"]
-position = Vector2(1075, 431.5)
+position = Vector2(1075, 434)
 shape = SubResource("RectangleShape2D_2r8sj")
 
 [node name="ExitToSalaDescanso" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/sala_descanso.tscn"
+spawn_name = "SpawnSalaDescanso"
+locked_message = "La puerta está bloqueada."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToSalaDescanso"]
-position = Vector2(1475.5, 431.5)
+position = Vector2(1475.5, 433.5)
 shape = SubResource("RectangleShape2D_p6lym")
 
-[node name="ExitToSeguridad" type="Area2D" parent="."]
+[node name="ExitToOficinaSeguridad" type="Area2D" parent="."]
+script = ExtResource("10_5jwm4")
+next_room_path = "res://scenes/map/level1/oficina_seguridad.tscn"
+spawn_name = "SpawnOficinaSeguridad"
+locked_message = "La puerta tiene un candado"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToSeguridad"]
-position = Vector2(456, 519.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOficinaSeguridad"]
+position = Vector2(451.5, 519.5)
 shape = SubResource("RectangleShape2D_nepnj")
 
 [node name="SpawnFromRecepcion" type="Marker2D" parent="."]
@@ -23752,8 +23775,17 @@ position = Vector2(1475, -20)
 [node name="SpawnFromCafeteria" type="Marker2D" parent="."]
 position = Vector2(691, 363)
 
-[node name="Centinela" parent="." instance=ExtResource("15_l3568")]
-position = Vector2(510, 409)
+[node name="SpawnFromLabCiencias" type="Marker2D" parent="."]
+position = Vector2(1075, 363)
 
-[node name="Centinela2" parent="." instance=ExtResource("15_l3568")]
-position = Vector2(114, 15)
+[node name="SpawnFromOficinaSeguridad" type="Marker2D" parent="."]
+position = Vector2(475, 520)
+
+[node name="SpawnFromSalaServidores" type="Marker2D" parent="."]
+position = Vector2(691, 409)
+
+[node name="SpawnFromLabRobotica" type="Marker2D" parent="."]
+position = Vector2(1074, 409)
+
+[node name="SpawnFromSalaDescanso" type="Marker2D" parent="."]
+position = Vector2(1475, 410)

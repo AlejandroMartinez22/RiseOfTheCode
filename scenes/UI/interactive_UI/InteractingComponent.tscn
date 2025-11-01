@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://h06d0slb2tkl"]
 
 [ext_resource type="Script" uid="uid://cgowyw356vuue" path="res://scripts/interactive_objects/interacting_component.gd" id="1_c74bs"]
-[ext_resource type="FontFile" uid="uid://xm16s61q1it1" path="res://scenes/UI/pixelmix.ttf" id="2_c74bs"]
+[ext_resource type="FontFile" uid="uid://xm16s61q1it1" path="res://fonts/pixelmix.ttf" id="2_c74bs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c74bs"]
 

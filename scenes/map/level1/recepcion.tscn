@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cxm75h2tjabjp"]
+[gd_scene load_steps=33 format=4 uid="uid://cxm75h2tjabjp"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_u46fv"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_tekvu"]
@@ -10,8 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://m6l44gks3w4j" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/6_Music_and_sport_16x16.png" id="6_6x61e"]
 [ext_resource type="Texture2D" uid="uid://dva2s2wcdsba6" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/14_Basement_16x16.png" id="7_gn57d"]
 [ext_resource type="Texture2D" uid="uid://cc7um0ehnl1mx" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/18_Jail_16x16.png" id="8_t7kg4"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="11_gc1iw"]
-[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="12_o5tb2"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="11_gc1iw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_on1wv"]
 texture = ExtResource("1_u46fv")
@@ -19154,6 +19153,3 @@ shape = SubResource("RectangleShape2D_tekvu")
 
 [node name="SpawnRecepcion" type="Marker2D" parent="."]
 position = Vector2(413, 91)
-
-[node name="Centinela" parent="." instance=ExtResource("12_o5tb2")]
-position = Vector2(198, 117)

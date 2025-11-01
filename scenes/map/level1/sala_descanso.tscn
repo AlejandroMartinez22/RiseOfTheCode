@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bfe4yqj00eyg4"]
+[gd_scene load_steps=33 format=4 uid="uid://bfe4yqj00eyg4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_qptrp"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_xtsca"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/5_Classroom_and_library_16x16.png" id="6_xef8v"]
 [ext_resource type="Texture2D" uid="uid://gy3fffip5qlf" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/11_Halloween_16x16.png" id="7_sqcv0"]
 [ext_resource type="PackedScene" uid="uid://ghxs6h47yvtj" path="res://scenes/pickup_items/health_items/heart_pickup.tscn" id="10_jd36m"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/small_ui/Interactable.tscn" id="10_sqcv0"]
+[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_sqcv0"]
+[ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="12_sqcv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ipio"]
 texture = ExtResource("1_qptrp")
@@ -20128,6 +20129,9 @@ sources/1 = SubResource("TileSetAtlasSource_72xbr")
 [sub_resource type="CircleShape2D" id="CircleShape2D_croh7"]
 radius = 16.27882
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_croh7"]
+size = Vector2(28, 10)
+
 [node name="SalaDescanso" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -20156,4 +20160,17 @@ position = Vector2(54, 57)
 shape = SubResource("CircleShape2D_croh7")
 
 [node name="HeartPickup" parent="." instance=ExtResource("10_jd36m")]
-position = Vector2(175, 95)
+position = Vector2(176, 92)
+lifetime = 45.0
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("12_sqcv0")
+next_room_path = "res://scenes/map/level1/pasillos.tscn"
+spawn_name = "SpawnFromSalaDescanso"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(176, 11)
+shape = SubResource("RectangleShape2D_croh7")
+
+[node name="SpawnSalaDescanso" type="Marker2D" parent="."]
+position = Vector2(176, 28)

@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cbfbq8j7hunps" path="res://sprites/character/shoot/shoot_right.png" id="13_oq0i6"]
 [ext_resource type="AudioStream" uid="uid://ck5nlkvgi730m" path="res://sounds/player/hurt_sound.wav" id="18_dcjt2"]
 [ext_resource type="AudioStream" uid="uid://y8vtunuoggut" path="res://sounds/player/death_sound.wav" id="18_oq0i6"]
-[ext_resource type="PackedScene" uid="uid://h06d0slb2tkl" path="res://scenes/UI/small_ui/interacting_component.tscn" id="19_dcjt2"]
+[ext_resource type="PackedScene" uid="uid://h06d0slb2tkl" path="res://scenes/UI/interactive_UI/InteractingComponent.tscn" id="19_dcjt2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4r8e"]
 atlas = ExtResource("2_hsi1b")
@@ -929,6 +929,7 @@ size = Vector2(10, 20)
 [node name="Max" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 collision_mask = 18
+wall_min_slide_angle = 0.0
 script = ExtResource("1_fnx0a")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
