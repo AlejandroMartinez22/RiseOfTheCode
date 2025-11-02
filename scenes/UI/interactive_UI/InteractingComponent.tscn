@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://h06d0slb2tkl"]
+[gd_scene load_steps=6 format=3 uid="uid://h06d0slb2tkl"]
 
 [ext_resource type="Script" uid="uid://cgowyw356vuue" path="res://scripts/interactive_objects/interacting_component.gd" id="1_c74bs"]
 [ext_resource type="FontFile" uid="uid://xm16s61q1it1" path="res://fonts/pixelmix.ttf" id="2_c74bs"]
+[ext_resource type="FontFile" uid="uid://cnqf5ed1mm1m0" path="res://fonts/BoldPixels.ttf" id="3_qjxcf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c74bs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ae3jm"]
 line_spacing = 1.0
 paragraph_spacing = 1.0
-font = ExtResource("2_c74bs")
-font_size = 6
+font = ExtResource("3_qjxcf")
+font_size = 9
 outline_size = 2
 outline_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 
@@ -36,6 +37,8 @@ offset_right = 78.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_c74bs")
+theme_override_font_sizes/font_size = 12
 text = "E TO INTERACT"
 label_settings = SubResource("LabelSettings_ae3jm")
 horizontal_alignment = 1

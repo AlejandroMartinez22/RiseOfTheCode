@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dykyrt84v7byi"]
+[gd_scene load_steps=26 format=4 uid="uid://dykyrt84v7byi"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_1obui"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_pw16s"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="6_t2hbc"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="8_vft4m"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="9_vft4m"]
+[ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="11_vft4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pehfy"]
 texture = ExtResource("1_1obui")
@@ -10328,6 +10329,7 @@ position = Vector2(160, 152)
 script = ExtResource("6_t2hbc")
 next_room_path = "res://scenes/map/level1/pasillos.tscn"
 spawn_name = "SpawnFromSalon202"
+open_sound = ExtResource("11_vft4m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(160, 176.5)

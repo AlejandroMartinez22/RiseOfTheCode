@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bfe4yqj00eyg4"]
+[gd_scene load_steps=34 format=4 uid="uid://bfe4yqj00eyg4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_qptrp"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_xtsca"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ghxs6h47yvtj" path="res://scenes/pickup_items/health_items/heart_pickup.tscn" id="10_jd36m"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_sqcv0"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="12_sqcv0"]
+[ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="13_croh7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ipio"]
 texture = ExtResource("1_qptrp")
@@ -20163,12 +20164,13 @@ shape = SubResource("CircleShape2D_croh7")
 position = Vector2(176, 92)
 lifetime = 45.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ExitToPasillos" type="Area2D" parent="."]
 script = ExtResource("12_sqcv0")
 next_room_path = "res://scenes/map/level1/pasillos.tscn"
 spawn_name = "SpawnFromSalaDescanso"
+open_sound = ExtResource("13_croh7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(176, 11)
 shape = SubResource("RectangleShape2D_croh7")
 

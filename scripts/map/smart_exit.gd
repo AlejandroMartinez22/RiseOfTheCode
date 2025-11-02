@@ -1,5 +1,5 @@
 # Sistema de transición entre salas con condiciones flexibles
-# Soporta llaves, flags, armas equipadas, y cualquier condición personalizada
+# Con sonidos simplificados: locked y open
 extends Area2D
 
 # ==================== CONFIGURACIÓN DE LA PUERTA ====================
@@ -18,25 +18,33 @@ enum LockType {
 @export var lock_type: LockType = LockType.NONE
 
 # ==================== PARÁMETROS SEGÚN EL TIPO ====================
-@export var required_item: String = ""        # Para LockType.ITEM (ej: "llave_director")
-@export var required_flag: String = ""        # Para LockType.FLAG (ej: "first_enemy_killed")
-@export var custom_condition: String = ""     # Para LockType.CUSTOM (evaluado por GameState)
+@export var required_item: String = ""
+@export var required_flag: String = ""
+@export var custom_condition: String = ""
 
 # ==================== MENSAJES ====================
 @export var locked_message: String = "La puerta está cerrada."
-@export var show_notification: bool = true    # Mostrar notificación en pantalla
+@export var show_notification: bool = true
+
+# ==================== SONIDOS (SIMPLIFICADO) ====================
+@export_group("Sonidos")
+@export var locked_sound: AudioStream = null   # Cuando intenta entrar bloqueado
+@export var open_sound: AudioStream = null     # Cuando entra (desbloqueado)
 
 # ==================== ESTADO ====================
 var is_locked: bool = true
 var was_unlocked_before: bool = false
+var player_in_range: bool = false
 
 # ==================== VISUAL FEEDBACK ====================
-@onready var locked_sprite: Sprite2D = $LockedSprite  # Opcional: sprite de candado
+@onready var locked_sprite: Sprite2D = $LockedSprite if has_node("LockedSprite") else null
 
 func _ready() -> void:
-	# Conectar señal
+	# Conectar señales
 	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
 		connect("body_entered", Callable(self, "_on_body_entered"))
+	if not is_connected("body_exited", Callable(self, "_on_body_exited")):
+		connect("body_exited", Callable(self, "_on_body_exited"))
 	
 	# Determinar si la puerta debe estar bloqueada
 	update_lock_state()
@@ -49,9 +57,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Verificar constantemente si se cumplió la condición
-	# (útil para puertas que se desbloquean por eventos)
 	if is_locked:
+		var old_locked = is_locked
 		update_lock_state()
+		
+		# Si se desbloqueó mientras el jugador está cerca, actualizar UI
+		if old_locked and not is_locked and player_in_range:
+			hide_door_notification()
 
 func update_lock_state() -> void:
 	match lock_type:
@@ -68,7 +80,6 @@ func update_lock_state() -> void:
 			is_locked = not GameState.get_flag("has_weapon")
 		
 		LockType.CUSTOM:
-			# Evaluar condición personalizada
 			var parts = custom_condition.split(":")
 			if parts.size() >= 2:
 				is_locked = not GameState.check_condition(parts[0], parts[1])
@@ -90,13 +101,24 @@ func _on_body_entered(body: Node) -> void:
 	if not body.is_in_group("player"):
 		return
 	
-	# Si está bloqueada, mostrar mensaje y no hacer nada
+	player_in_range = true
+	
+	# Si está bloqueada, mostrar mensaje y reproducir sonido
 	if is_locked:
-		show_locked_notification()
+		show_door_notification()
+		play_locked_sound()
 		return
 	
-	# Si no está bloqueada, cargar la siguiente sala
+	# Si está desbloqueada, reproducir sonido y cambiar de sala
+	play_open_sound()
 	RoomManager.load_room(next_room_path, spawn_name)
+
+func _on_body_exited(body: Node) -> void:
+	if not body.is_in_group("player"):
+		return
+	
+	player_in_range = false
+	hide_door_notification()
 
 func unlock() -> void:
 	is_locked = false
@@ -123,7 +145,19 @@ func update_visual() -> void:
 	if locked_sprite:
 		locked_sprite.visible = is_locked
 
-func show_locked_notification() -> void:
+# ==================== SONIDOS ====================
+
+func play_locked_sound() -> void:
+	if locked_sound:
+		AudioManager.play_sound(locked_sound, global_position, -5.0)
+
+func play_open_sound() -> void:
+	if open_sound:
+		AudioManager.play_sound(open_sound, global_position, 0.0)
+
+# ==================== NOTIFICACIONES UI ====================
+
+func show_door_notification() -> void:
 	if not show_notification:
 		return
 	
@@ -141,11 +175,27 @@ func show_locked_notification() -> void:
 			LockType.CUSTOM:
 				message = "No cumples los requisitos para pasar"
 	
+	# Buscar el InteractingComponent del jugador y mostrar el mensaje
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		var player = players[0]
+		var interact_comp = player.get_node_or_null("InteractingComponent")
+		if interact_comp and interact_comp.has_method("show_door_message"):
+			interact_comp.show_door_message(message)
+	
 	print("🔒 ", message)
-	# TODO: Implementar notificación visual en UI
-	# UIManager.show_notification(message)
+
+func hide_door_notification() -> void:
+	# Ocultar el mensaje cuando el jugador se aleja
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		var player = players[0]
+		var interact_comp = player.get_node_or_null("InteractingComponent")
+		if interact_comp and interact_comp.has_method("hide_door_message"):
+			interact_comp.hide_door_message()
 
 # ==================== DEBUG ====================
+
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray = []
 	
