@@ -1,6 +1,5 @@
 [gd_scene load_steps=29 format=4 uid="uid://dmaw1mg36h55r"]
 
-[ext_resource type="Script" uid="uid://droqn4xe72ksw" path="res://scripts/map/base_room.gd" id="1_acogj"]
 [ext_resource type="Texture2D" uid="uid://co8ecy1l2n503" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Floors_16x16.png" id="1_l4v4i"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="2_0xhw3"]
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="3_jupui"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="9_vk3wy"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_vm0dq"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_m3s4i"]
+[ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_3hta0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3s4i"]
 texture = ExtResource("1_l4v4i")
@@ -14780,7 +14780,6 @@ radius = 30.0
 size = Vector2(32, 15)
 
 [node name="BañoHombres" type="Node2D"]
-script = ExtResource("1_acogj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
@@ -14806,6 +14805,7 @@ tile_map_data = PackedByteArray("AAAFAAUAAwAIAC8AAAAGAAUAAwAJAC8AAAAFAAQAAwAIAC4
 tile_set = SubResource("TileSet_pjhk5")
 
 [node name="Interactable" parent="TileMapLayer/SmallItems" instance=ExtResource("10_vm0dq")]
+position = Vector2(-2.4999974, 5.000002)
 interact_name = "Nooo, profe :("
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/Interactable"]
@@ -14824,3 +14824,11 @@ open_sound = ExtResource("12_m3s4i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(160, 137.5)
 shape = SubResource("RectangleShape2D_ktgdy")
+
+[node name="CameraBounds" type="Node2D" parent="."]
+script = ExtResource("13_3hta0")
+left = 26
+top = -47
+right = 295
+bottom = 150
+show_debug_rect = false

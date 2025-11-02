@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://dtgvumjvpjvsl"]
+[gd_scene load_steps=61 format=4 uid="uid://dtgvumjvpjvsl"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_8q04b"]
 [ext_resource type="Texture2D" uid="uid://dk3w273fgmxhq" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/2_LivingRoom_16x16.png" id="2_207k1"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="15_l3568"]
 [ext_resource type="AudioStream" uid="uid://bqexxl6bi7oqv" path="res://sounds/doors/normal_locked_sound.wav" id="17_nepnj"]
 [ext_resource type="AudioStream" uid="uid://crljuw7xs8qd5" path="res://sounds/doors/padlock_locked_sound.wav" id="18_nepnj"]
+[ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="20_m5drv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ixtq"]
 texture = ExtResource("1_8q04b")
@@ -23639,7 +23640,6 @@ shape = SubResource("RectangleShape2D_nkofm")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/baño_hombres.tscn"
 spawn_name = "SpawnBañosH"
-lock_type = 3
 locked_message = "La puerta está bloqueada."
 locked_sound = ExtResource("17_nepnj")
 open_sound = ExtResource("15_l3568")
@@ -23652,7 +23652,6 @@ shape = SubResource("RectangleShape2D_5jwm4")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/baño_mujeres.tscn"
 spawn_name = "SpawnBañosM"
-lock_type = 3
 locked_message = "La puerta está bloqueada."
 locked_sound = ExtResource("17_nepnj")
 open_sound = ExtResource("15_l3568")
@@ -23837,3 +23836,10 @@ position = Vector2(1074, 415)
 
 [node name="SpawnFromSalaDescanso" type="Marker2D" parent="."]
 position = Vector2(1475, 416)
+
+[node name="CameraBounds(provisional)" type="Node2D" parent="."]
+script = ExtResource("20_m5drv")
+top = -264
+right = 1625
+bottom = 600
+show_debug_rect = false

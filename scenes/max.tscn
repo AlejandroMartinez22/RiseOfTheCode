@@ -965,6 +965,5 @@ stream = ExtResource("18_oq0i6")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 
 [node name="InteractingComponent" parent="." instance=ExtResource("19_dcjt2")]
