@@ -2,6 +2,7 @@
 extends Button
 
 @onready var audio_player = $AudioStreamPlayer
+@onready var transition = preload("res://scenes/menu/transition.tscn")
 
 func _ready() -> void:
 	pressed.connect(_on_pressed)
@@ -14,4 +15,5 @@ func _on_pressed() -> void:
 		# Esperar a que termine el sonido
 		await audio_player.finished
 	
+	transition.instantiate()
 	GameManager.quit_game()
