@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cygu32ib6kt0e"]
+[gd_scene load_steps=32 format=4 uid="uid://cygu32ib6kt0e"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_01k88"]
 [ext_resource type="Texture2D" uid="uid://cachu3lnv7ekl" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/12_Kitchen_16x16.png" id="2_jbkpe"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="7_igwo8"]
 [ext_resource type="Texture2D" uid="uid://cuefkpd37xbrf" path="res://sprites/tilesets/other_tiles/Objects/book.png" id="9_8jknl"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_8jknl"]
+[ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_oa5t0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7yf6"]
 texture = ExtResource("1_01k88")
@@ -11593,6 +11594,7 @@ position = Vector2(176, 169)
 script = ExtResource("11_8jknl")
 next_room_path = "res://scenes/map/level1/pasillos.tscn"
 spawn_name = "SpawnFromCafeteria"
+open_sound = ExtResource("12_oa5t0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(176, 193)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bd8edp1enkkw5"]
+[gd_scene load_steps=44 format=4 uid="uid://bd8edp1enkkw5"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_c5b7c"]
 [ext_resource type="Texture2D" uid="uid://cy88whk8mkdfg" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/12_Kitchen_Shadowless.png" id="2_c8rem"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="14_0f0mt"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="14_3x2un"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="16_u7uuk"]
+[ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="17_td637"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8rem"]
 texture = ExtResource("1_c5b7c")
@@ -14557,6 +14558,7 @@ position = Vector2(302, 131)
 script = ExtResource("16_u7uuk")
 next_room_path = "res://scenes/map/level1/pasillos.tscn"
 spawn_name = "SpawnFromOficinaSeguridad"
+open_sound = ExtResource("17_td637")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(323.5, 130)
