@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://fonts/PressStart2P.ttf" id="2_yonvy"]
 [ext_resource type="Script" uid="uid://c47xo33hgaovq" path="res://scripts/menu/label.gd" id="3_5jstl"]
 [ext_resource type="Script" uid="uid://cgolq1o53fc5t" path="res://scripts/menu/buttons/start_game_button.gd" id="4_hj162"]
-[ext_resource type="AudioStream" uid="uid://cth4wt0g2ing" path="res://sounds/UI/107142__bubaproducer__button-23.wav" id="5_isoef"]
+[ext_resource type="AudioStream" uid="uid://ccfsbfhomiu5h" path="res://sounds/UI/751289__artninja__scifi_button_switch_02.mp3" id="5_isoef"]
 [ext_resource type="Script" uid="uid://bhx5maf286jn" path="res://scripts/menu/buttons/quit_game_button.gd" id="5_xn6kt"]
 
 [node name="MainMenu" type="Control"]
@@ -70,8 +70,9 @@ theme_override_font_sizes/font_size = 3
 text = "INICIAR"
 script = ExtResource("4_hj162")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/BotonIniciar"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/BotonIniciar"]
 stream = ExtResource("5_isoef")
+autoplay = true
 
 [node name="BotonSalir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -79,7 +80,7 @@ theme_override_font_sizes/font_size = 3
 text = "SALIR"
 script = ExtResource("5_xn6kt")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/BotonSalir"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/BotonSalir"]
 stream = ExtResource("5_isoef")
 
 [connection signal="mouse_entered" from="VBoxContainer/BotonIniciar" to="VBoxContainer/BotonIniciar" method="_on_mouse_entered"]

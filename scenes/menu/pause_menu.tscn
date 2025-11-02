@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlr11kurjlyiq"]
+[gd_scene load_steps=7 format=3 uid="uid://dlr11kurjlyiq"]
 
 [ext_resource type="Script" uid="uid://cn4kd6wkm83bt" path="res://scripts/menu/pause_menu.gd" id="1_subqc"]
 [ext_resource type="Texture2D" uid="uid://deoxxr8xhjlp2" path="res://sprites/menu/fondo_die_menu.png" id="1_t0xfv"]
 [ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://fonts/PressStart2P.ttf" id="3_3aujf"]
 [ext_resource type="Script" uid="uid://b2fps8av6reuq" path="res://scripts/menu/buttons/resume_button.gd" id="4_2yk66"]
 [ext_resource type="Script" uid="uid://fjrb8d4rwwtw" path="res://scripts/menu/buttons/main_menu_button.gd" id="4_msl3b"]
+[ext_resource type="AudioStream" uid="uid://cth4wt0g2ing" path="res://sounds/UI/107142__bubaproducer__button-23.wav" id="5_mb26x"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -28,12 +29,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -38.0
-offset_top = -50.0
+offset_top = -38.0
 offset_right = 42.0
-offset_bottom = -27.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_3aujf")
+theme_override_font_sizes/font_size = 15
 text = "PAUSA"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -45,9 +47,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -20.0
+offset_top = -3.0
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 5
@@ -58,8 +60,14 @@ theme_override_font_sizes/font_size = 3
 text = "REANUDAR"
 script = ExtResource("4_2yk66")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/BotonReanudar"]
+stream = ExtResource("5_mb26x")
+
 [node name="BotonMenuPrincipal" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "SALIR"
 script = ExtResource("4_msl3b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/BotonMenuPrincipal"]
+stream = ExtResource("5_mb26x")
