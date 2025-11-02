@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://oiibyewbp2se"]
+[gd_scene load_steps=8 format=3 uid="uid://oiibyewbp2se"]
 
 [ext_resource type="Texture2D" uid="uid://cbq70a4clsxpj" path="res://sprites/menu/fondo_main_menu.png" id="1_qwnig"]
 [ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://fonts/PressStart2P.ttf" id="2_yonvy"]
 [ext_resource type="Script" uid="uid://c47xo33hgaovq" path="res://scripts/menu/label.gd" id="3_5jstl"]
 [ext_resource type="Script" uid="uid://cgolq1o53fc5t" path="res://scripts/menu/buttons/start_game_button.gd" id="4_hj162"]
-[ext_resource type="AudioStream" uid="uid://cth4wt0g2ing" path="res://sounds/UI/107142__bubaproducer__button-23.wav" id="5_isoef"]
+[ext_resource type="AudioStream" uid="uid://cn4qhbwgvuice" path="res://sounds/UI/start_button_sound.wav" id="5_isoef"]
 [ext_resource type="Script" uid="uid://bhx5maf286jn" path="res://scripts/menu/buttons/quit_game_button.gd" id="5_xn6kt"]
+[ext_resource type="AudioStream" uid="uid://3735ls4ht0hl" path="res://sounds/UI/other_button_sound.wav" id="7_isoef"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -80,6 +81,6 @@ text = "SALIR"
 script = ExtResource("5_xn6kt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/BotonSalir"]
-stream = ExtResource("5_isoef")
+stream = ExtResource("7_isoef")
 
 [connection signal="mouse_entered" from="VBoxContainer/BotonIniciar" to="VBoxContainer/BotonIniciar" method="_on_mouse_entered"]

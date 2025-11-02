@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://fonts/PressStart2P.ttf" id="3_3aujf"]
 [ext_resource type="Script" uid="uid://b2fps8av6reuq" path="res://scripts/menu/buttons/resume_button.gd" id="4_2yk66"]
 [ext_resource type="Script" uid="uid://fjrb8d4rwwtw" path="res://scripts/menu/buttons/main_menu_button.gd" id="4_msl3b"]
-[ext_resource type="AudioStream" uid="uid://cth4wt0g2ing" path="res://sounds/UI/107142__bubaproducer__button-23.wav" id="5_mb26x"]
+[ext_resource type="AudioStream" uid="uid://3735ls4ht0hl" path="res://sounds/UI/other_button_sound.wav" id="5_mb26x"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
