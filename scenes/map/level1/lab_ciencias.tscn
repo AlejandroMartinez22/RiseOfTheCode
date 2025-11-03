@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://c5b5y5vnw4mq7"]
+[gd_scene load_steps=35 format=4 uid="uid://c5b5y5vnw4mq7"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_altev"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="2_bclro"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_lpyma"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_w5nas"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_1v5jp"]
+[ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_p3xb0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mrek"]
 texture = ExtResource("1_altev")
@@ -17709,3 +17710,11 @@ open_sound = ExtResource("12_1v5jp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
 position = Vector2(160, 169.5)
 shape = SubResource("RectangleShape2D_w5nas")
+
+[node name="CameraBounds" type="Node2D" parent="."]
+script = ExtResource("13_p3xb0")
+left = -6
+top = -64
+right = 327
+bottom = 181
+show_debug_rect = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=56 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_2tjic"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/retro_interiors/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="15_x5g1d"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="18_x5g1d"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="19_msd6n"]
+[ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="20_n4dug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wrob"]
 texture = ExtResource("1_2tjic")
@@ -16590,3 +16591,11 @@ shape = SubResource("RectangleShape2D_msd6n")
 
 [node name="SpawnLabRobotica" type="Marker2D" parent="."]
 position = Vector2(159, 17)
+
+[node name="CameraBounds" type="Node2D" parent="."]
+script = ExtResource("20_n4dug")
+left = -6
+top = -64
+right = 327
+bottom = 149
+show_debug_rect = false

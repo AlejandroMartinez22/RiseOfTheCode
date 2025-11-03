@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cu1bcnxfmf3yu"]
+[gd_scene load_steps=36 format=4 uid="uid://cu1bcnxfmf3yu"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_280p6"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_chwky"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_wxnq4"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_xh5cd"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_gjiwn"]
+[ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_ryq0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fdl6"]
 texture = ExtResource("1_280p6")
@@ -19039,7 +19040,7 @@ position = Vector2(42.5, -2.75)
 shape = SubResource("RectangleShape2D_xh5cd")
 
 [node name="SmallerObjects" type="TileMapLayer" parent="TileMapLayer"]
-tile_map_data = PackedByteArray("AAAAAAMAAAALACMAAAAAAAQAAAALACQAAAATAAkAAAALACMAABATAAoAAAALACQAABATAAYAAAALACMAABATAAcAAAALACQAABAAAAEAAAAPAAQAAAAAAAIAAAAPAAUAAAAAAAYAAwABACoAAAAAAAcAAwABACsAAAATAP//AwABACoAAAATAAAAAwABACsAAAABAAoAAwAHAGQAAAACAAoAAwAIAGQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAAALACMAAAAAAAQAAAALACQAAAATAAkAAAALACMAABATAAoAAAALACQAABATAAYAAAALACMAABATAAcAAAALACQAABAAAAYAAwABACoAAAAAAAcAAwABACsAAAATAP//AwABACoAAAATAAAAAwABACsAAAABAAoAAwAHAGQAAAACAAoAAwAIAGQAAAA=")
 tile_set = SubResource("TileSet_ryq0u")
 
 [node name="Interactable" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_wxnq4")]
@@ -19061,3 +19062,11 @@ shape = SubResource("RectangleShape2D_ek7gx")
 
 [node name="SpawnSalaServidores" type="Marker2D" parent="."]
 position = Vector2(160, 10)
+
+[node name="CameraBounds" type="Node2D" parent="."]
+script = ExtResource("13_ryq0u")
+left = -6
+top = -64
+right = 327
+bottom = 197
+show_debug_rect = false

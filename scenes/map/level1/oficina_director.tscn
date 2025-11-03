@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dt5l1d4teocp4"]
+[gd_scene load_steps=36 format=4 uid="uid://dt5l1d4teocp4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_dv25k"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_xqfy6"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_23xmk"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_xqfy6"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_mpa11"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="14_hryvw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_42bac"]
 texture = ExtResource("1_dv25k")
@@ -19299,15 +19298,13 @@ shape = SubResource("RectangleShape2D_3f3s1")
 position = Vector2(112, 119)
 
 [node name="CameraBounds" type="Node2D" parent="."]
+position = Vector2(-8, -47)
 script = ExtResource("13_mpa11")
-left = 34
+left = -6
 top = -48
-right = 192
-bottom = 144
+right = 231
+bottom = 149
+use_custom_zoom = true
+custom_zoom = Vector2(1.35, 1.35)
+auto_adjust_zoom = false
 show_debug_rect = false
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(230, 144)
-
-[node name="Max" parent="." instance=ExtResource("14_hryvw")]
-position = Vector2(105, 107)
