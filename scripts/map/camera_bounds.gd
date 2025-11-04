@@ -128,11 +128,6 @@ func _draw() -> void:
 		var local_rect = Rect2(left, top, right - left, bottom - top)
 		draw_rect(local_rect, debug_color, true)
 		draw_rect(local_rect, Color.YELLOW, false, 3.0)
-		
-		# Dibujar dimensiones
-		var center = local_rect.get_center()
-		var size_text = "%dx%d" % [local_rect.size.x, local_rect.size.y]
-		# Nota: draw_string requiere una fuente, mejor usar print en consola
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():

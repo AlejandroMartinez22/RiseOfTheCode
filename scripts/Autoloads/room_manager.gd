@@ -8,7 +8,7 @@ var current_room_path: String = ""
 func register_main(main_node: Node) -> void:
 	main_ref = main_node
 
-func load_room(path: String, spawn_name: String = "RecepcionSpawn") -> void:
+func load_room(path: String, spawn_name: String = "MainSpawn") -> void:
 	
 	# Validar referencia al nodo principal
 	if main_ref == null:

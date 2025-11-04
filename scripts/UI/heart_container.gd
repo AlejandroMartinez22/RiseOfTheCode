@@ -8,7 +8,7 @@ extends HBoxContainer
 var max_hearts: int = 3  # El jugador tiene 30 de vida (3 corazones)
 
 func update_hearts(current_health: int) -> void:
-	var full_hearts = current_health / 10
+	var full_hearts = int(current_health / 10.0)  # Convierte explícitamente
 	var has_half = (current_health % 10) >= 5
 
 	for i in range(max_hearts):

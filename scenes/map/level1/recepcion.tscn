@@ -19166,3 +19166,6 @@ right = 576
 bottom = 218
 show_debug_rect = false
 debug_color = Color(0.9102403, 0.764466, 0.13274497, 0.2)
+
+[node name="MainSpawn" type="Marker2D" parent="."]
+position = Vector2(46, 100)

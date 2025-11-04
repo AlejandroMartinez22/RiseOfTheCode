@@ -111,7 +111,7 @@ func _on_body_entered(body: Node) -> void:
 	
 	# Si está desbloqueada, reproducir sonido y cambiar de sala
 	play_open_sound()
-	RoomManager.load_room(next_room_path, spawn_name)
+	RoomManager.call_deferred("load_room", next_room_path, spawn_name)
 
 func _on_body_exited(body: Node) -> void:
 	if not body.is_in_group("player"):
