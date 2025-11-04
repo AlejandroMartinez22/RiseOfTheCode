@@ -11379,7 +11379,7 @@ sources/7 = SubResource("TileSetAtlasSource_wguen")
 sources/9 = SubResource("TileSetAtlasSource_vuqcq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cvb5"]
-size = Vector2(26, 33)
+size = Vector2(15, 24)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q70ev"]
 texture = ExtResource("1_dv25k")
@@ -15954,7 +15954,7 @@ sources/1 = SubResource("TileSetAtlasSource_q70ev")
 sources/2 = SubResource("TileSetAtlasSource_mtlxb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wa84k"]
-size = Vector2(39, 25)
+size = Vector2(26, 20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouk0f"]
 texture = ExtResource("7_kure6")
@@ -19248,7 +19248,7 @@ sources/6 = SubResource("TileSetAtlasSource_wa84k")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3f3s1"]
 size = Vector2(31, 9)
 
-[node name="OficinaCoordinador" type="Node2D"]
+[node name="OficinaDirector" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
@@ -19266,7 +19266,7 @@ collision_mask = 64
 interact_name = "E para coger"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Foreground/Interactable"]
-position = Vector2(119, 9)
+position = Vector2(119.5, 4)
 shape = SubResource("RectangleShape2D_0cvb5")
 
 [node name="Objects" type="TileMapLayer" parent="TileMapLayer"]
@@ -19280,7 +19280,7 @@ collision_mask = 64
 interact_name = "E para leer correo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
-position = Vector2(67.5, 35.5)
+position = Vector2(66, 38)
 shape = SubResource("RectangleShape2D_wa84k")
 
 [node name="SmallerObjects" type="TileMapLayer" parent="TileMapLayer"]
@@ -19304,11 +19304,11 @@ position = Vector2(112, 119)
 [node name="CameraBounds" type="Node2D" parent="."]
 position = Vector2(-8, -47)
 script = ExtResource("13_mpa11")
-left = -6
+left = -4
 top = -48
-right = 231
-bottom = 149
+right = 228
+bottom = 144
 use_custom_zoom = true
-custom_zoom = Vector2(1.35, 1.35)
+custom_zoom = Vector2(1.355, 1.355)
 auto_adjust_zoom = false
 show_debug_rect = false

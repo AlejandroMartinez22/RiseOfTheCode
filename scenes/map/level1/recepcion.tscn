@@ -19169,7 +19169,7 @@ script = ExtResource("12_o5tb2")
 left = -6
 top = -64
 right = 576
-bottom = 218
+bottom = 213
 show_debug_rect = false
 debug_color = Color(0.9102403, 0.764466, 0.13274497, 0.2)
 

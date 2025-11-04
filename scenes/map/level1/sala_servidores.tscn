@@ -16102,7 +16102,7 @@ sources/2 = SubResource("TileSetAtlasSource_452sh")
 sources/3 = SubResource("TileSetAtlasSource_v4c7l")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh5cd"]
-size = Vector2(49, 35.5)
+size = Vector2(44, 23.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xh5cd"]
 texture = ExtResource("7_ek7gx")
@@ -19038,7 +19038,7 @@ collision_mask = 64
 interact_name = "E para acceder"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
-position = Vector2(42.5, -2.75)
+position = Vector2(40, -8.75)
 shape = SubResource("RectangleShape2D_xh5cd")
 
 [node name="SmallerObjects" type="TileMapLayer" parent="TileMapLayer"]
@@ -19048,7 +19048,7 @@ tile_set = SubResource("TileSet_ryq0u")
 [node name="Interactable" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_wxnq4")]
 collision_layer = 32
 collision_mask = 64
-interact_name = "E para leer correo"
+interact_name = "E leer correo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/Interactable"]
 position = Vector2(11, 67.25)
@@ -19071,6 +19071,6 @@ position = Vector2(160, 10)
 script = ExtResource("13_ryq0u")
 left = -6
 top = -64
-right = 327
-bottom = 197
+right = 326
+bottom = 192
 show_debug_rect = false
