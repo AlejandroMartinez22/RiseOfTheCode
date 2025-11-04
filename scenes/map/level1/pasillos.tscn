@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://dtgvumjvpjvsl"]
+[gd_scene load_steps=62 format=4 uid="uid://dtgvumjvpjvsl"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_8q04b"]
 [ext_resource type="Texture2D" uid="uid://dk3w273fgmxhq" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/2_LivingRoom_16x16.png" id="2_207k1"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bqexxl6bi7oqv" path="res://sounds/doors/normal_locked_sound.wav" id="17_nepnj"]
 [ext_resource type="AudioStream" uid="uid://crljuw7xs8qd5" path="res://sounds/doors/padlock_locked_sound.wav" id="18_nepnj"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="20_m5drv"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="21_7nrkh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ixtq"]
 texture = ExtResource("1_8q04b")
@@ -23843,3 +23844,7 @@ top = -264
 right = 1625
 bottom = 600
 show_debug_rect = false
+
+[node name="Centinela" parent="." instance=ExtResource("21_7nrkh")]
+position = Vector2(497, -71)
+enemy_id = "pasillos_1"
