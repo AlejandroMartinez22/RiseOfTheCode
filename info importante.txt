@@ -12,6 +12,7 @@ Layer 4: Enemy Bullets
 Layer 5: Walls/Obstacles
 Layer 6: Interactables (objetos con los que interactuar)
 Layer 7: Interaction Range (área de detección de interacción)
+Layer 8: Pickup items
 
 ------------------------------------------------ 
 

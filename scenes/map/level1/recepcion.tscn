@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cxm75h2tjabjp"]
+[gd_scene load_steps=35 format=4 uid="uid://cxm75h2tjabjp"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_u46fv"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_tekvu"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dva2s2wcdsba6" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/14_Basement_16x16.png" id="7_gn57d"]
 [ext_resource type="Texture2D" uid="uid://cc7um0ehnl1mx" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/18_Jail_16x16.png" id="8_t7kg4"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="11_gc1iw"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="11_t7kg4"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="12_o5tb2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_on1wv"]
@@ -19110,7 +19111,7 @@ texture = ExtResource("5_o5tb2")
 sources/0 = SubResource("TileSetAtlasSource_o5tb2")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn57d"]
-radius = 22.090721
+radius = 18.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tekvu"]
 size = Vector2(13.5, 15)
@@ -19146,6 +19147,9 @@ interact_text = "HOLA COMO ESTAMOS"
 position = Vector2(230, 162)
 shape = SubResource("CircleShape2D_gn57d")
 
+[node name="Centinela" parent="TileMapLayers/InteractiveObjects" instance=ExtResource("11_t7kg4")]
+position = Vector2(101, 142)
+
 [node name="ExitToPasillos" type="Area2D" parent="."]
 script = ExtResource("6_5r138")
 next_room_path = "res://scenes/map/level1/pasillos.tscn"
@@ -19166,6 +19170,3 @@ right = 576
 bottom = 218
 show_debug_rect = false
 debug_color = Color(0.9102403, 0.764466, 0.13274497, 0.2)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(576, -64)
