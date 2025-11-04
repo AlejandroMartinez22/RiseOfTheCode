@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://fb3vsexrjodr"]
-
-[ext_resource type="Script" uid="uid://cysht45obsk7" path="res://scripts/Autoloads/transition.gd" id="1_t5stx"]
+[gd_scene load_steps=4 format=3 uid="uid://fb3vsexrjodr"]
 
 [sub_resource type="Animation" id="Animation_t5stx"]
 resource_name = "Fade_out"
@@ -40,7 +38,6 @@ _data = {
 
 [node name="Transition" type="CanvasLayer"]
 layer = 100
-script = ExtResource("1_t5stx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
