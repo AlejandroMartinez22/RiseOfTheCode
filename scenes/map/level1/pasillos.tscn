@@ -23604,13 +23604,13 @@ size = Vector2(31, 13)
 size = Vector2(13, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nrkh"]
-size = Vector2(1616, 90)
+size = Vector2(1616, 94)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbbx1"]
 size = Vector2(1616, 105)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddalq"]
-size = Vector2(96, 288)
+size = Vector2(96, 273)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5drv"]
 size = Vector2(96, 288)
@@ -23859,7 +23859,7 @@ zone_bottom = 61
 transition_speed = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PasilloHorizontal1"]
-position = Vector2(811, 5)
+position = Vector2(811, 7)
 shape = SubResource("RectangleShape2D_7nrkh")
 
 [node name="PasilloHorizontal2" type="Area2D" parent="."]
@@ -23879,14 +23879,14 @@ shape = SubResource("RectangleShape2D_tbbx1")
 script = ExtResource("21_7nrkh")
 zone_name = "Pasillo Vertical Izquierdo"
 zone_left = 226
-zone_top = 15
+zone_top = 23
 zone_right = 725
 zone_bottom = 360
 zone_priority = 1
 transition_speed = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PasilloVertical1"]
-position = Vector2(499, 184)
+position = Vector2(499, 191.5)
 shape = SubResource("RectangleShape2D_ddalq")
 
 [node name="PasilloVertical2" type="Area2D" parent="."]
@@ -23903,4 +23903,4 @@ position = Vector2(883, 184)
 shape = SubResource("RectangleShape2D_m5drv")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(725, 124)
+position = Vector2(499, 55)
