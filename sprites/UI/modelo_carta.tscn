@@ -1,31 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt3gjbgn2r0ry"]
+[gd_scene load_steps=2 format=3 uid="uid://bt3gjbgn2r0ry"]
 
 [ext_resource type="Script" uid="uid://bib4y4qy5evw7" path="res://sprites/UI/modelo_carta.gd" id="1_ifcml"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_6vmcc"]
-line_spacing = 1.0
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_min1s"]
-line_spacing = 1.0
-font_color = Color(0, 0, 0, 0.6313726)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ci5jk"]
-line_spacing = 1.0
-font_color = Color(0, 0, 0, 0.5568628)
-
-[sub_resource type="LabelSettings" id="LabelSettings_3uodb"]
-line_spacing = 1.0
-font_color = Color(0, 0, 0, 0.56078434)
-
-[sub_resource type="LabelSettings" id="LabelSettings_khfjv"]
-line_spacing = 1.0
-font_color = Color(0, 0, 0, 0.5568628)
-
 [node name="CanvasLayer" type="Control"]
 process_mode = 2
+custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ifcml")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -35,94 +26,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.972549, 0.83137256, 1)
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 4.0
-offset_right = 3.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Lorem ipsum dolor
-
- sit amet consectetur adipiscing, elit lobortis ornare egestas duis, dui non nibh arcu molestie. Neque primis dignissim sapien potenti facilisi senectus dui aliquam dis, 
-"
-label_settings = SubResource("LabelSettings_6vmcc")
-autowrap_mode = 2
-
-[node name="Label2" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Lorem ipsum dolor
-
- sit amet consectetur adipiscing, elit lobortis ornare egestas duis, dui non nibh arcu molestie. Neque primis dignissim sapien potenti facilisi senectus dui aliquam dis, 
-"
-label_settings = SubResource("LabelSettings_min1s")
-autowrap_mode = 2
-
-[node name="Label3" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 5.0
-offset_right = 7.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Lorem ipsum dolor
-
- sit amet consectetur adipiscing, elit lobortis ornare egestas duis, dui non nibh arcu molestie. Neque primis dignissim sapien potenti facilisi senectus dui aliquam dis, 
-"
-label_settings = SubResource("LabelSettings_ci5jk")
-autowrap_mode = 2
-
-[node name="Label4" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 4.0
-offset_right = 7.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Lorem ipsum dolor
-
- sit amet consectetur adipiscing, elit lobortis ornare egestas duis, dui non nibh arcu molestie. Neque primis dignissim sapien potenti facilisi senectus dui aliquam dis, 
-"
-label_settings = SubResource("LabelSettings_3uodb")
-autowrap_mode = 2
-
-[node name="Label5" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 5.0
-offset_right = 10.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Lorem ipsum dolor
-
- sit amet consectetur adipiscing, elit lobortis ornare egestas duis, dui non nibh arcu molestie. Neque primis dignissim sapien potenti facilisi senectus dui aliquam dis, 
-"
-label_settings = SubResource("LabelSettings_khfjv")
-autowrap_mode = 2
