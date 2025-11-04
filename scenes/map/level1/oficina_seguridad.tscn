@@ -14541,6 +14541,8 @@ tile_map_data = PackedByteArray("AAAIAAQABAAAADAAAAAOAAQAAQALABQAAAAOAAUAAQALABU
 tile_set = SubResource("TileSet_dyx60")
 
 [node name="Interactable" parent="TileMapLayer/Objects" instance=ExtResource("14_0f0mt")]
+collision_layer = 32
+collision_mask = 64
 interact_name = "E para abrir terminal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]

@@ -10317,6 +10317,8 @@ tile_map_data = PackedByteArray("AAAQAAAAAAAHAAMAAAAQAAEAAAAHAAQAAAARAAAAAAAIAAM
 tile_set = SubResource("TileSet_qjsnj")
 
 [node name="Interactable" parent="TileMapLayer/SmallItems" instance=ExtResource("9_vft4m")]
+collision_layer = 32
+collision_mask = 64
 interact_name = "E para leer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/Interactable"]

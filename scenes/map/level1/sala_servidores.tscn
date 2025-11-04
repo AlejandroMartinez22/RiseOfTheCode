@@ -19033,6 +19033,8 @@ tile_map_data = PackedByteArray("AAACAP7/AAAKABAAAAACAP//AAALABQAAAABAP7/AAAIABA
 tile_set = SubResource("TileSet_wxnq4")
 
 [node name="Interactable" parent="TileMapLayer/Objects" instance=ExtResource("10_wxnq4")]
+collision_layer = 32
+collision_mask = 64
 interact_name = "E para acceder"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
@@ -19044,6 +19046,8 @@ tile_map_data = PackedByteArray("AAAAAAMAAAALACMAAAAAAAQAAAALACQAAAATAAkAAAALACM
 tile_set = SubResource("TileSet_ryq0u")
 
 [node name="Interactable" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_wxnq4")]
+collision_layer = 32
+collision_mask = 64
 interact_name = "E para leer correo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/Interactable"]

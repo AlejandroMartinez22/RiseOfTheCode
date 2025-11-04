@@ -19140,6 +19140,7 @@ tile_set = SubResource("TileSet_6x61e")
 collision_layer = 32
 collision_mask = 64
 interact_name = "presiona E para leer "
+interact_text = "HOLA COMO ESTAMOS"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayers/InteractiveObjects/Interactable"]
 position = Vector2(230, 162)

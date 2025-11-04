@@ -23,7 +23,6 @@ RoomManager="*res://scripts/Autoloads/room_manager.gd"
 UIManager="*res://scripts/Autoloads/ui_manager.gd"
 GameState="*res://scripts/Autoloads/game_state.gd"
 GameManager="*res://scripts/Autoloads/game_manager.gd"
-TransitionManager="*res://scripts/Autoloads/transition.gd"
 
 [display]
 

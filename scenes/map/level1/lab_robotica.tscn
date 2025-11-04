@@ -16547,6 +16547,8 @@ tile_map_data = PackedByteArray("AAADAP3/AAAiABsAAAADAP7/AAAiAB0AAAAEAP3/AAAiABs
 tile_set = SubResource("TileSet_qwpv2")
 
 [node name="Interactable" parent="TileMapLayer/Tablero" instance=ExtResource("15_x5g1d")]
+collision_layer = 32
+collision_mask = 64
 interact_name = "E para leer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Tablero/Interactable"]
@@ -16558,6 +16560,8 @@ tile_map_data = PackedByteArray("AAACAAIAAAAPABEAAAAFAAIAAAAPABEAAAACAAUAAAAPABE
 tile_set = SubResource("TileSet_hij80")
 
 [node name="Interactable" parent="TileMapLayer/Objects" instance=ExtResource("15_x5g1d")]
+collision_layer = 32
+collision_mask = 64
 interact_name = "E para abrir terminal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]

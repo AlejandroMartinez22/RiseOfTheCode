@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bfe4yqj00eyg4"]
+[gd_scene load_steps=37 format=4 uid="uid://bfe4yqj00eyg4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_qptrp"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_xtsca"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="12_sqcv0"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="13_croh7"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="14_uw4tx"]
+[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="15_uw4tx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ipio"]
 texture = ExtResource("1_qptrp")
@@ -20131,6 +20132,9 @@ sources/1 = SubResource("TileSetAtlasSource_72xbr")
 [sub_resource type="CircleShape2D" id="CircleShape2D_croh7"]
 radius = 16.27882
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_uw4tx"]
+radius = 5.7142944
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_croh7"]
 size = Vector2(28, 10)
 
@@ -20155,6 +20159,8 @@ tile_map_data = PackedByteArray("AAAAAA0AAQAMAAgAACABAA0AAQAMAAgAACACAA0AAQAMAAg
 tile_set = SubResource("TileSet_nwktp")
 
 [node name="Interactable" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_sqcv0")]
+collision_layer = 32
+collision_mask = 64
 interact_name = "E para leer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/Interactable"]
@@ -20164,6 +20170,12 @@ shape = SubResource("CircleShape2D_croh7")
 [node name="HeartPickup" parent="." instance=ExtResource("10_jd36m")]
 position = Vector2(176, 92)
 lifetime = 45.0
+
+[node name="Interactable" parent="HeartPickup" instance=ExtResource("10_sqcv0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeartPickup/Interactable"]
+position = Vector2(0, -1.4285713)
+shape = SubResource("CircleShape2D_uw4tx")
 
 [node name="ExitToPasillos" type="Area2D" parent="."]
 script = ExtResource("12_sqcv0")
@@ -20185,3 +20197,6 @@ top = -48
 right = 359
 bottom = 229
 show_debug_rect = false
+
+[node name="Max" parent="." instance=ExtResource("15_uw4tx")]
+position = Vector2(221, 38)
