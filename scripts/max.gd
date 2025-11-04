@@ -44,7 +44,7 @@ func _ready() -> void:
 	# Actualizar la interfaz de vida al iniciar
 	UIManager.update_hearts()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:  # Agrega _ al inicio
 	# Si el jugador está disparando, no puede moverse
 	if is_shooting:
 		velocity = Vector2.ZERO
@@ -138,7 +138,7 @@ func _on_animation_finished() -> void:
 
 # ==================== VIDA Y DAÑO ====================
 
-func take_damage(amount: int, source_position: Vector2 = global_position) -> void:
+func take_damage(amount: int, _source_position: Vector2 = global_position) -> void: 
 	if is_dead:
 		return
 		 

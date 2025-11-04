@@ -41,7 +41,6 @@ process_mode = 3
 visible = false
 
 [node name="Transition" parent="." instance=ExtResource("6_tefeu")]
-script = null
 
 [node name="UImanager" type="CanvasLayer" parent="."]
 script = ExtResource("7_o6xl0")

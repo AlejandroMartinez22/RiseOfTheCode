@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 # MÉTODO VIRTUAL (sobrescribible por subclases)
-func on_picked_up(body: Node2D) -> void:
+func on_picked_up(_body: Node2D) -> void:
 	#Este método se sobreescribirá en las clases hijas.
 	pass
 

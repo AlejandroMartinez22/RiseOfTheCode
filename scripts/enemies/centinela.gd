@@ -57,7 +57,7 @@ func _ready() -> void:
 	if detection_area and not detection_area.is_connected("body_exited", Callable(self, "_on_detection_body_exited")):
 		detection_area.connect("body_exited", Callable(self, "_on_detection_body_exited"))
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:  
 	if is_dead:
 		return
 
