@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bv2s17g47kswk"]
 
-[node name="ModeloTablero" type="CanvasLayer"]
+[node name="ModeloTablero" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,6 +15,7 @@ grow_vertical = 2
 color = Color(0.19215687, 0.4117647, 0.30588236, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 9.0
@@ -18,6 +23,7 @@ grow_vertical = 2
 color = Color(0.72156864, 0.4862745, 0.29803923, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -28,6 +34,7 @@ grow_vertical = 2
 color = Color(0.72156864, 0.4862745, 0.29803923, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 9.0
@@ -35,6 +42,7 @@ grow_horizontal = 2
 color = Color(0.72156864, 0.4862745, 0.29803923, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -45,6 +53,7 @@ grow_vertical = 0
 color = Color(0.72156864, 0.4862745, 0.29803923, 1)
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -58,6 +67,7 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate u
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,6 +81,7 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate u
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

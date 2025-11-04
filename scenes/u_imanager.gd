@@ -1,40 +1,85 @@
+# UIManager.gd
+# Gestiona qué UI mostrar según el tipo de interacción
 extends CanvasLayer
 
-# Carga las escenas de UI (ajusta las rutas según tu proyecto)
-@onready var carta_ui_scene = preload("res://sprites/UI/modelo_carta.tscn")
-@onready var tablero_ui_scene = preload("res://ui/TableroUI.tscn")
-@onready var terminal_ui_scene = preload("res://ui/TerminalUI.tscn")
+# Referencias a las UIs que ya están en la escena
+@onready var modelo_carta = $ModeloCarta
+@onready var modelo_tablero = $ModeloTablero
+@onready var modelo_terminal = $ModeloTerminal
 
 var current_ui: Control = null
+var is_ui_active: bool = false
 
-func show_ui(type: String, text: String = ""):
-	# Cierra cualquier UI anterior
-	if current_ui and is_instance_valid(current_ui):
-		current_ui.queue_free()
+func _ready() -> void:
+	# Ocultar todas las UIs al inicio
+	hide_all_uis()
+	layer = 10
+
+func _input(event: InputEvent) -> void:
+	# Cerrar UI con E cuando está activa
+	if event.is_action_pressed("interact") and is_ui_active:
+		hide_current_ui()
+		get_viewport().set_input_as_handled()
+
+# Muestra la UI correspondiente según el tipo
+func show_ui(ui_type: String, text: String) -> void:
+	if is_ui_active:
+		return
 	
-	var new_ui: Control = null
-	
-	match type:
+	# Seleccionar qué UI mostrar
+	match ui_type:
 		"carta":
-			new_ui = carta_ui_scene.instantiate()
+			current_ui = modelo_carta
 		"tablero":
-			new_ui = tablero_ui_scene.instantiate()
+			current_ui = modelo_tablero
 		"terminal":
-			new_ui = terminal_ui_scene.instantiate()
+			current_ui = modelo_terminal
 		_:
-			printerr("Tipo de UI desconocido: ", type)
+			push_error("Tipo de UI no reconocido: " + ui_type)
 			return
 	
-	add_child(new_ui)
-	current_ui = new_ui
-	
-	# Si la UI tiene un método 'show_with_text', lo llamamos
-	if new_ui.has_method("show_with_text"):
-		new_ui.call_deferred("show_with_text", text)
-	
-	print("✅ Mostrando UI:", type)
+	if current_ui:
+		# Establecer el texto si la UI tiene ese método
+		if current_ui.has_method("set_text"):
+			current_ui.set_text(text)
+		else:
+			# Intentar encontrar un Label automáticamente
+			set_text_recursive(current_ui, text)
+		
+		# Mostrar la UI
+		current_ui.show()
+		is_ui_active = true
+		
+		# Pausar el juego
+		get_tree().paused = true
 
-func hide_ui():
-	if current_ui and is_instance_valid(current_ui):
-		current_ui.queue_free()
+# Oculta la UI actual
+func hide_current_ui() -> void:
+	if current_ui:
+		current_ui.hide()
 		current_ui = null
+		is_ui_active = false
+		
+		# Reanudar el juego
+		get_tree().paused = false
+
+# Oculta todas las UIs
+func hide_all_uis() -> void:
+	if modelo_carta:
+		modelo_carta.hide()
+	if modelo_tablero:
+		modelo_tablero.hide()
+	if modelo_terminal:
+		modelo_terminal.hide()
+
+# Busca y establece texto en Labels recursivamente
+func set_text_recursive(node: Node, text: String) -> bool:
+	if node is Label or node is RichTextLabel:
+		node.text = text
+		return true
+	
+	for child in node.get_children():
+		if set_text_recursive(child, text):
+			return true
+	
+	return false

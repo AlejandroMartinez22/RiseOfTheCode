@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt3gjbgn2r0ry"]
+[gd_scene load_steps=7 format=3 uid="uid://bt3gjbgn2r0ry"]
+
+[ext_resource type="Script" uid="uid://bib4y4qy5evw7" path="res://sprites/UI/modelo_carta.gd" id="1_ifcml"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6vmcc"]
 line_spacing = 1.0
@@ -20,9 +22,14 @@ font_color = Color(0, 0, 0, 0.56078434)
 line_spacing = 1.0
 font_color = Color(0, 0, 0, 0.5568628)
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ifcml")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
