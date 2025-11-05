@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt3gjbgn2r0ry"]
-
-[ext_resource type="Script" uid="uid://bib4y4qy5evw7" path="res://sprites/UI/modelo_carta.gd" id="1_ifcml"]
+[gd_scene format=3 uid="uid://demm2vfr8wk21"]
 
 [node name="CanvasLayer" type="Control"]
 process_mode = 2
@@ -10,16 +8,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ifcml")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(203, 140)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = 11.0
-offset_right = -25.0
-offset_bottom = -8.0
+offset_left = 52.0
+offset_top = 19.0
+offset_right = -48.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2

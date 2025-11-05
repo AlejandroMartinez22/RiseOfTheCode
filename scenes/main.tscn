@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dlr11kurjlyiq" path="res://scenes/menu/pause_menu.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://xw6bim41hdv3" path="res://scenes/menu/die_menu.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://fb3vsexrjodr" path="res://scenes/menu/transition.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://bt3gjbgn2r0ry" path="res://sprites/UI/modelo_carta.tscn" id="7_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bt3gjbgn2r0ry" path="res://scenes/UI/cartas/carta_recepcion.tscn" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://0m3fw0a36y38" path="res://scenes/u_imanager.gd" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://bv2s17g47kswk" path="res://sprites/UI/modelo_tablero.tscn" id="8_choun"]
-[ext_resource type="PackedScene" uid="uid://demm2vfr8wk21" path="res://sprites/UI/modelo_terminal.tscn" id="9_ya4ey"]
-[ext_resource type="Script" uid="uid://dhwjb1nsdwves" path="res://sprites/UI/modelo_tablero.gd" id="10_ya4ey"]
-[ext_resource type="Script" uid="uid://cvofmrajykejt" path="res://sprites/UI/modelo_terminal.gd" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bv2s17g47kswk" path="res://scenes/UI/modelo_tablero.tscn" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://demm2vfr8wk21" path="res://scenes/UI/modelo_terminal.tscn" id="9_ya4ey"]
+[ext_resource type="Script" uid="uid://dhwjb1nsdwves" path="res://scripts/UI/modelo_tablero.gd" id="10_ya4ey"]
+[ext_resource type="Script" uid="uid://cvofmrajykejt" path="res://scripts/UI/modelo_terminal.gd" id="12_eb6dy"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_sugp2")
