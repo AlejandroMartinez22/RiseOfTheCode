@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bfe4yqj00eyg4"]
+[gd_scene load_steps=36 format=4 uid="uid://bfe4yqj00eyg4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_qptrp"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_xtsca"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="12_sqcv0"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="13_croh7"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="14_uw4tx"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="15_uw4tx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ipio"]
 texture = ExtResource("1_qptrp")
@@ -20130,7 +20129,6 @@ sources/0 = SubResource("TileSetAtlasSource_t45yr")
 sources/1 = SubResource("TileSetAtlasSource_72xbr")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_croh7"]
-radius = 16.27882
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uw4tx"]
 radius = 5.7142944
@@ -20164,7 +20162,7 @@ collision_mask = 64
 interact_name = "E para leer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/Interactable"]
-position = Vector2(54, 57)
+position = Vector2(307, 126)
 shape = SubResource("CircleShape2D_croh7")
 
 [node name="HeartPickup" parent="." instance=ExtResource("10_jd36m")]
@@ -20194,9 +20192,6 @@ position = Vector2(176, 28)
 script = ExtResource("14_uw4tx")
 left = -6
 top = -48
-right = 359
-bottom = 229
+right = 358
+bottom = 224
 show_debug_rect = false
-
-[node name="Max" parent="." instance=ExtResource("15_uw4tx")]
-position = Vector2(221, 38)

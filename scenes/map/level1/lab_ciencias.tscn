@@ -15461,7 +15461,7 @@ sources/3 = SubResource("TileSetAtlasSource_fb8t2")
 sources/4 = SubResource("TileSetAtlasSource_1bwoo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_titgt"]
-size = Vector2(15, 26)
+size = Vector2(11, 19)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylwxk"]
 texture = ExtResource("2_bclro")
@@ -17658,7 +17658,7 @@ sources/0 = SubResource("TileSetAtlasSource_ylwxk")
 sources/1 = SubResource("TileSetAtlasSource_8252g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pf0m4"]
-size = Vector2(20, 26)
+size = Vector2(14, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5nas"]
 size = Vector2(32, 13)
@@ -17685,7 +17685,7 @@ collision_mask = 64
 interact_name = "E para leer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
-position = Vector2(154, -2)
+position = Vector2(152.5, -5.5)
 shape = SubResource("RectangleShape2D_titgt")
 
 [node name="InteractiveObjects" type="TileMapLayer" parent="TileMapLayer"]
@@ -17699,7 +17699,7 @@ collision_mask = 64
 interact_name = "E para coger"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/InteractiveObjects/Interactable"]
-position = Vector2(185, -13)
+position = Vector2(184, -15.5)
 shape = SubResource("RectangleShape2D_pf0m4")
 
 [node name="SpawnLabCiencias" type="Marker2D" parent="."]
@@ -17719,6 +17719,6 @@ shape = SubResource("RectangleShape2D_w5nas")
 script = ExtResource("13_p3xb0")
 left = -6
 top = -64
-right = 327
-bottom = 181
+right = 326
+bottom = 176
 show_debug_rect = false

@@ -8437,7 +8437,7 @@ texture = ExtResource("8_5tvov")
 sources/0 = SubResource("TileSetAtlasSource_78jr3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4dug"]
-size = Vector2(59, 20)
+size = Vector2(53, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlbxy"]
 texture = ExtResource("4_78jr3")
@@ -9606,7 +9606,7 @@ sources/2 = SubResource("TileSetAtlasSource_l3mxi")
 sources/3 = SubResource("TileSetAtlasSource_epom7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uibxe"]
-size = Vector2(33, 22)
+size = Vector2(31, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rs1uy"]
 texture = ExtResource("4_78jr3")
@@ -16552,7 +16552,7 @@ collision_mask = 64
 interact_name = "E para leer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Tablero/Interactable"]
-position = Vector2(54.5, -5)
+position = Vector2(54.5, -7)
 shape = SubResource("RectangleShape2D_n4dug")
 
 [node name="Objects" type="TileMapLayer" parent="TileMapLayer"]
@@ -16565,7 +16565,7 @@ collision_mask = 64
 interact_name = "E para abrir terminal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
-position = Vector2(208.5, -2)
+position = Vector2(209.5, -5)
 shape = SubResource("RectangleShape2D_uibxe")
 
 [node name="Monitors" type="TileMapLayer" parent="TileMapLayer"]
@@ -16600,6 +16600,6 @@ position = Vector2(159, 17)
 script = ExtResource("20_n4dug")
 left = -6
 top = -64
-right = 327
-bottom = 149
+right = 326
+bottom = 144
 show_debug_rect = false
