@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cxm75h2tjabjp"]
+[gd_scene load_steps=37 format=4 uid="uid://cxm75h2tjabjp"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_u46fv"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_tekvu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cc7um0ehnl1mx" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/18_Jail_16x16.png" id="8_t7kg4"]
 [ext_resource type="Texture2D" uid="uid://bkjpu6ravim6p" path="res://sprites/tilesets/other_tiles/Furniture/metal_door.png" id="9_6x61e"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="11_gc1iw"]
+[ext_resource type="Texture2D" uid="uid://bs2yuqmw21a8u" path="res://sprites/UI/cartas/carta_recepcion.png" id="12_gn57d"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="12_o5tb2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_on1wv"]
@@ -19146,7 +19147,7 @@ tile_set = SubResource("TileSet_6x61e")
 collision_layer = 32
 collision_mask = 64
 interact_name = "presiona E para leer "
-interact_text = "HOLA COMO ESTAMOS"
+note_pages = Array[Texture2D]([ExtResource("12_gn57d")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayers/InteractiveObjects/Interactable"]
 position = Vector2(230, 162)

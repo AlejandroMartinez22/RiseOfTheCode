@@ -1,21 +1,25 @@
-# interactable.gd (versión con debug)
+# interactable.gd
+# Sistema de interacción para notas con soporte multi-página
 extends Area2D
 
+# Configuración básica
 @export var interact_name: String = "presiona E para leer"
 @export var is_interactable: bool = true
-@export var interact_type: String = "carta"
-@export var interact_text: String = "Texto por defecto"
+@export var interact_type: String = "nota"
 
+# Array de texturas para las páginas de la nota
+@export var note_pages: Array[Texture2D] = []
+
+# Callable que se ejecuta al interactuar
 var interact: Callable = func():
-	print("Callable de interact ejecutado")
-	var main = get_tree().get_current_scene()
-	print("Main encontrado: ", main != null)
+	print("📖 Interactuando con: ", name)
 	
-	if main and main.has_node("CanvasLayer"):
-		print("CanvasLayer encontrado")
-		var ui_manager = main.get_node("UImanager")
-		print("UIManager obtenido: ", ui_manager != null)
-		print("Llamando show_ui con tipo: ", interact_type)
-		ui_manager.show_ui(interact_type, interact_text)
-	else:
-		print("ERROR: No se encontró CanvasLayer en Main")
+	# Validar que hay texturas asignadas
+	if note_pages.is_empty():
+		push_error("❌ No hay texturas asignadas en note_pages para: " + name)
+		return
+	
+	print("✅ Enviando ", note_pages.size(), " página(s) al UIManager")
+	
+	# Mostrar la nota a través del UIManager
+	UIManager.show_note(note_pages)

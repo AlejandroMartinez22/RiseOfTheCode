@@ -1,5 +1,4 @@
 # Script principal del juego
-# Se encarga de inicializar todos los sistemas y registrar los menús
 extends Node2D
 
 # Referencias a nodos hijos
@@ -8,9 +7,12 @@ extends Node2D
 @onready var ui_layer: CanvasLayer = $CanvasLayer
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var die_menu: CanvasLayer = $DieMenu
+@onready var note_viewer: CanvasLayer = $NoteViewer
 
 func _ready() -> void:
 	randomize()
+	
+	print("🎮 Inicializando Main...")
 	
 	# Registrar la escena principal en RoomManager
 	RoomManager.register_main(self)
@@ -21,6 +23,12 @@ func _ready() -> void:
 	
 	# Conectar el contenedor de corazones con UIManager
 	UIManager.heart_container = $CanvasLayer/MarginContainer/HeartContainer
+	
+	# Registrar el visor de notas en UIManager
+	if note_viewer:
+		UIManager.register_note_viewer(note_viewer)
+	else:
+		push_error("❌ NoteViewer no encontrado en Main")
 	
 	# Sincronizar datos del jugador con PlayerData
 	PlayerData.max_health = player.max_health
