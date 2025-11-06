@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://d1myro7w5bwvg"]
+[gd_scene load_steps=29 format=4 uid="uid://d1myro7w5bwvg"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_ei05c"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_vqmda"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="8_vmjq4"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="9_gk2hn"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="9_owg2h"]
+[ext_resource type="Texture2D" uid="uid://cfd8ha0d8w0jn" path="res://sprites/UI/notas/salones/nota_salon_303.png" id="10_gk2hn"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="11_4pv4x"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="12_vmjq4"]
 
@@ -10605,6 +10606,7 @@ tile_set = SubResource("TileSet_dy00y")
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para leer"
+note_pages = Array[Texture2D]([ExtResource("10_gk2hn")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/Interactable"]
 position = Vector2(72, 91)

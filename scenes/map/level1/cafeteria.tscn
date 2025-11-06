@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cygu32ib6kt0e"]
+[gd_scene load_steps=37 format=4 uid="uid://cygu32ib6kt0e"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_01k88"]
 [ext_resource type="Texture2D" uid="uid://cachu3lnv7ekl" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/12_Kitchen_16x16.png" id="2_jbkpe"]
@@ -11,8 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="7_igwo8"]
 [ext_resource type="Texture2D" uid="uid://cuefkpd37xbrf" path="res://sprites/tilesets/other_tiles/Objects/book.png" id="9_8jknl"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_8jknl"]
+[ext_resource type="Texture2D" uid="uid://c3w4dw34mxifs" path="res://sprites/UI/notas/cafeteria/nota_cafeteria_1.png" id="11_yw673"]
+[ext_resource type="Texture2D" uid="uid://caghmw804rxgi" path="res://sprites/UI/notas/cafeteria/nota_cafeteria_2.png" id="12_a25rb"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_oa5t0"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_6yyde"]
+[ext_resource type="Texture2D" uid="uid://b3h4bb731nof7" path="res://sprites/UI/notas/cafeteria/nota_cafeteria_3.png" id="13_174we"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7yf6"]
 texture = ExtResource("1_01k88")
@@ -15447,13 +15450,14 @@ tile_set = SubResource("TileSet_8jknl")
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para leer"
+note_pages = Array[Texture2D]([ExtResource("11_yw673"), ExtResource("12_a25rb"), ExtResource("13_174we")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems3/Interactable"]
 position = Vector2(200, 31.5)
 shape = SubResource("RectangleShape2D_wewvp")
 
 [node name="SpawnCafeteria" type="Marker2D" parent="."]
-position = Vector2(176, 169)
+position = Vector2(176, 163)
 
 [node name="ExitToPasillos" type="Area2D" parent="."]
 script = ExtResource("11_8jknl")

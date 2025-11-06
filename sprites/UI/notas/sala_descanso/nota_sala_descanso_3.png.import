@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://25lmrugagbu3"
-path="res://.godot/imported/carta_salon303.png-1292a305d76117424465d27a62dc6ae4.ctex"
+uid="uid://c2scbqyi33fvy"
+path="res://.godot/imported/nota_sala_descanso_3.png-543e91e3942dda64fad55d8638352f03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/notas/carta_salon303.png"
-dest_files=["res://.godot/imported/carta_salon303.png-1292a305d76117424465d27a62dc6ae4.ctex"]
+source_file="res://sprites/UI/notas/sala_descanso/nota_sala_descanso_3.png"
+dest_files=["res://.godot/imported/nota_sala_descanso_3.png-543e91e3942dda64fad55d8638352f03.ctex"]
 
 [params]
 

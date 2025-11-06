@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfraxw2xyj4j"
-path="res://.godot/imported/carta_salon202.png-827a35a9da19ad72d8090813a00b2ede.ctex"
+uid="uid://bpiu5ji6xrem0"
+path="res://.godot/imported/nota_lab_ciencias.png-4417655947e5dd9bb36ab4fb053ec300.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/notas/carta_salon202.png"
-dest_files=["res://.godot/imported/carta_salon202.png-827a35a9da19ad72d8090813a00b2ede.ctex"]
+source_file="res://sprites/UI/notas/nota_lab_ciencias.png"
+dest_files=["res://.godot/imported/nota_lab_ciencias.png-4417655947e5dd9bb36ab4fb053ec300.ctex"]
 
 [params]
 

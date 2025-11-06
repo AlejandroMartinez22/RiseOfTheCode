@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://c5b5y5vnw4mq7"]
+[gd_scene load_steps=36 format=4 uid="uid://c5b5y5vnw4mq7"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_altev"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="2_bclro"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://boc2rpeiihiig" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/5_Classroom_and_library_Shadowless.png" id="8_ybxgc"]
 [ext_resource type="Texture2D" uid="uid://dgdevccgfoynk" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/22_Museum_Shadowless.png" id="9_cmd6c"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_lpyma"]
+[ext_resource type="Texture2D" uid="uid://bpiu5ji6xrem0" path="res://sprites/UI/notas/nota_lab_ciencias.png" id="11_p3xb0"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_w5nas"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_1v5jp"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_p3xb0"]
@@ -17683,6 +17684,7 @@ tile_set = SubResource("TileSet_wrowt")
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para leer"
+note_pages = Array[Texture2D]([ExtResource("11_p3xb0")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
 position = Vector2(152.5, -5.5)

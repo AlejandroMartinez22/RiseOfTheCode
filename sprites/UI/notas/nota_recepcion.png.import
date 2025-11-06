@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ntn8vpwcp6bv"
-path="res://.godot/imported/carta_salon101.png-417bbbf79d5068bbde545d7d1fc896dc.ctex"
+uid="uid://e71m5epkvfkw"
+path="res://.godot/imported/nota_recepcion.png-074e75fe804de96469b6795cb112196b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/notas/carta_salon101.png"
-dest_files=["res://.godot/imported/carta_salon101.png-417bbbf79d5068bbde545d7d1fc896dc.ctex"]
+source_file="res://sprites/UI/notas/nota_recepcion.png"
+dest_files=["res://.godot/imported/nota_recepcion.png-074e75fe804de96469b6795cb112196b.ctex"]
 
 [params]
 
