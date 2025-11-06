@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coaehestti01b" path="res://scripts/UI/heart_container.gd" id="1_srcrn"]
 [ext_resource type="Texture2D" uid="uid://xb66088aw8gf" path="res://data/UI/hearth_half_beating.tres" id="3_7rc4h"]
-[ext_resource type="Texture2D" uid="uid://bubst4gc0a0jf" path="res://sprites/UI/hearth_empty.png" id="4_3fw2b"]
+[ext_resource type="Texture2D" uid="uid://bubst4gc0a0jf" path="res://sprites/UI/hearts/hearth_empty.png" id="4_3fw2b"]
 [ext_resource type="Texture2D" uid="uid://ckvsxk6g3qb3p" path="res://data/UI/hearth_full_beating.tres" id="4_7rc4h"]
 
 [node name="HeartContainer" type="HBoxContainer"]

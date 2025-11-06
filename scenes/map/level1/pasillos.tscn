@@ -23858,7 +23858,7 @@ position = Vector2(691, 414)
 position = Vector2(1074, 415)
 
 [node name="SpawnFromSalaDescanso" type="Marker2D" parent="."]
-position = Vector2(1459, 419)
+position = Vector2(1459, 408)
 
 [node name="PasilloHorizontal1" type="Area2D" parent="."]
 script = ExtResource("21_7nrkh")

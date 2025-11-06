@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs2yuqmw21a8u"
-path="res://.godot/imported/carta_recepcion.png-a752fd83847e002924e8aefc680f91c3.ctex"
+uid="uid://e71m5epkvfkw"
+path="res://.godot/imported/nota_recepcion.png-074e75fe804de96469b6795cb112196b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/cartas/carta_recepcion.png"
-dest_files=["res://.godot/imported/carta_recepcion.png-a752fd83847e002924e8aefc680f91c3.ctex"]
+source_file="res://sprites/UI/notas/nota_recepcion.png"
+dest_files=["res://.godot/imported/nota_recepcion.png-074e75fe804de96469b6795cb112196b.ctex"]
 
 [params]
 

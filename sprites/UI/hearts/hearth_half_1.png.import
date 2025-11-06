@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ntn8vpwcp6bv"
-path="res://.godot/imported/carta_salon101.png-518008c7359ddffe239fab3d70e0edcc.ctex"
+uid="uid://dchhtx6pghbnv"
+path="res://.godot/imported/hearth_half_1.png-37fef4a0ac5ccb5bca0dee1e4587931d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/cartas/carta_salon101.png"
-dest_files=["res://.godot/imported/carta_salon101.png-518008c7359ddffe239fab3d70e0edcc.ctex"]
+source_file="res://sprites/UI/hearts/hearth_half_1.png"
+dest_files=["res://.godot/imported/hearth_half_1.png-37fef4a0ac5ccb5bca0dee1e4587931d.ctex"]
 
 [params]
 
