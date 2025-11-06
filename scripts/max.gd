@@ -187,6 +187,7 @@ func die() -> void:
 	# Notificar al GameManager que el jugador murió
 	GameManager.player_died()
 	
+	
 func _on_death_animation_finished():
 	queue_free()
 	get_node("../DieMenu").game_over()
