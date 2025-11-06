@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjhc6sx27pbj3"
-path="res://.godot/imported/hearth_full_1.png-467269d61f1531f72c1ba13b36fdb89d.ctex"
+uid="uid://dj82qfdxrfg4w"
+path="res://.godot/imported/carta_laboratoriociencias.png-02b6dc5061e9136f4350d73a67a85d7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/hearth_full_1.png"
-dest_files=["res://.godot/imported/hearth_full_1.png-467269d61f1531f72c1ba13b36fdb89d.ctex"]
+source_file="res://sprites/UI/notas/carta_laboratoriociencias.png"
+dest_files=["res://.godot/imported/carta_laboratoriociencias.png-02b6dc5061e9136f4350d73a67a85d7e.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://25lmrugagbu3"
-path="res://.godot/imported/carta_salon303.png-b0870aca8757a16c5efb93f48fc9845e.ctex"
+path="res://.godot/imported/carta_salon303.png-1292a305d76117424465d27a62dc6ae4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/cartas/carta_salon303.png"
-dest_files=["res://.godot/imported/carta_salon303.png-b0870aca8757a16c5efb93f48fc9845e.ctex"]
+source_file="res://sprites/UI/notas/carta_salon303.png"
+dest_files=["res://.godot/imported/carta_salon303.png-1292a305d76117424465d27a62dc6ae4.ctex"]
 
 [params]
 

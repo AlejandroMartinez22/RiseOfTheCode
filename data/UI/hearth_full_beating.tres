@@ -1,7 +1,7 @@
 [gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://ckvsxk6g3qb3p"]
 
-[ext_resource type="Texture2D" uid="uid://cjhc6sx27pbj3" path="res://sprites/UI/hearth_full_1.png" id="1_bsuax"]
-[ext_resource type="Texture2D" uid="uid://brekg3gq7e1lx" path="res://sprites/UI/hearth_full_2.png" id="2_573ir"]
+[ext_resource type="Texture2D" uid="uid://cjhc6sx27pbj3" path="res://sprites/UI/hearts/hearth_full_1.png" id="1_bsuax"]
+[ext_resource type="Texture2D" uid="uid://brekg3gq7e1lx" path="res://sprites/UI/hearts/hearth_full_2.png" id="2_573ir"]
 
 [resource]
 frames = 6

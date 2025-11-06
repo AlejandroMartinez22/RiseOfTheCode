@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dchhtx6pghbnv"
-path="res://.godot/imported/hearth_half_1.png-c70fa55d64ce001cb0f7899ced9e9fcc.ctex"
+uid="uid://swj6vv6iu2q7"
+path="res://.godot/imported/carta_cafeteria.png-77017cfe7171bd22efbd23bdaa187b9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/hearth_half_1.png"
-dest_files=["res://.godot/imported/hearth_half_1.png-c70fa55d64ce001cb0f7899ced9e9fcc.ctex"]
+source_file="res://sprites/UI/notas/carta_cafeteria.png"
+dest_files=["res://.godot/imported/carta_cafeteria.png-77017cfe7171bd22efbd23bdaa187b9d.ctex"]
 
 [params]
 

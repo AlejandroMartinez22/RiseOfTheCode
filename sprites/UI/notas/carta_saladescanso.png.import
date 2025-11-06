@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://swj6vv6iu2q7"
-path="res://.godot/imported/carta_cafeteria.png-5cb8665caf7523905cfd168aaee6ddd6.ctex"
+uid="uid://di0xdb4oo1p8k"
+path="res://.godot/imported/carta_saladescanso.png-7b063295133429ded72e93528c1daa0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/cartas/carta_cafeteria.png"
-dest_files=["res://.godot/imported/carta_cafeteria.png-5cb8665caf7523905cfd168aaee6ddd6.ctex"]
+source_file="res://sprites/UI/notas/carta_saladescanso.png"
+dest_files=["res://.godot/imported/carta_saladescanso.png-7b063295133429ded72e93528c1daa0b.ctex"]
 
 [params]
 

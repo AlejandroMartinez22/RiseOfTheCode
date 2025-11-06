@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cc7um0ehnl1mx" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/18_Jail_16x16.png" id="8_t7kg4"]
 [ext_resource type="Texture2D" uid="uid://bkjpu6ravim6p" path="res://sprites/tilesets/other_tiles/Furniture/metal_door.png" id="9_6x61e"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="11_gc1iw"]
-[ext_resource type="Texture2D" uid="uid://bs2yuqmw21a8u" path="res://sprites/UI/cartas/carta_recepcion.png" id="12_gn57d"]
+[ext_resource type="Texture2D" uid="uid://bs2yuqmw21a8u" path="res://sprites/UI/notas/carta_recepcion.png" id="12_gn57d"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="12_o5tb2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_on1wv"]
