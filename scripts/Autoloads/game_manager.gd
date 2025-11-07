@@ -89,9 +89,6 @@ func player_died() -> void:
 	
 	if die_menu:
 		die_menu.show()
-		var audio_player = die_menu.get_node("AudioStreamPlayer")
-		if audio_player:
-			audio_player.play()
 
 # ==================== REINICIAR JUEGO ====================
 

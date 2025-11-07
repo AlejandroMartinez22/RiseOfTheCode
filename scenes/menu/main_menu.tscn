@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://oiibyewbp2se"]
+[gd_scene load_steps=8 format=3 uid="uid://oiibyewbp2se"]
 
 [ext_resource type="Texture2D" uid="uid://cbq70a4clsxpj" path="res://sprites/menu/fondo_main_menu.png" id="1_qwnig"]
 [ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://fonts/PressStart2P.ttf" id="2_yonvy"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://cn4qhbwgvuice" path="res://sounds/UI/start_button_sound.wav" id="5_isoef"]
 [ext_resource type="Script" uid="uid://bhx5maf286jn" path="res://scripts/menu/buttons/quit_game_button.gd" id="5_xn6kt"]
 [ext_resource type="AudioStream" uid="uid://3735ls4ht0hl" path="res://sounds/UI/other_button_sound.wav" id="7_isoef"]
-[ext_resource type="AudioStream" uid="uid://5kys5xui1i5v" path="res://sounds/music/ytmp3free.cc_ecco-the-tides-of-time-music-genesis-sea-of-darkness-youtubemp3free.org.mp3" id="8_qgo02"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -83,10 +82,5 @@ script = ExtResource("5_xn6kt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/BotonSalir"]
 stream = ExtResource("7_isoef")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_qgo02")
-volume_db = -10.0
-autoplay = true
 
 [connection signal="mouse_entered" from="VBoxContainer/BotonIniciar" to="VBoxContainer/BotonIniciar" method="_on_mouse_entered"]
