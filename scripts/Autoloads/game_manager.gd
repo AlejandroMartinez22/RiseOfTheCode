@@ -89,6 +89,9 @@ func player_died() -> void:
 	
 	if die_menu:
 		die_menu.show()
+		var audio_player = die_menu.get_node("AudioStreamPlayer")
+		if audio_player:
+			audio_player.play()
 
 # ==================== REINICIAR JUEGO ====================
 
@@ -104,6 +107,9 @@ func restart_game() -> void:
 		pause_menu.hide()
 	if die_menu:
 		die_menu.hide()
+		var audio_player = die_menu.get_node("AudioStreamPlayer")
+		if audio_player:
+			audio_player.stop()
 	
 	# Recargar la escena principal
 	get_tree().paused = false
@@ -123,6 +129,9 @@ func return_to_main_menu() -> void:
 		pause_menu.hide()
 	if die_menu:
 		die_menu.hide()
+		var audio_player = die_menu.get_node("AudioStreamPlayer")
+		if audio_player:
+			audio_player.stop()
 	
 	# Cargar menú principal
 	get_tree().paused = false

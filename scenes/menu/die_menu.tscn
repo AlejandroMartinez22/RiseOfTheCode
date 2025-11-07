@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://xw6bim41hdv3"]
+[gd_scene load_steps=9 format=3 uid="uid://xw6bim41hdv3"]
 
 [ext_resource type="Script" uid="uid://cmrjmgikqftop" path="res://scripts/menu/die_menu.gd" id="1_vc1b3"]
 [ext_resource type="Texture2D" uid="uid://bnmoxxkdh6067" path="res://sprites/menu/20251103_1501_Invasión Robot Universitaria_simple_compose_01k95mvvcsfps908f8303n7tmh.png" id="2_5bna4"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cn4qhbwgvuice" path="res://sounds/UI/start_button_sound.wav" id="5_5bna4"]
 [ext_resource type="AudioStream" uid="uid://3735ls4ht0hl" path="res://sounds/UI/other_button_sound.wav" id="5_8xgh7"]
 [ext_resource type="Script" uid="uid://c1yr5m37c6eqt" path="res://scripts/menu/buttons/restart_button.gd" id="5_nycv7"]
+[ext_resource type="AudioStream" uid="uid://dot0e61u5i6gp" path="res://sounds/music/menu_muerte.mp3" id="8_8xgh7"]
 
 [node name="DieMenu" type="CanvasLayer"]
 process_mode = 2
@@ -76,3 +77,7 @@ script = ExtResource("5_nycv7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BotonReintentar"]
 stream = ExtResource("5_5bna4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8xgh7")
+volume_db = -10.0
