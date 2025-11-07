@@ -10602,17 +10602,20 @@ tile_set = SubResource("TileSet_f31w8")
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAAAAAEAAAABAAQAAAACAAAAAAABAAMAAAACAAEAAAABAAQAAAAQAAAAAAAIAAMAAAAQAAEAAAAIAAQAAAARAAAAAAAJAAMAAAARAAEAAAAJAAQAAAAPAAAAAAAHAAMAAAAPAAEAAAAHAAQAAAAJAAMAAAABAAMAAAAJAAQAAAABAAQAAAAJAAYAAAABAAMAAAAJAAcAAAABAAQAAAALAAMAAAABAAMAAAALAAQAAAABAAQAAAALAAYAAAABAAMAAAALAAcAAAABAAQAAAANAAMAAAABAAMAAAANAAQAAAABAAQAAAANAAYAAAABAAMAAAANAAcAAAABAAQAAAAIAAYAAAABAAMAAAAIAAcAAAABAAQAAAAIAAMAAAABAAMAAAAIAAQAAAABAAQAAAAGAAQAAAABAAQAAAAGAAcAAAABAAQAAAAGAAMAAAABAAMAAAAGAAYAAAABAAMAAAAEAAMAAAABAAMAAAAEAAQAAAABAAQAAAAEAAYAAAABAAMAAAAEAAcAAAABAAQAAAAEAAUAAQAAABEAACACAAYAAgAFAGUAAAADAAYAAgAGAGUAAAA=")
 tile_set = SubResource("TileSet_dy00y")
 
-[node name="Interactable" parent="TileMapLayer/SmallItems" instance=ExtResource("9_owg2h")]
+[node name="InteractableNota" parent="TileMapLayer/SmallItems" instance=ExtResource("9_owg2h")]
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para leer"
-note_pages = Array[Texture2D]([ExtResource("10_gk2hn")])
+content_pages = Array[Texture2D]([ExtResource("10_gk2hn")])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/Interactable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/InteractableNota"]
 position = Vector2(72, 91)
 shape = SubResource("CircleShape2D_4pv4x")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapLayer/SmallItems/Interactable"]
+[node name="InteractableTablero" parent="TileMapLayer/SmallItems" instance=ExtResource("9_owg2h")]
+interact_type = "tablero"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/InteractableTablero"]
 position = Vector2(143, -13)
 shape = SubResource("RectangleShape2D_vmjq4")
 

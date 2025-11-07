@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlr11kurjlyiq" path="res://scenes/menu/pause_menu.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://xw6bim41hdv3" path="res://scenes/menu/die_menu.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://fb3vsexrjodr" path="res://scenes/menu/transition.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://dafa27lf0gfjw" path="res://scenes/UI/notas/note_viewer.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dafa27lf0gfjw" path="res://scenes/UI/interactive_UI/content_viewer.tscn" id="7_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://n4jri4pw3tsm" path="res://sounds/music/loop_principal.mp3" id="8_tipki"]
 
 [node name="main" type="Node2D"]
@@ -38,7 +38,7 @@ visible = false
 
 [node name="Transition" parent="." instance=ExtResource("6_tefeu")]
 
-[node name="NoteViewer" parent="." instance=ExtResource("7_o6xl0")]
+[node name="ContentViewer" parent="." instance=ExtResource("7_o6xl0")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tipki")

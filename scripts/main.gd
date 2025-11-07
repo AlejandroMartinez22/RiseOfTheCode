@@ -7,7 +7,7 @@ extends Node2D
 @onready var ui_layer: CanvasLayer = $CanvasLayer
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var die_menu: CanvasLayer = $DieMenu
-@onready var note_viewer: CanvasLayer = $NoteViewer
+@onready var content_viewer: CanvasLayer = $ContentViewer  # Renombrado de NoteViewer
 
 func _ready() -> void:
 	randomize()
@@ -24,11 +24,11 @@ func _ready() -> void:
 	# Conectar el contenedor de corazones con UIManager
 	UIManager.heart_container = $CanvasLayer/MarginContainer/HeartContainer
 	
-	# Registrar el visor de notas en UIManager
-	if note_viewer:
-		UIManager.register_note_viewer(note_viewer)
+	# Registrar el visor de contenido en UIManager
+	if content_viewer:
+		UIManager.register_content_viewer(content_viewer)
 	else:
-		push_error("❌ NoteViewer no encontrado en Main")
+		push_error("❌ ContentViewer no encontrado en Main")
 	
 	# Sincronizar datos del jugador con PlayerData
 	PlayerData.max_health = player.max_health

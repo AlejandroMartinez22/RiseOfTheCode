@@ -68,6 +68,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 3
 text = "INICIAR"
 script = ExtResource("4_hj162")
@@ -77,6 +78,7 @@ stream = ExtResource("5_isoef")
 
 [node name="BotonSalir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 3
 text = "SALIR"
 script = ExtResource("5_xn6kt")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dafa27lf0gfjw"]
+[gd_scene load_steps=6 format=3 uid="uid://dafa27lf0gfjw"]
 
-[ext_resource type="Script" uid="uid://b7obihj6uhd1o" path="res://scripts/UI/note_viewer.gd" id="1_rte7k"]
+[ext_resource type="Script" uid="uid://b7obihj6uhd1o" path="res://scripts/UI/content_viewer.gd" id="1_rte7k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rte7k"]
 bg_color = Color(1, 1, 1, 0)
@@ -10,11 +10,17 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[node name="NoteViewer" type="CanvasLayer"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wwrdh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k41jp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sj5ni"]
+
+[node name="ContentViewer" type="CanvasLayer"]
 layer = 10
 script = ExtResource("1_rte7k")
 
-[node name="BackgroundOverlay" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7058824)
 
-[node name="NotePanel" type="Panel" parent="."]
+[node name="ContentPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(160, 140)
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,18 +41,20 @@ offset_right = 70.0
 offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rte7k")
 
-[node name="TextureRect" type="TextureRect" parent="NotePanel"]
+[node name="TextureRect" type="TextureRect" parent="ContentPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 expand_mode = 1
 
-[node name="BtnPrevious" type="Button" parent="NotePanel"]
+[node name="PrevButton" type="Button" parent="ContentPanel"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 0
 offset_left = 8.0
@@ -54,23 +62,29 @@ offset_top = 120.0
 offset_right = 26.0
 offset_bottom = 151.0
 scale = Vector2(0.5, 0.4)
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wwrdh")
 text = "<"
 
-[node name="BtnNext" type="Button" parent="NotePanel"]
+[node name="NextButton" type="Button" parent="ContentPanel"]
 layout_mode = 0
 offset_left = 140.0
 offset_top = 120.0
 offset_right = 158.0
 offset_bottom = 151.0
 scale = Vector2(0.5, 0.4)
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k41jp")
 text = ">"
 
-[node name="BtnClose" type="Button" parent="NotePanel"]
+[node name="CloseButton" type="Button" parent="ContentPanel"]
 layout_mode = 0
 offset_left = 145.0
 offset_top = 5.0
 offset_right = 163.0
 offset_bottom = 36.0
 scale = Vector2(0.5, 0.4)
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sj5ni")
 text = "X"

@@ -15450,7 +15450,7 @@ tile_set = SubResource("TileSet_8jknl")
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para leer"
-note_pages = Array[Texture2D]([ExtResource("11_yw673"), ExtResource("12_a25rb"), ExtResource("13_174we")])
+content_pages = Array[Texture2D]([ExtResource("11_yw673"), ExtResource("12_a25rb"), ExtResource("13_174we")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems3/Interactable"]
 position = Vector2(200, 31.5)
