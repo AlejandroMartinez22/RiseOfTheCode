@@ -7,12 +7,15 @@ extends Node2D
 @onready var ui_layer: CanvasLayer = $CanvasLayer
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var die_menu: CanvasLayer = $DieMenu
-@onready var content_viewer: CanvasLayer = $ContentViewer  # Renombrado de NoteViewer
+@onready var content_viewer: CanvasLayer = $ContentViewer
 
 func _ready() -> void:
 	randomize()
 	
 	print("🎮 Inicializando Main...")
+	
+	# Ocultar el cursor durante el juego normal
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 	# Registrar la escena principal en RoomManager
 	RoomManager.register_main(self)

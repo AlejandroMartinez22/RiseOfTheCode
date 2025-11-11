@@ -64,6 +64,9 @@ func pause_game() -> void:
 	is_game_paused = true
 	get_tree().paused = true
 	
+	# Mostrar cursor en el menú de pausa
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	if pause_menu:
 		pause_menu.show()
 
@@ -73,6 +76,9 @@ func resume_game() -> void:
 	
 	is_game_paused = false
 	get_tree().paused = false
+	
+	# Ocultar cursor al reanudar el juego
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 	if pause_menu:
 		pause_menu.hide()
@@ -86,6 +92,9 @@ func player_died() -> void:
 	player_is_dead = true
 	is_game_paused = true
 	get_tree().paused = true
+	
+	# Mostrar cursor en el menú de muerte
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	if die_menu:
 		die_menu.show()
@@ -110,6 +119,9 @@ func restart_game() -> void:
 		var audio_player = die_menu.get_node("AudioStreamPlayer")
 		if audio_player:
 			audio_player.stop()
+	
+	# Ocultar cursor al reiniciar
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 	# Recargar la escena principal
 	get_tree().paused = false

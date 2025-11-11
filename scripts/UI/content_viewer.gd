@@ -82,6 +82,10 @@ func show_content(textures: Array[Texture2D], type: UIManager.ContentType = UIMa
 	
 	# Pausar el juego y mostrar el visor
 	get_tree().paused = true
+	
+	# Mostrar cursor para interactuar con botones
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	show()
 	
 	print("📖 Mostrando contenido tipo: ", type, " con ", textures.size(), " página(s)")
@@ -174,7 +178,13 @@ func _close_viewer() -> void:
 	get_tree().paused = false
 	current_textures.clear()
 	current_page = 0
+	
+	# Ocultar cursor al cerrar el visor (forzar con await)
+	await get_tree().process_frame
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
 	print("❌ ContentViewer cerrado")
+	print("🖱️ Cursor oculto: ", Input.mouse_mode == Input.MOUSE_MODE_HIDDEN)
 
 # Permitir cerrar con ESC
 func _unhandled_input(event: InputEvent) -> void:
