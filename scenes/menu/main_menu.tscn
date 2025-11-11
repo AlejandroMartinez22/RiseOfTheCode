@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cn4qhbwgvuice" path="res://sounds/UI/start_button_sound.wav" id="5_isoef"]
 [ext_resource type="Script" uid="uid://bhx5maf286jn" path="res://scripts/menu/buttons/quit_game_button.gd" id="5_xn6kt"]
 [ext_resource type="AudioStream" uid="uid://3735ls4ht0hl" path="res://sounds/UI/other_button_sound.wav" id="7_isoef"]
-[ext_resource type="AudioStream" uid="uid://boeyh7nqxf77l" path="res://sounds/music/menu_principal.mp3" id="8_qgo02"]
+[ext_resource type="AudioStream" uid="uid://cs5mhud0576ui" path="res://sounds/music/main_menu.mp3" id="8_qgo02"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -88,7 +88,8 @@ stream = ExtResource("7_isoef")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_qgo02")
-volume_db = -10.0
+volume_db = -5.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="mouse_entered" from="VBoxContainer/BotonIniciar" to="VBoxContainer/BotonIniciar" method="_on_mouse_entered"]

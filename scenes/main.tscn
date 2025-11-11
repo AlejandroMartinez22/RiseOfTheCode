@@ -42,5 +42,6 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tipki")
-volume_db = -15.0
+volume_db = -16.0
 autoplay = true
+parameters/looping = true
