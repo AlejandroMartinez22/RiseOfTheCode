@@ -21,8 +21,8 @@ position = Vector2(95, 47)
 offset_left = 1.0
 offset_right = 37.0
 offset_bottom = 16.0
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
 
 [node name="HeartContainer" parent="CanvasLayer/MarginContainer" instance=ExtResource("4_jyhfs")]
 layout_mode = 2

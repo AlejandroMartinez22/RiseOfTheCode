@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cxm75h2tjabjp"]
+[gd_scene load_steps=38 format=4 uid="uid://cxm75h2tjabjp"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_u46fv"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_tekvu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="11_gc1iw"]
 [ext_resource type="Texture2D" uid="uid://e71m5epkvfkw" path="res://sprites/UI/notas/nota_recepcion.png" id="12_gn57d"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="12_o5tb2"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="15_t7kg4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_on1wv"]
 texture = ExtResource("1_u46fv")
@@ -19179,3 +19180,6 @@ debug_color = Color(0.9102403, 0.764466, 0.13274497, 0.2)
 
 [node name="MainSpawn" type="Marker2D" parent="."]
 position = Vector2(46, 100)
+
+[node name="Centinela" parent="." instance=ExtResource("15_t7kg4")]
+position = Vector2(281, 109)

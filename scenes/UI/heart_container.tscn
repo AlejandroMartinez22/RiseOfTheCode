@@ -15,21 +15,21 @@ heart_half_anim = ExtResource("3_7rc4h")
 heart_empty = ExtResource("4_3fw2b")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(14, 14)
+custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("4_7rc4h")
 expand_mode = 4
 stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(14, 14)
+custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("4_7rc4h")
 expand_mode = 4
 stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(14, 14)
+custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("4_7rc4h")
 expand_mode = 4

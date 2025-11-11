@@ -30,17 +30,13 @@ expand_mode = 2
 
 [node name="Titulo" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -60.0
-offset_top = -58.177704
 offset_right = 60.0
-offset_bottom = -18.399841
+offset_bottom = 100.0
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_yonvy")
 theme_override_font_sizes/font_size = 15
@@ -57,18 +53,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -3.4831314
-offset_right = 27.0
-offset_bottom = 40.272522
+offset_left = -25.5
+offset_top = -5.0
+offset_right = 25.5
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 6
 
 [node name="BotonIniciar" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 3
 mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_yonvy")
 theme_override_font_sizes/font_size = 3
 text = "INICIAR"
 script = ExtResource("4_hj162")
@@ -78,7 +76,9 @@ stream = ExtResource("5_isoef")
 
 [node name="BotonSalir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_yonvy")
 theme_override_font_sizes/font_size = 3
 text = "SALIR"
 script = ExtResource("5_xn6kt")
