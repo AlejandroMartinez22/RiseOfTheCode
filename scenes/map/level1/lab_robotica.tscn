@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=58 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_2tjic"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/retro_interiors/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
@@ -17,7 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c4hnkbar8ffl5" path="res://sprites/tilesets/other_tiles/GunFrame/frame_right_up.png" id="14_msd6n"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="15_8wrob"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="15_x5g1d"]
-[ext_resource type="Texture2D" uid="uid://dww1lxojpbkvw" path="res://sprites/UI/notas/salones/nota_salon_101.png" id="16_uibxe"]
+[ext_resource type="Texture2D" uid="uid://c4x0xo0ltbf74" path="res://sprites/UI/tableros/tablero_labrobotica_1.png" id="16_w5wun"]
+[ext_resource type="Texture2D" uid="uid://wq7k0hacslv4" path="res://sprites/UI/tableros/tablero_labrobotica_2.png" id="17_jlbxy"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="18_x5g1d"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="19_msd6n"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="20_n4dug"]
@@ -8438,7 +8439,7 @@ texture = ExtResource("8_5tvov")
 sources/0 = SubResource("TileSetAtlasSource_78jr3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4dug"]
-size = Vector2(53, 16)
+size = Vector2(59, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlbxy"]
 texture = ExtResource("4_78jr3")
@@ -16553,7 +16554,7 @@ collision_mask = 64
 interact_name = "E para leer"
 item_id = "tablero_lab_robotica"
 content_type = "tablero"
-content_pages = Array[Texture2D]([ExtResource("16_uibxe")])
+content_pages = Array[Texture2D]([ExtResource("16_w5wun"), ExtResource("17_jlbxy")])
 hide_interactable_on_pickup = false
 tilemap_layer_name = ""
 
@@ -16561,16 +16562,16 @@ tilemap_layer_name = ""
 position = Vector2(54.5, -7)
 shape = SubResource("RectangleShape2D_n4dug")
 
-[node name="Objects" type="TileMapLayer" parent="TileMapLayer"]
+[node name="Terminal" type="TileMapLayer" parent="TileMapLayer"]
 tile_map_data = PackedByteArray("AAACAAIAAAAPABEAAAAFAAIAAAAPABEAAAACAAUAAAAPABEAAAAFAAUAAAAPABEAAAANAP7/AAAPABIAAAANAP//AAAPABMAAAAMAP7/AAAJABIAAAAMAP//AAAJABMAAAAPAP//AAABABYAAAA=")
 tile_set = SubResource("TileSet_hij80")
 
-[node name="Interactable" parent="TileMapLayer/Objects" instance=ExtResource("15_x5g1d")]
+[node name="Interactable" parent="TileMapLayer/Terminal" instance=ExtResource("15_x5g1d")]
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para abrir terminal"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Terminal/Interactable"]
 position = Vector2(209.5, -5)
 shape = SubResource("RectangleShape2D_uibxe")
 

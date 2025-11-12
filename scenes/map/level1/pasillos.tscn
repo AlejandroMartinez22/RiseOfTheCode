@@ -23791,7 +23791,6 @@ shape = SubResource("RectangleShape2D_l3568")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/lab_robotica.tscn"
 spawn_name = "SpawnLabRobotica"
-lock_type = 1
 required_item = "llave_lab_robotica"
 locked_message = "Está cerrada con llave"
 locked_sound = ExtResource("15_2r8sj")

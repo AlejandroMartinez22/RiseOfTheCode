@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmady2nuqt5fe"
-path="res://.godot/imported/tablero_salon101.png-1325aac07a401fcf75c7151b3bd28fb5.ctex"
+uid="uid://dy416tl0w2723"
+path="res://.godot/imported/tablero_salon_101.png-e3a344ec89b946516a108665707d66d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/tableros/tablero_salon101.png"
-dest_files=["res://.godot/imported/tablero_salon101.png-1325aac07a401fcf75c7151b3bd28fb5.ctex"]
+source_file="res://sprites/UI/tableros/tablero_salon_101.png"
+dest_files=["res://.godot/imported/tablero_salon_101.png-e3a344ec89b946516a108665707d66d6.ctex"]
 
 [params]
 

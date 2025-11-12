@@ -20,7 +20,7 @@ const PANEL_CONFIGS = {
 		"next_button_offset": Vector2(5, 15)   # Desde esquina inferior derecha
 	},
 	UIManager.ContentType.BOARD: {
-		"size": Vector2(220, 140),
+		"size": Vector2(240, 155),
 		"position_offset": Vector2(0, 0),
 		"close_button_offset": Vector2(-8, 8),
 		"prev_button_offset": Vector2(8, -8),	

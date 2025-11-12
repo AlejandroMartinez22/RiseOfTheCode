@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="9_owg2h"]
 [ext_resource type="Texture2D" uid="uid://cfd8ha0d8w0jn" path="res://sprites/UI/notas/salones/nota_salon_303.png" id="10_gk2hn"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="11_4pv4x"]
-[ext_resource type="Texture2D" uid="uid://dww1lxojpbkvw" path="res://sprites/UI/notas/salones/nota_salon_101.png" id="11_rjp7i"]
+[ext_resource type="Texture2D" uid="uid://dk70vdfpdfswg" path="res://sprites/UI/tableros/tablero_salon_303.png" id="11_rjp7i"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="12_vmjq4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjp7i"]
@@ -10582,7 +10582,7 @@ sources/2 = SubResource("TileSetAtlasSource_1shub")
 radius = 15.132746
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmjq4"]
-size = Vector2(108, 20)
+size = Vector2(105, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6st18"]
 size = Vector2(34, 7)
@@ -10628,7 +10628,7 @@ hide_interactable_on_pickup = false
 tilemap_layer_name = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/InteractableTablero"]
-position = Vector2(143, -13)
+position = Vector2(142.5, -13)
 shape = SubResource("RectangleShape2D_vmjq4")
 
 [node name="SpawnSalon303" type="Marker2D" parent="."]
