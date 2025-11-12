@@ -17684,7 +17684,10 @@ tile_set = SubResource("TileSet_wrowt")
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para leer"
+item_id = "nota_lab_ciencias"
 content_pages = Array[Texture2D]([ExtResource("11_p3xb0")])
+hide_interactable_on_pickup = false
+tilemap_layer_name = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/Interactable"]
 position = Vector2(152.5, -5.5)
@@ -17699,6 +17702,13 @@ tile_set = SubResource("TileSet_51in5")
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para coger"
+item_id = "id_acido_quimico"
+interaction_mode = 1
+item_key = "acido_quimico"
+pickup_message = "Esto me servirá"
+hide_tilemap_on_pickup = true
+tilemap_layer_name = "InteractiveObjects"
+tile_coords = Vector2i(11, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/InteractiveObjects/Interactable"]
 position = Vector2(184, -15.5)

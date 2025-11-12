@@ -12,7 +12,8 @@ var inventory: Dictionary = {
 	"laser_gun": false,
 	"rifle_asalto": false,
 	"llave_director": false,
-	"llave_laboratorio": false,
+	"llave_lab_ciencias": false,
+	"llave_lab_robotica": false,
 	"acido_quimico": false
 }
 
@@ -22,7 +23,8 @@ var game_flags: Dictionary = {
 	"tutorial_completed": false,      # Completó el tutorial
 	"first_enemy_killed": false,      # Mató su primer enemigo
 	"library_unlocked": false,        # Desbloqueó la biblioteca
-	"boss_defeated": false            # Derrotó al jefe final
+	"boss_defeated": false,           # Derrotó al jefe final
+	"entered_salon_101": false        # Entró al salón 101 (para poder entrar al 202)
 }
 
 # ==================== FUNCIONES DE ESTADO DE SALA ====================
@@ -174,7 +176,8 @@ func reset() -> void:
 		"laser_gun": false,
 		"rifle_asalto": false,
 		"llave_director": false,
-		"llave_laboratorio": false,
+		"llave_lab_ciencias": false,
+		"llave_lab_robotica": false,
 		"acido_quimico": false
 	}
 	
@@ -183,7 +186,8 @@ func reset() -> void:
 		"tutorial_completed": false,
 		"first_enemy_killed": false,
 		"library_unlocked": false,
-		"boss_defeated": false
+		"boss_defeated": false,
+		"entered_salon_101": false
 	}
 	
 	print("Estado del juego reseteado")

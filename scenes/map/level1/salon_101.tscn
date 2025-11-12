@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://drslef1qt0n2s"]
+[gd_scene load_steps=29 format=4 uid="uid://drslef1qt0n2s"]
 
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_cns1w"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/retro_interiors/TopDownHouse_FloorsAndWalls.png" id="1_dvowg"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dww1lxojpbkvw" path="res://sprites/UI/notas/salones/nota_salon_101.png" id="9_bmfqk"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="9_da0yf"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="10_bngdn"]
-[ext_resource type="Texture2D" uid="uid://e71m5epkvfkw" path="res://sprites/UI/notas/nota_recepcion.png" id="10_set3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkkqs"]
 texture = ExtResource("1_cns1w")
@@ -10130,7 +10129,10 @@ tile_set = SubResource("TileSet_8npgi")
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para leer"
+item_id = "nota_salon_101"
 content_pages = Array[Texture2D]([ExtResource("9_bmfqk")])
+hide_interactable_on_pickup = false
+tilemap_layer_name = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Foreground/InteractableNota"]
 position = Vector2(22, 131)
@@ -10140,8 +10142,11 @@ shape = SubResource("CircleShape2D_7m1d7")
 collision_layer = 32
 collision_mask = 64
 interact_name = "E para leer"
-interact_type = "computador"
-content_pages = Array[Texture2D]([ExtResource("10_set3h")])
+item_id = "tablero_salon_101"
+content_type = "tablero"
+content_pages = Array[Texture2D]([ExtResource("9_bmfqk")])
+hide_interactable_on_pickup = false
+tilemap_layer_name = ""
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapLayer/Foreground/InteractableTablero"]
 position = Vector2(143.5, -9)

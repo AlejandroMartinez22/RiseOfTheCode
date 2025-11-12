@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cu1bcnxfmf3yu"]
+[gd_scene load_steps=40 format=4 uid="uid://cu1bcnxfmf3yu"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_280p6"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_chwky"]
@@ -10,8 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dva2s2wcdsba6" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/14_Basement_16x16.png" id="7_ek7gx"]
 [ext_resource type="Texture2D" uid="uid://gy3fffip5qlf" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/11_Halloween_16x16.png" id="9_wxnq4"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_wxnq4"]
+[ext_resource type="Texture2D" uid="uid://ds1xv0a77x3x6" path="res://sprites/UI/notas/sala_servidores/nota_servidores_1.png" id="11_osebb"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_xh5cd"]
+[ext_resource type="Texture2D" uid="uid://mrahe1f5btre" path="res://sprites/UI/notas/sala_servidores/nota_servidores_2.png" id="12_4swrh"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_gjiwn"]
+[ext_resource type="Texture2D" uid="uid://57mf1tmtx3g7" path="res://sprites/UI/notas/sala_servidores/nota_servidores_3.png" id="13_24a5j"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_ryq0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fdl6"]
@@ -19013,6 +19016,9 @@ sources/3 = SubResource("TileSetAtlasSource_ek7gx")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjiwn"]
 size = Vector2(22, 33.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ek7gx"]
+radius = 13.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek7gx"]
 size = Vector2(28, 13)
 
@@ -19042,17 +19048,28 @@ position = Vector2(40, -8.75)
 shape = SubResource("RectangleShape2D_xh5cd")
 
 [node name="SmallerObjects" type="TileMapLayer" parent="TileMapLayer"]
-tile_map_data = PackedByteArray("AAAAAAMAAAALACMAAAAAAAQAAAALACQAAAATAAkAAAALACMAABATAAoAAAALACQAABATAAYAAAALACMAABATAAcAAAALACQAABAAAAYAAwABACoAAAAAAAcAAwABACsAAAATAP//AwABACoAAAATAAAAAwABACsAAAABAAoAAwAHAGQAAAACAAoAAwAIAGQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAAALACMAAAAAAAQAAAALACQAAAATAAkAAAALACMAABATAAoAAAALACQAABATAAYAAAALACMAABATAAcAAAALACQAABAAAAYAAwABACoAAAAAAAcAAwABACsAAAATAP//AwABACoAAAATAAAAAwABACsAAAABAAoAAwAHAGQAAAACAAoAAwAIAGQAAAACAAkAAQAAABEAACA=")
 tile_set = SubResource("TileSet_ryq0u")
 
-[node name="Interactable" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_wxnq4")]
+[node name="InteractableComputador" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_wxnq4")]
 collision_layer = 32
 collision_mask = 64
 interact_name = "E leer correo"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/Interactable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/InteractableComputador"]
 position = Vector2(11, 67.25)
 shape = SubResource("RectangleShape2D_gjiwn")
+
+[node name="InteractableNota" parent="TileMapLayer/SmallerObjects" instance=ExtResource("10_wxnq4")]
+interact_name = "E para leer"
+item_id = "nota_sala_servidores"
+content_pages = Array[Texture2D]([ExtResource("11_osebb"), ExtResource("12_4swrh"), ExtResource("13_24a5j")])
+hide_interactable_on_pickup = false
+tilemap_layer_name = ""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallerObjects/InteractableNota"]
+position = Vector2(39, 154)
+shape = SubResource("CircleShape2D_ek7gx")
 
 [node name="ExitToPasillos" type="Area2D" parent="."]
 script = ExtResource("11_xh5cd")
