@@ -27,7 +27,7 @@ const PANEL_CONFIGS = {
 		"next_button_offset": Vector2(-8, -8)
 	},
 	UIManager.ContentType.COMPUTER: {
-		"size": Vector2(200, 140),
+		"size": Vector2(210, 145),
 		"position_offset": Vector2(0, 0),
 		"close_button_offset": Vector2(-8, 8),
 		"prev_button_offset": Vector2(8, -8),

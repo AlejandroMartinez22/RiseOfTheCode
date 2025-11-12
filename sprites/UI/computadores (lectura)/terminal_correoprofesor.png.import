@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn0v6piwdl6h5"
-path="res://.godot/imported/terminal_correoprofesor.png-ffb9080e241c00cbb050bbf4a8ffba6e.ctex"
+path="res://.godot/imported/terminal_correoprofesor.png-c7dde5c9599a267c76c571c648584964.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/terminales (lectura)/terminal_correoprofesor.png"
-dest_files=["res://.godot/imported/terminal_correoprofesor.png-ffb9080e241c00cbb050bbf4a8ffba6e.ctex"]
+source_file="res://sprites/UI/computadores (lectura)/terminal_correoprofesor.png"
+dest_files=["res://.godot/imported/terminal_correoprofesor.png-c7dde5c9599a267c76c571c648584964.ctex"]
 
 [params]
 
