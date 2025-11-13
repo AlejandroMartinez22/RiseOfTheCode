@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkc3neq7s3pfc"
-path="res://.godot/imported/pf_oficina_director_2.png-efabc94bf44722ce3e6796550ed69c70.ctex"
+path="res://.godot/imported/pc_oficina_director_2.png-b1d2d9bc45a8e60571076b03fa333342.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/computadores (lectura)/pf_oficina_director_2.png"
-dest_files=["res://.godot/imported/pf_oficina_director_2.png-efabc94bf44722ce3e6796550ed69c70.ctex"]
+source_file="res://sprites/UI/computadores (lectura)/pc_oficina_director_2.png"
+dest_files=["res://.godot/imported/pc_oficina_director_2.png-b1d2d9bc45a8e60571076b03fa333342.ctex"]
 
 [params]
 

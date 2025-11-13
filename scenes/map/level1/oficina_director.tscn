@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_8oej3"]
 [ext_resource type="Texture2D" uid="uid://db6sjsuxa0yqp" path="res://sprites/UI/computadores (lectura)/pc_oficina_director_1.png" id="11_0prhe"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_23xmk"]
-[ext_resource type="Texture2D" uid="uid://dkc3neq7s3pfc" path="res://sprites/UI/computadores (lectura)/pf_oficina_director_2.png" id="12_00dtk"]
+[ext_resource type="Texture2D" uid="uid://dkc3neq7s3pfc" path="res://sprites/UI/computadores (lectura)/pc_oficina_director_2.png" id="12_00dtk"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_xqfy6"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="13_00dtk"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_mpa11"]
