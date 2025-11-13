@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdkf44rdnj1ak"
-path="res://.godot/imported/terminal_salaservidores.png-e342fa685cff976378ec4619869fa639.ctex"
+uid="uid://dfn708n6gnegc"
+path="res://.godot/imported/pc_sala_servidores_3.png-e70760ad32a65b6d0270c16871957575.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/computadores (lectura)/terminal_salaservidores.png"
-dest_files=["res://.godot/imported/terminal_salaservidores.png-e342fa685cff976378ec4619869fa639.ctex"]
+source_file="res://sprites/UI/computadores (lectura)/pc_sala_servidores_3.png"
+dest_files=["res://.godot/imported/pc_sala_servidores_3.png-e70760ad32a65b6d0270c16871957575.ctex"]
 
 [params]
 

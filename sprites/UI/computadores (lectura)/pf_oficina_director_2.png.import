@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn0v6piwdl6h5"
-path="res://.godot/imported/terminal_correoprofesor.png-c7dde5c9599a267c76c571c648584964.ctex"
+uid="uid://dkc3neq7s3pfc"
+path="res://.godot/imported/pf_oficina_director_2.png-efabc94bf44722ce3e6796550ed69c70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/computadores (lectura)/terminal_correoprofesor.png"
-dest_files=["res://.godot/imported/terminal_correoprofesor.png-c7dde5c9599a267c76c571c648584964.ctex"]
+source_file="res://sprites/UI/computadores (lectura)/pf_oficina_director_2.png"
+dest_files=["res://.godot/imported/pf_oficina_director_2.png-efabc94bf44722ce3e6796550ed69c70.ctex"]
 
 [params]
 
