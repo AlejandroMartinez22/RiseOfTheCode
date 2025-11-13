@@ -15,21 +15,21 @@ const PANEL_CONFIGS = {
 	UIManager.ContentType.NOTE: {
 		"size": Vector2(160, 140),
 		"position_offset": Vector2(0, 0),
-		"close_button_offset": Vector2(5, 4),  # Desde esquina superior derecha
+		"close_button_offset": Vector2(6, 1),  # Desde esquina superior derecha
 		"prev_button_offset": Vector2(3, 17),   # Desde esquina inferior izquierda
 		"next_button_offset": Vector2(6, 17)  # Desde esquina inferior derecha
 	},
 	UIManager.ContentType.BOARD: {
 		"size": Vector2(240, 155),
 		"position_offset": Vector2(0, 0),
-		"close_button_offset": Vector2(-8, 8),
+		"close_button_offset": Vector2(3, 4),
 		"prev_button_offset": Vector2(8, 13),
 		"next_button_offset": Vector2(1, 13)
 	},
 	UIManager.ContentType.COMPUTER: {
 		"size": Vector2(210, 145),
 		"position_offset": Vector2(0, 0),
-		"close_button_offset": Vector2(-8, 8),
+		"close_button_offset": Vector2(4, 3),
 		"prev_button_offset": Vector2(6, 3),
 		"next_button_offset": Vector2(3, 3)
 	}

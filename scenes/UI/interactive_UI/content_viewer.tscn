@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dafa27lf0gfjw"]
+[gd_scene load_steps=15 format=3 uid="uid://dafa27lf0gfjw"]
 
 [ext_resource type="Script" uid="uid://b7obihj6uhd1o" path="res://scripts/UI/content_viewer.gd" id="1_rte7k"]
 
@@ -25,6 +25,12 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qh154"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k41jp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_arnlj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ho1qh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6dt2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sj5ni"]
 
@@ -115,5 +121,13 @@ offset_right = 163.0
 offset_bottom = 36.0
 scale = Vector2(0.5, 0.4)
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.3019608, 0.3019608, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/normal = SubResource("StyleBoxEmpty_arnlj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ho1qh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o6dt2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sj5ni")
 text = "X"
