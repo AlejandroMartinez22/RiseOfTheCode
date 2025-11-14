@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deoxxr8xhjlp2"
-path="res://.godot/imported/fondo_die_menu.png-98a334afa4bdbe2c14ee1e02d98323fe.ctex"
+path="res://.godot/imported/pause_menu_background.png-eb22f10ece03387839f2c1035bc0c8f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/menu/fondo_die_menu.png"
-dest_files=["res://.godot/imported/fondo_die_menu.png-98a334afa4bdbe2c14ee1e02d98323fe.ctex"]
+source_file="res://sprites/menu/pause_menu_background.png"
+dest_files=["res://.godot/imported/pause_menu_background.png-eb22f10ece03387839f2c1035bc0c8f2.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnmoxxkdh6067"
-path="res://.godot/imported/20251103_1501_Invasión Robot Universitaria_simple_compose_01k95mvvcsfps908f8303n7tmh.png-204efd3f85edb2825d3f6e84f3b86909.ctex"
+path="res://.godot/imported/death_menu_background.png-edcd8f7faf2884b7b94f9e489da044e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/menu/20251103_1501_Invasión Robot Universitaria_simple_compose_01k95mvvcsfps908f8303n7tmh.png"
-dest_files=["res://.godot/imported/20251103_1501_Invasión Robot Universitaria_simple_compose_01k95mvvcsfps908f8303n7tmh.png-204efd3f85edb2825d3f6e84f3b86909.ctex"]
+source_file="res://sprites/menu/death_menu_background.png"
+dest_files=["res://.godot/imported/death_menu_background.png-edcd8f7faf2884b7b94f9e489da044e3.ctex"]
 
 [params]
 

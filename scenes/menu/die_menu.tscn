@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://xw6bim41hdv3"]
 
 [ext_resource type="Script" uid="uid://cmrjmgikqftop" path="res://scripts/menu/die_menu.gd" id="1_vc1b3"]
-[ext_resource type="Texture2D" uid="uid://bnmoxxkdh6067" path="res://sprites/menu/20251103_1501_Invasión Robot Universitaria_simple_compose_01k95mvvcsfps908f8303n7tmh.png" id="2_5bna4"]
+[ext_resource type="Texture2D" uid="uid://bnmoxxkdh6067" path="res://sprites/menu/death_menu_background.png" id="2_5bna4"]
 [ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://fonts/PressStart2P.ttf" id="3_0vb2n"]
 [ext_resource type="Script" uid="uid://fjrb8d4rwwtw" path="res://scripts/menu/buttons/main_menu_button.gd" id="4_74g6d"]
 [ext_resource type="AudioStream" uid="uid://cn4qhbwgvuice" path="res://sounds/UI/start_button_sound.wav" id="5_5bna4"]

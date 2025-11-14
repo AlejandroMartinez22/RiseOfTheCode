@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://dtgvumjvpjvsl"]
+[gd_scene load_steps=74 format=4 uid="uid://dtgvumjvpjvsl"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_8q04b"]
 [ext_resource type="Texture2D" uid="uid://dk3w273fgmxhq" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/2_LivingRoom_16x16.png" id="2_207k1"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="15_l3568"]
 [ext_resource type="AudioStream" uid="uid://bqexxl6bi7oqv" path="res://sounds/doors/normal_locked_sound.wav" id="17_nepnj"]
 [ext_resource type="AudioStream" uid="uid://crljuw7xs8qd5" path="res://sounds/doors/padlock_locked_sound.wav" id="18_nepnj"]
+[ext_resource type="Script" uid="uid://k3046bgnprpk" path="res://scripts/map/victory_exit.gd" id="19_ddalq"]
 [ext_resource type="Script" uid="uid://bq2fdr737jjxo" path="res://scripts/map/code_door.gd" id="20_7nrkh"]
 [ext_resource type="Script" uid="uid://xd4b624smac5" path="res://scripts/map/camera_zone.gd" id="21_7nrkh"]
 [ext_resource type="PackedScene" uid="uid://lqhq3216gjdk" path="res://scenes/UI/interactive_UI/code_keypad_ui.tscn" id="21_tbbx1"]
@@ -23753,17 +23754,11 @@ open_sound = ExtResource("15_l3568")
 position = Vector2(1075, 333.5)
 shape = SubResource("RectangleShape2D_3mqd4")
 
-[node name="ExitToWin" type="Area2D" parent="."]
-script = ExtResource("10_5jwm4")
-next_room_path = "res://scenes/map/level1/biblioteca.tscn"
-spawn_name = "SpawnBiblioteca"
-lock_type = 1
-required_item = "llave_director"
-locked_message = "Está cerrada con llave"
+[node name="VictoryExit" type="Area2D" parent="."]
+script = ExtResource("19_ddalq")
 locked_sound = ExtResource("15_2r8sj")
-open_sound = ExtResource("15_l3568")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToWin"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryExit"]
 position = Vector2(1315, 168)
 shape = SubResource("RectangleShape2D_k5id3")
 
