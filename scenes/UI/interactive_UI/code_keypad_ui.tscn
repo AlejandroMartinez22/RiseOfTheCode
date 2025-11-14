@@ -1,19 +1,40 @@
-[gd_scene load_steps=10 format=3 uid="uid://lqhq3216gjdk"]
+[gd_scene load_steps=13 format=3 uid="uid://lqhq3216gjdk"]
 
 [ext_resource type="Script" uid="uid://bcuggd43drkjs" path="res://scripts/UI/code_keypad_ui.gd" id="1_7sd0o"]
 [ext_resource type="AudioStream" uid="uid://cbqtodk17mj11" path="res://sounds/doors/code_door/error_sound.wav" id="2_4n02t"]
+[ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://fonts/PressStart2P.ttf" id="2_8bxrh"]
 [ext_resource type="AudioStream" uid="uid://n161s82cyown" path="res://sounds/doors/code_door/success_sound.mp3" id="2_kurdv"]
 [ext_resource type="AudioStream" uid="uid://cf85saui3j2yq" path="res://sounds/doors/code_door/button_sound.wav" id="2_s17lt"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sd0o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s17lt"]
+bg_color = Color(0.11764706, 0.11764706, 0.13725491, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.19607843, 0.19607843, 0.21568628, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4n02t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kurdv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s17lt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bxrh"]
+bg_color = Color(0.11764706, 0.23529412, 0.47058824, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.19607843, 0.3529412, 0.5882353, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bxrh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ug80q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a77ue"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ku8wy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqtxb"]
 
 [node name="CodeKeypadUi" type="CanvasLayer"]
 layer = 10
@@ -34,26 +55,28 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -70.0
-offset_top = -70.0
+offset_top = -75.0
 offset_right = 70.0
-offset_bottom = 70.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s17lt")
 
 [node name="Display" type="Label" parent="Panel"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = -62.0
-offset_right = 55.0
-offset_bottom = -32.0
+offset_left = -50.0
+offset_top = 12.0
+offset_right = 50.0
+offset_bottom = 42.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("2_8bxrh")
 theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_8bxrh")
 text = "adsadad"
 vertical_alignment = 1
 
@@ -64,10 +87,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = -25.0
-offset_right = 55.0
-offset_bottom = 55.0
+offset_left = -47.0
+offset_top = -20.0
+offset_right = 63.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 5
@@ -75,18 +98,22 @@ theme_override_constants/v_separation = 5
 
 [node name="CloseButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 1.0
-offset_right = 148.0
-offset_bottom = 32.0
+offset_left = 128.0
+offset_top = 2.0
+offset_right = 146.0
+offset_bottom = 33.0
 scale = Vector2(0.5, 0.4)
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.58, 0.1044, 0.11232654, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxEmpty_7sd0o")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_4n02t")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_kurdv")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_s17lt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8bxrh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bxrh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ug80q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a77ue")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ku8wy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qqtxb")
 text = "X"
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
