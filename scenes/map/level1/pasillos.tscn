@@ -23820,12 +23820,12 @@ shape = SubResource("RectangleShape2D_nepnj")
 
 [node name="DirectorCodeDoor" type="Area2D" parent="."]
 script = ExtResource("20_7nrkh")
-correct_code = "2709"
-keypad_ui_scene = ExtResource("21_tbbx1")
 next_room_path = "res://scenes/map/level1/oficina_director.tscn"
 spawn_name = "SpawnOficinaDirector"
-lock_type = 4
-locked_message = "E para interactuar"
+door_id = "puerta_director"
+correct_code = "2709"
+keypad_ui_scene = ExtResource("21_tbbx1")
+open_sound = ExtResource("15_l3568")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DirectorCodeDoor"]
 position = Vector2(1459, -51)

@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://lqhq3216gjdk"]
+[gd_scene load_steps=10 format=3 uid="uid://lqhq3216gjdk"]
 
 [ext_resource type="Script" uid="uid://bcuggd43drkjs" path="res://scripts/UI/code_keypad_ui.gd" id="1_7sd0o"]
+[ext_resource type="AudioStream" uid="uid://cbqtodk17mj11" path="res://sounds/doors/code_door/error_sound.wav" id="2_4n02t"]
+[ext_resource type="AudioStream" uid="uid://n161s82cyown" path="res://sounds/doors/code_door/success_sound.mp3" id="2_kurdv"]
+[ext_resource type="AudioStream" uid="uid://cf85saui3j2yq" path="res://sounds/doors/code_door/button_sound.wav" id="2_s17lt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sd0o"]
 
@@ -87,7 +90,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8bxrh")
 text = "X"
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s17lt")
 
 [node name="SuccessSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kurdv")
 
 [node name="ErrorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4n02t")
