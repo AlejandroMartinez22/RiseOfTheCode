@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://dtgvumjvpjvsl"]
+[gd_scene load_steps=73 format=4 uid="uid://dtgvumjvpjvsl"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_8q04b"]
 [ext_resource type="Texture2D" uid="uid://dk3w273fgmxhq" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/2_LivingRoom_16x16.png" id="2_207k1"]
@@ -19,7 +19,9 @@
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="15_l3568"]
 [ext_resource type="AudioStream" uid="uid://bqexxl6bi7oqv" path="res://sounds/doors/normal_locked_sound.wav" id="17_nepnj"]
 [ext_resource type="AudioStream" uid="uid://crljuw7xs8qd5" path="res://sounds/doors/padlock_locked_sound.wav" id="18_nepnj"]
+[ext_resource type="Script" uid="uid://bq2fdr737jjxo" path="res://scripts/map/code_door.gd" id="20_7nrkh"]
 [ext_resource type="Script" uid="uid://xd4b624smac5" path="res://scripts/map/camera_zone.gd" id="21_7nrkh"]
+[ext_resource type="PackedScene" uid="uid://lqhq3216gjdk" path="res://scenes/UI/interactive_UI/code_keypad_ui.tscn" id="21_tbbx1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ixtq"]
 texture = ExtResource("1_8q04b")
@@ -23579,9 +23581,6 @@ size = Vector2(24, 13.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgubt"]
 size = Vector2(25, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_omo7f"]
-size = Vector2(26, 12)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88duw"]
 size = Vector2(24, 10)
 
@@ -23602,6 +23601,9 @@ size = Vector2(31, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nepnj"]
 size = Vector2(13, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omo7f"]
+size = Vector2(24, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nrkh"]
 size = Vector2(1600, 109)
@@ -23725,17 +23727,6 @@ open_sound = ExtResource("15_l3568")
 position = Vector2(1075, -51)
 shape = SubResource("RectangleShape2D_vgubt")
 
-[node name="ExitToOficinaDirector" type="Area2D" parent="."]
-position = Vector2(-16, 1)
-script = ExtResource("10_5jwm4")
-next_room_path = "res://scenes/map/level1/oficina_director.tscn"
-spawn_name = "SpawnOficinaDirector"
-open_sound = ExtResource("15_l3568")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOficinaDirector"]
-position = Vector2(1475, -50)
-shape = SubResource("RectangleShape2D_omo7f")
-
 [node name="ExitToCafeteria" type="Area2D" parent="."]
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/cafeteria.tscn"
@@ -23826,6 +23817,19 @@ open_sound = ExtResource("15_l3568")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOficinaSeguridad"]
 position = Vector2(451.5, 519.5)
 shape = SubResource("RectangleShape2D_nepnj")
+
+[node name="DirectorCodeDoor" type="Area2D" parent="."]
+script = ExtResource("20_7nrkh")
+correct_code = "2709"
+keypad_ui_scene = ExtResource("21_tbbx1")
+next_room_path = "res://scenes/map/level1/oficina_director.tscn"
+spawn_name = "SpawnOficinaDirector"
+lock_type = 4
+locked_message = "E para interactuar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DirectorCodeDoor"]
+position = Vector2(1459, -51)
+shape = SubResource("RectangleShape2D_omo7f")
 
 [node name="SpawnFromRecepcion" type="Marker2D" parent="."]
 position = Vector2(473, 166)
