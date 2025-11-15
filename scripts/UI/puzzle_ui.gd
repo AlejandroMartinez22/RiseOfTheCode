@@ -1,7 +1,5 @@
 # puzzle_ui.gd
 # Sistema de puzzles basado en imágenes
-# Las preguntas, opciones y feedback están en imágenes de fondo
-# Los botones son transparentes y se posicionan sobre la imagen
 extends CanvasLayer
 
 # ==================== SEÑALES ====================
@@ -21,15 +19,15 @@ signal puzzle_closed()
 # ==================== SONIDOS ====================
 @onready var correct_sound: AudioStreamPlayer = $CorrectSound if has_node("CorrectSound") else null
 @onready var wrong_sound: AudioStreamPlayer = $WrongSound if has_node("WrongSound") else null
-@onready var button_sound: AudioStreamPlayer = $ButtonSound if has_node("ButtonSound") else null
 
 # ==================== CONFIGURACIÓN DEL PUZZLE ====================
 var puzzle_data: Dictionary = {}
 var current_stage: int = 0
 var is_locked: bool = false
+var completed_texture: Texture2D = null  # Nueva variable para la imagen de completado
 
 # ==================== ESTILOS ====================
-const PANEL_SIZE = Vector2(280, 200)
+const PANEL_SIZE = Vector2(210, 145)  # Tamaño correcto
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -42,16 +40,16 @@ func _ready() -> void:
 	# Configurar panel
 	configure_panel()
 	
-	# Conectar señales de botones
-	if button_a:
+	# Conectar señales de botones (solo si no están conectadas)
+	if button_a and not button_a.is_connected("pressed", Callable(self, "_on_button_pressed")):
 		button_a.pressed.connect(_on_button_pressed.bind(0))
-	if button_b:
+	if button_b and not button_b.is_connected("pressed", Callable(self, "_on_button_pressed")):
 		button_b.pressed.connect(_on_button_pressed.bind(1))
-	if button_c:
+	if button_c and not button_c.is_connected("pressed", Callable(self, "_on_button_pressed")):
 		button_c.pressed.connect(_on_button_pressed.bind(2))
-	if button_d:
+	if button_d and not button_d.is_connected("pressed", Callable(self, "_on_button_pressed")):
 		button_d.pressed.connect(_on_button_pressed.bind(3))
-	if close_button:
+	if close_button and not close_button.is_connected("pressed", Callable(self, "_on_close_pressed")):
 		close_button.pressed.connect(_on_close_pressed)
 	
 	print("✅ PuzzleUI (Image-Based) inicializado")
@@ -60,22 +58,35 @@ func configure_panel() -> void:
 	if not panel:
 		return
 	
-	# Panel con fondo transparente (la imagen de fondo se encarga del diseño)
+	# Panel con fondo transparente
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(0, 0, 0, 0)  # Transparente
 	panel.add_theme_stylebox_override("panel", style)
 	
-	# Centrar panel
+	# IMPORTANTE: Resetear anchors para que no interfieran
+	panel.anchor_left = 0
+	panel.anchor_top = 0
+	panel.anchor_right = 0
+	panel.anchor_bottom = 0
+	
+	# Establecer tamaño exacto
 	panel.custom_minimum_size = PANEL_SIZE
 	panel.size = PANEL_SIZE
+	
+	# Centrar panel en la pantalla
 	var viewport_size = get_viewport().get_visible_rect().size
 	panel.position = (viewport_size - PANEL_SIZE) / 2
+	
+	print("📐 Panel configurado: Tamaño=", PANEL_SIZE, " Posición=", panel.position)
 
 # ==================== MOSTRAR PUZZLE ====================
 func show_puzzle(data: Dictionary) -> void:
 	puzzle_data = data
 	current_stage = 0
 	is_locked = false
+	
+	# Cargar imagen de completado si existe
+	completed_texture = data.get("completed_texture", null)
 	
 	# Mostrar primera etapa
 	display_stage(current_stage)
@@ -99,6 +110,7 @@ func display_stage(stage_index: int) -> void:
 	# Cambiar imagen de fondo a la pregunta
 	if background_image and stage_data.has("question_texture"):
 		background_image.texture = stage_data["question_texture"]
+		print("✅ Imagen de pregunta cargada")
 	
 	# Habilitar botones
 	enable_buttons(true)
@@ -112,9 +124,7 @@ func _on_button_pressed(button_index: int) -> void:
 	
 	is_locked = true
 	
-	# Reproducir sonido de botón
-	if button_sound and button_sound.stream:
-		button_sound.play()
+	print("🔘 Botón presionado: ", button_index)
 	
 	# Obtener datos de la etapa actual
 	var stage_data = puzzle_data["stages"][current_stage]
@@ -135,6 +145,7 @@ func _on_button_pressed(button_index: int) -> void:
 	# Mostrar imagen de feedback
 	if feedback_texture:
 		background_image.texture = feedback_texture
+		print("✅ Mostrando feedback para opción ", button_index)
 	
 	# Reproducir sonido correcto/incorrecto
 	if is_correct:
@@ -175,8 +186,29 @@ func _on_puzzle_completed() -> void:
 	# Emitir señal
 	puzzle_solved.emit()
 	
-	# Cerrar automáticamente después de 1 segundo
-	await get_tree().create_timer(1.0).timeout
+	# Mostrar imagen de completado si existe
+	if completed_texture and background_image:
+		background_image.texture = completed_texture
+		print("📄 Mostrando pantalla de completado")
+		
+		# Ocultar botones A, B, C, D
+		enable_buttons(false)
+		if button_a:
+			button_a.visible = false
+		if button_b:
+			button_b.visible = false
+		if button_c:
+			button_c.visible = false
+		if button_d:
+			button_d.visible = false
+		
+		# Esperar 3 segundos mostrando la pantalla de completado
+		await get_tree().create_timer(3.0).timeout
+	else:
+		# Si no hay imagen de completado, esperar solo 1 segundo
+		await get_tree().create_timer(1.0).timeout
+	
+	# Cerrar automáticamente
 	_close_puzzle()
 
 # ==================== CERRAR PUZZLE ====================
@@ -186,6 +218,16 @@ func _on_close_pressed() -> void:
 func _close_puzzle() -> void:
 	hide()
 	get_tree().paused = false
+	
+	# Restaurar visibilidad de botones para la próxima vez
+	if button_a:
+		button_a.visible = true
+	if button_b:
+		button_b.visible = true
+	if button_c:
+		button_c.visible = true
+	if button_d:
+		button_d.visible = true
 	
 	await get_tree().process_frame
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

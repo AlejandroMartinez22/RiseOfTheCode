@@ -124,8 +124,3 @@ stream = ExtResource("2_b61pq")
 
 [node name="WrongSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lb3mf")
-
-[connection signal="pressed" from="Panel/ButtonA" to="." method="_on_button_pressed" binds= [0]]
-[connection signal="pressed" from="Panel/ButtonB" to="." method="_on_button_pressed" binds= [1]]
-[connection signal="pressed" from="Panel/ButtonC" to="." method="_on_button_pressed" binds= [2]]
-[connection signal="pressed" from="Panel/ButtonD" to="." method="_on_button_pressed" binds= [3]]

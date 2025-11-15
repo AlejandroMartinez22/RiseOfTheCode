@@ -1,17 +1,19 @@
 # Configuración del Puzzle #1 - Sistema de Asistencia
-# Este puzzle tiene 1 sola etapa y NO desencadena recompensas
+# Este puzzle tiene 1 sola etapa
 
 extends Node
 
 static func get_puzzle_data() -> Dictionary:
 	# Cargar texturas desde la carpeta del puzzle
-	var base_path = "res://sprites/UI/terminales/terminal_salon_101/terminal_base"
+	var base_path = "res://sprites/UI/terminales/terminal_salon_101/"
 	
 	return {
 		"puzzle_id": "puzzle_01_asistencia",
+		"completed_texture": load(base_path + "terminal_completada.png"),  # Pantalla final
 		"stages": [
 			{
-				"question_texture": load(base_path + "pregunta.png"),
+				# Imagen con la pregunta
+				"question_texture": load(base_path + "terminal_base.png"),
 				"options": [
 					{
 						"is_correct": true,
