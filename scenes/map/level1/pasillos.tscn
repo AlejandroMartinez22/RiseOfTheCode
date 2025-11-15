@@ -23744,7 +23744,6 @@ shape = SubResource("RectangleShape2D_88duw")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/lab_ciencias.tscn"
 spawn_name = "SpawnLabCiencias"
-lock_type = 1
 required_item = "llave_lab_ciencias"
 locked_message = "Está cerrada con llave"
 locked_sound = ExtResource("15_2r8sj")
@@ -23757,6 +23756,7 @@ shape = SubResource("RectangleShape2D_3mqd4")
 [node name="VictoryExit" type="Area2D" parent="."]
 script = ExtResource("19_ddalq")
 locked_sound = ExtResource("15_2r8sj")
+open_sound = ExtResource("15_l3568")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryExit"]
 position = Vector2(1315, 168)

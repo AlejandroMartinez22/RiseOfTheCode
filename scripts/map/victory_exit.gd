@@ -9,7 +9,7 @@ extends Area2D
 # ==================== SONIDOS ====================
 @export_group("Sonidos")
 @export var locked_sound: AudioStream = null   # Cuando intenta sin la llave
-@export var victory_sound: AudioStream = null  # Cuando gana (opcional, además de la música)
+@export var open_sound: AudioStream = null     # Sonido de apertura de la puerta (antes de victoria)
 
 # ==================== MENSAJES ====================
 @export_group("Mensajes")
@@ -18,8 +18,11 @@ extends Area2D
 
 # ==================== REFERENCIAS ====================
 var victory_menu: CanvasLayer = null
+var transition: CanvasLayer = null
 var player_in_range: bool = false
 var is_locked: bool = true
+var victory_triggered: bool = false  # Para evitar múltiples activaciones
+var door_sound_player: AudioStreamPlayer = null  # Reproductor de sonido de la puerta
 
 # ==================== VISUAL FEEDBACK ====================
 @onready var locked_sprite: Sprite2D = $LockedSprite if has_node("LockedSprite") else null
@@ -28,14 +31,20 @@ func _ready() -> void:
 	# Verificar si el jugador tiene la llave
 	update_lock_state()
 	
+	# Crear un AudioStreamPlayer para el sonido de la puerta
+	door_sound_player = AudioStreamPlayer.new()
+	door_sound_player.bus = "Master"
+	add_child(door_sound_player)
+	
 	# Conectar señales
 	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
 		connect("body_entered", Callable(self, "_on_body_entered"))
 	if not is_connected("body_exited", Callable(self, "_on_body_exited")):
 		connect("body_exited", Callable(self, "_on_body_exited"))
 	
-	# Buscar el menú de victoria en la escena
+	# Buscar referencias necesarias
 	find_victory_menu()
+	find_transition()
 	
 	# Actualizar visual
 	update_visual()
@@ -67,6 +76,17 @@ func find_victory_menu() -> void:
 	else:
 		push_warning("⚠️ VictoryMenu no encontrado en main")
 
+func find_transition() -> void:
+	# Buscar el Transition en main
+	var main = get_tree().root.get_node_or_null("main")
+	if main:
+		transition = main.get_node_or_null("Transition")
+	
+	if transition:
+		print("✅ Transition encontrado")
+	else:
+		push_warning("⚠️ Transition no encontrado en main")
+
 func _on_body_entered(body: Node) -> void:
 	if not body.is_in_group("player"):
 		return
@@ -78,8 +98,9 @@ func _on_body_entered(body: Node) -> void:
 	print("   - tiene llave: ", GameState.has_item(required_item))
 	
 	# Si está desbloqueada (tiene la llave), ¡VICTORIA!
-	if not is_locked:
-		print("   🏆 ¡VICTORIA!")
+	if not is_locked and not victory_triggered:
+		print("   🏆 ¡VICTORIA! Iniciando secuencia...")
+		victory_triggered = true
 		trigger_victory()
 		return
 	
@@ -99,20 +120,42 @@ func _on_body_exited(body: Node) -> void:
 # ==================== VICTORIA ====================
 
 func trigger_victory() -> void:
-	# Reproducir sonido de victoria (opcional)
-	if victory_sound:
-		AudioManager.play_sound(victory_sound, global_position, 0.0)
+	print("🎬 Iniciando secuencia de victoria...")
 	
-	# Mostrar el menú de victoria
+	# PASO 0: Pausar el juego INMEDIATAMENTE para que Max no se mueva
+	get_tree().paused = true
+	print("⏸️ Juego pausado")
+	
+	# PASO 1: Reproducir sonido de apertura de puerta y esperar a que termine
+	if open_sound:
+		# Configurar el reproductor
+		door_sound_player.stream = open_sound
+		door_sound_player.volume_db = 0.0
+		
+		# El AudioStreamPlayer debe funcionar aunque el juego esté pausado
+		door_sound_player.process_mode = Node.PROCESS_MODE_ALWAYS
+		
+		print("🔊 Reproduciendo sonido de apertura...")
+		door_sound_player.play()
+		
+		# Esperar a que termine el sonido usando la señal finished
+		await door_sound_player.finished
+		print("✅ Sonido de apertura terminado")
+	else:
+		print("⚠️ No hay open_sound configurado, continuando...")
+		await get_tree().create_timer(0.5).timeout
+	
+	# PASO 2: Activar transición fade a negro
+	if transition:
+		print("🎬 Iniciando fade a negro...")
+		await play_transition_fade_in()
+	
+	# PASO 3: Mostrar menú de victoria (mientras está negro)
 	if victory_menu:
-		# Pausar el juego
-		get_tree().paused = true
+		victory_menu.show()
 		
 		# Mostrar cursor
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		
-		# Mostrar menú
-		victory_menu.show()
 		
 		# Reproducir música del menú de victoria
 		var audio_player = victory_menu.get_node_or_null("AudioStreamPlayer")
@@ -122,6 +165,52 @@ func trigger_victory() -> void:
 		print("🎉 Pantalla de victoria mostrada")
 	else:
 		push_error("❌ VictoryMenu no está disponible")
+	
+	# PASO 4: Hacer fade desde negro (revelar menú de victoria)
+	if transition:
+		print("🎬 Iniciando fade desde negro...")
+		await play_transition_fade_out()
+	
+	print("🏆 Secuencia de victoria completada")
+
+func play_transition_fade_in() -> void:
+	# Hacer fade a negro (similar a cuando inicia el juego, pero inverso)
+	if not transition:
+		return
+	
+	var color_rect = transition.get_node_or_null("ColorRect")
+	if not color_rect:
+		return
+	
+	# Asegurar que empieza transparente
+	color_rect.modulate = Color(1, 1, 1, 0)
+	transition.show()
+	
+	# Crear tween para fade a negro
+	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)  # Funciona aunque esté pausado
+	tween.tween_property(color_rect, "modulate", Color(1, 1, 1, 1), 1.0)
+	
+	await tween.finished
+
+func play_transition_fade_out() -> void:
+	# Hacer fade desde negro (revelar el menú de victoria)
+	if not transition:
+		return
+	
+	var color_rect = transition.get_node_or_null("ColorRect")
+	if not color_rect:
+		return
+	
+	# Crear tween para fade desde negro
+	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(color_rect, "modulate", Color(1, 1, 1, 0), 1.0)
+	
+	await tween.finished
+	
+	# Ocultar la transición
+	transition.hide()
 
 # ==================== NOTIFICACIONES UI ====================
 
@@ -175,5 +264,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 	
 	if required_item.is_empty():
 		warnings.append("Configura 'required_item' con el nombre de la llave necesaria")
+	
+	if open_sound == null:
+		warnings.append("Se recomienda configurar 'open_sound' para mejor experiencia")
 	
 	return warnings

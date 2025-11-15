@@ -171,6 +171,7 @@ func check_condition(condition_type: String, condition_value: String = "") -> bo
 
 func reset() -> void:
 	room_states.clear()
+	pending_spawns.clear()
 	
 	inventory = {
 		"laser_gun": false,
@@ -199,3 +200,34 @@ func print_state() -> void:
 	print("Inventario: ", inventory)
 	print("Flags: ", game_flags)
 	print("Salas visitadas: ", room_states.keys().size())
+	
+	
+	
+	# ==================== SISTEMA DE SPAWNS PENDIENTES ====================
+var pending_spawns: Dictionary = {}
+# Estructura: { "room_path": [ {scene, position, enemy_id}, ... ] }
+
+func register_pending_spawn(room_path: String, enemy_scene: PackedScene, position: Vector2, enemy_id: String) -> void:
+	if not pending_spawns.has(room_path):
+		pending_spawns[room_path] = []
+	
+	# Evitar duplicados
+	for spawn in pending_spawns[room_path]:
+		if spawn["enemy_id"] == enemy_id:
+			print("⚠️ Spawn ya registrado: ", enemy_id)
+			return
+	
+	pending_spawns[room_path].append({
+		"scene": enemy_scene,
+		"position": position,
+		"enemy_id": enemy_id
+	})
+	
+	print("📝 Spawn registrado para ", room_path, ": ", enemy_id)
+
+func get_pending_spawns(room_path: String) -> Array:
+	return pending_spawns.get(room_path, [])
+
+func clear_pending_spawns(room_path: String) -> void:
+	if pending_spawns.has(room_path):
+		pending_spawns.erase(room_path)
