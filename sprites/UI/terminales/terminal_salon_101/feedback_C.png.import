@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7k3ya8el0w"
-path="res://.godot/imported/prueba.png-fbb9c7dde4ea36de27b2762366671111.ctex"
+uid="uid://cvg2p8kfi8tt3"
+path="res://.godot/imported/feedback_C.png-e4f19e0356a020f207970a7ecda4a9eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/terminales/prueba.png"
-dest_files=["res://.godot/imported/prueba.png-fbb9c7dde4ea36de27b2762366671111.ctex"]
+source_file="res://sprites/UI/terminales/terminal_salon_101/feedback_C.png"
+dest_files=["res://.godot/imported/feedback_C.png-e4f19e0356a020f207970a7ecda4a9eb.ctex"]
 
 [params]
 
