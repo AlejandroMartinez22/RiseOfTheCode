@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://drslef1qt0n2s"]
+[gd_scene load_steps=30 format=4 uid="uid://drslef1qt0n2s"]
 
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_cns1w"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/retro_interiors/TopDownHouse_FloorsAndWalls.png" id="1_dvowg"]
@@ -13,8 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="9_da0yf"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="10_bngdn"]
 [ext_resource type="Texture2D" uid="uid://dy416tl0w2723" path="res://sprites/UI/tableros/tablero_salon_101.png" id="10_set3h"]
-[ext_resource type="Script" uid="uid://1swt3dl202vb" path="res://scripts/interactive_objects/puzzle_terminal.gd" id="11_bcxsg"]
-[ext_resource type="PackedScene" uid="uid://ong02bke83e8" path="res://scenes/UI/interactive_UI/puzzle_ui.tscn" id="12_ugy0t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkkqs"]
 texture = ExtResource("1_cns1w")
@@ -9586,9 +9584,6 @@ radius = 12.0415945
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmfqk"]
 size = Vector2(107, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_set3h"]
-size = Vector2(23, 26)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffler"]
 texture = ExtResource("3_dwd5f")
 0:0/0 = 0
@@ -10157,36 +10152,6 @@ tilemap_layer_name = ""
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapLayer/Foreground/InteractableTablero"]
 position = Vector2(143.5, -9)
 shape = SubResource("RectangleShape2D_bmfqk")
-
-[node name="InteractableTerminal" type="Area2D" parent="TileMapLayer/Foreground"]
-script = ExtResource("11_bcxsg")
-puzzle_id = "puzzle_salon_101"
-interact_name = "E para interactuar"
-puzzle_ui_scene = ExtResource("12_ugy0t")
-puzzle_stages = Array[Dictionary]([{
-"options": [{
-"feedback": "¡Correcto!, \"nombre_alumno\" es una variable válida.",
-"is_correct": true,
-"text": "[A] Nombre Alumno"
-}, {
-"feedback": "Este nombre no describe correctamente el dato que guardamos.",
-"is_correct": false,
-"text": "[B] Edad"
-}, {
-"feedback": "Los nombres de variables NO pueden tener ESPACIOS.",
-"is_correct": false,
-"text": "[C] nombre del alumno"
-}, {
-"feedback": "Los nombres de variables NO pueden empezar con un NÚMERO.",
-"is_correct": false,
-"text": "[D] 1nombre"
-}],
-"question": "la siguiente declaración:\\n    ? = \\\"Max Torres\\\"\\n¿Qué nombre de variable es correcto?"
-}])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Foreground/InteractableTerminal"]
-position = Vector2(47.5, 3)
-shape = SubResource("RectangleShape2D_set3h")
 
 [node name="SmallItems" type="TileMapLayer" parent="TileMapLayer"]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAAAAAEAAAABAAQAAAACAAAAAAABAAMAAAACAAEAAAABAAQAAAAQAAAAAAAIAAMAAAAQAAEAAAAIAAQAAAARAAAAAAAJAAMAAAARAAEAAAAJAAQAAAAPAAAAAAAHAAMAAAAPAAEAAAAHAAQAAAAJAAMAAAABAAMAAAAJAAQAAAABAAQAAAAJAAYAAAABAAMAAAAJAAcAAAABAAQAAAALAAMAAAABAAMAAAALAAQAAAABAAQAAAALAAYAAAABAAMAAAALAAcAAAABAAQAAAANAAMAAAABAAMAAAANAAQAAAABAAQAAAANAAYAAAABAAMAAAANAAcAAAABAAQAAAAIAAYAAAABAAMAAAAIAAcAAAABAAQAAAAIAAMAAAABAAMAAAAIAAQAAAABAAQAAAAGAAQAAAABAAQAAAAGAAcAAAABAAQAAAAGAAMAAAABAAMAAAAGAAYAAAABAAMAAAAEAAMAAAABAAMAAAAEAAQAAAABAAQAAAAEAAYAAAABAAMAAAAEAAcAAAABAAQAAAA=")
