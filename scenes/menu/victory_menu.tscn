@@ -5,13 +5,21 @@
 [ext_resource type="FontFile" uid="uid://cgu136xbca3pt" path="res://fonts/PressStart2P.ttf" id="3_4d6en"]
 [ext_resource type="Script" uid="uid://fjrb8d4rwwtw" path="res://scripts/menu/buttons/main_menu_button.gd" id="4_axvms"]
 [ext_resource type="AudioStream" uid="uid://cn4qhbwgvuice" path="res://sounds/UI/start_button_sound.wav" id="5_ntvkx"]
-[ext_resource type="AudioStream" uid="uid://cs5mhud0576ui" path="res://sounds/music/main_menu.mp3" id="6_ntvkx"]
+[ext_resource type="AudioStream" uid="uid://c45h4dis2uqi6" path="res://sounds/music/victory_menu.mp3" id="6_ntvkx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntvkx"]
 bg_color = Color(0.09019608, 0.09019608, 0.09019608, 0.8235294)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhp37"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 0.8235294)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="VictoryMenu" type="CanvasLayer"]
 process_mode = 2
@@ -70,4 +78,5 @@ stream = ExtResource("5_ntvkx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ntvkx")
+volume_db = -5.0
 parameters/looping = true
