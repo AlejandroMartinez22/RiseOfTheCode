@@ -26,6 +26,16 @@ var current_stage: int = 0
 var is_locked: bool = false
 var completed_texture: Texture2D = null
 
+# ==================== NUEVAS VARIABLES PARA PANTALLA INICIAL/FINAL ====================
+var show_intro_screen: bool = false
+var intro_texture: Texture2D = null
+var intro_duration: float = 2.0
+var is_showing_intro: bool = false
+
+var final_screen_duration: float = 3.0
+var auto_close_final: bool = false
+var is_showing_final: bool = false
+
 # ==================== ESTILOS ====================
 const PANEL_SIZE = Vector2(210, 145)
 
@@ -82,19 +92,60 @@ func show_puzzle(data: Dictionary) -> void:
 	puzzle_data = data
 	current_stage = 0
 	is_locked = false
+	is_showing_intro = false
+	is_showing_final = false
 	
 	# Cargar imagen de completado
 	completed_texture = data.get("completed_texture", null)
 	
-	# Mostrar primera etapa
-	display_stage(current_stage)
+	# ==================== NUEVAS CONFIGURACIONES ====================
+	# Pantalla inicial
+	show_intro_screen = data.get("show_intro_screen", false)
+	intro_texture = data.get("intro_texture", null)
+	intro_duration = data.get("intro_duration", 2.0)
+	
+	# Pantalla final
+	final_screen_duration = data.get("final_screen_duration", 3.0)
+	auto_close_final = data.get("auto_close_final", false)
 	
 	# Pausar juego y mostrar cursor
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	show()
+	
+	# Si hay pantalla inicial, mostrarla primero
+	if show_intro_screen and intro_texture:
+		show_intro()
+	else:
+		display_stage(current_stage)
+	
 	print("🧩 Puzzle mostrado: ", puzzle_data.get("puzzle_id", "unknown"))
+
+# ==================== PANTALLA INICIAL ====================
+func show_intro() -> void:
+	is_showing_intro = true
+	
+	# Mostrar imagen de introducción
+	if background_image:
+		background_image.texture = intro_texture
+	
+	# Ocultar botones durante la intro
+	show_buttons(false)
+	
+	print("📺 Mostrando pantalla inicial por %.1f segundos" % intro_duration)
+	
+	# Esperar duración configurada
+	await get_tree().create_timer(intro_duration).timeout
+	
+	# Si el usuario cerró durante la intro, no continuar
+	if not visible:
+		return
+	
+	is_showing_intro = false
+	
+	# Transicionar a la primera etapa
+	display_stage(current_stage)
 
 # ==================== MOSTRAR ETAPA ====================
 func display_stage(stage_index: int) -> void:
@@ -176,7 +227,7 @@ func _on_button_pressed(button_index: int) -> void:
 			wrong_sound.play()
 	
 	# Esperar 2.5 segundos
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(4).timeout
 	
 	if is_correct:
 		# Avanzar a siguiente etapa
@@ -219,12 +270,22 @@ func _on_puzzle_completed() -> void:
 	if completed_texture and background_image:
 		background_image.texture = completed_texture
 		show_buttons(false)
+		is_showing_final = true
 		
-		await get_tree().create_timer(3.0).timeout
+		# Si auto_close está habilitado, cerrar automáticamente
+		if auto_close_final:
+			print("⏱️ Cerrando automáticamente en %.1f segundos" % final_screen_duration)
+			await get_tree().create_timer(final_screen_duration).timeout
+			
+			# Verificar que el usuario no cerró manualmente durante la espera
+			if visible and is_showing_final:
+				_close_puzzle()
+		else:
+			print("🔒 Pantalla final permanece abierta (cerrar manualmente)")
 	else:
+		# Si no hay pantalla de completado, cerrar después de 1 segundo
 		await get_tree().create_timer(1.0).timeout
-	
-	_close_puzzle()
+		_close_puzzle()
 
 # ==================== CERRAR PUZZLE ====================
 func _on_close_pressed() -> void:
@@ -236,6 +297,10 @@ func _close_puzzle() -> void:
 	
 	# Restaurar visibilidad de botones
 	show_buttons(true)
+	
+	# Resetear flags
+	is_showing_intro = false
+	is_showing_final = false
 	
 	await get_tree().process_frame
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

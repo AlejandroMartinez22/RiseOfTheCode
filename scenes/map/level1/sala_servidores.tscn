@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://cu1bcnxfmf3yu"]
+[gd_scene load_steps=45 format=4 uid="uid://cu1bcnxfmf3yu"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_280p6"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_chwky"]
@@ -12,9 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_wxnq4"]
 [ext_resource type="Texture2D" uid="uid://ds1xv0a77x3x6" path="res://sprites/UI/notas/sala_servidores/nota_servidores_1.png" id="11_osebb"]
 [ext_resource type="Texture2D" uid="uid://c555xqq063mdw" path="res://sprites/UI/computadores (lectura)/pc_sala_servidores_1.png" id="11_skonq"]
+[ext_resource type="Script" uid="uid://dmaqqq8br37ar" path="res://scripts/interactive_objects/puzzle_terminal.gd" id="11_v4c7l"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="11_xh5cd"]
 [ext_resource type="Texture2D" uid="uid://mrahe1f5btre" path="res://sprites/UI/notas/sala_servidores/nota_servidores_2.png" id="12_4swrh"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_gjiwn"]
+[ext_resource type="PackedScene" uid="uid://ong02bke83e8" path="res://scenes/UI/interactive_UI/puzzle_ui.tscn" id="12_oe27a"]
 [ext_resource type="Texture2D" uid="uid://6plf8cud44vr" path="res://sprites/UI/computadores (lectura)/pc_sala_servidores_2.png" id="12_v4c7l"]
 [ext_resource type="Texture2D" uid="uid://57mf1tmtx3g7" path="res://sprites/UI/notas/sala_servidores/nota_servidores_3.png" id="13_24a5j"]
 [ext_resource type="Texture2D" uid="uid://dfn708n6gnegc" path="res://sprites/UI/computadores (lectura)/pc_sala_servidores_3.png" id="13_oe27a"]
@@ -16108,7 +16110,7 @@ sources/2 = SubResource("TileSetAtlasSource_452sh")
 sources/3 = SubResource("TileSetAtlasSource_v4c7l")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh5cd"]
-size = Vector2(44, 23.5)
+size = Vector2(36, 23.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xh5cd"]
 texture = ExtResource("7_ek7gx")
@@ -19023,7 +19025,7 @@ size = Vector2(22, 33.5)
 radius = 13.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek7gx"]
-size = Vector2(28, 13)
+size = Vector2(28, 11)
 
 [node name="SalaServidores" type="Node2D"]
 
@@ -19044,7 +19046,23 @@ tile_set = SubResource("TileSet_wxnq4")
 [node name="InteractableTerminal" parent="TileMapLayer/Objects" instance=ExtResource("10_wxnq4")]
 collision_layer = 32
 collision_mask = 64
-interact_name = "E para acceder"
+script = ExtResource("11_v4c7l")
+puzzle_id = "terminal_sala_servidores"
+interact_name = "E para interactuar"
+puzzle_ui_scene = ExtResource("12_oe27a")
+puzzle_config_script = "uid://b47s2ent5gv1d"
+give_item = false
+reward_item_key = ""
+spawn_object = false
+object_to_spawn = null
+spawn_position = Vector2(0, 0)
+spawn_object_id = ""
+unlock_door = false
+door_to_unlock = ""
+hide_tilemap = false
+tilemap_layer_to_hide = ""
+spawn_enemies = false
+enemies_to_spawn = Array[Dictionary]([])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Objects/InteractableTerminal"]
 position = Vector2(40, -8.75)
@@ -19086,7 +19104,7 @@ spawn_name = "SpawnFromSalaServidores"
 open_sound = ExtResource("12_gjiwn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
-position = Vector2(160, -6.5)
+position = Vector2(160, -12)
 shape = SubResource("RectangleShape2D_ek7gx")
 
 [node name="SpawnSalaServidores" type="Marker2D" parent="."]
