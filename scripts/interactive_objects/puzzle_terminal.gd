@@ -26,11 +26,12 @@ extends Area2D
 @export var spawn_position: Vector2 = Vector2.ZERO
 @export var spawn_object_id: String = ""
 
-@export var unlock_door: bool = false
-@export var door_to_unlock: String = ""
-
 @export var hide_tilemap: bool = false
 @export var tilemap_layer_to_hide: String = ""
+
+# ====================OCULTAR MÚLTIPLES TILES ====================
+@export var hide_multiple_tiles: bool = false
+@export var tiles_to_hide: Array[Vector2i] = []
 
 @export var spawn_enemies: bool = false
 @export var enemies_to_spawn: Array[Dictionary] = []
@@ -64,6 +65,10 @@ func _ready() -> void:
 		is_solved = true
 		is_interactable = false
 		print("✓ Puzzle ya resuelto: ", puzzle_id)
+		
+		# NUEVO: Restaurar estado del tilemap
+		await get_tree().process_frame
+		restore_tilemap_state()
 		return
 	
 	# Conectar señales
@@ -73,6 +78,7 @@ func _ready() -> void:
 		connect("body_exited", Callable(self, "_on_body_exited"))
 	
 	print("🧩 PuzzleTerminal listo: ", puzzle_id)
+
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player") and not is_solved:
@@ -137,9 +143,6 @@ func grant_all_rewards() -> void:
 	if spawn_object and object_to_spawn != null:
 		grant_spawn_object_reward()
 	
-	if unlock_door and not door_to_unlock.is_empty():
-		grant_unlock_door_reward()
-	
 	if hide_tilemap and not tilemap_layer_to_hide.is_empty():
 		grant_hide_tilemap_reward()
 	
@@ -164,44 +167,54 @@ func grant_spawn_object_reward() -> void:
 	# Instanciar objeto
 	var obj = object_to_spawn.instantiate()
 	
-	# Si tiene posición configurada, usarla
-	if spawn_position != Vector2.ZERO:
-		obj.global_position = spawn_position
-	else:
-		obj.global_position = global_position
+	# Usar spawn_position configurado manualmente
+	var final_position = spawn_position if spawn_position != Vector2.ZERO else global_position
 	
-	# Agregar a la escena
-	get_parent().add_child(obj)
+	# Asignar posición GLOBAL
+	obj.global_position = final_position
+	
+	# Agregar a la escena RAÍZ
+	get_tree().current_scene.add_child(obj)
 	
 	# Marcar como instanciado si tiene ID
 	if not spawn_object_id.is_empty():
 		var room_path = RoomManager.get_current_room_path()
 		GameState.mark_item_collected(room_path, spawn_object_id)
 	
-	print("✓ Objeto instanciado: ", obj.name, " en ", spawn_position)
-
-# ==================== RECOMPENSA: UNLOCK DOOR ====================
-func grant_unlock_door_reward() -> void:
-	var room_path = RoomManager.get_current_room_path()
-	var door = get_parent().get_node_or_null(door_to_unlock)
-	
-	if door and door.has_method("unlock"):
-		door.unlock()
-		print("✓ Puerta desbloqueada: ", door_to_unlock)
-	else:
-		GameState.mark_door_unlocked(room_path, door_to_unlock)
-		print("✓ Puerta marcada como desbloqueada: ", door_to_unlock)
+	print("✓ Objeto instanciado: ", obj.name, " en ", final_position)
 
 # ==================== RECOMPENSA: HIDE TILEMAP ====================
 func grant_hide_tilemap_reward() -> void:
+	var room_path = RoomManager.get_current_room_path()
+	
+	# Crear un ID único para este evento de ocultación
+	var hide_event_id = puzzle_id + "_tilemap_hidden"
+	
+	# Verificar si ya fue ocultado antes
+	if GameState.is_item_collected(room_path, hide_event_id):
+		print("⚠️ TileMapLayer ya fue ocultado previamente: ", tilemap_layer_to_hide)
+		return
+	
 	var root = get_tree().current_scene
 	var tilemap_layer = root.find_child(tilemap_layer_to_hide, true, false)
 	
 	if tilemap_layer and tilemap_layer is TileMapLayer:
-		tilemap_layer.visible = false
-		print("✓ TileMapLayer ocultado: ", tilemap_layer_to_hide)
+		if hide_multiple_tiles and tiles_to_hide.size() > 0:
+			# Ocultar múltiples tiles específicos
+			for tile_coord in tiles_to_hide:
+				tilemap_layer.erase_cell(tile_coord)
+				print("🗑️ Tile ocultado en: ", tile_coord)
+			print("✓ TileMapLayer '%s': %d tiles ocultados" % [tilemap_layer_to_hide, tiles_to_hide.size()])
+		else:
+			# Ocultar toda la capa
+			tilemap_layer.visible = false
+			print("✓ TileMapLayer ocultado completamente: ", tilemap_layer_to_hide)
+		
+		# Marcar como ocultado permanentemente
+		GameState.mark_item_collected(room_path, hide_event_id)
 	else:
 		push_warning("⚠️ No se encontró TileMapLayer: ", tilemap_layer_to_hide)
+ 
 
 # ==================== RECOMPENSA: SPAWN ENEMIES ====================
 func grant_spawn_enemies_reward() -> void:
@@ -257,6 +270,7 @@ func register_enemy_for_room(enemy_scene: PackedScene, room_path: String, pos: V
 	GameState.register_pending_spawn(room_path, enemy_scene, pos, enemy_id)
 	print("📝 Enemigo registrado para sala: ", room_path, " | ID: ", enemy_id)
 
+
 # ==================== UTILIDADES ====================
 func show_message(message: String) -> void:
 	var players = get_tree().get_nodes_in_group("player")
@@ -265,6 +279,30 @@ func show_message(message: String) -> void:
 		var interact_comp = player.get_node_or_null("InteractingComponent")
 		if interact_comp and interact_comp.has_method("show_temporary_message"):
 			interact_comp.show_temporary_message(message, 3.0)
+
+
+# ==================== RESTAURAR ESTADO AL CARGAR SALA ====================
+func restore_tilemap_state() -> void:
+	if not hide_tilemap:
+		return
+	
+	var room_path = RoomManager.get_current_room_path()
+	var hide_event_id = puzzle_id + "_tilemap_hidden"
+	
+	# Si ya fue ocultado antes, ocultarlo de nuevo
+	if GameState.is_item_collected(room_path, hide_event_id):
+		var root = get_tree().current_scene
+		var tilemap_layer = root.find_child(tilemap_layer_to_hide, true, false)
+		
+		if tilemap_layer and tilemap_layer is TileMapLayer:
+			if hide_multiple_tiles and tiles_to_hide.size() > 0:
+				for tile_coord in tiles_to_hide:
+					tilemap_layer.erase_cell(tile_coord)
+				print("🔄 Restaurando estado: %d tiles ocultados en '%s'" % [tiles_to_hide.size(), tilemap_layer_to_hide])
+			else:
+				tilemap_layer.visible = false
+				print("🔄 Restaurando estado: TileMapLayer '%s' oculto" % tilemap_layer_to_hide)
+
 
 # ==================== DEBUG ====================
 func _get_configuration_warnings() -> PackedStringArray:
@@ -284,5 +322,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 	
 	if give_item and reward_item_key.is_empty():
 		warnings.append("'give_item' está habilitado pero 'reward_item_key' está vacío")
+	
+	if hide_multiple_tiles and tiles_to_hide.is_empty():
+		warnings.append("'hide_multiple_tiles' está habilitado pero 'tiles_to_hide' está vacío")
 	
 	return warnings

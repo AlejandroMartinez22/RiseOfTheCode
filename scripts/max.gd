@@ -121,7 +121,7 @@ func shoot() -> void:
 			bullet.direction = Vector2.DOWN
 
 	bullet.target_group = "enemies"
-	get_parent().add_child(bullet)
+	get_parent().add_child(bullet) 
 
 	# Reproducir sonido de disparo
 	if current_weapon.shoot_sound != null:

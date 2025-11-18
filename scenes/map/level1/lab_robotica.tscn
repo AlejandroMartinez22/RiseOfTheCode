@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=61 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_2tjic"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/retro_interiors/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
@@ -20,8 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://c4x0xo0ltbf74" path="res://sprites/UI/tableros/tablero_labrobotica_1.png" id="16_w5wun"]
 [ext_resource type="Texture2D" uid="uid://wq7k0hacslv4" path="res://sprites/UI/tableros/tablero_labrobotica_2.png" id="17_jlbxy"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="18_x5g1d"]
+[ext_resource type="Script" uid="uid://dmaqqq8br37ar" path="res://scripts/interactive_objects/puzzle_terminal.gd" id="19_jlbxy"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="19_msd6n"]
+[ext_resource type="PackedScene" uid="uid://ong02bke83e8" path="res://scenes/UI/interactive_UI/puzzle_ui.tscn" id="20_hij80"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="20_n4dug"]
+[ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/pickup_items/weapons/lasergun.tscn" id="21_vc317"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wrob"]
 texture = ExtResource("1_2tjic")
@@ -16569,7 +16572,23 @@ tile_set = SubResource("TileSet_hij80")
 [node name="Interactable" parent="TileMapLayer/Terminal" instance=ExtResource("15_x5g1d")]
 collision_layer = 32
 collision_mask = 64
-interact_name = "E para abrir terminal"
+script = ExtResource("19_jlbxy")
+puzzle_id = "puzzle_lab_robotica"
+interact_name = "E para interactuar"
+puzzle_ui_scene = ExtResource("20_hij80")
+puzzle_config_script = "uid://dqmnhp0b0rrvu"
+give_item = false
+reward_item_key = ""
+spawn_object = true
+object_to_spawn = ExtResource("21_vc317")
+spawn_position = Vector2(287, 6)
+spawn_object_id = "lasergun_lab_robotica"
+hide_tilemap = true
+tilemap_layer_to_hide = "GunLayer"
+hide_multiple_tiles = true
+tiles_to_hide = Array[Vector2i]([Vector2i(26, -3), Vector2i(26, -2), Vector2i(27, -3), Vector2i(27, -2)])
+spawn_enemies = false
+enemies_to_spawn = Array[Dictionary]([])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Terminal/Interactable"]
 position = Vector2(209.5, -5)
@@ -16601,7 +16620,7 @@ position = Vector2(160, -8.5)
 shape = SubResource("RectangleShape2D_msd6n")
 
 [node name="SpawnLabRobotica" type="Marker2D" parent="."]
-position = Vector2(159, 17)
+position = Vector2(159, 16)
 
 [node name="CameraBounds" type="Node2D" parent="."]
 script = ExtResource("20_n4dug")

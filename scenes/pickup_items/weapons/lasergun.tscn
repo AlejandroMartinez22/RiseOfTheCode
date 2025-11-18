@@ -73,16 +73,15 @@ pickup_sound = ExtResource("3_4qwmh")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(36, 24)
+position = Vector2(3.8146973e-06, 1.9073486e-06)
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_kt3by")
 animation = &"float"
 autoplay = "float"
-frame = 4
-frame_progress = 0.42146856
+frame_progress = 0.8863293
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(36, 22)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_2i3r3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

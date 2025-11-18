@@ -32,7 +32,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):
 		return
 	
-	# Ejecutar la acción específica del objeto (definida en la subclase)	on_picked_up(body)
+	# Ejecutar la acción específica del objeto (definida en la subclase)	
+	on_picked_up(body)
 	
 	# Reproducir sonido de recogida si está definido
 	if pickup_sound:
