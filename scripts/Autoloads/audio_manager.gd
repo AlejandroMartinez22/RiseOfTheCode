@@ -56,6 +56,35 @@ func play_sound(audio_stream: AudioStream, position: Vector2, volume_db: float =
 
 # --------- Callback: cuando un sonido termina -----------
 
+func play_global_sound(audio_stream: AudioStream, volume_db: float = 0.0):
+	"""
+	Reproduce un sonido global que NO depende de posición.
+	Útil para sonidos de UI, puertas, y efectos que deben sonar igual en toda la pantalla.
+	"""
+	if audio_stream == null:
+		return
+	
+	# Si no hay reproductores disponibles, no se reproduce el sonido.
+	if audio_pool.is_empty():
+		print("⚠️ Pool de audio lleno, no se puede reproducir sonido global")
+		return
+	
+	# Toma un reproductor libre del pool.
+	var player = audio_pool.pop_back()
+	active_players.append(player)
+	
+	# Configurar como sonido global (sin atenuación por distancia)
+	player.stream = audio_stream
+	player.global_position = Vector2.ZERO  # No importa la posición
+	player.volume_db = volume_db
+	player.attenuation = 0.0  # Sin atenuación por distancia
+	player.max_distance = 999999.0  # Distancia infinita
+	
+	# Inicia la reproducción.
+	player.play()
+	
+	print("🔊 Sonido global reproducido: ", audio_stream.resource_path if audio_stream else "null")
+
 func _on_player_finished(player: AudioStreamPlayer2D):
 	
 	#Cuando un sonido finaliza, se elimina el reproductor de la lista de activos 

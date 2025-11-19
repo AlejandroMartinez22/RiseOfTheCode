@@ -200,10 +200,10 @@ func update_visual() -> void:
 
 # ==================== SONIDOS ====================
 
+
 func play_open_sound() -> void:
 	if open_sound:
-		AudioManager.play_sound(open_sound, global_position, 0.0)
-		print("🔊 Reproduciendo sonido de puerta abierta")
+		AudioManager.play_global_sound(open_sound, -5.0)
 
 # ==================== DEBUG ====================
 

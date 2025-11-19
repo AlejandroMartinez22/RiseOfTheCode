@@ -36,6 +36,10 @@ enum InteractionMode {
 @export var tilemap_layer_name: String = "ObjectsLayer"  # Nombre de la capa del tilemap
 @export var tile_coords: Vector2i = Vector2i(0, 0)  # Coordenadas del tile a ocultar
 
+# ==================== SONIDO DE PICKUP ====================
+@export_group("Audio")
+@export var pickup_sound: AudioStream = null  # Sonido al recoger el item
+
 # ==================== VARIABLES INTERNAS ====================
 var was_collected: bool = false
 
@@ -105,6 +109,20 @@ func show_content_viewer() -> void:
 
 # ==================== MODO 2: ITEM_ONLY ====================
 func give_item_immediately() -> void:
+	# NUEVO: Reproducir sonido ANTES de hacer nada
+	if pickup_sound:
+		var audio_player = AudioStreamPlayer.new()
+		audio_player.stream = pickup_sound
+		audio_player.volume_db = -5.0
+		audio_player.bus = "Master"
+		add_child(audio_player)
+		audio_player.play()
+		print("🔊 Reproduciendo sonido de pickup")
+		
+		# Esperar a que termine el sonido
+		await audio_player.finished
+		audio_player.queue_free()
+	
 	# Agregar item al inventario
 	if not item_key.is_empty():
 		GameState.add_item(item_key)

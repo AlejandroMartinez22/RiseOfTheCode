@@ -38,7 +38,18 @@ func load_room(path: String, spawn_name: String = "MainSpawn") -> void:
 		push_error("RoomManager: no se pudo cargar la sala en %s" % path)
 		return
 	
+	# NUEVO: Verificar que sea un PackedScene válido
+	if not room_res is PackedScene:
+		push_error("RoomManager: el recurso cargado no es un PackedScene")
+		return
+	
 	current_room_instance = room_res.instantiate()
+	
+	# NUEVO: Verificar que la instancia se creó correctamente
+	if current_room_instance == null:
+		push_error("RoomManager: no se pudo instanciar la sala")
+		return
+	
 	current_room.add_child(current_room_instance)
 	
 	# Esperar a que la sala esté completamente inicializada

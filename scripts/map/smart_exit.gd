@@ -149,11 +149,12 @@ func update_visual() -> void:
 
 func play_locked_sound() -> void:
 	if locked_sound:
-		AudioManager.play_sound(locked_sound, global_position, -5.0)
+		AudioManager.play_global_sound(locked_sound, -10.0)
 
 func play_open_sound() -> void:
 	if open_sound:
-		AudioManager.play_sound(open_sound, global_position, 0.0)
+		AudioManager.play_global_sound(open_sound, -5.0)
+
 
 # ==================== NOTIFICACIONES UI ====================
 

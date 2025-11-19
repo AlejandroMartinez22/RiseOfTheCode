@@ -128,18 +128,10 @@ func trigger_victory() -> void:
 	
 	# PASO 1: Reproducir sonido de apertura de puerta y esperar a que termine
 	if open_sound:
-		# Configurar el reproductor
-		door_sound_player.stream = open_sound
-		door_sound_player.volume_db = 0.0
+		AudioManager.play_global_sound(open_sound, 0.0)
 		
-		# El AudioStreamPlayer debe funcionar aunque el juego esté pausado
-		door_sound_player.process_mode = Node.PROCESS_MODE_ALWAYS
-		
-		print("🔊 Reproduciendo sonido de apertura...")
-		door_sound_player.play()
-		
-		# Esperar a que termine el sonido usando la señal finished
-		await door_sound_player.finished
+		# Esperar un tiempo fijo (duración aproximada del sonido)
+		await get_tree().create_timer(1.5).timeout 
 		print("✅ Sonido de apertura terminado")
 	else:
 		print("⚠️ No hay open_sound configurado, continuando...")
@@ -242,10 +234,11 @@ func hide_door_notification() -> void:
 
 # ==================== SONIDOS ====================
 
+
 func play_locked_sound() -> void:
 	if locked_sound:
-		AudioManager.play_sound(locked_sound, global_position, -5.0)
-		print("🔊 Reproduciendo sonido de puerta bloqueada")
+		AudioManager.play_global_sound(locked_sound, -10.0)
+		
 
 # ==================== VISUAL ====================
 
