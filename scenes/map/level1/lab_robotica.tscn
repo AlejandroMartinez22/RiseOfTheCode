@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=63 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_2tjic"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/retro_interiors/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dh5kxwwol6uem" path="res://sprites/tilesets/other_tiles/GunFrame/frame_right_down.png" id="13_x5g1d"]
 [ext_resource type="Texture2D" uid="uid://c4hnkbar8ffl5" path="res://sprites/tilesets/other_tiles/GunFrame/frame_right_up.png" id="14_msd6n"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="15_8wrob"]
+[ext_resource type="Texture2D" uid="uid://dsrrqxiu8arv7" path="res://sprites/tilesets/other_tiles/Furniture/boards_content.png" id="15_g33ls"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="15_x5g1d"]
 [ext_resource type="Texture2D" uid="uid://c4x0xo0ltbf74" path="res://sprites/UI/tableros/tablero_labrobotica_1.png" id="16_w5wun"]
 [ext_resource type="Texture2D" uid="uid://wq7k0hacslv4" path="res://sprites/UI/tableros/tablero_labrobotica_2.png" id="17_jlbxy"]
@@ -8438,8 +8439,19 @@ texture = ExtResource("8_5tvov")
 28:47/0 = 0
 29:47/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gla0g"]
+texture = ExtResource("15_g33ls")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_qwpv2"]
 sources/0 = SubResource("TileSetAtlasSource_78jr3")
+sources/1 = SubResource("TileSetAtlasSource_gla0g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4dug"]
 size = Vector2(59, 16)
@@ -16548,7 +16560,7 @@ tile_set = SubResource("TileSet_w5wun")
 
 [node name="Tablero" type="TileMapLayer" parent="TileMapLayer"]
 position = Vector2(11, -6)
-tile_map_data = PackedByteArray("AAADAP3/AAAiABsAAAADAP7/AAAiAB0AAAAEAP3/AAAiABsAAAAEAP7/AAAjAB0AAAAFAP3/AAApABsAAAAFAP7/AAApAB0AAAABAP3/AAAhABsAAAABAP7/AAAhABwAAAACAP3/AAAiABsAAAACAP7/AAAjAB0AAAABAP//AAAhAB8AAAAEAP//AAAnAB8AAAAFAP//AAApAB8AAAACAP//AAAlAB8AAAADAP//AAAiAB8AAAA=")
+tile_map_data = PackedByteArray("AAADAP3/AAAiABsAAAADAP7/AQAAAAAAAAAEAP3/AAAiABsAAAAEAP7/AQABAAEAACAFAP3/AAApABsAAAAFAP7/AAApAB0AAAABAP3/AAAhABsAAAABAP7/AAAhABwAAAACAP3/AAAiABsAAAACAP7/AQABAAAAAAABAP//AAAhAB8AAAAEAP//AAAnAB8AAAAFAP//AAApAB8AAAACAP//AAAlAB8AAAADAP//AAAiAB8AAAA=")
 tile_set = SubResource("TileSet_qwpv2")
 
 [node name="Interactable" parent="TileMapLayer/Tablero" instance=ExtResource("15_x5g1d")]
