@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bfe4yqj00eyg4"]
+[gd_scene load_steps=44 format=4 uid="uid://bfe4yqj00eyg4"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_qptrp"]
 [ext_resource type="Texture2D" uid="uid://e3q345vyqyh" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/11_Halloween_Shadowless.png" id="2_2sb4h"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="13_croh7"]
 [ext_resource type="Texture2D" uid="uid://50yqg43q51nb" path="res://sprites/UI/notas/sala_descanso/nota_sala_descanso_4.png" id="14_t45yr"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="14_uw4tx"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="20_1hbrq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ipio"]
 texture = ExtResource("1_qptrp")
@@ -21086,3 +21087,11 @@ top = -48
 right = 358
 bottom = 224
 show_debug_rect = false
+
+[node name="Centinela1" parent="." instance=ExtResource("20_1hbrq")]
+position = Vector2(252, 157)
+enemy_id = "centinela_saladescanso_1"
+
+[node name="Centinela2" parent="." instance=ExtResource("20_1hbrq")]
+position = Vector2(160, 187)
+enemy_id = "centinela_saladescanso_2"

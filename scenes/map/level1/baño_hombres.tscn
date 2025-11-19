@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dmaw1mg36h55r"]
+[gd_scene load_steps=28 format=4 uid="uid://dmaw1mg36h55r"]
 
 [ext_resource type="Texture2D" uid="uid://co8ecy1l2n503" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Floors_16x16.png" id="1_l4v4i"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="2_0xhw3"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c8ia0yfi3vjmn" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/2_LivingRoom_Shadowless.png" id="7_m3s4i"]
 [ext_resource type="Texture2D" uid="uid://md1largp7q6q" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/16_Grocery_store_Shadowless.png" id="8_3hta0"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="9_vk3wy"]
-[ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_vm0dq"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="12_3hta0"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_m3s4i"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_3hta0"]
 
@@ -14773,9 +14773,6 @@ physics_layer_0/collision_layer = 16
 sources/3 = SubResource("TileSetAtlasSource_4ijvu")
 sources/4 = SubResource("TileSetAtlasSource_cno6d")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m3s4i"]
-radius = 30.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktgdy"]
 size = Vector2(32, 15)
 
@@ -14804,14 +14801,6 @@ scale = Vector2(0.8, 0.8)
 tile_map_data = PackedByteArray("AAAFAAUAAwAIAC8AAAAGAAUAAwAJAC8AAAAFAAQAAwAIAC4AAAAGAAQAAwAJAC4AAAAHAAQABAAFAGUAADA=")
 tile_set = SubResource("TileSet_pjhk5")
 
-[node name="Interactable" parent="TileMapLayer/SmallItems" instance=ExtResource("10_vm0dq")]
-position = Vector2(-2.4999974, 5.000002)
-interact_name = "Nooo, profe :("
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SmallItems/Interactable"]
-position = Vector2(105, 76.25)
-shape = SubResource("CircleShape2D_m3s4i")
-
 [node name="SpawnBañosH" type="Marker2D" parent="."]
 position = Vector2(160, 107)
 
@@ -14832,3 +14821,11 @@ top = -47
 right = 294
 bottom = 145
 show_debug_rect = false
+
+[node name="Centinela1" parent="." instance=ExtResource("12_3hta0")]
+position = Vector2(252, 41)
+enemy_id = "centinela_bañosh_1"
+
+[node name="Centinela2" parent="." instance=ExtResource("12_3hta0")]
+position = Vector2(52, 115)
+enemy_id = "centinela_bañosh_2"

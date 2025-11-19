@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://dtgvumjvpjvsl"]
+[gd_scene load_steps=76 format=4 uid="uid://dtgvumjvpjvsl"]
 
 [ext_resource type="Script" uid="uid://pa1rwywj0g07" path="res://scripts/map/room_base.gd" id="1_8cfks"]
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_8q04b"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://bq2fdr737jjxo" path="res://scripts/map/code_door.gd" id="20_7nrkh"]
 [ext_resource type="Script" uid="uid://xd4b624smac5" path="res://scripts/map/camera_zone.gd" id="21_7nrkh"]
 [ext_resource type="PackedScene" uid="uid://lqhq3216gjdk" path="res://scenes/UI/interactive_UI/code_keypad_ui.tscn" id="21_tbbx1"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="25_vgubt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ixtq"]
 texture = ExtResource("1_8q04b")
@@ -23675,6 +23676,7 @@ shape = SubResource("RectangleShape2D_nkofm")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/baño_hombres.tscn"
 spawn_name = "SpawnBañosH"
+lock_type = 3
 locked_message = "La puerta está bloqueada."
 locked_sound = ExtResource("17_nepnj")
 open_sound = ExtResource("15_l3568")
@@ -23687,6 +23689,7 @@ shape = SubResource("RectangleShape2D_5jwm4")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/baño_mujeres.tscn"
 spawn_name = "SpawnBañosM"
+lock_type = 3
 locked_message = "La puerta está bloqueada."
 locked_sound = ExtResource("17_nepnj")
 open_sound = ExtResource("15_l3568")
@@ -23722,6 +23725,7 @@ shape = SubResource("RectangleShape2D_xelas")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/salon_303.tscn"
 spawn_name = "SpawnSalon303"
+lock_type = 3
 locked_message = "La puerta está bloqueada."
 locked_sound = ExtResource("17_nepnj")
 open_sound = ExtResource("15_l3568")
@@ -23734,6 +23738,7 @@ shape = SubResource("RectangleShape2D_vgubt")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/cafeteria.tscn"
 spawn_name = "SpawnCafeteria"
+lock_type = 3
 locked_message = "La puerta está bloqueada."
 locked_sound = ExtResource("17_nepnj")
 open_sound = ExtResource("15_l3568")
@@ -23746,6 +23751,7 @@ shape = SubResource("RectangleShape2D_88duw")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/lab_ciencias.tscn"
 spawn_name = "SpawnLabCiencias"
+lock_type = 1
 required_item = "llave_lab_ciencias"
 locked_message = "Está cerrada con llave"
 locked_sound = ExtResource("15_2r8sj")
@@ -23781,6 +23787,7 @@ shape = SubResource("RectangleShape2D_l3568")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/lab_robotica.tscn"
 spawn_name = "SpawnLabRobotica"
+lock_type = 1
 required_item = "llave_lab_robotica"
 locked_message = "Está cerrada con llave"
 locked_sound = ExtResource("15_2r8sj")
@@ -23795,6 +23802,7 @@ position = Vector2(-17, -1)
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/sala_descanso.tscn"
 spawn_name = "SpawnSalaDescanso"
+lock_type = 3
 locked_message = "La puerta está bloqueada."
 locked_sound = ExtResource("17_nepnj")
 open_sound = ExtResource("15_l3568")
@@ -23807,6 +23815,8 @@ shape = SubResource("RectangleShape2D_p6lym")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/oficina_seguridad.tscn"
 spawn_name = "SpawnOficinaSeguridad"
+lock_type = 1
+required_item = "acido_quimico"
 locked_message = "La puerta tiene un candado"
 locked_sound = ExtResource("18_nepnj")
 open_sound = ExtResource("15_l3568")
@@ -23997,5 +24007,27 @@ transition_speed = 2.0
 position = Vector2(1267, 516.5)
 shape = SubResource("RectangleShape2D_sbnvb")
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1264, 391)
+[node name="Centinela4" parent="." instance=ExtResource("25_vgubt")]
+position = Vector2(1526, 386)
+stick_on_detection = false
+enemy_id = "centinela_estatico_4"
+
+[node name="Centinela1" parent="." instance=ExtResource("25_vgubt")]
+position = Vector2(67, -1)
+stick_on_detection = false
+enemy_id = "centinela_estatico_1"
+
+[node name="Centinela2" parent="." instance=ExtResource("25_vgubt")]
+position = Vector2(1522, 0)
+stick_on_detection = false
+enemy_id = "centinela_estatico_2"
+
+[node name="Centinela3" parent="." instance=ExtResource("25_vgubt")]
+position = Vector2(80, 381)
+stick_on_detection = false
+enemy_id = "centinela_estatico_3"
+
+[node name="Centinela5" parent="." instance=ExtResource("25_vgubt")]
+position = Vector2(883, 189)
+stick_on_detection = false
+enemy_id = "centinela_estatico_5"

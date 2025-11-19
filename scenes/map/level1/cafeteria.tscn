@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cygu32ib6kt0e"]
+[gd_scene load_steps=38 format=4 uid="uid://cygu32ib6kt0e"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_01k88"]
 [ext_resource type="Texture2D" uid="uid://cachu3lnv7ekl" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/12_Kitchen_16x16.png" id="2_jbkpe"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="12_oa5t0"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_6yyde"]
 [ext_resource type="Texture2D" uid="uid://b3h4bb731nof7" path="res://sprites/UI/notas/cafeteria/nota_cafeteria_3.png" id="13_174we"]
+[ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="17_a25rb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7yf6"]
 texture = ExtResource("1_01k88")
@@ -15418,7 +15419,7 @@ sources/2 = SubResource("TileSetAtlasSource_oa5t0")
 size = Vector2(16, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jknl"]
-size = Vector2(32, 12)
+size = Vector2(32, 8)
 
 [node name="Cafeteria" type="Node2D"]
 
@@ -15471,7 +15472,7 @@ spawn_name = "SpawnFromCafeteria"
 open_sound = ExtResource("12_oa5t0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
-position = Vector2(176, 186)
+position = Vector2(176, 188)
 shape = SubResource("RectangleShape2D_8jknl")
 
 [node name="CameraBounds" type="Node2D" parent="."]
@@ -15481,3 +15482,11 @@ top = -64
 right = 342
 bottom = 192
 show_debug_rect = false
+
+[node name="Centinela1" parent="." instance=ExtResource("17_a25rb")]
+position = Vector2(85, 111)
+enemy_id = "centinela_cafeteria_1"
+
+[node name="Centinela2" parent="." instance=ExtResource("17_a25rb")]
+position = Vector2(211, 70)
+enemy_id = "centinela_cafeteria_2"
