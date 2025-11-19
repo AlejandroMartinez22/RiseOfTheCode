@@ -227,7 +227,3 @@ func register_pending_spawn(room_path: String, enemy_scene: PackedScene, positio
 
 func get_pending_spawns(room_path: String) -> Array:
 	return pending_spawns.get(room_path, [])
-
-func clear_pending_spawns(room_path: String) -> void:
-	if pending_spawns.has(room_path):
-		pending_spawns.erase(room_path)

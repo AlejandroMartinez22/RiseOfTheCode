@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://opafcbdvnh85"
-path="res://.godot/imported/terminal_completada.png-b07ce54024ad412ffbcb56fe7d5b894c.ctex"
+uid="uid://ce3tcw301vdy8"
+path="res://.godot/imported/terminal_intro.png-70488174d40fcb456e54d13d61f130d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/terminales/terminal_lab_robotica/terminal_completada.png"
-dest_files=["res://.godot/imported/terminal_completada.png-b07ce54024ad412ffbcb56fe7d5b894c.ctex"]
+source_file="res://sprites/UI/terminales/terminal_lab_robotica/terminal_intro.png"
+dest_files=["res://.godot/imported/terminal_intro.png-70488174d40fcb456e54d13d61f130d9.ctex"]
 
 [params]
 

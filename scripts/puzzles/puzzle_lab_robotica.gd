@@ -11,13 +11,13 @@ static func get_puzzle_data() -> Dictionary:
 		"completed_texture": load(base_path + "terminal_completada.png"),
 		
 		# ==================== CONFIGURACIÓN DE PANTALLAS ====================
-		"show_intro_screen": false,  
-		#"intro_texture": load(base_path + "terminal_intro.png"),
-		#"intro_duration": 5.0,  # Duración en segundos
+		"show_intro_screen": true,  
+		"intro_texture": load(base_path + "terminal_intro.png"),
+		"intro_duration": 8.0,  # Duración en segundos
 		
 		# Pantalla final
-		"auto_close_final": false,  #se cierra automáticamente
-		"final_screen_duration": 3.0,  # Este valor se ignora si auto_close_final es false
+		"auto_close_final": true,  #se cierra automáticamente
+		"final_screen_duration": 8.0,  # Este valor se ignora si auto_close_final es false
 		
 		# ==================== ETAPAS DEL PUZZLE ====================
 		"stages": [
@@ -27,25 +27,25 @@ static func get_puzzle_data() -> Dictionary:
 				"options": [
 					{
 						"button_text": '"Wilson Alfonso"',
-						"font_size": 5,
+						"font_size": 4,
 						"is_correct": false,
 						"feedback_texture": load(base_path + "feedback_A_etapa1.png")
 					},
 					{
 						"button_text": '"Rafael Mantilla"',
-						"font_size": 5,
+						"font_size": 4,
 						"is_correct": true,
 						"feedback_texture": load(base_path + "feedback_B_etapa1.png")
 					},
 					{
 						"button_text": "Rafael Mantilla",
-						"font_size": 5,
+						"font_size": 4,
 						"is_correct": false,
 						"feedback_texture": load(base_path + "feedback_C_etapa1.png")
 					},
 					{
-						"button_text": '"Alexandra Soraya"',
-						"font_size": 5,
+						"button_text": '"Jonnathan Chaux"',
+						"font_size": 4,
 						"is_correct": false,
 						"feedback_texture": load(base_path + "feedback_D_etapa1.png")
 					}

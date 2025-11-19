@@ -59,6 +59,9 @@ func _ready() -> void:
 	if puzzle_id.is_empty():
 		puzzle_id = name
 	
+	if spawn_enemies:
+		setup_enemy_spawns()
+	
 	# Verificar si este puzzle ya fue resuelto
 	var room_path = RoomManager.get_current_room_path()
 	if GameState.is_puzzle_solved(room_path, puzzle_id):
@@ -253,8 +256,8 @@ func instantiate_enemy_here(enemy_scene: PackedScene, pos: Vector2, enemy_id: St
 	
 	var enemy = enemy_scene.instantiate()
 	
-	# Configurar ID
-	if enemy.has("enemy_id"):
+	# Configurar ID (CORREGIDO)
+	if "enemy_id" in enemy:
 		enemy.enemy_id = enemy_id
 	
 	# Posicionar
@@ -303,6 +306,12 @@ func restore_tilemap_state() -> void:
 				tilemap_layer.visible = false
 				print("🔄 Restaurando estado: TileMapLayer '%s' oculto" % tilemap_layer_to_hide)
 
+func setup_enemy_spawns() -> void:
+	# Cargar desde script de configuración
+	var config_script = load("res://scripts/enemies/enemy_spawns_config.gd")
+	enemies_to_spawn = config_script.get_enemy_spawns()
+	
+	print("✅ Configurados %d spawns de enemigos" % enemies_to_spawn.size())
 
 # ==================== DEBUG ====================
 func _get_configuration_warnings() -> PackedStringArray:

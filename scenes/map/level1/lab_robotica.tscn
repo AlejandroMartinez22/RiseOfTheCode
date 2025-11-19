@@ -16587,7 +16587,7 @@ hide_tilemap = true
 tilemap_layer_to_hide = "GunLayer"
 hide_multiple_tiles = true
 tiles_to_hide = Array[Vector2i]([Vector2i(26, -3), Vector2i(26, -2), Vector2i(27, -3), Vector2i(27, -2)])
-spawn_enemies = false
+spawn_enemies = true
 enemies_to_spawn = Array[Dictionary]([])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Terminal/Interactable"]

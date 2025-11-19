@@ -134,6 +134,7 @@ func _on_animation_finished() -> void:
 		return
 	if animated_sprite.animation.begins_with(current_weapon.shoot_anim_prefix):
 		is_shooting = false
+		animated_sprite.speed_scale = 1.0  # ← NUEVO: Resetear speed_scale
 		update_animation("idle")
 
 # ==================== VIDA Y DAÑO ====================
