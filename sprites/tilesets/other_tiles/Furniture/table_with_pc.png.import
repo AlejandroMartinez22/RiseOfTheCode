@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsrrqxiu8arv7"
-path="res://.godot/imported/boards_content.png-71d78f4edc58991628bd9f8f6fd8fb11.ctex"
+uid="uid://bw05ingueyndo"
+path="res://.godot/imported/table_with_pc.png-e58e81e1bdcd1e479b413581f78ad863.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tilesets/other_tiles/Furniture/boards_content.png"
-dest_files=["res://.godot/imported/boards_content.png-71d78f4edc58991628bd9f8f6fd8fb11.ctex"]
+source_file="res://sprites/tilesets/other_tiles/Furniture/table_with_pc.png"
+dest_files=["res://.godot/imported/table_with_pc.png-e58e81e1bdcd1e479b413581f78ad863.ctex"]
 
 [params]
 

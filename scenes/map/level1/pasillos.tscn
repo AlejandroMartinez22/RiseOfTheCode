@@ -23774,6 +23774,7 @@ shape = SubResource("RectangleShape2D_k5id3")
 script = ExtResource("10_5jwm4")
 next_room_path = "res://scenes/map/level1/sala_servidores.tscn"
 spawn_name = "SpawnSalaServidores"
+lock_type = 1
 required_item = "acido_quimico"
 locked_message = "La puerta tiene un candado"
 locked_sound = ExtResource("18_nepnj")
@@ -24008,26 +24009,24 @@ position = Vector2(1267, 516.5)
 shape = SubResource("RectangleShape2D_sbnvb")
 
 [node name="Centinela4" parent="." instance=ExtResource("25_vgubt")]
-position = Vector2(1526, 386)
-stick_on_detection = false
+position = Vector2(1479, 385)
 enemy_id = "centinela_estatico_4"
 
 [node name="Centinela1" parent="." instance=ExtResource("25_vgubt")]
-position = Vector2(67, -1)
-stick_on_detection = false
+position = Vector2(95, -1)
 enemy_id = "centinela_estatico_1"
 
 [node name="Centinela2" parent="." instance=ExtResource("25_vgubt")]
-position = Vector2(1522, 0)
-stick_on_detection = false
+position = Vector2(1512, -5)
 enemy_id = "centinela_estatico_2"
 
 [node name="Centinela3" parent="." instance=ExtResource("25_vgubt")]
-position = Vector2(80, 381)
-stick_on_detection = false
+position = Vector2(102, 377)
 enemy_id = "centinela_estatico_3"
 
 [node name="Centinela5" parent="." instance=ExtResource("25_vgubt")]
 position = Vector2(883, 189)
-stick_on_detection = false
 enemy_id = "centinela_estatico_5"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(472, 477)

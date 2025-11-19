@@ -44,7 +44,7 @@ static func get_puzzle_data() -> Dictionary:
 						"feedback_texture": load(base_path + "feedback_C_etapa1.png")
 					},
 					{
-						"button_text": '"Jonnathan Chaux"',
+						"button_text": "Jonnathan Chaux",
 						"font_size": 4,
 						"is_correct": false,
 						"feedback_texture": load(base_path + "feedback_D_etapa1.png")

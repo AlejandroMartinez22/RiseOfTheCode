@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_vqmda"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/retro_interiors/TopDownHouse_FloorsAndWalls.png" id="2_8rl7y"]
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/5_Classroom_and_library_16x16.png" id="3_nqfns"]
-[ext_resource type="Texture2D" uid="uid://dsrrqxiu8arv7" path="res://sprites/tilesets/other_tiles/Furniture/boards_content.png" id="5_cciw1"]
+[ext_resource type="Texture2D" uid="uid://dsrrqxiu8arv7" path="res://sprites/tilesets/other_tiles/Objects/boards_content.png" id="5_cciw1"]
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/InteriorSalones.png" id="5_owg2h"]
 [ext_resource type="Texture2D" uid="uid://e3q345vyqyh" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/11_Halloween_Shadowless.png" id="6_owg2h"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="7_4pv4x"]
-[ext_resource type="Texture2D" uid="uid://xhpbh5q7ahif" path="res://sprites/tilesets/other_tiles/Furniture/pc_screens.png" id="8_ow7qh"]
+[ext_resource type="Texture2D" uid="uid://xhpbh5q7ahif" path="res://sprites/tilesets/other_tiles/Objects/pc_screens.png" id="8_ow7qh"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="8_vmjq4"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="9_gk2hn"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="9_owg2h"]
@@ -5221,9 +5221,7 @@ texture = ExtResource("3_nqfns")
 5:11/0 = 0
 6:11/0 = 0
 7:11/0 = 0
-7:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:11/0 = 0
-8:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 3.057598, -8, 2.6849728, 8, -8, 8)
 9:11/0 = 0
 10:11/0 = 0
 11:11/0 = 0
@@ -5236,8 +5234,9 @@ texture = ExtResource("3_nqfns")
 5:12/0 = 0
 6:12/0 = 0
 7:12/0 = 0
-7:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -3.0049076, -8, -3.0049076, -3.0049076, 8, -3.0049076)
 8:12/0 = 0
+8:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 3.0049076, -8, 3.0049076, -3.0049076, -8, -3.0049076)
 10:12/0 = 0
 11:12/0 = 0
 12:12/0 = 0

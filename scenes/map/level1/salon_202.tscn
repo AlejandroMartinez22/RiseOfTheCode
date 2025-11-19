@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=4 uid="uid://dykyrt84v7byi"]
+[gd_scene load_steps=36 format=4 uid="uid://dykyrt84v7byi"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_1obui"]
+[ext_resource type="Script" uid="uid://pa1rwywj0g07" path="res://scripts/map/room_base.gd" id="1_oiryk"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_pw16s"]
 [ext_resource type="Texture2D" uid="uid://cjifyfl63pyow" path="res://sprites/tilesets/retro_interiors/TopDownHouse_FloorsAndWalls.png" id="2_odrg5"]
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/5_Classroom_and_library_16x16.png" id="3_t2hbc"]
@@ -10473,6 +10474,7 @@ texture = ExtResource("9_oiryk")
 12:30/0 = 0
 12:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.0436454, -5.01412, 5.960086, -4.9858413, 5.9900064, 8, -3.9789467, 8)
 15:30/0 = 0
+15:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.0076246, -5.00331, 4.0115967, -5.0431495, 3.9989958, 8, -5.9893637, 8)
 0:31/0 = 0
 1:31/0 = 0
 2:31/0 = 0
@@ -10491,6 +10493,7 @@ texture = ExtResource("9_oiryk")
 13:31/0 = 0
 14:31/0 = 0
 15:31/0 = 0
+15:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.007624, -8, 3.9807358, -8, 3.9989958, 8, -5.9893637, 8)
 0:32/0 = 0
 0:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:32/0 = 0
@@ -10511,6 +10514,7 @@ texture = ExtResource("9_oiryk")
 13:32/0 = 0
 14:32/0 = 0
 15:32/0 = 0
+15:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.007624, -8, 3.9807358, -8, 3.9989958, 8, -5.9893637, 8)
 0:33/0 = 0
 1:33/0 = 0
 2:33/0 = 0
@@ -10527,9 +10531,10 @@ texture = ExtResource("9_oiryk")
 13:33/0 = 0
 14:33/0 = 0
 15:33/0 = 0
+15:33/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.007624, -2.0268886, 3.9807358, -2.0086281, 3.9989958, -8, -5.9893637, -8)
 
 [sub_resource type="TileSet" id="TileSet_4ldxr"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_goldv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_acm0n"]
@@ -11707,6 +11712,7 @@ sources/1 = SubResource("TileSetAtlasSource_qjsnj")
 size = Vector2(32, 10)
 
 [node name="Salon202" type="Node2D"]
+script = ExtResource("1_oiryk")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
@@ -11723,7 +11729,7 @@ tile_map_data = PackedByteArray("AAAFAAIAAAACAAEAAAAFAAMAAAACAAIAAAAHAAIAAAACAAE
 tile_set = SubResource("TileSet_pehfy")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer"]
-tile_map_data = PackedByteArray("AAABAP3/AAAAAB4AAAABAP7/AAAAAB8AAAABAP//AAAAACAAAAABAAAAAAAAACEAAAACAP3/AAABAB4AAAACAP7/AAABAB8AAAACAP//AAABACAAAAACAAAAAAABACEAAAADAP3/AAACAB4AAAADAP7/AAACAB8AAAADAP//AAACACAAAAADAAAAAAACACEAAAAAAAEAAAAPAB4AAAAAAAIAAAAPAB8AAAAAAAMAAAAPACAAAAAAAAQAAAAPACEAAAAAAAUAAAAPAB4AAAAAAAYAAAAPAB8AAAAAAAcAAAAPACAAAAAAAAgAAAAPACEAAAA=")
+tile_map_data = PackedByteArray("AAABAP3/AAAAAB4AAAABAP7/AAAAAB8AAAABAP//AAAAACAAAAABAAAAAAAAACEAAAACAP3/AAABAB4AAAACAP7/AAABAB8AAAACAP//AAABACAAAAACAAAAAAABACEAAAADAP3/AAACAB4AAAADAP7/AAACAB8AAAADAP//AAACACAAAAADAAAAAAACACEAAAAAAAUAAAAPAB4AAAAAAAYAAAAPAB8AAAAAAAcAAAAPACAAAAAAAAgAAAAPACEAAAAAAAEAAAAPAB4AAAAAAAIAAAAPAB8AAAAAAAMAAAAPACAAAAAAAAQAAAAPACEAAAA=")
 tile_set = SubResource("TileSet_4ldxr")
 
 [node name="SmallItems" type="TileMapLayer" parent="TileMapLayer"]

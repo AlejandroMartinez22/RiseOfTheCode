@@ -16,7 +16,7 @@ extends EnemyBase
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 
 # ------------------ Parámetros de comportamiento ------------------
-@export var stick_on_detection: bool = true
+@export var stick_on_detection: bool = false
 @export var smoothing_factor: float = 0.0
 @export var explosion_radius: float = 32.0
 @export var explosion_damage: int = 10

@@ -20379,7 +20379,7 @@ tile_map_data = PackedByteArray("AAABAAEAAQAOAAEAAAABAAIAAQAOAAIAAAALAAQAAQAMABM
 tile_set = SubResource("TileSet_k06n2")
 
 [node name="InteractiveObjects" type="TileMapLayer" parent="TileMapLayer"]
-tile_map_data = PackedByteArray("AAAHAP//AAACADAAAAAHAAAAAAACADEAAAA=")
+tile_map_data = PackedByteArray("AAAHAP//AAABADAAAAAHAAAAAAACADEAAAA=")
 tile_set = SubResource("TileSet_i12hg")
 
 [node name="Interactable" parent="TileMapLayer/InteractiveObjects" instance=ExtResource("10_8oej3")]
@@ -20424,5 +20424,5 @@ auto_adjust_zoom = false
 show_debug_rect = false
 
 [node name="Centinela1" parent="." instance=ExtResource("17_kure6")]
-position = Vector2(112, 45)
+position = Vector2(114, 28)
 enemy_id = "centinela_director_1"

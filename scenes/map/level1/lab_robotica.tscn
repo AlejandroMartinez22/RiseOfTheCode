@@ -1,6 +1,7 @@
-[gd_scene load_steps=65 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=66 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_2tjic"]
+[ext_resource type="Script" uid="uid://pa1rwywj0g07" path="res://scripts/map/room_base.gd" id="1_pa23v"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/retro_interiors/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="3_40uji"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="4_78jr3"]
@@ -16,14 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://dh5kxwwol6uem" path="res://sprites/tilesets/other_tiles/GunFrame/frame_right_down.png" id="13_x5g1d"]
 [ext_resource type="Texture2D" uid="uid://c4hnkbar8ffl5" path="res://sprites/tilesets/other_tiles/GunFrame/frame_right_up.png" id="14_msd6n"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="15_8wrob"]
-[ext_resource type="Texture2D" uid="uid://dsrrqxiu8arv7" path="res://sprites/tilesets/other_tiles/Furniture/boards_content.png" id="15_g33ls"]
+[ext_resource type="Texture2D" uid="uid://dsrrqxiu8arv7" path="res://sprites/tilesets/other_tiles/Objects/boards_content.png" id="15_g33ls"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="15_x5g1d"]
 [ext_resource type="Texture2D" uid="uid://c4x0xo0ltbf74" path="res://sprites/UI/tableros/tablero_labrobotica_1.png" id="16_w5wun"]
 [ext_resource type="Texture2D" uid="uid://wq7k0hacslv4" path="res://sprites/UI/tableros/tablero_labrobotica_2.png" id="17_jlbxy"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="18_x5g1d"]
 [ext_resource type="Script" uid="uid://dmaqqq8br37ar" path="res://scripts/interactive_objects/puzzle_terminal.gd" id="19_jlbxy"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="19_msd6n"]
-[ext_resource type="Texture2D" uid="uid://baybyy3vxj3qr" path="res://sprites/tilesets/other_tiles/Furniture/pc_screen3.png" id="19_wssw6"]
+[ext_resource type="Texture2D" uid="uid://baybyy3vxj3qr" path="res://sprites/tilesets/other_tiles/Objects/pc_screen3.png" id="19_wssw6"]
 [ext_resource type="PackedScene" uid="uid://ong02bke83e8" path="res://scenes/UI/interactive_UI/puzzle_ui.tscn" id="20_hij80"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="20_n4dug"]
 [ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/pickup_items/weapons/lasergun.tscn" id="21_vc317"]
@@ -16542,6 +16543,7 @@ sources/2 = SubResource("TileSetAtlasSource_jyht0")
 size = Vector2(24, 9)
 
 [node name="LabRobotica" type="Node2D"]
+script = ExtResource("1_pa23v")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 

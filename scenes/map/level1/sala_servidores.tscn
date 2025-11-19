@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://cu1bcnxfmf3yu"]
+[gd_scene load_steps=48 format=4 uid="uid://cu1bcnxfmf3yu"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_280p6"]
 [ext_resource type="Texture2D" uid="uid://dbtci1fybw41o" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/1_Generic_16x16.png" id="2_chwky"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dk3w273fgmxhq" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/2_LivingRoom_16x16.png" id="5_xh5cd"]
 [ext_resource type="Texture2D" uid="uid://cdp132lrxcb74" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/5_Classroom_and_library_16x16.png" id="6_gjiwn"]
 [ext_resource type="Texture2D" uid="uid://dva2s2wcdsba6" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/14_Basement_16x16.png" id="7_ek7gx"]
-[ext_resource type="Texture2D" uid="uid://cao1ba5i4j2rc" path="res://sprites/tilesets/other_tiles/Furniture/pc_screen2.png" id="9_frkt7"]
+[ext_resource type="Texture2D" uid="uid://cao1ba5i4j2rc" path="res://sprites/tilesets/other_tiles/Objects/pc_screen2.png" id="9_frkt7"]
 [ext_resource type="Texture2D" uid="uid://gy3fffip5qlf" path="res://sprites/tilesets/modern_interiors/Theme_Sorter/11_Halloween_16x16.png" id="9_wxnq4"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="10_wxnq4"]
 [ext_resource type="Texture2D" uid="uid://ds1xv0a77x3x6" path="res://sprites/UI/notas/sala_servidores/nota_servidores_1.png" id="11_osebb"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://57mf1tmtx3g7" path="res://sprites/UI/notas/sala_servidores/nota_servidores_3.png" id="13_24a5j"]
 [ext_resource type="Texture2D" uid="uid://dfn708n6gnegc" path="res://sprites/UI/computadores (lectura)/pc_sala_servidores_3.png" id="13_oe27a"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="13_ryq0u"]
-[ext_resource type="PackedScene" uid="uid://bho8y5o521u6e" path="res://scenes/max.tscn" id="20_ba3pj"]
 [ext_resource type="PackedScene" uid="uid://dbdyifuuy4mam" path="res://scenes/enemies/centinela.tscn" id="22_q12nw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fdl6"]
@@ -19033,7 +19032,7 @@ size = Vector2(22, 33.5)
 radius = 13.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek7gx"]
-size = Vector2(28, 11)
+size = Vector2(26, 10.5)
 
 [node name="SalaServidores" type="Node2D"]
 
@@ -19105,9 +19104,6 @@ tilemap_layer_name = ""
 position = Vector2(39, 154)
 shape = SubResource("CircleShape2D_ek7gx")
 
-[node name="Max" parent="TileMapLayer" instance=ExtResource("20_ba3pj")]
-position = Vector2(152, 14)
-
 [node name="ExitToPasillos" type="Area2D" parent="."]
 script = ExtResource("11_xh5cd")
 next_room_path = "res://scenes/map/level1/pasillos.tscn"
@@ -19115,7 +19111,7 @@ spawn_name = "SpawnFromSalaServidores"
 open_sound = ExtResource("12_gjiwn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPasillos"]
-position = Vector2(160, -12)
+position = Vector2(160, -12.25)
 shape = SubResource("RectangleShape2D_ek7gx")
 
 [node name="SpawnSalaServidores" type="Marker2D" parent="."]

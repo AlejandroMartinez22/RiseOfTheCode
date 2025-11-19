@@ -50,6 +50,28 @@ static func get_enemy_spawns() -> Array[Dictionary]:
 		"enemy_id": "centinela_salon202"
 	})
 	
-	# ... más spawns
+	#RECEPCION
+	spawns.append({
+		"scene": centinela,
+		"room_path": "res://scenes/map/level1/recepcion.tscn",
+		"position": Vector2(96, 95),
+		"enemy_id": "centinela_recepcion_1"
+	})
+	
+	spawns.append({
+		"scene": centinela,
+		"room_path": "res://scenes/map/level1/recepcion.tscn",
+		"position": Vector2(287, 95),
+		"enemy_id": "centinela_recepcion_2"
+	})
+	
+	#LAB_ROBOTICA
+	spawns.append({
+		"scene": centinela,
+		"room_path": "res://scenes/map/level1/lab_robotica.tscn",
+		"position": Vector2(159, 79),
+		"enemy_id": "centinela_lab_robotica"
+	})
+	
 	
 	return spawns
