@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://buq7jsvq2hlgx"]
+[gd_scene load_steps=65 format=4 uid="uid://buq7jsvq2hlgx"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_2tjic"]
 [ext_resource type="Texture2D" uid="uid://dt87uqvm6oug1" path="res://sprites/tilesets/retro_interiors/TopDownHouse_DoorsAndWindows.png" id="2_46cvw"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="18_x5g1d"]
 [ext_resource type="Script" uid="uid://dmaqqq8br37ar" path="res://scripts/interactive_objects/puzzle_terminal.gd" id="19_jlbxy"]
 [ext_resource type="AudioStream" uid="uid://b1skwrd1syjuh" path="res://sounds/doors/open_sound.wav" id="19_msd6n"]
+[ext_resource type="Texture2D" uid="uid://baybyy3vxj3qr" path="res://sprites/tilesets/other_tiles/Furniture/pc_screen3.png" id="19_wssw6"]
 [ext_resource type="PackedScene" uid="uid://ong02bke83e8" path="res://scenes/UI/interactive_UI/puzzle_ui.tscn" id="20_hij80"]
 [ext_resource type="Script" uid="uid://q222gaefyu48" path="res://scripts/map/camera_bounds.gd" id="20_n4dug"]
 [ext_resource type="PackedScene" uid="uid://ccmt0536bv0an" path="res://scenes/pickup_items/weapons/lasergun.tscn" id="21_vc317"]
@@ -9100,6 +9101,10 @@ texture = ExtResource("4_78jr3")
 9:44/0 = 0
 10:44/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16as5"]
+texture = ExtResource("19_wssw6")
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3mxi"]
 texture = ExtResource("5_qwpv2")
 0:0/0 = 0
@@ -9621,6 +9626,7 @@ texture = ExtResource("9_78jr3")
 sources/0 = SubResource("TileSetAtlasSource_jlbxy")
 sources/2 = SubResource("TileSetAtlasSource_l3mxi")
 sources/3 = SubResource("TileSetAtlasSource_epom7")
+sources/1 = SubResource("TileSetAtlasSource_16as5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uibxe"]
 size = Vector2(31, 16)
@@ -16578,7 +16584,7 @@ position = Vector2(54.5, -7)
 shape = SubResource("RectangleShape2D_n4dug")
 
 [node name="Terminal" type="TileMapLayer" parent="TileMapLayer"]
-tile_map_data = PackedByteArray("AAACAAIAAAAPABEAAAAFAAIAAAAPABEAAAACAAUAAAAPABEAAAAFAAUAAAAPABEAAAANAP7/AAAPABIAAAANAP//AAAPABMAAAAMAP7/AAAJABIAAAAMAP//AAAJABMAAAAPAP//AAABABYAAAA=")
+tile_map_data = PackedByteArray("AAACAAIAAAAPABEAAAAFAAIAAAAPABEAAAACAAUAAAAPABEAAAAFAAUAAAAPABEAAAANAP7/AQAAAAAAAAANAP//AAAPABMAAAAMAP7/AAAJABIAAAAMAP//AAAJABMAAAAPAP//AAABABYAAAA=")
 tile_set = SubResource("TileSet_hij80")
 
 [node name="Interactable" parent="TileMapLayer/Terminal" instance=ExtResource("15_x5g1d")]

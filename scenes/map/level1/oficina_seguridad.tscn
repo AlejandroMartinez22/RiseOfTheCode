@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bd8edp1enkkw5"]
+[gd_scene load_steps=48 format=4 uid="uid://bd8edp1enkkw5"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_c5b7c"]
 [ext_resource type="Texture2D" uid="uid://cy88whk8mkdfg" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/12_Kitchen_Shadowless.png" id="2_c8rem"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cudpl5ycb07m1" path="res://sprites/tilesets/other_tiles/GunFrame/frame_left_up.png" id="9_u7uuk"]
 [ext_resource type="Texture2D" uid="uid://qvqb5pybu774" path="res://sprites/tilesets/other_tiles/GunFrame/frame_left_down.png" id="10_td637"]
 [ext_resource type="Texture2D" uid="uid://d4jssssgv82h" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/1_Generic_Shadowless.png" id="10_urv5y"]
+[ext_resource type="Texture2D" uid="uid://baybyy3vxj3qr" path="res://sprites/tilesets/other_tiles/Furniture/pc_screen3.png" id="11_kh00g"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="14_0f0mt"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="14_3x2un"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="16_u7uuk"]
@@ -4593,6 +4594,10 @@ sources/4 = SubResource("TileSetAtlasSource_kh00g")
 sources/8 = SubResource("TileSetAtlasSource_f87rv")
 sources/9 = SubResource("TileSetAtlasSource_4lh04")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw2fo"]
+texture = ExtResource("11_kh00g")
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3r6f"]
 texture = ExtResource("3_yccmj")
 0:0/0 = 0
@@ -7746,6 +7751,7 @@ sources/1 = SubResource("TileSetAtlasSource_v3r6f")
 sources/3 = SubResource("TileSetAtlasSource_dyx60")
 sources/4 = SubResource("TileSetAtlasSource_0f0mt")
 sources/8 = SubResource("TileSetAtlasSource_jrp5a")
+sources/0 = SubResource("TileSetAtlasSource_iw2fo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uuk"]
 size = Vector2(16, 25)
@@ -14538,7 +14544,7 @@ tile_set = SubResource("TileSet_1cwp1")
 
 [node name="Objects" type="TileMapLayer" parent="TileMapLayer"]
 position = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAIAAQABAAAADAAAAAOAAQAAQALABQAAAAOAAUAAQALABUAAAAFAAYABAALACMAAAAFAAcABAALACQAAAALAAkAAwADABIAAAALAAoAAwADABQAAAAMAAkAAwAEABIAAAAMAAoAAwAEABQAAAANAAkAAwAEABIAAAANAAoAAwAEABQAAAAOAAkAAwADABIAABAOAAoAAwADABQAABAFAAoACAAGADoAAAAPAAQAAQABABYAAAAHAAQAAQAPABMAAAAHAAMAAQAPABIAAAAFAAkACAAGADkAAAALAAgAAwADABMAAAAMAAgAAwAEABMAAAANAAgAAwAEABMAAAAOAAgAAwADABMAABA=")
+tile_map_data = PackedByteArray("AAAIAAQABAAAADAAAAAOAAQAAQALABQAAAAOAAUAAQALABUAAAAFAAYABAALACMAAAAFAAcABAALACQAAAALAAkAAwADABIAAAALAAoAAwADABQAAAAMAAkAAwAEABIAAAAMAAoAAwAEABQAAAANAAkAAwAEABIAAAANAAoAAwAEABQAAAAOAAkAAwADABIAABAOAAoAAwADABQAABAFAAoACAAGADoAAAAPAAQAAQABABYAAAAHAAQAAQAPABMAAAAHAAMAAAAAAAAAAAAFAAkACAAGADkAAAALAAgAAwADABMAAAAMAAgAAwAEABMAAAANAAgAAwAEABMAAAAOAAgAAwADABMAABA=")
 tile_set = SubResource("TileSet_dyx60")
 
 [node name="Interactable" parent="TileMapLayer/Objects" instance=ExtResource("14_0f0mt")]

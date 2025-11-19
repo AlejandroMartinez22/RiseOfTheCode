@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://d1myro7w5bwvg"]
+[gd_scene load_steps=35 format=4 uid="uid://d1myro7w5bwvg"]
 
 [ext_resource type="Texture2D" uid="uid://bldumc6lveglw" path="res://sprites/tilesets/modern_interiors/Room_Builder_16x16.png" id="1_ei05c"]
 [ext_resource type="Texture2D" uid="uid://bmnxqorm4xo30" path="res://sprites/tilesets/modern_interiors/Room_Builder_subfiles/Room_Builder_Walls_16x16.png" id="1_vqmda"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://eyccsp5yadmj" path="res://sprites/tilesets/InteriorSalones.png" id="5_owg2h"]
 [ext_resource type="Texture2D" uid="uid://e3q345vyqyh" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/11_Halloween_Shadowless.png" id="6_owg2h"]
 [ext_resource type="Texture2D" uid="uid://faxy55ji4o6b" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/18_Jail_Shadowless.png" id="7_4pv4x"]
+[ext_resource type="Texture2D" uid="uid://xhpbh5q7ahif" path="res://sprites/tilesets/other_tiles/Furniture/pc_screens.png" id="8_ow7qh"]
 [ext_resource type="Texture2D" uid="uid://de1jrkma22xwb" path="res://sprites/tilesets/modern_interiors/Theme_Sorter_Shadowless/19_Hospital_Shadowless.png" id="8_vmjq4"]
 [ext_resource type="Script" uid="uid://blo4yf1xtx0hn" path="res://scripts/map/smart_exit.gd" id="9_gk2hn"]
 [ext_resource type="PackedScene" uid="uid://i8kn27mvlg1n" path="res://scenes/UI/interactive_UI/Interactable.tscn" id="9_owg2h"]
@@ -7867,12 +7868,20 @@ texture = ExtResource("6_owg2h")
 9:60/0 = 0
 10:60/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f31w8"]
+texture = ExtResource("8_ow7qh")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_f31w8"]
 physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_rojku")
 sources/2 = SubResource("TileSetAtlasSource_qhd28")
 sources/3 = SubResource("TileSetAtlasSource_vsi6s")
 sources/1 = SubResource("TileSetAtlasSource_ow7qh")
+sources/4 = SubResource("TileSetAtlasSource_f31w8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3hlg"]
 texture = ExtResource("3_nqfns")
@@ -10609,7 +10618,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAgAKAAMAAAAAAAEAAgAKAAMAAAAAAAIAAgAKAAM
 tile_set = SubResource("TileSet_ow7qh")
 
 [node name="Foreground" type="TileMapLayer" parent="TileMapLayer"]
-tile_map_data = PackedByteArray("AAAAAP7/AAAHAAoAAAAAAP//AAAHAAsAAAAAAAAAAAAHAAwAAAABAP7/AAAIAAoAAAABAP//AAAIAAsAAAABAAAAAAAIAAwAAAACAP7/AAAHAAoAAAACAP//AAAHAAsAAAACAAAAAAAHAAwAAAADAP7/AAAIAAoAAAADAP//AAAIAAsAAAADAAAAAAAIAAwAAAAFAPz/AgAhABsAAAAFAP3/AgAhABwAAAAFAP7/AgAhAB0AAAAFAP//AgAhAB8AAAAGAPz/AgAiABsAAAAGAP//AgAiAB8AAAAHAPz/AgAjABsAAAAHAP//AgAjAB8AAAAIAPz/AgAkABsAAAAIAP//AgAkAB8AAAAJAPz/AgAlABsAAAAJAP//AgAlAB8AAAAKAPz/AgAmABsAAAAKAP//AgAmAB8AAAALAPz/AgAnABsAAAALAP//AgAnAB8AAAAMAPz/AgApABsAAAAMAP3/AgApABwAAAAMAP7/AgApAB0AAAAMAP//AgApAB8AAAAQAP//AAAAAAAAAAAQAAAAAAAAAAEAAAAQAAEAAAAAAAIAAAAJAAIAAAACAAEAAAAJAAMAAAACAAIAAAAJAAUAAAACAAEAAAAJAAYAAAACAAIAAAALAAIAAAACAAEAAAALAAMAAAACAAIAAAALAAUAAAACAAEAAAALAAYAAAACAAIAAAANAAIAAAACAAEAAAANAAMAAAACAAIAAAANAAUAAAACAAEAAAANAAYAAAACAAIAAAAIAAUAAAACAAEAAAAIAAYAAAACAAIAAAAIAAIAAAACAAEAAAAIAAMAAAACAAIAAAAGAAIAAAACAAEAAAAGAAMAAAACAAIAAAAGAAUAAAACAAEAAAAGAAYAAAACAAIAAAAEAAIAAAACAAEAAAAEAAMAAAACAAIAAAAEAAUAAAACAAEAAAAEAAYAAAACAAIAAAACAAYAAwAFABgAAAAGAP7/AgAiAB0AAAAHAP3/AgAjABwAAAAHAP7/AQAAAAAAAAAIAP3/AQABAAEAAAAIAP7/AgAmABwAAAAJAP3/AQAAAAEAABAJAP7/AQACAAAAAAAKAP3/AgAmABwAAAAKAP7/AQABAAAAAAALAP7/AgAnAB0AAAAGAP3/AQAAAAEAAAALAP3/AgAmABwAAAA=")
+tile_map_data = PackedByteArray("AAAAAP7/AAAHAAoAAAAAAP//BAABAAAAAAAAAAAAAAAHAAwAAAABAP7/AAAIAAoAAAABAP//BAAAAAAAAAABAAAAAAAIAAwAAAACAP7/AAAHAAoAAAACAP//BAABAAAAAAACAAAAAAAHAAwAAAADAP7/AAAIAAoAAAADAP//BAAAAAAAAAADAAAAAAAIAAwAAAAFAPz/AgAhABsAAAAFAP3/AgAhABwAAAAFAP7/AgAhAB0AAAAFAP//AgAhAB8AAAAGAPz/AgAiABsAAAAGAP//AgAiAB8AAAAHAPz/AgAjABsAAAAHAP//AgAjAB8AAAAIAPz/AgAkABsAAAAIAP//AgAkAB8AAAAJAPz/AgAlABsAAAAJAP//AgAlAB8AAAAKAPz/AgAmABsAAAAKAP//AgAmAB8AAAALAPz/AgAnABsAAAALAP//AgAnAB8AAAAMAPz/AgApABsAAAAMAP3/AgApABwAAAAMAP7/AgApAB0AAAAMAP//AgApAB8AAAAQAP//AAAAAAAAAAAQAAAAAAAAAAEAAAAQAAEAAAAAAAIAAAAJAAIAAAACAAEAAAAJAAMAAAACAAIAAAAJAAUAAAACAAEAAAAJAAYAAAACAAIAAAALAAIAAAACAAEAAAALAAMAAAACAAIAAAALAAUAAAACAAEAAAALAAYAAAACAAIAAAANAAIAAAACAAEAAAANAAMAAAACAAIAAAANAAUAAAACAAEAAAANAAYAAAACAAIAAAAIAAUAAAACAAEAAAAIAAYAAAACAAIAAAAIAAIAAAACAAEAAAAIAAMAAAACAAIAAAAGAAIAAAACAAEAAAAGAAMAAAACAAIAAAAGAAUAAAACAAEAAAAGAAYAAAACAAIAAAAEAAIAAAACAAEAAAAEAAMAAAACAAIAAAAEAAUAAAACAAEAAAAEAAYAAAACAAIAAAACAAYAAwAFABgAAAAGAP7/AgAiAB0AAAAHAP3/AgAjABwAAAAHAP7/AQAAAAAAAAAIAP3/AQABAAEAAAAIAP7/AgAmABwAAAAJAP3/AQAAAAEAABAJAP7/AQACAAAAAAAKAP3/AgAmABwAAAAKAP7/AQABAAAAAAALAP7/AgAnAB0AAAAGAP3/AQAAAAEAAAALAP3/AgAmABwAAAA=")
 tile_set = SubResource("TileSet_f31w8")
 
 [node name="SmallItems" type="TileMapLayer" parent="TileMapLayer"]
