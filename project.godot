@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Rise of the code"
+config/name="Rise of the Code"
 run/main_scene="uid://oiibyewbp2se"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.png"
+run/max_fps=60
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="uid://pvgaaran1dnu"
+config/icon="uid://dj8fepikawsd6"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 

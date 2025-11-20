@@ -203,7 +203,7 @@ func update_visual() -> void:
 
 func play_open_sound() -> void:
 	if open_sound:
-		AudioManager.play_global_sound(open_sound, -5.0)
+		AudioManager.play_global_sound(open_sound, -2.0)
 
 # ==================== DEBUG ====================
 

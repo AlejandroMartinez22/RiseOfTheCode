@@ -128,7 +128,7 @@ func trigger_victory() -> void:
 	
 	# PASO 1: Reproducir sonido de apertura de puerta y esperar a que termine
 	if open_sound:
-		AudioManager.play_global_sound(open_sound, 0.0)
+		AudioManager.play_global_sound(open_sound, -2.0)
 		
 		# Esperar un tiempo fijo (duración aproximada del sonido)
 		await get_tree().create_timer(1.5).timeout 
@@ -237,7 +237,7 @@ func hide_door_notification() -> void:
 
 func play_locked_sound() -> void:
 	if locked_sound:
-		AudioManager.play_global_sound(locked_sound, -10.0)
+		AudioManager.play_global_sound(locked_sound, -5.0)
 		
 
 # ==================== VISUAL ====================
